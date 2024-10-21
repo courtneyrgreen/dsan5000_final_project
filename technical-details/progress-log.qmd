@@ -17,4 +17,5 @@ If you are working as a team, at the end, you can duplicate the project and add 
 **Weekly Progress:**
 
 **T: 10-20-2024**
-* [x] Decided on a project topic related to criminal justice reform, narrowing focus to over-policing, race, and poverty in Chicago  
+* [x] Decided on a project topic related to criminal justice reform, narrowing focus to over-policing, race, and poverty in Chicago.  
+* [x] Logged my goal for his project and why the topic is extremely significant in project-planning.qmd. 
