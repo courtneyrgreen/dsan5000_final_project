@@ -8,7 +8,7 @@ LLM tools were used in the following way for the tasks below
 
 ## Brainstorming
 
-* To create the initial idea, LLM tools were used to brainstorm ideas and provide feedback and refine the project plan.
+* I came up with my initial, broad project idea of over-policing and the criminalization of poverty as it's a topic I've always been passionate about, however LLM helped me narrow down my topic to focus on a specific locality (e.g. Chicago). 
 
 ## Writing: 
 
