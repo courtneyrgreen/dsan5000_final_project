@@ -11,7 +11,13 @@ LLM tools were used in the following way for the tasks below
 * I came up with my initial, broad project idea of over-policing and the criminalization of race and poverty as it's a topic I've always been passionate about, however LLM helped me narrow down my topic to focus on a specific locality (e.g. Chicago). 
 
 ## Literature Review:  
-* I used Notebook LLM
+* LLM tools were used extensively to streamline the literature review process. Specifically, I utilized ChatGPT to: 
+  - Summarize key points from academic papers and credible news articles, making it easier to integrate multiple perspectives on over-policing, socioeconomic factors, and racial disparities in the criminal justice system.
+  - Extract relevant data and highlight findings from each source, such as the impact of income inequality on crime rates, racial disparities in wrongful convictions, and community perceptions of policing.
+  - Reorganize summaries and refine content to ensure a cohesive narrative for the literature review section, effectively condensing long, complex papers into concise, useful summaries that align with my project's goals.
+  - Support citation management by providing brief summaries for each source, which I then used to create a more structured references file (`references.bib`).
+
+* Using LLM for these tasks allowed me to efficiently review and synthesize a larger volume of literature, ensuring comprehensive coverage of critical studies relevant to my project's focus on race, poverty, and policing in Chicago.
 
 ## Writing: 
 

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DSAN-5000: Project - Literature Review</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/gu-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSAN-5000: Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../instructions/overview.html"> 
+<span class="menu-text">Instructions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../report/report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Technical details</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-collection/main.html">
+ <span class="dropdown-text">Data-collection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#informal-literature-review" id="toc-informal-literature-review" class="nav-link active" data-scroll-target="#informal-literature-review">Informal Literature Review</a>
+  <ul class="collapse">
+  <li><a href="#citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics" id="toc-citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics" class="nav-link" data-scroll-target="#citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics">Citizens’ Perceptions of Over-and Under-Policing: A Look at Race, Ethnicity, and Community Characteristics</a>
+  <ul class="collapse">
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#data-source-phdcn-community-survey" id="toc-data-source-phdcn-community-survey" class="nav-link" data-scroll-target="#data-source-phdcn-community-survey">Data Source: PHDCN Community Survey</a></li>
+  <li><a href="#analytical-approach-using-phdcn-data" id="toc-analytical-approach-using-phdcn-data" class="nav-link" data-scroll-target="#analytical-approach-using-phdcn-data">Analytical Approach Using PHDCN Data</a></li>
+  <li><a href="#application-for-this-project" id="toc-application-for-this-project" class="nav-link" data-scroll-target="#application-for-this-project">Application for This Project</a></li>
+  </ul></li>
+  <li><a href="#over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms" id="toc-over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms" class="nav-link" data-scroll-target="#over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms">Over-Policing Black Bodies: The Need for Multidimensional and Transformative Reforms</a>
+  <ul class="collapse">
+  <li><a href="#key-findings-and-data-points" id="toc-key-findings-and-data-points" class="nav-link" data-scroll-target="#key-findings-and-data-points">Key Findings and Data Points</a></li>
+  <li><a href="#types-of-data-used" id="toc-types-of-data-used" class="nav-link" data-scroll-target="#types-of-data-used">Types of Data Used</a></li>
+  <li><a href="#key-takeaways-for-this-project" id="toc-key-takeaways-for-this-project" class="nav-link" data-scroll-target="#key-takeaways-for-this-project">Key Takeaways for This Project</a></li>
+  <li><a href="#application-for-this-literature-review" id="toc-application-for-this-literature-review" class="nav-link" data-scroll-target="#application-for-this-literature-review">Application for This Literature Review</a></li>
+  </ul></li>
+  <li><a href="#socioeconomic-determinants-of-violent-crime-rates-in-the-u.s.-by-jacob-gesin" id="toc-socioeconomic-determinants-of-violent-crime-rates-in-the-u.s.-by-jacob-gesin" class="nav-link" data-scroll-target="#socioeconomic-determinants-of-violent-crime-rates-in-the-u.s.-by-jacob-gesin">Socioeconomic Determinants of Violent Crime Rates in the U.S. by Jacob Gesin</a>
+  <ul class="collapse">
+  <li><a href="#key-findings-and-data-points-1" id="toc-key-findings-and-data-points-1" class="nav-link" data-scroll-target="#key-findings-and-data-points-1">Key Findings and Data Points</a></li>
+  <li><a href="#data-sources-and-variables" id="toc-data-sources-and-variables" class="nav-link" data-scroll-target="#data-sources-and-variables">Data Sources and Variables</a></li>
+  <li><a href="#key-takeaways-for-this-project-1" id="toc-key-takeaways-for-this-project-1" class="nav-link" data-scroll-target="#key-takeaways-for-this-project-1">Key Takeaways for This Project</a></li>
+  <li><a href="#relevance-to-project-goals" id="toc-relevance-to-project-goals" class="nav-link" data-scroll-target="#relevance-to-project-goals">Relevance to Project Goals</a></li>
+  </ul></li>
+  <li><a href="#chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total" id="toc-chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total" class="nav-link" data-scroll-target="#chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total">Chicago Ranks No.&nbsp;1 in Exonerations for 5th Year in a Row, Accounting for More Than Half of National Total</a>
+  <ul class="collapse">
+  <li><a href="#key-findings-and-data-points-2" id="toc-key-findings-and-data-points-2" class="nav-link" data-scroll-target="#key-findings-and-data-points-2">Key Findings and Data Points</a></li>
+  <li><a href="#key-takeaways-for-this-project-2" id="toc-key-takeaways-for-this-project-2" class="nav-link" data-scroll-target="#key-takeaways-for-this-project-2">Key Takeaways for This Project</a></li>
+  <li><a href="#relevance-to-project-goals-1" id="toc-relevance-to-project-goals-1" class="nav-link" data-scroll-target="#relevance-to-project-goals-1">Relevance to Project Goals</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Literature Review</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="informal-literature-review" class="level1">
+<h1>Informal Literature Review</h1>
+<section id="citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics" class="level2">
+<h2 class="anchored" data-anchor-id="citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics">Citizens’ Perceptions of Over-and Under-Policing: A Look at Race, Ethnicity, and Community Characteristics</h2>
+<p>The study by Boehme, Cann, and Isom (2022) provides an in-depth examination of how race, ethnicity, and community characteristics influence public perceptions of policing, with a focus on both over- and under-policing. This research is highly relevant to my project on the intersection of race, poverty, and policing in Chicago, offering insights into how community-level factors contribute to divergent policing experiences<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p>
+<section id="key-takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h3>
+<ul>
+<li><p><strong>The Over-Under-Policing Paradox in Marginalized Communities</strong>: Boehme et al.&nbsp;highlight the duality of policing in marginalized communities, where residents often feel simultaneously over-policed through aggressive surveillance and under-policed in terms of protection and support. This paradox aligns with my project’s goal of investigating systemic biases in policing, revealing how this dual dynamic fosters a feedback loop of distrust and isolation from law enforcement<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+<li><p><strong>Race as a Predictor of Perceptions</strong>: The study demonstrates that race consistently predicts perceptions of policing, with Black and Latinx communities reporting higher levels of over-policing regardless of economic conditions or other neighborhood factors. This finding supports the view that systemic racial biases in policing are pervasive, directly impacting Black and Latinx residents’ lived experiences. This insight strengthens my project’s focus on understanding the racialized nature of policing in Chicago<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+<li><p><strong>Policy Recommendations for Community-Based Reforms</strong>: Boehme and colleagues advocate for culturally sensitive reforms to improve police-community relations. Suggested reforms include adopting community-oriented policing models, reallocating resources to social services, and using non-police responders for non-violent incidents. These recommendations align with my project’s exploration of solutions to address both over- and under-policing by reimagining the role of police within marginalized communities<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="data-source-phdcn-community-survey" class="level3">
+<h3 class="anchored" data-anchor-id="data-source-phdcn-community-survey">Data Source: PHDCN Community Survey</h3>
+<p>Boehme et al.&nbsp;utilize data from the PHDCN (Project on Human Development in Chicago Neighborhoods) Community Survey, which provides a robust dataset that informs my own project’s focus on Chicago’s community dynamics.</p>
+<ul>
+<li><p><strong>Survey Scope and Sampling</strong>: The PHDCN survey includes 8,782 respondents across 343 neighborhood clusters in Chicago, derived from the city’s 847 census tracts. This sampling method offers a granular view of neighborhood-level factors, which is essential for understanding perceptions of policing across different community types in Chicago<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+<li><p><strong>Survey Timing and Context</strong>: Data collection for the PHDCN survey took place shortly after the 1994 Violent Crime Control and Law Enforcement Act, capturing early responses to increased policing efforts. This context is crucial for understanding how federal policies may have intensified policing in Black communities, informing my analysis of systemic policing disparities in Chicago<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="analytical-approach-using-phdcn-data" class="level3">
+<h3 class="anchored" data-anchor-id="analytical-approach-using-phdcn-data">Analytical Approach Using PHDCN Data</h3>
+<p>Boehme et al.&nbsp;use Hierarchical Linear Modeling (HLM) to explore how individual and community characteristics shape perceptions of policing. Key analytical methods include:</p>
+<ul>
+<li><strong>Unconditional Models</strong>: These models revealed that a significant portion of the variance in perceptions of over- and under-policing could be attributed to neighborhood-level factors, underscoring the importance of community context<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</li>
+<li><strong>Means-as-Outcomes Models</strong>: These models analyzed how neighborhood characteristics—such as economic disadvantage and ethnic diversity—influence residents’ perceptions of policing<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</li>
+<li><strong>Random Coefficient Models</strong>: Findings showed that race and ethnicity significantly impacted perceptions of policing, even after controlling for neighborhood factors. This reinforces the racialized experiences of policing, supporting my project’s objective to highlight the socio-economic roots of policing disparities in Chicago<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</li>
+</ul>
+</section>
+<section id="application-for-this-project" class="level3">
+<h3 class="anchored" data-anchor-id="application-for-this-project">Application for This Project</h3>
+<p>Boehme et al.&nbsp;provide valuable insights for understanding the dual impacts of over- and under-policing on marginalized communities. Here’s how these findings integrate with my project:</p>
+<ul>
+<li><p><strong>Reinforcing Racial Disparities in Policing</strong>: The study consistently shows that Black and Latinx residents report both over-policing and under-policing more frequently than their White counterparts. This underscores the racialized nature of policing and supports my project’s focus on the disproportionate impact of over-policing on Black communities in Chicago<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+<li><p><strong>Neighborhood Characteristics as Predictors</strong>: Factors such as concentrated disadvantage and ethnic diversity emerged as significant predictors of policing perceptions. These findings are aligned with my project’s goal to explore the socio-economic roots of policing disparities, suggesting that addressing these factors may mitigate negative perceptions of policing in marginalized communities<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+<li><p><strong>Feedback Loop Insight</strong>: The study highlights a feedback loop where high legal cynicism and under-policing exacerbate community distrust, fueling a cycle of under-service and over-surveillance. This dynamic is critical to my project’s focus on understanding how systemic issues perpetuate harmful feedback loops in marginalized communities<span class="citation" data-cites="boehme2022citizens"><sup><a href="#ref-boehme2022citizens" role="doc-biblioref">1</a></sup></span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms" class="level2">
+<h2 class="anchored" data-anchor-id="over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms">Over-Policing Black Bodies: The Need for Multidimensional and Transformative Reforms</h2>
+<p>The paper by Jones-Brown and Williams (2021) provides a comprehensive analysis of systemic over-policing in Black communities across the U.S., with findings that are particularly relevant for exploring the dynamics in Chicago<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>. This review highlights the key findings and data sources from the study, aligning with my focus on race, poverty, and policing.</p>
+<section id="key-findings-and-data-points" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-and-data-points">Key Findings and Data Points</h3>
+<ul>
+<li><p><strong>Empirical Evidence of Racial Disparities</strong>: The authors reference a range of empirical studies that provide quantitative evidence on racial disparities in police interactions, such as traffic stops and arrests. Data shows that Black individuals experience higher rates of police encounters, including consent searches and minor stops, reinforcing stereotypes that link Black identity to criminality<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>High-Profile Cases and Lived Experience</strong>: Citing cases such as George Floyd and Breonna Taylor, the study captures the traumatic impact of over-policing on Black communities. These high-profile incidents serve as symbolic representations of a broader, systemic issue, fostering a legacy of fear and distrust toward law enforcement<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Community Distrust and Psychological Impact</strong>: Qualitative accounts from Black community members, including former Black police officers, reveal that recurrent negative police encounters create an environment of fear and mistrust. Black residents in areas such as Ferguson report feeling subjected to racialized social control, highlighting the psychosocial toll of over-policing in marginalized communities<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Influence of Media Narratives</strong>: The study discusses how social media platforms have become a powerful tool for documenting police brutality and over-policing. Instances that gain traction online often reveal patterns of aggressive policing toward Black individuals, which the authors argue are reinforced by biased mainstream media portrayals that mischaracterize Black-led protests as violent, unlike predominantly White protests<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Historical Context and Policy Analysis</strong>: The authors incorporate historical data, such as findings from the 1967 Katzenbach Report and the impact of the “War on Drugs,” to contextualize the persistence of racialized policing. These historical analyses reveal how longstanding policies have disproportionately impacted Black communities, establishing a precedent for examining similar issues in Chicago<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Data-Driven Reform Recommendations</strong>: Drawing from statistical summaries, the study suggests reforms like eliminating consent searches without probable cause, reallocating police funds to community services, and removing racial identifiers in crime statistics. These proposed changes aim to transform policing practices and align with the goal of addressing the criminalization of poverty<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="types-of-data-used" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-data-used">Types of Data Used</h3>
+<p>The study integrates multiple data types to illustrate the scope of over-policing and its effects on Black communities:</p>
+<ul>
+<li><p><strong>Quantitative Data</strong>: The authors use data on traffic stops, consent searches, and arrest rates from prior studies, highlighting a pattern of disproportionately high police encounters for Black individuals.</p></li>
+<li><p><strong>Qualitative Accounts</strong>: Narrative data from interviews with Black community members and former Black police officers bring a human perspective to the statistical data, demonstrating how over-policing affects personal safety and trust in law enforcement.</p></li>
+<li><p><strong>Social Media and Media Analysis</strong>: The authors examine social media documentation of police brutality and mainstream media portrayals of Black-led protests, emphasizing the role of media in reinforcing stereotypes that contribute to over-policing.</p></li>
+<li><p><strong>Historical Data</strong>: Referencing documents such as the 1967 Katzenbach Report, the study contextualizes racialized policing as a deeply rooted structural issue.</p></li>
+<li><p><strong>Policy Evaluations</strong>: By aggregating data from prior studies on policy impact, the authors evaluate the efficacy of different reforms, grounding their recommendations in empirical evidence.</p></li>
+</ul>
+</section>
+<section id="key-takeaways-for-this-project" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways-for-this-project">Key Takeaways for This Project</h3>
+<ul>
+<li><p><strong>Structural Racism in Policing</strong>: The study underscores that racial biases are deeply embedded within policing practices, leading to a disproportionately high number of police interactions with Black individuals. This structural racism aligns with my project’s goal of examining how race and poverty intersect to perpetuate over-policing<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Feedback Loop of Fear and Distrust</strong>: Frequent and negative interactions with police contribute to a feedback loop where Black communities are more likely to distrust law enforcement, further isolating these communities and reinforcing harmful stereotypes<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Policy Reform Recommendations</strong>: The study’s suggestions, such as reallocating police funds to social services and prohibiting consent searches without probable cause, offer practical solutions to reduce racial disparities. These recommendations could inform policy proposals in my project aimed at addressing systemic biases in Chicago policing<span class="citation" data-cites="jones2021over"><sup><a href="#ref-jones2021over" role="doc-biblioref">2</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="application-for-this-literature-review" class="level3">
+<h3 class="anchored" data-anchor-id="application-for-this-literature-review">Application for This Literature Review</h3>
+<p>Jones-Brown and Williams (2021) provide a foundational view of over-policing in Black communities, supporting my project by offering:</p>
+<ul>
+<li><p><strong>Quantitative and Qualitative Dual Perspective</strong>: The study’s combination of empirical data and personal accounts highlights the multifaceted nature of racial disparities in policing. This approach can inspire a dual focus in my project, utilizing both statistical data on over-policing in Chicago and narrative elements that illustrate its human impact.</p></li>
+<li><p><strong>Historical Context and Policy Analysis</strong>: By analyzing the historical roots of racialized policing, this paper strengthens my project’s examination of the socio-economic and racial factors that contribute to high crime and police interaction rates in marginalized communities.</p></li>
+<li><p><strong>Blueprint for Systemic Reform</strong>: The study’s evidence-based reform suggestions, such as community-centered policing and policy reallocation, provide a practical framework for the solutions I plan to propose. These recommendations align with my goal of addressing over-policing in Chicago through systemic, community-driven reforms.</p></li>
+</ul>
+</section>
+</section>
+<section id="socioeconomic-determinants-of-violent-crime-rates-in-the-u.s.-by-jacob-gesin" class="level2">
+<h2 class="anchored" data-anchor-id="socioeconomic-determinants-of-violent-crime-rates-in-the-u.s.-by-jacob-gesin">Socioeconomic Determinants of Violent Crime Rates in the U.S. by Jacob Gesin</h2>
+<p>The study by Jacob Gesin, “Socioeconomic Determinants of Violent Crime Rates in the U.S.,” investigates how various socioeconomic factors influence violent crime rates, focusing on economic and structural disparities across racial groups in the U.S. This study’s findings provide critical context for my project’s focus on race, poverty, and policing in Chicago, especially as they pertain to the socioeconomic roots of crime in marginalized communities<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p>
+<section id="key-findings-and-data-points-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-and-data-points-1">Key Findings and Data Points</h3>
+<ul>
+<li><p><strong>Income Inequality and Violent Crime</strong>: Gesin’s analysis reveals a strong positive correlation between income inequality and violent crime rates, particularly in 2005 and 2009. States with greater income disparities were found to experience elevated crime rates, aligning with my project’s theme that economic inequalities contribute to higher crime rates in disadvantaged communities. This finding underscores the role of systemic inequality in perpetuating crime cycles in marginalized areas<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+<li><p><strong>Unemployment and Violent Crime</strong>: Unemployment was shown to correlate with violent crime in two out of the three years studied. Gesin suggests that economic hardship and limited employment opportunities heighten frustration and aggression, which can manifest as violent crime. This insight supports my project’s examination of how economic deprivation in Black communities contributes to a feedback loop between poverty, crime, and increased police interactions<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+<li><p><strong>Family Structure and Social Stability</strong>: Gesin’s study highlights family structure as a factor influencing crime rates, with higher rates of family disruption (e.g., divorce, separation) linked to violent crime. This data suggests that family stability acts as a social control mechanism, deterring criminal behavior. For my project, this finding emphasizes the role of social structures in shaping crime rates, particularly in communities facing socioeconomic challenges<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+<li><p><strong>Racial Disparities and Community Impact</strong>: Gesin found that racial composition significantly affected violent crime rates, with higher percentages of Black residents correlating with increased crime rates in 2012. This finding supports the idea that economically disadvantaged, racially segregated neighborhoods are more susceptible to violent crime, which could inform my focus on the unique challenges Black communities in Chicago face under systemic economic strain and over-policing<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+<li><p><strong>Education as a Protective Factor</strong>: Education emerged as a mitigating factor for crime, with higher levels of educational attainment generally associated with lower violent crime rates. Although this correlation varied in significance, it aligns with research suggesting that educational access reduces criminal behavior by improving job prospects and economic stability. This finding can support my project’s recommendations on promoting educational investment in marginalized communities as a potential crime prevention measure<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="data-sources-and-variables" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources-and-variables">Data Sources and Variables</h3>
+<p>Gesin’s study draws on data from several sources to analyze violent crime rates across the U.S.:</p>
+<ul>
+<li><p><strong>U.S. Census Bureau and FBI UCR</strong>: Primary data was sourced from the Census Bureau and FBI’s Uniform Crime Reporting (UCR) program, covering crime and socioeconomic data from 2005, 2009, and 2012. These years capture different economic phases, offering insight into how economic shifts affect crime.</p></li>
+<li><p><strong>Socioeconomic Variables</strong>:</p>
+<ul>
+<li><strong>Violent Crime Rate (VCR)</strong>: The dependent variable, capturing incidents of violent crime per 100,000 people.</li>
+<li><strong>Income Inequality (INC)</strong>: Quantified by the Gini coefficient, illustrating disparities in wealth distribution.</li>
+<li><strong>Unemployment (EMPLOY)</strong>: Measured by the unemployment rate for individuals aged 16+, representing economic stability.</li>
+<li><strong>Family Structure (FAM)</strong>: The percentage of families with divorced or separated parents, used to capture social stability.</li>
+<li><strong>Education (EDU)</strong>: The proportion of individuals over 25 with some college education or higher.</li>
+<li><strong>Racial Demographics (BPOP, WPOP, HPOP)</strong>: Percentages of Black, White, and Hispanic populations, providing context on racial disparities.</li>
+</ul></li>
+</ul>
+</section>
+<section id="key-takeaways-for-this-project-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways-for-this-project-1">Key Takeaways for This Project</h3>
+<ul>
+<li><p><strong>Income Inequality as a Driver of Crime</strong>: Gesin’s study reinforces the concept that economic disparities play a significant role in crime rates. This finding supports my project’s focus on examining how poverty and economic disadvantage in Black communities contribute to higher crime and policing rates<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+<li><p><strong>Social and Family Structure as Crime Factors</strong>: The correlation between family structure and crime emphasizes that socioeconomic and social stability are crucial in understanding crime rates. This insight is particularly relevant for exploring how social stability (or instability) within Chicago’s marginalized communities impacts crime and policing<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+<li><p><strong>Racial Dynamics in Crime Rates</strong>: The study’s findings on racial disparities in crime rates provide a foundation for analyzing how systemic factors, like poverty and segregation, uniquely affect Black communities. This aligns with my project’s aim of contextualizing over-policing in racialized and economically disadvantaged neighborhoods<span class="citation" data-cites="gesin2014socioeconomic"><sup><a href="#ref-gesin2014socioeconomic" role="doc-biblioref">3</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="relevance-to-project-goals" class="level3">
+<h3 class="anchored" data-anchor-id="relevance-to-project-goals">Relevance to Project Goals</h3>
+<p>Gesin’s research provides valuable empirical support for understanding the socioeconomic factors driving crime in marginalized communities, aligning closely with the aims of this project:</p>
+<ul>
+<li><p><strong>Supporting Socioeconomic Analysis</strong>: The data on income inequality and unemployment directly support my project’s focus on the economic roots of crime. Gesin’s findings underscore how financial hardship exacerbates crime, emphasizing the importance of addressing economic disparities in crime prevention strategies.</p></li>
+<li><p><strong>Social and Family Stability as Predictors</strong>: The relationship between family structure and violent crime rates aligns with my project’s focus on structural factors contributing to crime. This insight suggests that fostering social stability in marginalized communities could help reduce crime rates, supporting broader efforts to mitigate over-policing.</p></li>
+<li><p><strong>Racial Dynamics and Community Segregation</strong>: Gesin’s examination of racial disparities in crime rates provides a foundation for analyzing how Black communities in Chicago are disproportionately impacted by economic disadvantage and systemic law enforcement bias. This reinforces the significance of racial dynamics in studying over-policing and its effects on community well-being.</p></li>
+</ul>
+</section>
+</section>
+<section id="chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total" class="level2">
+<h2 class="anchored" data-anchor-id="chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total">Chicago Ranks No.&nbsp;1 in Exonerations for 5th Year in a Row, Accounting for More Than Half of National Total</h2>
+<p>The article by Heather Cherone (2023) documents Chicago’s troubling status as the leading city for wrongful convictions in the U.S., accounting for more than half of all exonerations nationwide in 2022. This analysis, based on data from the National Registry of Exonerations, reveals systemic patterns of police misconduct and racial disparities in wrongful convictions, aligning closely with my project’s exploration of over-policing and its broader impact on marginalized communities<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">4</a></sup></span>.</p>
+<section id="key-findings-and-data-points-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings-and-data-points-2">Key Findings and Data Points</h3>
+<ul>
+<li><p><strong>Exoneration Statistics</strong>: In 2022, Cook County recorded 124 overturned convictions, representing over half of all U.S. exonerations. This statistic underscores the prevalence of wrongful convictions within Chicago’s justice system, setting a comparative context for examining Chicago’s unique struggle with systemic misconduct<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">4</a></sup></span>.</p></li>
+<li><p><strong>Racial Disparities</strong>: The National Registry of Exonerations reports that nearly all individuals exonerated in Cook County in 2022 were Black or Latino, highlighting racial biases within Chicago’s criminal justice system. This detail strengthens my project’s focus on racialized over-policing and criminalization of marginalized communities<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">4</a></sup></span>.</p></li>
+<li><p><strong>Pattern of Police Misconduct</strong>: The article identifies significant police misconduct by former officers Ronald Watts and Reynaldo Guevara, linked to the majority of 2022 exonerations. Their actions included extortion, framing suspects, and other corrupt practices. This misconduct exemplifies how individual abuses can perpetuate systemic injustice, impacting community trust<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">4</a></sup></span>.</p></li>
+<li><p><strong>Financial Costs of Misconduct</strong>: Wrongful convictions and police misconduct impose heavy financial burdens on Chicago taxpayers. In 2022 alone, Chicago spent $98 million to settle police misconduct lawsuits, with the 2023 budget allocating an additional $82 million. This economic impact provides a powerful argument for preventive reforms to reduce costs and improve community well-being<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">4</a></sup></span>.</p></li>
+<li><p><strong>Historical Context and Ongoing Compliance Issues</strong>: Despite a federal consent decree from 2017, the Chicago Police Department remains only 3% compliant with required reforms, indicating institutional resistance to change. This minimal compliance rate highlights the significant barriers to reform, supporting my project’s exploration of systemic obstacles in addressing police misconduct<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">4</a></sup></span>.</p></li>
+</ul>
+</section>
+<section id="key-takeaways-for-this-project-2" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways-for-this-project-2">Key Takeaways for This Project</h3>
+<ul>
+<li><p><strong>Systemic Racial Disparities in Wrongful Convictions</strong>: The data shows that Black and Latino individuals face disproportionate impacts from wrongful convictions, aligning with the project’s focus on how racial biases in policing can criminalize marginalized communities.</p></li>
+<li><p><strong>Financial Costs as a Social and Economic Issue</strong>: The taxpayer burden underscores that police misconduct is not only a community concern but also an economic one. This financial data offers strong support for advocating preventive reforms to reduce long-term costs associated with wrongful convictions.</p></li>
+<li><p><strong>Challenges in Achieving Reform</strong>: The low compliance rate with the federal consent decree underscores the institutional challenges in achieving genuine reform within the Chicago Police Department. This finding supports the project’s argument that overcoming systemic issues in policing requires community-driven reforms alongside judicial oversight.</p></li>
+</ul>
+</section>
+<section id="relevance-to-project-goals-1" class="level3">
+<h3 class="anchored" data-anchor-id="relevance-to-project-goals-1">Relevance to Project Goals</h3>
+<p>The data from the National Registry of Exonerations provides both quantitative and qualitative evidence that is essential to my project:</p>
+<ul>
+<li><p><strong>Empirical Support for Racial Disparities</strong>: The high percentage of Black and Latino individuals wrongfully convicted supports the project’s thesis that systemic bias within the Chicago police force disproportionately affects these communities.</p></li>
+<li><p><strong>Economic and Policy Implications</strong>: The financial data on settlements underscores that wrongful convictions impact the entire city’s budget, supporting the argument for long-term investments in systemic reforms.</p></li>
+<li><p><strong>Structural Challenges to Reform</strong>: The minimal compliance with the federal consent decree suggests that achieving lasting change requires community accountability, highlighting the need for internal restructuring within the police department.</p></li>
+</ul>
+
+
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-boehme2022citizens" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Boehme, H. M., Cann, D. &amp; Isom, D. A. Citizens’ perceptions of over-and under-policing: A look at race, ethnicity, and community characteristics. <em>Crime &amp; Delinquency</em> <strong>68</strong>, 123–154 (2022).</div>
+</div>
+<div id="ref-jones2021over" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Jones-Brown, D. &amp; Williams, J. M. Over-policing black bodies: The need for multidimensional and transformative reforms. <em>Journal of Ethnicity in criminal JusticE</em> vol. 19 181–187 (2021).</div>
+</div>
+<div id="ref-gesin2014socioeconomic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Gesin, J. Socioeconomic determinants of violent crime rates in the US. <em>Empirical Economic Bulletin, An Undergraduate Journal</em> <strong>7</strong>, 1 (2014).</div>
+</div>
+<div id="ref-wttwChicagoRanks" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Cherone, H. Chicago ranks no. 1 in exonerations for 5th year in a row, accounting for more than half of national total: report. (2023).</div>
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
