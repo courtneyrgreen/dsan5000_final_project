@@ -5,8 +5,8 @@ title: "Progress log"
 Use this page to track your progress and keep a log of your contributions to the project, please update this each time you work on your project, it is generally a good habit to adopt.
 
 ## To-do
-* [ ] Review and select datasets related to over-policing and poverty in Chicago
 * [ ] Meet with Prof. Jeff to go over datasets and ask research questions
+* [ ] Review and select datasets related to over-policing and poverty in Chicago
 * [ ] Clean and preprocess initial datasets for analysis
 
 ## Weekly Progress:
@@ -16,5 +16,12 @@ Use this page to track your progress and keep a log of your contributions to the
 * [x] Decided on a project topic related to criminal justice reform, narrowing focus to over-policing, race, and poverty in Chicago.  
 * [x] Logged my goal for his project and why the topic is extremely significant in project-planning.qmd. 
 
+**W: 10-30:2024**
+* [x] Started the literature review by summarizing and analyzing key sources, including research on over-policing, wrongful convictions, and socioeconomic factors that contribute to disparities in Chicago's criminal justice system.
+
 **T: 11-05-2024**
-* [x] Start the literature review, focusing on prior research on over-policing and socioeconomic factors
+* [x] Continued review of literature, focusing on research about over-policing, racial disparities, and socioeconomic factors contributing to policing dynamics.
+* [x] Summarized and analyzed key sources using LLM, including comprehensive studies on systemic biases, police misconduct, wrongful convictions, and socioeconomic determinants of crime.
+* [x] Added detailed notes from sources to my `literature review.qmd` file, focusing on findings relevant to Chicago, such as socioeconomic disparities, racial disparities, and historical context.
+* [x] Created a `references.bib` and added references from literature review to ensure proper citation for each source, integrating new academic and news sources into my project plan.
+* [x] Documented and expanded key insights from sources to inform project direction.
