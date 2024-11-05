@@ -1,0 +1,60 @@
+
+
+Research-Focused Questions
+Systemic Dynamics & Historical Context
+
+How have historical factors contributed to racial disparities in policing in the U.S., and what parallels exist in the data specific to Chicago?
+Which studies provide a historical overview of policing policies and their impact on Black communities?
+Data Points and Statistical Analysis
+
+What specific data points and statistical findings are available on the over-policing of Black communities?
+Are there significant differences in arrest rates, search rates, or use-of-force incidents between Black and White populations in Chicago or similar urban areas?
+What patterns emerge in the datasets around wrongful convictions and the impact of over-policing on these rates?
+Economic Impact and Feedback Loops
+
+What role does economic disadvantage play in the over-policing of Black communities, and how does this feedback loop manifest in crime statistics?
+Are there existing economic analyses or data on how poverty and unemployment correlate with higher police interaction rates?
+Psychological and Social Effects
+
+What documented psychological or social effects are associated with frequent police contact and surveillance within Black communities?
+Are there studies discussing the community’s perception of law enforcement and how this perception impacts cooperation in crime prevention?
+Effectiveness of Community Policing & Reform Efforts
+
+Have any specific reform initiatives, such as reallocating police budgets to community services or implementing community policing, shown measurable success in reducing over-policing?
+What insights are provided into how community-based approaches differ in effectiveness across demographics?
+Which reform strategies are consistently recommended by academic sources as most effective in reducing racial disparities in policing?
+Media and Public Perception
+
+What evidence exists on the media’s role in shaping public perceptions of Black communities in relation to crime?
+How do different studies suggest media coverage contributes to or detracts from public support for police reform?
+Are there specific examples where media portrayal led to changes in policy or public sentiment regarding policing?
+Impact-Focused Questions for Reform and Policy Development
+Policy Recommendations and Practicality
+
+What policy changes are recommended to reduce racial bias and improve police accountability?
+How feasible are these recommendations for practical implementation, especially in highly-policed urban areas like Chicago?
+Measuring Success and Outcomes of Reforms
+
+How have the outcomes of specific reforms been measured (e.g., crime rates, arrest demographics, community trust), and what has been the general success rate?
+What metrics are most commonly used to evaluate police reform, and how do they reflect on long-term systemic change?
+Legal and Ethical Considerations
+
+What legal precedents or frameworks are in place to protect marginalized communities from over-policing?
+What ethical discussions arise around the collection of race-based data in policing, and how do scholars suggest handling this sensitively?
+Cross-Comparative Analyses
+
+How does Chicago compare to other U.S. cities in terms of racial disparities in policing, and what lessons can be drawn from cities with lower disparities?
+Are there international examples of successful anti-racism policing strategies that could be applied in Chicago or the broader U.S.?
+Targeted Questions for Synthesizing Your Findings
+Identifying Gaps and Future Research Needs
+
+What areas related to over-policing and racial bias in policing are under-researched or insufficiently addressed in current literature?
+Are there specific demographics (e.g., women, LGBTQ+, youth) within marginalized communities that are less studied in the context of over-policing?
+Integrating Wrongful Conviction Data
+
+How does the literature link wrongful convictions to patterns of over-policing and racial profiling, particularly within low-income Black communities?
+Are there case studies or longitudinal analyses on wrongful convictions that highlight systemic issues within policing frameworks?
+Longitudinal and Interdisciplinary Insights
+
+What long-term studies (spanning 10+ years) have observed the effects of policing on Black communities, and what trends do they reveal?
+Are there interdisciplinary insights (e.g., from sociology, psychology, and criminology) that would provide a more holistic understanding of over-policing impacts?

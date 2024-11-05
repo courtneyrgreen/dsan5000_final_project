@@ -10,6 +10,9 @@ LLM tools were used in the following way for the tasks below
 
 * I came up with my initial, broad project idea of over-policing and the criminalization of race and poverty as it's a topic I've always been passionate about, however LLM helped me narrow down my topic to focus on a specific locality (e.g. Chicago). 
 
+## Literature Review:  
+* I used Notebook LLM
+
 ## Writing: 
 
 * Reformating text from bulleted lists into proses 
