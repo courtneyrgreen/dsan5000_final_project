@@ -1,1 +1,179 @@
-## Literature Review
+---
+title: "Literature Review"
+bibliography: references.bib
+---
+
+# Informal Literature Review
+
+
+## Citizens’ Perceptions of Over-and Under-Policing: A Look at Race, Ethnicity, and Community Characteristics
+
+The study by Boehme, Cann, and Isom (2022) provides an in-depth examination of how race, ethnicity, and community characteristics influence public perceptions of policing, with a focus on both over- and under-policing. This research is highly relevant to my project on the intersection of race, poverty, and policing in Chicago, offering insights into how community-level factors contribute to divergent policing experiences [@boehme2022citizens].
+
+### Key Takeaways
+
+- **The Over-Under-Policing Paradox in Marginalized Communities**: Boehme et al. highlight the duality of policing in marginalized communities, where residents often feel simultaneously over-policed through aggressive surveillance and under-policed in terms of protection and support. This paradox aligns with my project’s goal of investigating systemic biases in policing, revealing how this dual dynamic fosters a feedback loop of distrust and isolation from law enforcement [@boehme2022citizens].
+
+- **Race as a Predictor of Perceptions**: The study demonstrates that race consistently predicts perceptions of policing, with Black and Latinx communities reporting higher levels of over-policing regardless of economic conditions or other neighborhood factors. This finding supports the view that systemic racial biases in policing are pervasive, directly impacting Black and Latinx residents’ lived experiences. This insight strengthens my project’s focus on understanding the racialized nature of policing in Chicago [@boehme2022citizens].
+
+- **Policy Recommendations for Community-Based Reforms**: Boehme and colleagues advocate for culturally sensitive reforms to improve police-community relations. Suggested reforms include adopting community-oriented policing models, reallocating resources to social services, and using non-police responders for non-violent incidents. These recommendations align with my project’s exploration of solutions to address both over- and under-policing by reimagining the role of police within marginalized communities [@boehme2022citizens].
+
+### Data Source: PHDCN Community Survey
+
+Boehme et al. utilize data from the PHDCN (Project on Human Development in Chicago Neighborhoods) Community Survey, which provides a robust dataset that informs my own project’s focus on Chicago’s community dynamics.
+
+- **Survey Scope and Sampling**: The PHDCN survey includes 8,782 respondents across 343 neighborhood clusters in Chicago, derived from the city’s 847 census tracts. This sampling method offers a granular view of neighborhood-level factors, which is essential for understanding perceptions of policing across different community types in Chicago [@boehme2022citizens].
+
+- **Survey Timing and Context**: Data collection for the PHDCN survey took place shortly after the 1994 Violent Crime Control and Law Enforcement Act, capturing early responses to increased policing efforts. This context is crucial for understanding how federal policies may have intensified policing in Black communities, informing my analysis of systemic policing disparities in Chicago [@boehme2022citizens].
+
+### Analytical Approach Using PHDCN Data
+
+Boehme et al. use Hierarchical Linear Modeling (HLM) to explore how individual and community characteristics shape perceptions of policing. Key analytical methods include:
+
+- **Unconditional Models**: These models revealed that a significant portion of the variance in perceptions of over- and under-policing could be attributed to neighborhood-level factors, underscoring the importance of community context [@boehme2022citizens].
+- **Means-as-Outcomes Models**: These models analyzed how neighborhood characteristics—such as economic disadvantage and ethnic diversity—influence residents’ perceptions of policing [@boehme2022citizens].
+- **Random Coefficient Models**: Findings showed that race and ethnicity significantly impacted perceptions of policing, even after controlling for neighborhood factors. This reinforces the racialized experiences of policing, supporting my project’s objective to highlight the socio-economic roots of policing disparities in Chicago [@boehme2022citizens].
+
+### Application for This Project
+
+Boehme et al. provide valuable insights for understanding the dual impacts of over- and under-policing on marginalized communities. Here’s how these findings integrate with my project:
+
+- **Reinforcing Racial Disparities in Policing**: The study consistently shows that Black and Latinx residents report both over-policing and under-policing more frequently than their White counterparts. This underscores the racialized nature of policing and supports my project’s focus on the disproportionate impact of over-policing on Black communities in Chicago [@boehme2022citizens].
+
+- **Neighborhood Characteristics as Predictors**: Factors such as concentrated disadvantage and ethnic diversity emerged as significant predictors of policing perceptions. These findings are aligned with my project’s goal to explore the socio-economic roots of policing disparities, suggesting that addressing these factors may mitigate negative perceptions of policing in marginalized communities [@boehme2022citizens].
+
+- **Feedback Loop Insight**: The study highlights a feedback loop where high legal cynicism and under-policing exacerbate community distrust, fueling a cycle of under-service and over-surveillance. This dynamic is critical to my project’s focus on understanding how systemic issues perpetuate harmful feedback loops in marginalized communities [@boehme2022citizens].
+
+
+## Over-Policing Black Bodies: The Need for Multidimensional and Transformative Reforms
+
+The paper by Jones-Brown and Williams (2021) provides a comprehensive analysis of systemic over-policing in Black communities across the U.S., with findings that are particularly relevant for exploring the dynamics in Chicago [@jones2021over]. This review highlights the key findings and data sources from the study, aligning with my focus on race, poverty, and policing.
+
+### Key Findings and Data Points
+
+- **Empirical Evidence of Racial Disparities**: The authors reference a range of empirical studies that provide quantitative evidence on racial disparities in police interactions, such as traffic stops and arrests. Data shows that Black individuals experience higher rates of police encounters, including consent searches and minor stops, reinforcing stereotypes that link Black identity to criminality [@jones2021over].
+
+- **High-Profile Cases and Lived Experience**: Citing cases such as George Floyd and Breonna Taylor, the study captures the traumatic impact of over-policing on Black communities. These high-profile incidents serve as symbolic representations of a broader, systemic issue, fostering a legacy of fear and distrust toward law enforcement [@jones2021over].
+
+- **Community Distrust and Psychological Impact**: Qualitative accounts from Black community members, including former Black police officers, reveal that recurrent negative police encounters create an environment of fear and mistrust. Black residents in areas such as Ferguson report feeling subjected to racialized social control, highlighting the psychosocial toll of over-policing in marginalized communities [@jones2021over].
+
+- **Influence of Media Narratives**: The study discusses how social media platforms have become a powerful tool for documenting police brutality and over-policing. Instances that gain traction online often reveal patterns of aggressive policing toward Black individuals, which the authors argue are reinforced by biased mainstream media portrayals that mischaracterize Black-led protests as violent, unlike predominantly White protests [@jones2021over].
+
+- **Historical Context and Policy Analysis**: The authors incorporate historical data, such as findings from the 1967 Katzenbach Report and the impact of the “War on Drugs,” to contextualize the persistence of racialized policing. These historical analyses reveal how longstanding policies have disproportionately impacted Black communities, establishing a precedent for examining similar issues in Chicago [@jones2021over].
+
+- **Data-Driven Reform Recommendations**: Drawing from statistical summaries, the study suggests reforms like eliminating consent searches without probable cause, reallocating police funds to community services, and removing racial identifiers in crime statistics. These proposed changes aim to transform policing practices and align with the goal of addressing the criminalization of poverty [@jones2021over].
+
+### Types of Data Used
+
+The study integrates multiple data types to illustrate the scope of over-policing and its effects on Black communities:
+
+- **Quantitative Data**: The authors use data on traffic stops, consent searches, and arrest rates from prior studies, highlighting a pattern of disproportionately high police encounters for Black individuals.
+  
+- **Qualitative Accounts**: Narrative data from interviews with Black community members and former Black police officers bring a human perspective to the statistical data, demonstrating how over-policing affects personal safety and trust in law enforcement.
+
+- **Social Media and Media Analysis**: The authors examine social media documentation of police brutality and mainstream media portrayals of Black-led protests, emphasizing the role of media in reinforcing stereotypes that contribute to over-policing.
+
+- **Historical Data**: Referencing documents such as the 1967 Katzenbach Report, the study contextualizes racialized policing as a deeply rooted structural issue. 
+
+- **Policy Evaluations**: By aggregating data from prior studies on policy impact, the authors evaluate the efficacy of different reforms, grounding their recommendations in empirical evidence.
+
+### Key Takeaways for This Project
+
+- **Structural Racism in Policing**: The study underscores that racial biases are deeply embedded within policing practices, leading to a disproportionately high number of police interactions with Black individuals. This structural racism aligns with my project’s goal of examining how race and poverty intersect to perpetuate over-policing [@jones2021over].
+
+- **Feedback Loop of Fear and Distrust**: Frequent and negative interactions with police contribute to a feedback loop where Black communities are more likely to distrust law enforcement, further isolating these communities and reinforcing harmful stereotypes [@jones2021over].
+
+- **Policy Reform Recommendations**: The study’s suggestions, such as reallocating police funds to social services and prohibiting consent searches without probable cause, offer practical solutions to reduce racial disparities. These recommendations could inform policy proposals in my project aimed at addressing systemic biases in Chicago policing [@jones2021over].
+
+### Application for This Literature Review
+
+Jones-Brown and Williams (2021) provide a foundational view of over-policing in Black communities, supporting my project by offering:
+
+- **Quantitative and Qualitative Dual Perspective**: The study’s combination of empirical data and personal accounts highlights the multifaceted nature of racial disparities in policing. This approach can inspire a dual focus in my project, utilizing both statistical data on over-policing in Chicago and narrative elements that illustrate its human impact.
+
+- **Historical Context and Policy Analysis**: By analyzing the historical roots of racialized policing, this paper strengthens my project’s examination of the socio-economic and racial factors that contribute to high crime and police interaction rates in marginalized communities.
+
+- **Blueprint for Systemic Reform**: The study’s evidence-based reform suggestions, such as community-centered policing and policy reallocation, provide a practical framework for the solutions I plan to propose. These recommendations align with my goal of addressing over-policing in Chicago through systemic, community-driven reforms.
+
+## Socioeconomic Determinants of Violent Crime Rates in the U.S. by Jacob Gesin
+
+The study by Jacob Gesin, "Socioeconomic Determinants of Violent Crime Rates in the U.S.," investigates how various socioeconomic factors influence violent crime rates, focusing on economic and structural disparities across racial groups in the U.S. This study’s findings provide critical context for my project’s focus on race, poverty, and policing in Chicago, especially as they pertain to the socioeconomic roots of crime in marginalized communities [@gesin2014socioeconomic].
+
+### Key Findings and Data Points
+
+- **Income Inequality and Violent Crime**: Gesin’s analysis reveals a strong positive correlation between income inequality and violent crime rates, particularly in 2005 and 2009. States with greater income disparities were found to experience elevated crime rates, aligning with my project’s theme that economic inequalities contribute to higher crime rates in disadvantaged communities. This finding underscores the role of systemic inequality in perpetuating crime cycles in marginalized areas [@gesin2014socioeconomic].
+
+- **Unemployment and Violent Crime**: Unemployment was shown to correlate with violent crime in two out of the three years studied. Gesin suggests that economic hardship and limited employment opportunities heighten frustration and aggression, which can manifest as violent crime. This insight supports my project’s examination of how economic deprivation in Black communities contributes to a feedback loop between poverty, crime, and increased police interactions [@gesin2014socioeconomic].
+
+- **Family Structure and Social Stability**: Gesin’s study highlights family structure as a factor influencing crime rates, with higher rates of family disruption (e.g., divorce, separation) linked to violent crime. This data suggests that family stability acts as a social control mechanism, deterring criminal behavior. For my project, this finding emphasizes the role of social structures in shaping crime rates, particularly in communities facing socioeconomic challenges [@gesin2014socioeconomic].
+
+- **Racial Disparities and Community Impact**: Gesin found that racial composition significantly affected violent crime rates, with higher percentages of Black residents correlating with increased crime rates in 2012. This finding supports the idea that economically disadvantaged, racially segregated neighborhoods are more susceptible to violent crime, which could inform my focus on the unique challenges Black communities in Chicago face under systemic economic strain and over-policing [@gesin2014socioeconomic].
+
+- **Education as a Protective Factor**: Education emerged as a mitigating factor for crime, with higher levels of educational attainment generally associated with lower violent crime rates. Although this correlation varied in significance, it aligns with research suggesting that educational access reduces criminal behavior by improving job prospects and economic stability. This finding can support my project’s recommendations on promoting educational investment in marginalized communities as a potential crime prevention measure [@gesin2014socioeconomic].
+
+### Data Sources and Variables
+
+Gesin’s study draws on data from several sources to analyze violent crime rates across the U.S.:
+
+- **U.S. Census Bureau and FBI UCR**: Primary data was sourced from the Census Bureau and FBI’s Uniform Crime Reporting (UCR) program, covering crime and socioeconomic data from 2005, 2009, and 2012. These years capture different economic phases, offering insight into how economic shifts affect crime.
+  
+- **Socioeconomic Variables**:
+  - **Violent Crime Rate (VCR)**: The dependent variable, capturing incidents of violent crime per 100,000 people.
+  - **Income Inequality (INC)**: Quantified by the Gini coefficient, illustrating disparities in wealth distribution.
+  - **Unemployment (EMPLOY)**: Measured by the unemployment rate for individuals aged 16+, representing economic stability.
+  - **Family Structure (FAM)**: The percentage of families with divorced or separated parents, used to capture social stability.
+  - **Education (EDU)**: The proportion of individuals over 25 with some college education or higher.
+  - **Racial Demographics (BPOP, WPOP, HPOP)**: Percentages of Black, White, and Hispanic populations, providing context on racial disparities.
+
+### Key Takeaways for This Project
+
+- **Income Inequality as a Driver of Crime**: Gesin’s study reinforces the concept that economic disparities play a significant role in crime rates. This finding supports my project’s focus on examining how poverty and economic disadvantage in Black communities contribute to higher crime and policing rates [@gesin2014socioeconomic].
+
+- **Social and Family Structure as Crime Factors**: The correlation between family structure and crime emphasizes that socioeconomic and social stability are crucial in understanding crime rates. This insight is particularly relevant for exploring how social stability (or instability) within Chicago’s marginalized communities impacts crime and policing [@gesin2014socioeconomic].
+
+- **Racial Dynamics in Crime Rates**: The study’s findings on racial disparities in crime rates provide a foundation for analyzing how systemic factors, like poverty and segregation, uniquely affect Black communities. This aligns with my project’s aim of contextualizing over-policing in racialized and economically disadvantaged neighborhoods [@gesin2014socioeconomic].
+
+### Relevance to Project Goals
+
+Gesin’s research provides valuable empirical support for understanding the socioeconomic factors driving crime in marginalized communities, aligning closely with the aims of this project:
+
+- **Supporting Socioeconomic Analysis**: The data on income inequality and unemployment directly support my project’s focus on the economic roots of crime. Gesin’s findings underscore how financial hardship exacerbates crime, emphasizing the importance of addressing economic disparities in crime prevention strategies.
+
+- **Social and Family Stability as Predictors**: The relationship between family structure and violent crime rates aligns with my project’s focus on structural factors contributing to crime. This insight suggests that fostering social stability in marginalized communities could help reduce crime rates, supporting broader efforts to mitigate over-policing.
+
+- **Racial Dynamics and Community Segregation**: Gesin’s examination of racial disparities in crime rates provides a foundation for analyzing how Black communities in Chicago are disproportionately impacted by economic disadvantage and systemic law enforcement bias. This reinforces the significance of racial dynamics in studying over-policing and its effects on community well-being.
+
+## Chicago Ranks No. 1 in Exonerations for 5th Year in a Row, Accounting for More Than Half of National Total
+
+The article by Heather Cherone (2023) documents Chicago's troubling status as the leading city for wrongful convictions in the U.S., accounting for more than half of all exonerations nationwide in 2022. This analysis, based on data from the National Registry of Exonerations, reveals systemic patterns of police misconduct and racial disparities in wrongful convictions, aligning closely with my project’s exploration of over-policing and its broader impact on marginalized communities [@wttwChicagoRanks].
+
+### Key Findings and Data Points
+
+- **Exoneration Statistics**: In 2022, Cook County recorded 124 overturned convictions, representing over half of all U.S. exonerations. This statistic underscores the prevalence of wrongful convictions within Chicago’s justice system, setting a comparative context for examining Chicago’s unique struggle with systemic misconduct [@wttwChicagoRanks].
+
+- **Racial Disparities**: The National Registry of Exonerations reports that nearly all individuals exonerated in Cook County in 2022 were Black or Latino, highlighting racial biases within Chicago’s criminal justice system. This detail strengthens my project’s focus on racialized over-policing and criminalization of marginalized communities [@wttwChicagoRanks].
+
+- **Pattern of Police Misconduct**: The article identifies significant police misconduct by former officers Ronald Watts and Reynaldo Guevara, linked to the majority of 2022 exonerations. Their actions included extortion, framing suspects, and other corrupt practices. This misconduct exemplifies how individual abuses can perpetuate systemic injustice, impacting community trust [@wttwChicagoRanks].
+
+- **Financial Costs of Misconduct**: Wrongful convictions and police misconduct impose heavy financial burdens on Chicago taxpayers. In 2022 alone, Chicago spent $98 million to settle police misconduct lawsuits, with the 2023 budget allocating an additional $82 million. This economic impact provides a powerful argument for preventive reforms to reduce costs and improve community well-being [@wttwChicagoRanks].
+
+- **Historical Context and Ongoing Compliance Issues**: Despite a federal consent decree from 2017, the Chicago Police Department remains only 3% compliant with required reforms, indicating institutional resistance to change. This minimal compliance rate highlights the significant barriers to reform, supporting my project’s exploration of systemic obstacles in addressing police misconduct [@wttwChicagoRanks].
+
+### Key Takeaways for This Project
+
+- **Systemic Racial Disparities in Wrongful Convictions**: The data shows that Black and Latino individuals face disproportionate impacts from wrongful convictions, aligning with the project’s focus on how racial biases in policing can criminalize marginalized communities.
+
+- **Financial Costs as a Social and Economic Issue**: The taxpayer burden underscores that police misconduct is not only a community concern but also an economic one. This financial data offers strong support for advocating preventive reforms to reduce long-term costs associated with wrongful convictions.
+
+- **Challenges in Achieving Reform**: The low compliance rate with the federal consent decree underscores the institutional challenges in achieving genuine reform within the Chicago Police Department. This finding supports the project’s argument that overcoming systemic issues in policing requires community-driven reforms alongside judicial oversight.
+
+### Relevance to Project Goals
+
+The data from the National Registry of Exonerations provides both quantitative and qualitative evidence that is essential to my project:
+
+- **Empirical Support for Racial Disparities**: The high percentage of Black and Latino individuals wrongfully convicted supports the project’s thesis that systemic bias within the Chicago police force disproportionately affects these communities.
+
+- **Economic and Policy Implications**: The financial data on settlements underscores that wrongful convictions impact the entire city’s budget, supporting the argument for long-term investments in systemic reforms.
+
+- **Structural Challenges to Reform**: The minimal compliance with the federal consent decree suggests that achieving lasting change requires community accountability, highlighting the need for internal restructuring within the police department.
+
