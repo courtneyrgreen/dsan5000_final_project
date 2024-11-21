@@ -6,7 +6,6 @@ Use this page to track your progress and keep a log of your contributions to the
 
 ## To-do
 * [ ] Meet with Prof. Jeff to go over datasets and ask research questions
-* [ ] Review and select datasets related to over-policing and poverty in Chicago
 * [ ] Clean and preprocess initial datasets for analysis
 
 ## Weekly Progress:
@@ -25,3 +24,13 @@ Use this page to track your progress and keep a log of your contributions to the
 * [x] Added detailed notes from sources to my `literature review.qmd` file, focusing on findings relevant to Chicago, such as socioeconomic disparities, racial disparities, and historical context.
 * [x] Created a `references.bib` and added references from literature review to ensure proper citation for each source, integrating new academic and news sources into my project plan.
 * [x] Documented and expanded key insights from sources to inform project direction.
+
+**F: 11-08-2024**
+* [x] Met with Prof. Jacobs to discuss project topic
+
+**M: 11-11-2024**
+* [x] Met with Prof. Jacobs to go over datasets and ask research questions
+* [x] Selected datasets related to over-policing, race, and exonerations in Illinois
+
+**T: 11-21-2024**
+* [x] Loaded in datasets and started cleaning exoneration data
