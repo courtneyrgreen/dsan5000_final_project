@@ -16,9 +16,11 @@ Use this page to track your progress and keep a log of your contributions to the
 * [x] Logged my goal for his project and why the topic is extremely significant in project-planning.qmd. 
 
 **W: 10-30:2024**
+
 * [x] Started the literature review by summarizing and analyzing key sources, including research on over-policing, wrongful convictions, and socioeconomic factors that contribute to disparities in Chicago's criminal justice system.
 
 **T: 11-05-2024**
+
 * [x] Continued review of literature, focusing on research about over-policing, racial disparities, and socioeconomic factors contributing to policing dynamics.
 * [x] Summarized and analyzed key sources using LLM, including comprehensive studies on systemic biases, police misconduct, wrongful convictions, and socioeconomic determinants of crime.
 * [x] Added detailed notes from sources to my `literature review.qmd` file, focusing on findings relevant to Chicago, such as socioeconomic disparities, racial disparities, and historical context.
@@ -26,11 +28,16 @@ Use this page to track your progress and keep a log of your contributions to the
 * [x] Documented and expanded key insights from sources to inform project direction.
 
 **F: 11-08-2024**
+
 * [x] Met with Prof. Jacobs to discuss project topic
 
 **M: 11-11-2024**
+
 * [x] Met with Prof. Jacobs to go over datasets and ask research questions
 * [x] Selected datasets related to over-policing, race, and exonerations in Illinois
 
 **T: 11-21-2024**
 * [x] Loaded in datasets and started cleaning exoneration data
+
+**T: 11-28-2024**
+* [x] Created about me page for multiclass-portfolio website 

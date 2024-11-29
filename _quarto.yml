@@ -38,6 +38,7 @@ website:
 
 format:
   html:
+    css: styles.css
     theme: lux
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
