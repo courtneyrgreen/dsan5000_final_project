@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,6 +101,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -157,7 +194,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#general-comments" id="toc-general-comments" class="nav-link" data-scroll-target="#general-comments">General comments:</a></li>
   <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
   </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
+  <ul class="collapse">
+  <li><a href="#cleaning-the-u.s.-exoneration-data" id="toc-cleaning-the-u.s.-exoneration-data" class="nav-link" data-scroll-target="#cleaning-the-u.s.-exoneration-data">Cleaning the U.S. Exoneration Data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -262,8 +302,356 @@ ul.task-list li input[type="checkbox"] {
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
 <p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
 <p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<section id="cleaning-the-u.s.-exoneration-data" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-the-u.s.-exoneration-data">Cleaning the U.S. Exoneration Data</h3>
+<p><em>Data Cleaning Process</em> - Removed columns with more than 50% missing values to focus on more complete data. - Standardized column names and formats for easier manipulation. - Addressed missing values in key columns: - Filled missing <code>county</code> values with “Unknown.” - Dropped rows with missing <code>age</code> values as they are critical for analysis. - Cleaned <code>tags</code> column by removing extraneous symbols (<code>#</code>, <code>;</code>) and ensuring uniform formatting.</p>
+<div id="cell-5" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import necessary Libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load exoneration dataset</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/US_exoneration_data.csv'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Initial Dataset: "</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Initial Dataset: </code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Last Name</th>
+<th data-quarto-table-cell-role="th">First Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Race</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">Tags</th>
+<th data-quarto-table-cell-role="th">Worst Crime Display</th>
+<th data-quarto-table-cell-role="th">Sentence</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">F/MFE</th>
+<th data-quarto-table-cell-role="th">FC</th>
+<th data-quarto-table-cell-role="th">ILD</th>
+<th data-quarto-table-cell-role="th">P/FA</th>
+<th data-quarto-table-cell-role="th">DNA</th>
+<th data-quarto-table-cell-role="th">MWID</th>
+<th data-quarto-table-cell-role="th">OM</th>
+<th data-quarto-table-cell-role="th">Date of Exoneration</th>
+<th data-quarto-table-cell-role="th">Date of 1st Conviction</th>
+<th data-quarto-table-cell-role="th">Date of Release</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abbitt</td>
+<td>Joseph</td>
+<td>31.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>North Carolina</td>
+<td>Forsyth</td>
+<td>CV;#IO;#SA</td>
+<td>Child Sex Abuse</td>
+<td>Life</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>DNA</td>
+<td>MWID</td>
+<td>NaN</td>
+<td>9/2/09</td>
+<td>6/22/95</td>
+<td>9/2/09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abbott</td>
+<td>Cinque</td>
+<td>19.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU;#IO;#NC;#P</td>
+<td>Drug Possession or Sale</td>
+<td>Probation</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>OM</td>
+<td>2/1/22</td>
+<td>3/25/08</td>
+<td>3/25/08</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abdal</td>
+<td>Warith Habib</td>
+<td>43.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>New York</td>
+<td>Erie</td>
+<td>IO;#SA</td>
+<td>Sexual Assault</td>
+<td>20 to Life</td>
+<td>...</td>
+<td>F/MFE</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>DNA</td>
+<td>MWID</td>
+<td>OM</td>
+<td>9/1/99</td>
+<td>6/6/83</td>
+<td>9/1/99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Abernathy</td>
+<td>Christopher</td>
+<td>17.0</td>
+<td>White</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU;#CV;#H;#IO;#JV;#SA</td>
+<td>Murder</td>
+<td>Life without parole</td>
+<td>...</td>
+<td>NaN</td>
+<td>FC</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>DNA</td>
+<td>NaN</td>
+<td>OM</td>
+<td>2/11/15</td>
+<td>1/15/87</td>
+<td>2/11/15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Abney</td>
+<td>Quentin</td>
+<td>32.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>New York</td>
+<td>New York</td>
+<td>CV</td>
+<td>Robbery</td>
+<td>20 to Life</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>MWID</td>
+<td>NaN</td>
+<td>1/19/12</td>
+<td>3/20/06</td>
+<td>1/19/12</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 22 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Managing Missing Data - Identifying which columns have a lot of missing data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>na_counts <span class="op">=</span> df.isna().<span class="bu">sum</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(na_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Last Name                    0
+First Name                   0
+Age                         27
+Race                         0
+Sex                          0
+State                        0
+County                      66
+Tags                       171
+Worst Crime Display          0
+Sentence                     0
+Posting Date                 0
+OM Tags                   1430
+F/MFE                     2557
+FC                        3133
+ILD                       2602
+P/FA                      1291
+DNA                       2984
+MWID                      2610
+OM                        1430
+Date of Exoneration          0
+Date of 1st Conviction       0
+Date of Release              0
+dtype: int64</code></pre>
+</div>
+</div>
+<div id="cell-7" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop columns with excessive missing values </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.drop(columns <span class="op">=</span> [<span class="st">'OM Tags'</span>, <span class="st">'F/MFE'</span>, <span class="st">'ILD'</span>, <span class="st">'P/FA'</span>, <span class="st">'DNA'</span>, <span class="st">'MWID'</span>, <span class="st">'FC'</span>,<span class="st">'OM'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize column names by converting to lowercase and replacing spaces with '_'</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean tags column by removing unecesary '#' from tags column</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['last_name', 'first_name', 'age', 'race', 'sex', 'state', 'county',
+       'tags', 'worst_crime_display', 'sentence', 'posting_date',
+       'date_of_exoneration', 'date_of_1st_conviction', 'date_of_release'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p><em>Illinois Subset:</em> - Filtered the dataset to focus on cases from Illinois, resulting in a subset of 548 rows to be used for further analysis.</p>
+<div id="cell-9" class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>IL_exonerations <span class="op">=</span> df[df[<span class="st">'state'</span>] <span class="op">==</span> <span class="st">'Illinois'</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of rows: "</span> , IL_exonerations.shape[<span class="dv">0</span>]) </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>IL_exonerations.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of rows:  548</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">county</th>
+<th data-quarto-table-cell-role="th">tags</th>
+<th data-quarto-table-cell-role="th">worst_crime_display</th>
+<th data-quarto-table-cell-role="th">sentence</th>
+<th data-quarto-table-cell-role="th">posting_date</th>
+<th data-quarto-table-cell-role="th">date_of_exoneration</th>
+<th data-quarto-table-cell-role="th">date_of_1st_conviction</th>
+<th data-quarto-table-cell-role="th">date_of_release</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abbott</td>
+<td>Cinque</td>
+<td>19.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU,IO,NC,P</td>
+<td>Drug Possession or Sale</td>
+<td>Probation</td>
+<td>2/14/22</td>
+<td>2/1/22</td>
+<td>3/25/08</td>
+<td>3/25/08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Abernathy</td>
+<td>Christopher</td>
+<td>17.0</td>
+<td>White</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU,CV,H,IO,JV,SA</td>
+<td>Murder</td>
+<td>Life without parole</td>
+<td>2/13/15</td>
+<td>2/11/15</td>
+<td>1/15/87</td>
+<td>2/11/15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Abrego</td>
+<td>Eruby</td>
+<td>20.0</td>
+<td>Hispanic</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CDC,H,IO</td>
+<td>Murder</td>
+<td>90 years</td>
+<td>8/25/22</td>
+<td>7/21/22</td>
+<td>9/22/04</td>
+<td>7/21/22</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Adams</td>
+<td>Demetris</td>
+<td>22.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU,IO,NC,P</td>
+<td>Drug Possession or Sale</td>
+<td>1 year</td>
+<td>4/13/20</td>
+<td>2/11/20</td>
+<td>9/8/04</td>
+<td>12/26/04</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Adams</td>
+<td>Kenneth</td>
+<td>22.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CDC,H,IO,JI,SA</td>
+<td>Murder</td>
+<td>75 years</td>
+<td>8/29/11</td>
+<td>7/2/96</td>
+<td>10/20/78</td>
+<td>6/14/96</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
