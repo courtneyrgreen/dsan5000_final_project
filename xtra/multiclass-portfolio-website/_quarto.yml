@@ -25,6 +25,7 @@ website:
 
 format:
   html:
+    css: styles.scss
     theme: lux
     toc: true
 
