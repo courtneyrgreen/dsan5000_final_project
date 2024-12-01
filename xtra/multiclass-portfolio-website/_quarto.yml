@@ -20,13 +20,17 @@ website:
           - text: DSAN-5000
             href: projects/dsan-5000/_site/index.html
 
+      - text: "Experience"
+        href: experience.qmd
+
       - text: "Resume"
         href: images/resume.pdf
 
 format:
   html:
-    css: styles.scss
-    theme: lux
+    theme: 
+      - lux
+      - custom.scss
     toc: true
 
 
