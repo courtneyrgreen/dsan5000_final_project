@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>instructions – DSAN-5000: Project</title>
+<title>draft_eda_structure – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,11 +152,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link active" data-scroll-target="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a>
   <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#general-comments" id="toc-general-comments" class="nav-link" data-scroll-target="#general-comments">General comments:</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#univariate-analysis" id="toc-univariate-analysis" class="nav-link" data-scroll-target="#univariate-analysis">Univariate Analysis</a>
+  <ul class="collapse">
+  <li><a href="#numerical-variables" id="toc-numerical-variables" class="nav-link" data-scroll-target="#numerical-variables">Numerical Variables</a></li>
+  <li><a href="#tag-sum" id="toc-tag-sum" class="nav-link" data-scroll-target="#tag-sum">Tag Sum</a></li>
+  <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link" data-scroll-target="#categorical-variables">Categorical Variables</a></li>
+  </ul></li>
+  <li><a href="#bivariate-analysis" id="toc-bivariate-analysis" class="nav-link" data-scroll-target="#bivariate-analysis">Bivariate Analysis</a>
+  <ul class="collapse">
+  <li><a href="#correlation-analysis" id="toc-correlation-analysis" class="nav-link" data-scroll-target="#correlation-analysis">Correlation Analysis</a></li>
+  <li><a href="#crosstabulations" id="toc-crosstabulations" class="nav-link" data-scroll-target="#crosstabulations">Crosstabulations</a></li>
+  <li><a href="#data-distribution-and-normalization" id="toc-data-distribution-and-normalization" class="nav-link" data-scroll-target="#data-distribution-and-normalization">Data Distribution and Normalization</a></li>
+  </ul></li>
+  <li><a href="#data-visualization-and-storytelling" id="toc-data-visualization-and-storytelling" class="nav-link" data-scroll-target="#data-visualization-and-storytelling">Data Visualization and Storytelling</a>
+  <ul class="collapse">
+  <li><a href="#visual-summary" id="toc-visual-summary" class="nav-link" data-scroll-target="#visual-summary">Visual Summary</a></li>
+  </ul></li>
+  <li><a href="#conclusions-and-next-steps" id="toc-conclusions-and-next-steps" class="nav-link" data-scroll-target="#conclusions-and-next-steps">Conclusions and Next Steps</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-eda-findings" id="toc-summary-of-eda-findings" class="nav-link" data-scroll-target="#summary-of-eda-findings">Summary of EDA Findings</a></li>
+  <li><a href="#implications-for-modeling" id="toc-implications-for-modeling" class="nav-link" data-scroll-target="#implications-for-modeling">Implications for Modeling</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -167,78 +187,136 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you on this page will be specific you your project and data. Some things might “make more sense” on other pages, depending on your workflow, for example, you might feel that normalization and scaling should be included in a later section, dealing with machine learning, rather than here, that is totally fine. Organize your project in the way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
+<section id="exploratory-data-analysis-eda" class="level1">
+<h1>Exploratory Data Analysis (EDA)</h1>
+<section id="introduction-and-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
+<p>The goal of this section is to perform a thorough exploratory data analysis (EDA) on the Illinois exoneration dataset. EDA allows me to better understand the data’s structure, uncover patterns, and identify any issues that may require additional cleaning or transformation. By systematically examining the dataset, I can ensure that future analyses are grounded in a solid understanding of the data.</p>
+</section>
+<section id="univariate-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="univariate-analysis">Univariate Analysis</h2>
+<section id="numerical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="numerical-variables">Numerical Variables</h3>
+<section id="age-and-sentence-in-years" class="level4">
+<h4 class="anchored" data-anchor-id="age-and-sentence-in-years">Age and Sentence in Years</h4>
 <ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
+<li><strong>Summary Statistics</strong>: Calculate mean, median, and standard deviation for <code>age</code> and <code>sentence_in_years</code>.</li>
+<li><strong>Visualization</strong>:
+<ul>
+<li>Use histograms to visualize the distribution of <code>age</code> and <code>sentence_in_years</code>.</li>
+<li>Overlay density plots to understand the spread of the data.</li>
+</ul></li>
+<li><strong>Key Insights</strong>: Look for trends such as whether certain age groups are overrepresented among exonerees or whether sentences tend to cluster around specific lengths (e.g., life sentences, short-term sentences).</li>
 </ul>
 </section>
-<section id="general-comments" class="level2">
-<h2 class="anchored" data-anchor-id="general-comments">General comments:</h2>
-<ul>
-<li><strong>Iterative Process</strong>: Data cleaning is often not a one-time process. As your analysis progresses, you may need to revisit the cleaning phase, and re-run the code, to adjust to new insights or requirements.</li>
-<li><strong>Clarity and Reproducibility</strong>: Ensure your documentation is clear and thorough. Others should be able to follow your steps and achieve the same results.</li>
-<li><strong>Visualizations</strong>: Use before-and-after visualizations to illustrate the impact of your cleaning steps, making the process more intuitive and transparent.</li>
-</ul>
-<p>By the end of this phase, your cleaned data should be well-documented and ready for further stages, such as <strong>Exploratory Data Analysis (EDA)</strong> and <strong>Machine Learning</strong>.</p>
 </section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>The <strong>Data Cleaning</strong> page of your portfolio is where you document the process of transforming your raw data into a usable format. Data cleaning is essential for ensuring the quality of your analysis, and this page should serve as a clear and reproducible guide for anyone reviewing your work. It also provides transparency, allowing others to trace the steps you took to prepare your data.</p>
-<p>The following is a guide to help you get started with possible thing to address on this page .</p>
+<section id="tag-sum" class="level3">
+<h3 class="anchored" data-anchor-id="tag-sum">Tag Sum</h3>
 <ul>
-<li><strong>Description of the Data Cleaning Process</strong>: Explain the steps you took to clean and preprocess the data.</li>
-<li><strong>Code Documentation</strong>: Provide the code used in the data cleaning process (link to GitHub or embed the code directly).</li>
-<li><strong>Provide examples of data before and after cleaning</strong>: e.g.&nbsp;with df.head() or df.describe()</li>
-<li><strong>Raw and Cleaned Data Links</strong>: Ensure your page links to both the original (raw) dataset and the cleaned dataset. (please keep organized and store the cleaned data in <code>data/processed-data</code>, or similar location which doesn’t get synced to GitHub)</li>
+<li><strong>Purpose</strong>: Examine the <code>tag_sum</code> column to understand the distribution of the number of tags associated with each case.</li>
+<li><strong>Visualization</strong>: Use a bar plot or histogram to visualize the counts.</li>
+<li><strong>Key Insights</strong>: Identify whether cases with higher tag counts correlate with specific crimes or systemic issues.</li>
 </ul>
-<p>Possible things to include:</p>
-<p><strong>Introduction to Data Cleaning</strong>:</p>
+<hr>
+</section>
+<section id="categorical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-variables">Categorical Variables</h3>
+<section id="race-sex-and-worst-crime-display" class="level4">
+<h4 class="anchored" data-anchor-id="race-sex-and-worst-crime-display">Race, Sex, and Worst Crime Display</h4>
 <ul>
-<li>Provide a brief explanation of the data cleaning phase, its importance in preparing the data for further analysis (EDA, modeling), and its iterative nature.</li>
-<li>Mention that data cleaning may need to be revisited as the project evolves and analysis goals change.</li>
+<li><strong>Frequency Counts</strong>: Calculate the counts and proportions for each category.</li>
+<li><strong>Visualization</strong>:
+<ul>
+<li>Use bar plots to visualize the distribution of race and sex.</li>
+<li>Create a bar plot for the top 10 most common crimes in the <code>worst_crime_display</code> column.</li>
+</ul></li>
+<li><strong>Key Insights</strong>: Look for overrepresentation of specific groups or patterns in the crimes leading to wrongful convictions.</li>
 </ul>
-<p><strong>Managing Missing Data</strong>:</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="bivariate-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="bivariate-analysis">Bivariate Analysis</h2>
+<section id="correlation-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h3>
+<section id="age-sentence-in-years-and-tag-sum" class="level4">
+<h4 class="anchored" data-anchor-id="age-sentence-in-years-and-tag-sum">Age, Sentence in Years, and Tag Sum</h4>
 <ul>
-<li><strong>Identify Missing Values</strong>: Explain how you identified missing data and where it occurred.</li>
-<li><strong>Handling Missing Data</strong>: Describe how missing values were addressed (e.g., imputation, removal of rows/columns).</li>
-<li><strong>Visualize Missing Data</strong>: Include visualizations (e.g., heatmaps) showing missing values before and after handling them.</li>
+<li><strong>Method</strong>: Use a correlation matrix to examine relationships between numerical variables.</li>
+<li><strong>Visualization</strong>: Create a heatmap to highlight strong or weak correlations.</li>
+<li><strong>Key Insights</strong>: Determine whether age or tag count correlates strongly with sentence length.</li>
 </ul>
-<p><strong>Outlier Detection and Treatment</strong>:</p>
+<hr>
+</section>
+</section>
+<section id="crosstabulations" class="level3">
+<h3 class="anchored" data-anchor-id="crosstabulations">Crosstabulations</h3>
+<section id="race-and-worst-crime-display" class="level4">
+<h4 class="anchored" data-anchor-id="race-and-worst-crime-display">Race and Worst Crime Display</h4>
 <ul>
-<li><strong>Identify Outliers</strong>: Describe the methods you used to detect outliers in the dataset.</li>
-<li><strong>Addressing Outliers</strong>: Explain how outliers were treated (e.g., removal, transformation, or retaining them for analysis).</li>
-<li><strong>Visualize Outliers</strong>: Use visualizations (e.g., box plots) to show how outliers were managed.</li>
+<li><strong>Purpose</strong>: Explore the relationship between race and the types of crimes leading to exonerations.</li>
+<li><strong>Visualization</strong>: Use a grouped bar plot or mosaic plot to show the distribution.</li>
+<li><strong>Key Insights</strong>: Identify systemic biases in the criminal justice system, such as racial disparities in the types of crimes charged.</li>
 </ul>
-<p><strong>Data Type Correction and Formatting</strong>:</p>
+<hr>
+</section>
+</section>
+<section id="data-distribution-and-normalization" class="level3">
+<h3 class="anchored" data-anchor-id="data-distribution-and-normalization">Data Distribution and Normalization</h3>
+<section id="skewness-in-sentence-length" class="level4">
+<h4 class="anchored" data-anchor-id="skewness-in-sentence-length">Skewness in Sentence Length</h4>
 <ul>
-<li><strong>Review Data Types</strong>: Summarize the types of variables (numerical, categorical, date-time, etc.) and ensure they are correctly formatted.</li>
-<li><strong>Transformation</strong>: Document any transformations performed, such as converting date formats, handling categorical variables, or encoding labels.</li>
-<li><strong>Impact of Changes</strong>: Briefly explain why these changes were necessary for accurate analysis.</li>
+<li><strong>Analysis</strong>: Calculate skewness and kurtosis for <code>sentence_in_years</code>.</li>
+<li><strong>Visualization</strong>: Use box plots to show the spread of data.</li>
+<li><strong>Transformation</strong>: Apply log transformation or other techniques to handle extreme skewness, if needed.</li>
 </ul>
-<p><strong>Normalization and Scaling</strong>:</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="data-visualization-and-storytelling" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization-and-storytelling">Data Visualization and Storytelling</h2>
+<section id="visual-summary" class="level3">
+<h3 class="anchored" data-anchor-id="visual-summary">Visual Summary</h3>
 <ul>
-<li><strong>Data Distribution Analysis</strong>: Check and discuss the distribution of numerical variables (e.g., skewness).</li>
-<li><strong>Normalization Techniques</strong>: Describe any normalization or scaling techniques used (e.g., min-max scaling, z-score normalization).</li>
-<li><strong>Before-and-After Visualizations</strong>: Provide visualizations comparing the data before and after scaling or normalization.</li>
+<li><strong>Key Visualizations</strong>:
+<ul>
+<li>Age distribution among exonerees.</li>
+<li>Breakdown of crimes by race and sex.</li>
+<li>Relationship between sentence length and tag count.</li>
+</ul></li>
+<li><strong>Interpretation</strong>: Annotate visualizations with clear explanations to connect them back to the project’s objectives.</li>
 </ul>
-<p><strong>Subsetting the Data</strong>:</p>
+<hr>
+</section>
+</section>
+<section id="conclusions-and-next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions-and-next-steps">Conclusions and Next Steps</h2>
+<section id="summary-of-eda-findings" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-eda-findings">Summary of EDA Findings</h3>
 <ul>
-<li><strong>Data Filtering</strong>: Explain any subsetting or filtering of the data (e.g., selecting quantitative or qualitative columns).</li>
-<li><strong>Rationale</strong>: Justify why you chose to work with a particular subset of the data.</li>
+<li>Highlight key trends, such as racial disparities, systemic biases in sentencing, or patterns in the number of tags.</li>
+</ul>
+</section>
+<section id="implications-for-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="implications-for-modeling">Implications for Modeling</h3>
+<ul>
+<li>Discuss how findings from EDA inform the next steps in analysis:
+<ul>
+<li>Features to include in modeling (e.g., <code>sentence_in_years</code>, <code>tag_sum</code>, categorical encodings for <code>race</code> and <code>sex</code>).</li>
+<li>Data transformations or further cleaning needed before modeling.</li>
+</ul></li>
+</ul>
+</section>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next Steps</h3>
+<ul>
+<li>Transition from EDA to feature engineering and modeling with a clear plan informed by the insights gathered here.</li>
 </ul>
 
 
+</section>
 </section>
 </section>
 

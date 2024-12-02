@@ -52,7 +52,7 @@ Use this page to track your progress and keep a log of your contributions to the
 **Sun: 12-1-2024**
 
 * [x] Completed multi-class-portfolio website rough draft and pushed to GU domains.
-* [x] 
+* [x] Added in-line prose to data-cleaning exoneration data to explain data cleaning process.
 
 
 

@@ -8,6 +8,8 @@ This section should be written for a **technical audience**, focusing on detaile
 - Explain unexpected results and their technical implications.
 - Identify areas for future work, including potential optimizations, further analysis, or scaling solutions.
 
+- arrest data with the 1s + arrest data likely isn't accurate lol because no oversight
+
 ## Benchmarks
 
 - Compare your findings to relevant research, industry benchmarks, or intuitive expectations, if applicable.

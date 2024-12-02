@@ -1,0 +1,87 @@
+# Exploratory Data Analysis (EDA)
+
+## Introduction and Motivation
+
+The goal of this section is to perform a thorough exploratory data analysis (EDA) on the Illinois exoneration dataset. EDA allows me to better understand the data's structure, uncover patterns, and identify any issues that may require additional cleaning or transformation. By systematically examining the dataset, I can ensure that future analyses are grounded in a solid understanding of the data.
+
+## Univariate Analysis
+
+### Numerical Variables
+
+#### Age and Sentence in Years
+- **Summary Statistics**: Calculate mean, median, and standard deviation for `age` and `sentence_in_years`.
+- **Visualization**: 
+  - Use histograms to visualize the distribution of `age` and `sentence_in_years`.
+  - Overlay density plots to understand the spread of the data.
+- **Key Insights**: Look for trends such as whether certain age groups are overrepresented among exonerees or whether sentences tend to cluster around specific lengths (e.g., life sentences, short-term sentences).
+
+### Tag Sum
+- **Purpose**: Examine the `tag_sum` column to understand the distribution of the number of tags associated with each case.
+- **Visualization**: Use a bar plot or histogram to visualize the counts.
+- **Key Insights**: Identify whether cases with higher tag counts correlate with specific crimes or systemic issues.
+
+---
+
+### Categorical Variables
+
+#### Race, Sex, and Worst Crime Display
+- **Frequency Counts**: Calculate the counts and proportions for each category.
+- **Visualization**:
+  - Use bar plots to visualize the distribution of race and sex.
+  - Create a bar plot for the top 10 most common crimes in the `worst_crime_display` column.
+- **Key Insights**: Look for overrepresentation of specific groups or patterns in the crimes leading to wrongful convictions.
+
+---
+
+## Bivariate Analysis
+
+### Correlation Analysis
+
+#### Age, Sentence in Years, and Tag Sum
+- **Method**: Use a correlation matrix to examine relationships between numerical variables.
+- **Visualization**: Create a heatmap to highlight strong or weak correlations.
+- **Key Insights**: Determine whether age or tag count correlates strongly with sentence length.
+
+---
+
+### Crosstabulations
+
+#### Race and Worst Crime Display
+- **Purpose**: Explore the relationship between race and the types of crimes leading to exonerations.
+- **Visualization**: Use a grouped bar plot or mosaic plot to show the distribution.
+- **Key Insights**: Identify systemic biases in the criminal justice system, such as racial disparities in the types of crimes charged.
+
+---
+
+### Data Distribution and Normalization
+
+#### Skewness in Sentence Length
+- **Analysis**: Calculate skewness and kurtosis for `sentence_in_years`.
+- **Visualization**: Use box plots to show the spread of data.
+- **Transformation**: Apply log transformation or other techniques to handle extreme skewness, if needed.
+
+---
+
+## Data Visualization and Storytelling
+
+### Visual Summary
+- **Key Visualizations**:
+  - Age distribution among exonerees.
+  - Breakdown of crimes by race and sex.
+  - Relationship between sentence length and tag count.
+- **Interpretation**: Annotate visualizations with clear explanations to connect them back to the project's objectives.
+
+---
+
+## Conclusions and Next Steps
+
+### Summary of EDA Findings
+- Highlight key trends, such as racial disparities, systemic biases in sentencing, or patterns in the number of tags.
+
+### Implications for Modeling
+- Discuss how findings from EDA inform the next steps in analysis:
+  - Features to include in modeling (e.g., `sentence_in_years`, `tag_sum`, categorical encodings for `race` and `sex`).
+  - Data transformations or further cleaning needed before modeling.
+
+### Next Steps
+- Transition from EDA to feature engineering and modeling with a clear plan informed by the insights gathered here.
