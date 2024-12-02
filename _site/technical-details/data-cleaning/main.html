@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Cleaning – DSAN-5000: Project</title>
+<title>DSAN-5000: Project - Data Cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-technical-details">    
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -196,15 +196,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#loading-the-dataset" id="toc-loading-the-dataset" class="nav-link" data-scroll-target="#loading-the-dataset">Loading the Dataset</a></li>
   </ul></li>
+  <li><a href="#subsetting-the-data-illinois" id="toc-subsetting-the-data-illinois" class="nav-link" data-scroll-target="#subsetting-the-data-illinois">Subsetting the Data: Illinois</a>
+  <ul class="collapse">
+  <li><a href="#filtering-the-dataset" id="toc-filtering-the-dataset" class="nav-link" data-scroll-target="#filtering-the-dataset">Filtering the Dataset</a></li>
+  </ul></li>
   <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a>
   <ul class="collapse">
   <li><a href="#identifying-missing-data" id="toc-identifying-missing-data" class="nav-link" data-scroll-target="#identifying-missing-data">Identifying Missing Data</a></li>
   <li><a href="#handling-missing-data-1" id="toc-handling-missing-data-1" class="nav-link" data-scroll-target="#handling-missing-data-1">Handling Missing Data</a></li>
   <li><a href="#summary-of-missing-data-handling" id="toc-summary-of-missing-data-handling" class="nav-link" data-scroll-target="#summary-of-missing-data-handling">Summary of Missing Data Handling</a></li>
-  </ul></li>
-  <li><a href="#subsetting-the-data-illinois" id="toc-subsetting-the-data-illinois" class="nav-link" data-scroll-target="#subsetting-the-data-illinois">Subsetting the Data: Illinois</a>
-  <ul class="collapse">
-  <li><a href="#filtering-the-dataset" id="toc-filtering-the-dataset" class="nav-link" data-scroll-target="#filtering-the-dataset">Filtering the Dataset</a></li>
   </ul></li>
   <li><a href="#column-standardization" id="toc-column-standardization" class="nav-link" data-scroll-target="#column-standardization">Column Standardization</a>
   <ul class="collapse">
@@ -216,11 +216,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#date-time-conversion" id="toc-date-time-conversion" class="nav-link" data-scroll-target="#date-time-conversion">Date-Time Conversion</a></li>
   <li><a href="#standardizing-the-sentence-column" id="toc-standardizing-the-sentence-column" class="nav-link" data-scroll-target="#standardizing-the-sentence-column">Standardizing the <code>sentence</code> Column</a></li>
   </ul></li>
-  <li><a href="#cleaning-the-tags-column" id="toc-cleaning-the-tags-column" class="nav-link" data-scroll-target="#cleaning-the-tags-column">Cleaning the <code>tags</code> Column</a></li>
+  <li><a href="#cleaning-the-tags-column-update-this" id="toc-cleaning-the-tags-column-update-this" class="nav-link" data-scroll-target="#cleaning-the-tags-column-update-this">Cleaning the <code>tags</code> Column !!UPDATE THIS</a></li>
+  <li><a href="#county-geocoding" id="toc-county-geocoding" class="nav-link" data-scroll-target="#county-geocoding">County Geocoding</a>
+  <ul class="collapse">
+  <li><a href="#optimization-of-the-geocoding-process" id="toc-optimization-of-the-geocoding-process" class="nav-link" data-scroll-target="#optimization-of-the-geocoding-process">Optimization of the Geocoding Process</a></li>
+  </ul></li>
   <li><a href="#column-reorganization" id="toc-column-reorganization" class="nav-link" data-scroll-target="#column-reorganization">Column Reorganization</a></li>
   <li><a href="#exporting-the-cleaned-dataset" id="toc-exporting-the-cleaned-dataset" class="nav-link" data-scroll-target="#exporting-the-cleaned-dataset">Exporting the Cleaned Dataset</a></li>
   <li><a href="#summary-and-next-steps" id="toc-summary-and-next-steps" class="nav-link" data-scroll-target="#summary-and-next-steps">Summary and Next Steps</a></li>
   </ul></li>
+  <li><a href="#illinois-arrest-data" id="toc-illinois-arrest-data" class="nav-link" data-scroll-target="#illinois-arrest-data">Illinois Arrest Data</a></li>
   </ul>
 </nav>
     </div>
@@ -258,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loading-the-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="loading-the-dataset">Loading the Dataset</h3>
 <p>The dataset is first loaded to inspect its structure and contents. The purpose of this step is to get an initial sense of the data types, potential missing values, and the distribution of key variables. This helps inform the cleaning steps required to make the data consistent and analyzable.</p>
-<div id="cell-4" class="cell" data-execution_count="333">
+<div id="cell-4" class="cell" data-execution_count="341">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import necessary Libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
@@ -271,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>Initial Dataset: </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="333">
+<div class="cell-output cell-output-display" data-execution_count="341">
 <div>
 
 
@@ -437,117 +442,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="handling-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h2>
-<section id="identifying-missing-data" class="level3">
-<h3 class="anchored" data-anchor-id="identifying-missing-data">Identifying Missing Data</h3>
-<p>Missing values are identified using <code>isnull()</code> to determine their extent and distribution across the dataset. The goal is to ensure that no critical data gaps remain unaddressed before proceeding with analysis.</p>
-<div id="cell-7" class="cell" data-execution_count="334">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Managing Missing Data - Identifying which columns have a lot of missing data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>na_counts <span class="op">=</span> df.isna().<span class="bu">sum</span>()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(na_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Last Name                    0
-First Name                   0
-Age                         27
-Race                         0
-Sex                          0
-State                        0
-County                      66
-Tags                       171
-Worst Crime Display          0
-Sentence                     0
-Posting Date                 0
-OM Tags                   1430
-F/MFE                     2557
-FC                        3133
-ILD                       2602
-P/FA                      1291
-DNA                       2984
-MWID                      2610
-OM                        1430
-Date of Exoneration          0
-Date of 1st Conviction       0
-Date of Release              0
-dtype: int64</code></pre>
-</div>
-</div>
-</section>
-<section id="handling-missing-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="handling-missing-data-1">Handling Missing Data</h3>
-<section id="rationale-for-dropping-columns" class="level4">
-<h4 class="anchored" data-anchor-id="rationale-for-dropping-columns">Rationale for Dropping Columns</h4>
-<p>The following columns were removed due to excessive missing data or redundancy: - <strong>OM Tags</strong>: Information here was consolidated into other binary tag columns, making this column redundant. - <strong>F/MFE, ILD, P/FA, DNA, MWID, FC, OM</strong>: Each of these columns had more than 50% missing values, which made them unreliable for meaningful analysis. Removing them ensures the dataset remains robust and manageable without introducing bias from imputation.</p>
-<div id="cell-9" class="cell" data-execution_count="335">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop columns with excessive missing values </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_original <span class="op">=</span> df.copy()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df.drop(columns <span class="op">=</span> [<span class="st">'OM Tags'</span>, <span class="st">'F/MFE'</span>, <span class="st">'ILD'</span>, <span class="st">'P/FA'</span>, <span class="st">'DNA'</span>, <span class="st">'MWID'</span>, <span class="st">'FC'</span>,<span class="st">'OM'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="visualizing-missing-data" class="level4">
-<h4 class="anchored" data-anchor-id="visualizing-missing-data">Visualizing Missing Data</h4>
-<p>To better understand the distribution of missing values, a heatmap is generated. This visualization provides a clear overview of where missing values occur, helping to decide which columns or rows to address in subsequent steps.</p>
-<section id="heatmap-of-missing-values-before-cleaning" class="level5">
-<h5 class="anchored" data-anchor-id="heatmap-of-missing-values-before-cleaning">Heatmap of Missing Values (Before Cleaning)</h5>
-<p>A heatmap is generated to visualize the extent of missing data before cleaning. Columns with a high proportion of missing values are easily identifiable, providing a clear justification for their removal.</p>
-<div id="cell-11" class="cell" data-execution_count="336">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data before cleaning</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df_original.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (Before Cleaning)'</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="main_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="heatmap-of-missing-values-after-cleaning" class="level5">
-<h5 class="anchored" data-anchor-id="heatmap-of-missing-values-after-cleaning">Heatmap of Missing Values (After Cleaning)</h5>
-<p>A second heatmap is generated after cleaning to confirm that all unnecessary columns with excessive missing values have been removed. This ensures the dataset is now complete and ready for further analysis.</p>
-<div id="cell-13" class="cell" data-execution_count="337">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data after cleaning</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (After Cleaning)'</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="main_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="summary-of-missing-data-handling" class="level3">
-<h3 class="anchored" data-anchor-id="summary-of-missing-data-handling">Summary of Missing Data Handling</h3>
-<p>Through this process, all missing data was evaluated and either addressed or removed. Columns with excessive missing values were dropped, while remaining data was retained to ensure completeness and reliability. The resulting dataset is now free of significant missing data, ready for further cleaning and analysis steps.</p>
-</section>
-</section>
 <section id="subsetting-the-data-illinois" class="level2">
 <h2 class="anchored" data-anchor-id="subsetting-the-data-illinois">Subsetting the Data: Illinois</h2>
 <p>Before diving into the broader data cleaning process, I decided to narrow the scope of my research question to Illinois. This choice was intentional to focus the analysis on a specific region, ensuring that the findings are both relevant and manageable within the scope of this project. Illinois was selected because of its extensive record of exoneration cases, particularly in Cook County, which provides a valuable dataset for analyzing systemic issues within the criminal justice system. Chicago, in particular, has long been associated with significant racial disparities and deeply entrenched problems in policing and prosecution, making it a critical focal point for this analysis. By focusing on Illinois, the dataset remains consistent in terms of jurisdictional laws and practices, allowing for a more accurate and concentrated exploration of patterns and trends in over-policing and wrongful convictions. This regional focus highlights the broader systemic failures of the criminal justice system while enabling a detailed examination of one of the most historically inequitable jurisdictions in terms of racial justice.</p>
 <section id="filtering-the-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-the-dataset">Filtering the Dataset</h3>
 <p>To isolate Illinois cases, the dataset was filtered by the state column, retaining only rows where the value matched “Illinois.” This step reduced the dataset to 548 rows, making it more manageable for analysis and visualization. Below is a preview of the filtered dataset:</p>
-<div id="cell-16" class="cell" data-execution_count="338">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'State'</span>] <span class="op">==</span> <span class="st">'Illinois'</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of exonerees for Illinois subset: "</span> , df.shape[<span class="dv">0</span>]) </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-6" class="cell" data-execution_count="342">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'State'</span>] <span class="op">==</span> <span class="st">'Illinois'</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of exonerees for Illinois subset: "</span> , df.shape[<span class="dv">0</span>]) </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of exonerees for Illinois subset:  548</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="338">
+<div class="cell-output cell-output-display" data-execution_count="342">
 <div>
 
 
@@ -566,6 +475,14 @@ dtype: int64</code></pre>
 <th data-quarto-table-cell-role="th">Worst Crime Display</th>
 <th data-quarto-table-cell-role="th">Sentence</th>
 <th data-quarto-table-cell-role="th">Posting Date</th>
+<th data-quarto-table-cell-role="th">OM Tags</th>
+<th data-quarto-table-cell-role="th">F/MFE</th>
+<th data-quarto-table-cell-role="th">FC</th>
+<th data-quarto-table-cell-role="th">ILD</th>
+<th data-quarto-table-cell-role="th">P/FA</th>
+<th data-quarto-table-cell-role="th">DNA</th>
+<th data-quarto-table-cell-role="th">MWID</th>
+<th data-quarto-table-cell-role="th">OM</th>
 <th data-quarto-table-cell-role="th">Date of Exoneration</th>
 <th data-quarto-table-cell-role="th">Date of 1st Conviction</th>
 <th data-quarto-table-cell-role="th">Date of Release</th>
@@ -585,6 +502,14 @@ dtype: int64</code></pre>
 <td>Drug Possession or Sale</td>
 <td>Probation</td>
 <td>2/14/22</td>
+<td>OF;#WH;#NW</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>OM</td>
 <td>2/1/22</td>
 <td>3/25/08</td>
 <td>3/25/08</td>
@@ -602,6 +527,14 @@ dtype: int64</code></pre>
 <td>Murder</td>
 <td>Life without parole</td>
 <td>2/13/15</td>
+<td>OF;#WH;#NW;#INT</td>
+<td>NaN</td>
+<td>FC</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>DNA</td>
+<td>NaN</td>
+<td>OM</td>
 <td>2/11/15</td>
 <td>1/15/87</td>
 <td>2/11/15</td>
@@ -619,6 +552,14 @@ dtype: int64</code></pre>
 <td>Murder</td>
 <td>90 years</td>
 <td>8/25/22</td>
+<td>OF;#WH;#NW;#WT;#INT;#PJ</td>
+<td>NaN</td>
+<td>FC</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>NaN</td>
+<td>MWID</td>
+<td>OM</td>
 <td>7/21/22</td>
 <td>9/22/04</td>
 <td>7/21/22</td>
@@ -636,6 +577,14 @@ dtype: int64</code></pre>
 <td>Drug Possession or Sale</td>
 <td>1 year</td>
 <td>4/13/20</td>
+<td>OF;#WH;#NW</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>OM</td>
 <td>2/11/20</td>
 <td>9/8/04</td>
 <td>12/26/04</td>
@@ -653,6 +602,247 @@ dtype: int64</code></pre>
 <td>Murder</td>
 <td>75 years</td>
 <td>8/29/11</td>
+<td>PR;#OF;#WH;#NW;#KP;#WT</td>
+<td>F/MFE</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>P/FA</td>
+<td>DNA</td>
+<td>MWID</td>
+<td>OM</td>
+<td>7/2/96</td>
+<td>10/20/78</td>
+<td>6/14/96</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="handling-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h2>
+<section id="identifying-missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-missing-data">Identifying Missing Data</h3>
+<p>Missing values are identified using <code>isnull()</code> to determine their extent and distribution across the dataset. The goal is to ensure that no critical data gaps remain unaddressed before proceeding with analysis.</p>
+<div id="cell-8" class="cell" data-execution_count="343">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Managing Missing Data - Identifying which columns have a lot of missing data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>na_counts <span class="op">=</span> df.isna().<span class="bu">sum</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(na_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Last Name                   0
+First Name                  0
+Age                         1
+Race                        0
+Sex                         0
+State                       0
+County                      0
+Tags                       15
+Worst Crime Display         0
+Sentence                    0
+Posting Date                0
+OM Tags                    70
+F/MFE                     474
+FC                        410
+ILD                       440
+P/FA                       67
+DNA                       482
+MWID                      442
+OM                         70
+Date of Exoneration         0
+Date of 1st Conviction      0
+Date of Release             0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="handling-missing-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="handling-missing-data-1">Handling Missing Data</h3>
+<section id="rationale-for-dropping-columns" class="level4">
+<h4 class="anchored" data-anchor-id="rationale-for-dropping-columns">Rationale for Dropping Columns</h4>
+<p>The following columns were removed due to excessive missing data or redundancy: - <strong>F/MFE, ILD, P/FA, DNA, MWID, FC</strong>: Each of these columns had more than 50% missing values, which made them unreliable for meaningful analysis. Removing them ensures the dataset remains robust and manageable without introducing bias from imputation.</p>
+<p>FIX!! While <strong>OM Tags and OM</strong> columns had a lot of missing values, I initiall removed them but during EDA realized I actually wanted to explore.</p>
+<div id="cell-10" class="cell" data-execution_count="344">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop columns with excessive missing values </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_original <span class="op">=</span> df.copy()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.drop(columns <span class="op">=</span> [<span class="st">'F/MFE'</span>, <span class="st">'ILD'</span>, <span class="st">'P/FA'</span>, <span class="st">'DNA'</span>, <span class="st">'MWID'</span>, <span class="st">'FC'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-missing-data" class="level4">
+<h4 class="anchored" data-anchor-id="visualizing-missing-data">Visualizing Missing Data</h4>
+<p>To better understand the distribution of missing values, a heatmap is generated. This visualization provides a clear overview of where missing values occur, helping to decide which columns or rows to address in subsequent steps.</p>
+<section id="heatmap-of-missing-values-before-cleaning" class="level5">
+<h5 class="anchored" data-anchor-id="heatmap-of-missing-values-before-cleaning">Heatmap of Missing Values (Before Cleaning)</h5>
+<p>A heatmap is generated to visualize the extent of missing data before cleaning. Columns with a high proportion of missing values are easily identifiable, providing a clear justification for their removal.</p>
+<div id="cell-12" class="cell" data-execution_count="345">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data before cleaning</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df_original.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (Before Cleaning)'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="heatmap-of-missing-values-after-cleaning" class="level5">
+<h5 class="anchored" data-anchor-id="heatmap-of-missing-values-after-cleaning">Heatmap of Missing Values (After Cleaning)</h5>
+<p>A second heatmap is generated after cleaning to confirm that all unnecessary columns with excessive missing values have been removed. This ensures the dataset is now complete and ready for further analysis.</p>
+<div id="cell-14" class="cell" data-execution_count="346">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data after cleaning</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (After Cleaning)'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="summary-of-missing-data-handling" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-missing-data-handling">Summary of Missing Data Handling</h3>
+<p>Through this process, all missing data was evaluated and either addressed or removed. Columns with excessive missing values were dropped, while remaining data was retained to ensure completeness and reliability. The resulting dataset is now free of significant missing data, ready for further cleaning and analysis steps.</p>
+<div id="cell-16" class="cell" data-execution_count="347">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'State'</span>] <span class="op">==</span> <span class="st">'Illinois'</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of exonerees for Illinois subset: "</span> , df.shape[<span class="dv">0</span>]) </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of exonerees for Illinois subset:  548</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="347">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Last Name</th>
+<th data-quarto-table-cell-role="th">First Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Race</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">Tags</th>
+<th data-quarto-table-cell-role="th">Worst Crime Display</th>
+<th data-quarto-table-cell-role="th">Sentence</th>
+<th data-quarto-table-cell-role="th">Posting Date</th>
+<th data-quarto-table-cell-role="th">OM Tags</th>
+<th data-quarto-table-cell-role="th">OM</th>
+<th data-quarto-table-cell-role="th">Date of Exoneration</th>
+<th data-quarto-table-cell-role="th">Date of 1st Conviction</th>
+<th data-quarto-table-cell-role="th">Date of Release</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abbott</td>
+<td>Cinque</td>
+<td>19.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU;#IO;#NC;#P</td>
+<td>Drug Possession or Sale</td>
+<td>Probation</td>
+<td>2/14/22</td>
+<td>OF;#WH;#NW</td>
+<td>OM</td>
+<td>2/1/22</td>
+<td>3/25/08</td>
+<td>3/25/08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Abernathy</td>
+<td>Christopher</td>
+<td>17.0</td>
+<td>White</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU;#CV;#H;#IO;#JV;#SA</td>
+<td>Murder</td>
+<td>Life without parole</td>
+<td>2/13/15</td>
+<td>OF;#WH;#NW;#INT</td>
+<td>OM</td>
+<td>2/11/15</td>
+<td>1/15/87</td>
+<td>2/11/15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Abrego</td>
+<td>Eruby</td>
+<td>20.0</td>
+<td>Hispanic</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CDC;#H;#IO</td>
+<td>Murder</td>
+<td>90 years</td>
+<td>8/25/22</td>
+<td>OF;#WH;#NW;#WT;#INT;#PJ</td>
+<td>OM</td>
+<td>7/21/22</td>
+<td>9/22/04</td>
+<td>7/21/22</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Adams</td>
+<td>Demetris</td>
+<td>22.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CIU;#IO;#NC;#P</td>
+<td>Drug Possession or Sale</td>
+<td>1 year</td>
+<td>4/13/20</td>
+<td>OF;#WH;#NW</td>
+<td>OM</td>
+<td>2/11/20</td>
+<td>9/8/04</td>
+<td>12/26/04</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Adams</td>
+<td>Kenneth</td>
+<td>22.0</td>
+<td>Black</td>
+<td>Male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>CDC;#H;#IO;#JI;#SA</td>
+<td>Murder</td>
+<td>75 years</td>
+<td>8/29/11</td>
+<td>PR;#OF;#WH;#NW;#KP;#WT</td>
+<td>OM</td>
 <td>7/2/96</td>
 <td>10/20/78</td>
 <td>6/14/96</td>
@@ -668,25 +858,26 @@ dtype: int64</code></pre>
 <section id="column-standardization" class="level2">
 <h2 class="anchored" data-anchor-id="column-standardization">Column Standardization</h2>
 <p>To ensure consistency and simplify future operations, all column names were standardized by converting them to lowercase and replacing spaces with underscores (_). This transformation enhances readability, aligns with Python’s naming conventions, and makes column names easier to reference in code. For example, a column originally labeled First Name is now first_name.</p>
-<div id="cell-18" class="cell" data-execution_count="339">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize column names by converting to lowercase and replacing spaces with '_'</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-18" class="cell" data-execution_count="348">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize column names by converting to lowercase and replacing spaces with '_'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['last_name', 'first_name', 'age', 'race', 'sex', 'state', 'county',
-       'tags', 'worst_crime_display', 'sentence', 'posting_date',
-       'date_of_exoneration', 'date_of_1st_conviction', 'date_of_release'],
+       'tags', 'worst_crime_display', 'sentence', 'posting_date', 'om_tags',
+       'om', 'date_of_exoneration', 'date_of_1st_conviction',
+       'date_of_release'],
       dtype='object')</code></pre>
 </div>
 </div>
 <section id="text-value-standardization" class="level3">
 <h3 class="anchored" data-anchor-id="text-value-standardization">Text Value Standardization</h3>
 <p>Additionally, the sex column was converted to lowercase to maintain uniformity across textual data. This step ensures that values like “Male” and “male” are treated equivalently during analysis, reducing potential discrepancies caused by case sensitivity.</p>
-<div id="cell-20" class="cell" data-execution_count="340">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert sex values to lowercase </span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>] <span class="op">=</span> df[<span class="st">'sex'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="340">
+<div id="cell-20" class="cell" data-execution_count="349">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert sex values to lowercase </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>] <span class="op">=</span> df[<span class="st">'sex'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="349">
 <pre><code>1     male
 3     male
 5     male
@@ -700,9 +891,9 @@ Name: sex, dtype: object</code></pre>
 <section id="data-type-correction-and-formatting" class="level2">
 <h2 class="anchored" data-anchor-id="data-type-correction-and-formatting">Data Type Correction and Formatting</h2>
 <p>Accurate data type formatting is essential for effective analysis. This section ensures that all variables are correctly identified as numerical, categorical, or date-time types and that they are ready for further processing.</p>
-<div id="cell-22" class="cell" data-execution_count="341">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display data types for each column</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-22" class="cell" data-execution_count="350">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display data types for each column</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                  object
 first_name                 object
@@ -715,6 +906,8 @@ tags                       object
 worst_crime_display        object
 sentence                   object
 posting_date               object
+om_tags                    object
+om                         object
 date_of_exoneration        object
 date_of_1st_conviction     object
 date_of_release            object
@@ -724,13 +917,13 @@ dtype: object</code></pre>
 <section id="data-type-correction-for-textual-data" class="level3">
 <h3 class="anchored" data-anchor-id="data-type-correction-for-textual-data">Data Type Correction for Textual Data</h3>
 <p>Upon reviewing the data types, it was noted that several columns, such as Last Name, First Name, Race, State, County, and Worst Crime Display, were classified as object. While this is acceptable for textual data, converting these columns to string ensures consistency and prevents potential issues when performing text-specific operations. This transformation also allows for better optimization and clarity in the data processing pipeline. The changes were necessary to standardize the dataset and ensure compatibility with downstream analysis tasks.</p>
-<div id="cell-24" class="cell" data-execution_count="342">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert relevant columns to string type</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>string_columns <span class="op">=</span> [<span class="st">'last_name'</span>, <span class="st">'first_name'</span>, <span class="st">'race'</span>, <span class="st">'sex'</span>, <span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'worst_crime_display'</span>]</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df[string_columns] <span class="op">=</span> df[string_columns].astype(<span class="st">'string'</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-24" class="cell" data-execution_count="351">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert relevant columns to string type</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>string_columns <span class="op">=</span> [<span class="st">'last_name'</span>, <span class="st">'first_name'</span>, <span class="st">'race'</span>, <span class="st">'sex'</span>, <span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'worst_crime_display'</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df[string_columns] <span class="op">=</span> df[string_columns].astype(<span class="st">'string'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                 string[python]
 first_name                string[python]
@@ -743,6 +936,8 @@ tags                              object
 worst_crime_display       string[python]
 sentence                          object
 posting_date                      object
+om_tags                           object
+om                                object
 date_of_exoneration               object
 date_of_1st_conviction            object
 date_of_release                   object
@@ -753,17 +948,17 @@ dtype: object</code></pre>
 <section id="date-time-conversion" class="level3">
 <h3 class="anchored" data-anchor-id="date-time-conversion">Date-Time Conversion</h3>
 <p>All date columns (<code>posting_date</code>, <code>date_of_exoneration</code>, <code>date_of_1st_conviction</code>, <code>date_of_release</code>) are converted to <code>datetime</code> format. This transformation ensures consistency and allows for easier time-based calculations, such as measuring the time between conviction and exoneration.</p>
-<div id="cell-26" class="cell" data-execution_count="343">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date columns into datetime format</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> [<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]:</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Attempt to convert with explicit format (MM/DD/YY)</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> pd.to_datetime(df[col], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%y'</span>, errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error processing column </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> pd.to_datetime(df[col], errors<span class="op">=</span><span class="st">'coerce'</span>)  <span class="co"># Fallback to auto-detection</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-26" class="cell" data-execution_count="352">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date columns into datetime format</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> [<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Attempt to convert with explicit format (MM/DD/YY)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> pd.to_datetime(df[col], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%y'</span>, errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error processing column </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> pd.to_datetime(df[col], errors<span class="op">=</span><span class="st">'coerce'</span>)  <span class="co"># Fallback to auto-detection</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   posting_date date_of_exoneration date_of_1st_conviction date_of_release
 1    2022-02-14          2022-02-01             2008-03-25      2008-03-25
@@ -773,9 +968,9 @@ dtype: object</code></pre>
 15   2011-08-29          1996-07-02             1978-10-20      1996-06-14</code></pre>
 </div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="344">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-27" class="cell" data-execution_count="353">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                 string[python]
 first_name                string[python]
@@ -788,6 +983,8 @@ tags                              object
 worst_crime_display       string[python]
 sentence                          object
 posting_date              datetime64[ns]
+om_tags                           object
+om                                object
 date_of_exoneration       datetime64[ns]
 date_of_1st_conviction    datetime64[ns]
 date_of_release           datetime64[ns]
@@ -798,10 +995,10 @@ dtype: object</code></pre>
 <section id="standardizing-the-sentence-column" class="level3">
 <h3 class="anchored" data-anchor-id="standardizing-the-sentence-column">Standardizing the <code>sentence</code> Column</h3>
 <p>The <code>sentence</code> column contains textual descriptions of sentencing outcomes, including terms like “Life without parole,” “Death,” or a specified number of years. To facilitate analysis, I transform this column into a numerical format (<code>sentence_in_years</code>) by converting life sentences and probation to placeholder values and handling ranges or mixed units (e.g., years and months).</p>
-<div id="cell-29" class="cell" data-execution_count="345">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print unique sentencing values for a better idea on how to best clean column </span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>unique_sentences <span class="op">=</span> df[<span class="st">'sentence'</span>].unique()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_sentences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-29" class="cell" data-execution_count="354">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print unique sentencing values for a better idea on how to best clean column </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>unique_sentences <span class="op">=</span> df[<span class="st">'sentence'</span>].unique()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_sentences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Probation' 'Life without parole' '90 years' '1 year' '75 years'
  '30 years' '55 years' '2 years' '3 years' '6 years' '45 years'
@@ -826,51 +1023,51 @@ dtype: object</code></pre>
 <h5 class="anchored" data-anchor-id="transforming-the-sentence-column">Transforming the <code>sentence</code> Column</h5>
 <p>The <code>sentence</code> column is cleaned to convert textual descriptions into numerical values: 1. Probation and Not Sentenced are set to <code>0</code>. 2. Life sentences and the death penalty are represented as <code>100</code> for placeholder analysis. 3. Ranges (e.g., “25 to 50 years”) are averaged to a single value. 4. Years and months are combined into total years for uniformity.</p>
 <p>This standardization facilitates meaningful comparisons and quantitative analysis of sentencing patterns.</p>
-<div id="cell-31" class="cell" data-execution_count="346">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_sentence(value):</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Cleans the 'sentence' column values to numeric years for numerical EDA </span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">    - Probation is represented as 0.</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Not sentenced' is converted to np.nan.</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Life' and 'Death' sentences are represented as 100 (placeholder).</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - Years and months are converted to a numeric value in years. """</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">==</span> <span class="st">'Probation'</span>:</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> value <span class="op">==</span> <span class="st">'Not sentenced'</span>:</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># NaN for not sentenced</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'Life'</span> <span class="kw">in</span> value <span class="kw">or</span> value <span class="op">==</span> <span class="st">'Death'</span>:</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">100</span>  <span class="co"># Placeholder for life sentences or death penalty</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'year'</span> <span class="kw">in</span> value <span class="kw">or</span> <span class="st">'month'</span> <span class="kw">in</span> value:</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handles ranges like '25 to 50 years'</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'to'</span> <span class="kw">in</span> value:</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>            years <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">sum</span>(years) <span class="op">/</span> <span class="bu">len</span>(years)  <span class="co"># Average the range </span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle "X years and Y months"</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'and'</span> <span class="kw">in</span> value:</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>            numbers <span class="op">=</span> [<span class="bu">float</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">2</span>:  <span class="co"># Both years and months are present</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>                years, months <span class="op">=</span> numbers</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> years <span class="op">+</span> (months <span class="op">/</span> <span class="dv">12</span>)  <span class="co"># Convert months to years</span></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># Only one number is present</span></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> numbers[<span class="dv">0</span>]  <span class="co"># Treat it as years</span></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle only months or only years</span></span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'months'</span> <span class="kw">in</span> value:</span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>            months <span class="op">=</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> months <span class="op">/</span> <span class="dv">12</span>  <span class="co"># Convert months to years</span></span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Only years</span></span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># Anything unexpected as None</span></span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sentence_in_years'</span>] <span class="op">=</span> df[<span class="st">'sentence'</span>].<span class="bu">apply</span>(clean_sentence)</span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Check results</span></span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'sentence'</span>, <span class="st">'sentence_in_years'</span>]].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="346">
+<div id="cell-31" class="cell" data-execution_count="355">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_sentence(value):</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Cleans the 'sentence' column values to numeric years for numerical EDA </span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">    - Probation is represented as 0.</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Not sentenced' is converted to np.nan.</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Life' and 'Death' sentences are represented as 100 (placeholder).</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - Years and months are converted to a numeric value in years. """</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">==</span> <span class="st">'Probation'</span>:</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> value <span class="op">==</span> <span class="st">'Not sentenced'</span>:</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># NaN for not sentenced</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'Life'</span> <span class="kw">in</span> value <span class="kw">or</span> value <span class="op">==</span> <span class="st">'Death'</span>:</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">100</span>  <span class="co"># Placeholder for life sentences or death penalty</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'year'</span> <span class="kw">in</span> value <span class="kw">or</span> <span class="st">'month'</span> <span class="kw">in</span> value:</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handles ranges like '25 to 50 years'</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'to'</span> <span class="kw">in</span> value:</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>            years <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">sum</span>(years) <span class="op">/</span> <span class="bu">len</span>(years)  <span class="co"># Average the range </span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle "X years and Y months"</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'and'</span> <span class="kw">in</span> value:</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>            numbers <span class="op">=</span> [<span class="bu">float</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">2</span>:  <span class="co"># Both years and months are present</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>                years, months <span class="op">=</span> numbers</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> years <span class="op">+</span> (months <span class="op">/</span> <span class="dv">12</span>)  <span class="co"># Convert months to years</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># Only one number is present</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> numbers[<span class="dv">0</span>]  <span class="co"># Treat it as years</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle only months or only years</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'months'</span> <span class="kw">in</span> value:</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>            months <span class="op">=</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> months <span class="op">/</span> <span class="dv">12</span>  <span class="co"># Convert months to years</span></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Only years</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># Anything unexpected as None</span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sentence_in_years'</span>] <span class="op">=</span> df[<span class="st">'sentence'</span>].<span class="bu">apply</span>(clean_sentence)</span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Check results</span></span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'sentence'</span>, <span class="st">'sentence_in_years'</span>]].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="355">
 <div>
 
 
@@ -939,9 +1136,9 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="347">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-32" class="cell" data-execution_count="356">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                 string[python]
 first_name                string[python]
@@ -954,6 +1151,8 @@ tags                              object
 worst_crime_display       string[python]
 sentence                          object
 posting_date              datetime64[ns]
+om_tags                           object
+om                                object
 date_of_exoneration       datetime64[ns]
 date_of_1st_conviction    datetime64[ns]
 date_of_release           datetime64[ns]
@@ -965,8 +1164,8 @@ dtype: object</code></pre>
 </section>
 </section>
 </section>
-<section id="cleaning-the-tags-column" class="level2">
-<h2 class="anchored" data-anchor-id="cleaning-the-tags-column">Cleaning the <code>tags</code> Column</h2>
+<section id="cleaning-the-tags-column-update-this" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-the-tags-column-update-this">Cleaning the <code>tags</code> Column !!UPDATE THIS</h2>
 <p>The <code>tags</code> column contains important categorical information about each exoneration case. To make this data more useful for analysis, I transformed the column into multiple binary columns, where each tag indicates the presence (<code>1</code>) or absence (<code>0</code>) of a specific feature. Additionally, I created a <code>tag_sum</code> column to capture the total number of tags associated with each case, providing a quick summary metric.</p>
 <p>The cleaning process involved the following steps:</p>
 <ol type="1">
@@ -976,62 +1175,68 @@ dtype: object</code></pre>
 <li><p><strong>Adding a <code>tag_sum</code> Column</strong>: A new column was created to calculate the total number of tags for each case, enabling easier analysis of case complexity.</p></li>
 </ol>
 <p>This transformation ensures the data is well-structured and ready for exploratory analysis, providing detailed insights into the systemic patterns in exoneration cases.</p>
-<div id="cell-35" class="cell" data-execution_count="348">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean tags column by removing unecesary '#' from tags column</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the mapping for tags</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>tag_mapping <span class="op">=</span> {</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: <span class="st">"arson"</span>,</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BM"</span>: <span class="st">"bitemark"</span>,</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CDC"</span>: <span class="st">"co_defendant_confessed"</span>,</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CIU"</span>: <span class="st">"conviction_integrity_unit"</span>,</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CSH"</span>: <span class="st">"child_sex_abuse_hysteria_case"</span>,</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CV"</span>: <span class="st">"child_victim"</span>,</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span>: <span class="st">"female_exoneree"</span>,</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FED"</span>: <span class="st">"federal_case"</span>,</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: <span class="st">"homicide"</span>,</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IO"</span>: <span class="st">"innocence_organization"</span>,</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JI"</span>: <span class="st">"jailhouse_informant"</span>,</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JV"</span>: <span class="st">"juvenile_defendant"</span>,</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"M"</span>: <span class="st">"misdemeanor"</span>,</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NC"</span>: <span class="st">"no_crime_case"</span>,</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"P"</span>: <span class="st">"guilty_plea_case"</span>,</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PH"</span>: <span class="st">"posthumous_exoneration"</span>,</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SA"</span>: <span class="st">"sexual_assault"</span>,</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SBS"</span>: <span class="st">"shaken_baby_syndrome_case"</span>,</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PR"</span>: <span class="st">"prosecutor_misconduct"</span>,</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OF"</span>: <span class="st">"police_officer_misconduct"</span>,</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FA"</span>: <span class="st">"forensic_analyst_misconduct"</span>,</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CW"</span>: <span class="st">"child_welfare_worker_misconduct"</span>,</span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WH"</span>: <span class="st">"withheld_exculpatory_evidence"</span>,</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NW"</span>: <span class="st">"misconduct_that_is_not_withholding_evidence"</span>,</span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KP"</span>: <span class="st">"knowingly_permitting_perjury"</span>,</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WT"</span>: <span class="st">"witness_tampering_or_misconduct_interrogating_co_defendant"</span>,</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"INT"</span>: <span class="st">"misconduct_in_interrogation_of_exoneree"</span>,</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PJ"</span>: <span class="st">"perjury_by_official"</span>,</span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PL"</span>: <span class="st">"prosecutor_lied_in_court"</span></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the 'tags' column is a list of tags (split if needed)</span></span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a binary column for each tag</span></span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tag <span class="kw">in</span> tag_mapping.keys():</span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>    df[tag] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> x <span class="cf">else</span> <span class="dv">0</span>)</span>
-<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the binary columns using the tag_mapping dictionary</span></span>
-<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>tag_mapping, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Create `tag_sum` column to count the total number of tags for each exoneree</span></span>
-<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tag_sum'</span>] <span class="op">=</span> df[<span class="bu">list</span>(tag_mapping.values())].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop tag columns</span></span>
-<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'tags'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="348">
+<div id="cell-35" class="cell" data-execution_count="357">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean 'tags' column</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'OM-tags'</span>] <span class="op">=</span> df[<span class="st">'om_tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the mapping for tags</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>tag_mapping <span class="op">=</span> {</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: <span class="st">"arson"</span>,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BM"</span>: <span class="st">"bitemark"</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CDC"</span>: <span class="st">"co_defendant_confessed"</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CIU"</span>: <span class="st">"conviction_integrity_unit"</span>,</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CSH"</span>: <span class="st">"child_sex_abuse_hysteria_case"</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CV"</span>: <span class="st">"child_victim"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span>: <span class="st">"female_exoneree"</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FED"</span>: <span class="st">"federal_case"</span>,</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: <span class="st">"homicide"</span>,</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IO"</span>: <span class="st">"innocence_organization"</span>,</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JI"</span>: <span class="st">"jailhouse_informant"</span>,</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JV"</span>: <span class="st">"juvenile_defendant"</span>,</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"M"</span>: <span class="st">"misdemeanor"</span>,</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NC"</span>: <span class="st">"no_crime_case"</span>,</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"P"</span>: <span class="st">"guilty_plea_case"</span>,</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PH"</span>: <span class="st">"posthumous_exoneration"</span>,</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SA"</span>: <span class="st">"sexual_assault"</span>,</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SBS"</span>: <span class="st">"shaken_baby_syndrome_case"</span>,</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PR"</span>: <span class="st">"prosecutor_misconduct"</span>,</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OF"</span>: <span class="st">"police_officer_misconduct"</span>,</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FA"</span>: <span class="st">"forensic_analyst_misconduct"</span>,</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CW"</span>: <span class="st">"child_welfare_worker_misconduct"</span>,</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WH"</span>: <span class="st">"withheld_exculpatory_evidence"</span>,</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NW"</span>: <span class="st">"misconduct_that_is_not_withholding_evidence"</span>,</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KP"</span>: <span class="st">"knowingly_permitting_perjury"</span>,</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WT"</span>: <span class="st">"witness_tampering_or_misconduct_interrogating_co_defendant"</span>,</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"INT"</span>: <span class="st">"misconduct_in_interrogation_of_exoneree"</span>,</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PJ"</span>: <span class="st">"perjury_by_official"</span>,</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PL"</span>: <span class="st">"prosecutor_lied_in_court"</span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Split 'tags' and 'OM-tags' into lists</span></span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'OM-tags'</span>] <span class="op">=</span> df[<span class="st">'OM-tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary columns for tags from both 'tags' and 'OM-tags'</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tag <span class="kw">in</span> tag_mapping.keys():</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the tag exists in 'tags' or 'OM-tags'</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>    df[tag] <span class="op">=</span> df.<span class="bu">apply</span>(</span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">lambda</span> row: <span class="dv">1</span> <span class="cf">if</span> (<span class="bu">isinstance</span>(row[<span class="st">'tags'</span>], <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> row[<span class="st">'tags'</span>]) <span class="kw">or</span> </span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>                          (<span class="bu">isinstance</span>(row[<span class="st">'OM-tags'</span>], <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> row[<span class="st">'OM-tags'</span>]) <span class="cf">else</span> <span class="dv">0</span>,</span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>        axis<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the binary columns using the tag_mapping dictionary</span></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>tag_mapping, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Create `tag_sum` column to count the total number of tags for each exoneree</span></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tag_sum'</span>] <span class="op">=</span> df[<span class="bu">list</span>(tag_mapping.values())].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original 'tags' and 'OM-tags' columns</span></span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'tags'</span>, <span class="st">'om_tags'</span>, <span class="st">'OM-tags'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>df.head()  <span class="co"># Preview the updated DataFrame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="357">
 <div>
 
 
@@ -1049,6 +1254,7 @@ dtype: object</code></pre>
 <th data-quarto-table-cell-role="th">worst_crime_display</th>
 <th data-quarto-table-cell-role="th">sentence</th>
 <th data-quarto-table-cell-role="th">posting_date</th>
+<th data-quarto-table-cell-role="th">om</th>
 <th data-quarto-table-cell-role="th">date_of_exoneration</th>
 <th data-quarto-table-cell-role="th">date_of_1st_conviction</th>
 <th data-quarto-table-cell-role="th">date_of_release</th>
@@ -1098,6 +1304,7 @@ dtype: object</code></pre>
 <td>Drug Possession or Sale</td>
 <td>Probation</td>
 <td>2022-02-14</td>
+<td>OM</td>
 <td>2022-02-01</td>
 <td>2008-03-25</td>
 <td>2008-03-25</td>
@@ -1121,17 +1328,17 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>4</td>
+<td>7</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
@@ -1145,6 +1352,7 @@ dtype: object</code></pre>
 <td>Murder</td>
 <td>Life without parole</td>
 <td>2015-02-13</td>
+<td>OM</td>
 <td>2015-02-11</td>
 <td>1987-01-15</td>
 <td>2015-02-11</td>
@@ -1168,17 +1376,17 @@ dtype: object</code></pre>
 <td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>6</td>
+<td>10</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">5</td>
@@ -1192,6 +1400,7 @@ dtype: object</code></pre>
 <td>Murder</td>
 <td>90 years</td>
 <td>2022-08-25</td>
+<td>OM</td>
 <td>2022-07-21</td>
 <td>2004-09-22</td>
 <td>2022-07-21</td>
@@ -1215,17 +1424,17 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>3</td>
+<td>9</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">10</td>
@@ -1239,6 +1448,7 @@ dtype: object</code></pre>
 <td>Drug Possession or Sale</td>
 <td>1 year</td>
 <td>2020-04-13</td>
+<td>OM</td>
 <td>2020-02-11</td>
 <td>2004-09-08</td>
 <td>2004-12-26</td>
@@ -1262,17 +1472,17 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>4</td>
+<td>7</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">15</td>
@@ -1286,6 +1496,7 @@ dtype: object</code></pre>
 <td>Murder</td>
 <td>75 years</td>
 <td>2011-08-29</td>
+<td>OM</td>
 <td>1996-07-02</td>
 <td>1978-10-20</td>
 <td>1996-06-14</td>
@@ -1308,18 +1519,18 @@ dtype: object</code></pre>
 <td>0</td>
 <td>1</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>5</td>
+<td>11</td>
 </tr>
 </tbody>
 </table>
@@ -1327,20 +1538,99 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+<div id="cell-36" class="cell" data-execution_count="358">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'OM' column to binary (1 if "OM" is present, 0 otherwise)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'om'</span>] <span class="op">=</span> df[<span class="st">'om'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> <span class="bu">str</span>(x).strip().upper() <span class="op">==</span> <span class="st">"OM"</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the transformation</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'om'</span>].value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>om
+1    478
+0     70
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="county-geocoding" class="level2">
+<h2 class="anchored" data-anchor-id="county-geocoding">County Geocoding</h2>
+<p>To enrich the dataset and enable more advanced geographic analysis, I incorporated geocoded data, including latitude, longitude, and full address (geocode). This addition allows for deeper exploratory data analysis (EDA) of geographic patterns within Illinois. By including location data, I can examine trends and disparities across counties, evaluate geographic clustering of exoneration cases, and explore how systemic factors vary by region. The geocoded data adds a crucial spatial dimension to the analysis, providing the foundation for mapping, visualizations, and further geographic exploration.</p>
+<p>To perform the geocoding, I used <strong>GeoPy</strong>, a Python client for geocoding web services (<a href="https://geopy.readthedocs.io/en/stable/" target="_blank">documentation here</a>). GeoPy provides an easy-to-use interface for accessing geocoding services, including the ability to retrieve latitude, longitude, and full address information from place names.</p>
+<section id="optimization-of-the-geocoding-process" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-of-the-geocoding-process">Optimization of the Geocoding Process</h3>
+<p>To minimize redundant API calls and enhance efficiency, I focused on unique combinations of county and state. Instead of geocoding every record in the dataset (which would result in repeated calls for the same county, such as Cook County), I first extracted unique county-state pairs. These unique combinations were geocoded, capturing the address, latitude, and longitude for each pair. The results were then mapped back to the full dataset based on county and state.</p>
+<p>This approach not only reduced the number of API calls, saving both time and resources, but also ensured consistency in the geocoded results. By geocoding only unique counties, I avoided unnecessary repetition and maintained a streamlined process while enriching the dataset with geographic context.</p>
+<div id="cell-38" class="cell" data-execution_count="359">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Strip extra spaces and ensure consistent capitalization</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'county'</span>] <span class="op">=</span> df[<span class="st">'county'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'state'</span>] <span class="op">=</span> df[<span class="st">'state'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the geolocator</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"illinois_exoneration_geocode"</span>) </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unique combinations of county and state - avoids repition and extra work for geocoder</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>unique_counties <span class="op">=</span> df[[<span class="st">'county'</span>, <span class="st">'state'</span>]].drop_duplicates()</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  Define a function to geocode unique counties</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocode_unique(row):</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"Geocoding: {row['county']} County, {row['state']}, USA") # Debugging</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> geolocator.geocode(<span class="ss">f"</span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss"> County, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">, USA"</span>)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> location:</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print(f"Success: {location.address}") #debugging</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> {</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">'address'</span>: location.address,</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">'latitude'</span>: location.latitude,</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">'longitude'</span>: location.longitude</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Failed: No result for </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss"> County, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error geocoding </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the geocoding function to unique counties</span></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>geocoded_results <span class="op">=</span> unique_counties.<span class="bu">apply</span>(geocode_unique, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Split results into separate columns</span></span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'geocode_address'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'address'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'address'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'latitude'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'latitude'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'latitude'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'longitude'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'longitude'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'longitude'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the geocoded results back into the original dataset</span></span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.merge(unique_counties, on<span class="op">=</span>[<span class="st">'county'</span>, <span class="st">'state'</span>], how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'geocode_address'</span>, <span class="st">'latitude'</span>, <span class="st">'longitude'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      state county                       geocode_address   latitude  longitude
+0  Illinois   Cook  Cook County, Illinois, United States  41.819738 -87.756525
+1  Illinois   Cook  Cook County, Illinois, United States  41.819738 -87.756525
+2  Illinois   Cook  Cook County, Illinois, United States  41.819738 -87.756525
+3  Illinois   Cook  Cook County, Illinois, United States  41.819738 -87.756525
+4  Illinois   Cook  Cook County, Illinois, United States  41.819738 -87.756525</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="column-reorganization" class="level2">
 <h2 class="anchored" data-anchor-id="column-reorganization">Column Reorganization</h2>
 <p>To improve readability and logical flow, I move the <code>sentence_in_years</code> column to appear immediately after <code>sentence</code>. This makes it easier to analyze the cleaned numerical representation of the sentencing data alongside its original textual description.</p>
-<div id="cell-37" class="cell" data-execution_count="349">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reordering columns to place 'sentence_in_years' after 'sentence'</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> <span class="bu">list</span>(df.columns)  <span class="co"># Get all columns</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'sentence'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'sentence_in_years'</span>)))  <span class="co"># Move 'sentence_in_years'</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[columns]  <span class="co"># Reorder DataFrame</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the updated DataFrame</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>df.head()</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="349">
+<div id="cell-40" class="cell" data-execution_count="360">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reordering columns</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> <span class="bu">list</span>(df.columns)  <span class="co"># Get all columns</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'sentence'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'sentence_in_years'</span>)))  <span class="co"># Move 'sentence_in_years'</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Move 'latitude' and 'longitude' after 'county'</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'county'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'latitude'</span>)))</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'county'</span>) <span class="op">+</span> <span class="dv">2</span>, columns.pop(columns.index(<span class="st">'longitude'</span>)))</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[columns]  <span class="co"># Reorder DataFrame</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="360">
 <div>
 
 
@@ -1355,10 +1645,13 @@ dtype: object</code></pre>
 <th data-quarto-table-cell-role="th">sex</th>
 <th data-quarto-table-cell-role="th">state</th>
 <th data-quarto-table-cell-role="th">county</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
 <th data-quarto-table-cell-role="th">worst_crime_display</th>
 <th data-quarto-table-cell-role="th">sentence</th>
 <th data-quarto-table-cell-role="th">sentence_in_years</th>
 <th data-quarto-table-cell-role="th">posting_date</th>
+<th data-quarto-table-cell-role="th">om</th>
 <th data-quarto-table-cell-role="th">date_of_exoneration</th>
 <th data-quarto-table-cell-role="th">date_of_1st_conviction</th>
 <th data-quarto-table-cell-role="th">date_of_release</th>
@@ -1392,11 +1685,12 @@ dtype: object</code></pre>
 <th data-quarto-table-cell-role="th">perjury_by_official</th>
 <th data-quarto-table-cell-role="th">prosecutor_lied_in_court</th>
 <th data-quarto-table-cell-role="th">tag_sum</th>
+<th data-quarto-table-cell-role="th">geocode_address</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
+<td data-quarto-table-cell-role="th">0</td>
 <td>Abbott</td>
 <td>Cinque</td>
 <td>19.0</td>
@@ -1404,10 +1698,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Drug Possession or Sale</td>
 <td>Probation</td>
 <td>0.0</td>
 <td>2022-02-14</td>
+<td>1</td>
 <td>2022-02-01</td>
 <td>2008-03-25</td>
 <td>2008-03-25</td>
@@ -1430,20 +1727,21 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>4</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<td data-quarto-table-cell-role="th">1</td>
 <td>Abernathy</td>
 <td>Christopher</td>
 <td>17.0</td>
@@ -1451,10 +1749,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Murder</td>
 <td>Life without parole</td>
 <td>100.0</td>
 <td>2015-02-13</td>
+<td>1</td>
 <td>2015-02-11</td>
 <td>1987-01-15</td>
 <td>2015-02-11</td>
@@ -1477,20 +1778,21 @@ dtype: object</code></pre>
 <td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>6</td>
+<td>10</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">5</td>
+<td data-quarto-table-cell-role="th">2</td>
 <td>Abrego</td>
 <td>Eruby</td>
 <td>20.0</td>
@@ -1498,10 +1800,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Murder</td>
 <td>90 years</td>
 <td>90.0</td>
 <td>2022-08-25</td>
+<td>1</td>
 <td>2022-07-21</td>
 <td>2004-09-22</td>
 <td>2022-07-21</td>
@@ -1524,20 +1829,21 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>3</td>
+<td>9</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">10</td>
+<td data-quarto-table-cell-role="th">3</td>
 <td>Adams</td>
 <td>Demetris</td>
 <td>22.0</td>
@@ -1545,10 +1851,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Drug Possession or Sale</td>
 <td>1 year</td>
 <td>1.0</td>
 <td>2020-04-13</td>
+<td>1</td>
 <td>2020-02-11</td>
 <td>2004-09-08</td>
 <td>2004-12-26</td>
@@ -1571,20 +1880,21 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>4</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">15</td>
+<td data-quarto-table-cell-role="th">4</td>
 <td>Adams</td>
 <td>Kenneth</td>
 <td>22.0</td>
@@ -1592,10 +1902,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Murder</td>
 <td>75 years</td>
 <td>75.0</td>
 <td>2011-08-29</td>
+<td>1</td>
 <td>1996-07-02</td>
 <td>1978-10-20</td>
 <td>1996-06-14</td>
@@ -1617,21 +1930,22 @@ dtype: object</code></pre>
 <td>0</td>
 <td>1</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>5</td>
+<td>11</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">21</td>
+<td data-quarto-table-cell-role="th">5</td>
 <td>Adams</td>
 <td>Seneca</td>
 <td>20.0</td>
@@ -1639,10 +1953,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Assault</td>
 <td>Probation</td>
 <td>0.0</td>
 <td>2014-12-08</td>
+<td>1</td>
 <td>2006-12-19</td>
 <td>2006-05-18</td>
 <td>2006-05-18</td>
@@ -1665,20 +1982,21 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>2</td>
+<td>6</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">22</td>
+<td data-quarto-table-cell-role="th">6</td>
 <td>Adams</td>
 <td>Tari</td>
 <td>18.0</td>
@@ -1686,10 +2004,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Assault</td>
 <td>Probation</td>
 <td>0.0</td>
 <td>2014-12-08</td>
+<td>1</td>
 <td>2006-12-19</td>
 <td>2006-05-18</td>
 <td>2006-05-18</td>
@@ -1712,20 +2033,21 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>2</td>
+<td>6</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">24</td>
+<td data-quarto-table-cell-role="th">7</td>
 <td>Agnew</td>
 <td>Gregory</td>
 <td>28.0</td>
@@ -1733,10 +2055,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Lake</td>
+<td>42.332738</td>
+<td>-87.993955</td>
 <td>Robbery</td>
 <td>30 years</td>
 <td>30.0</td>
 <td>2018-01-18</td>
+<td>0</td>
 <td>2001-11-07</td>
 <td>1988-06-14</td>
 <td>2001-11-07</td>
@@ -1770,9 +2095,10 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>1</td>
+<td>Lake County, Illinois, United States</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">25</td>
+<td data-quarto-table-cell-role="th">8</td>
 <td>Aguirre</td>
 <td>Omar</td>
 <td>28.0</td>
@@ -1780,10 +2106,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Murder</td>
 <td>55 years</td>
 <td>55.0</td>
 <td>2011-08-29</td>
+<td>1</td>
 <td>2003-02-18</td>
 <td>1999-03-09</td>
 <td>2002-12-18</td>
@@ -1806,20 +2135,21 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>2</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">45</td>
+<td data-quarto-table-cell-role="th">9</td>
 <td>Ali</td>
 <td>Chauncey</td>
 <td>37.0</td>
@@ -1827,10 +2157,13 @@ dtype: object</code></pre>
 <td>male</td>
 <td>Illinois</td>
 <td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
 <td>Drug Possession or Sale</td>
 <td>1 year</td>
 <td>1.0</td>
 <td>2020-04-13</td>
+<td>1</td>
 <td>2020-02-11</td>
 <td>2007-01-17</td>
 <td>2007-06-27</td>
@@ -1853,17 +2186,18 @@ dtype: object</code></pre>
 <td>0</td>
 <td>0</td>
 <td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>4</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
 </tr>
 </tbody>
 </table>
@@ -1875,10 +2209,10 @@ dtype: object</code></pre>
 <section id="exporting-the-cleaned-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="exporting-the-cleaned-dataset">Exporting the Cleaned Dataset</h2>
 <p>The final cleaned dataset is saved as <code>illinois_exoneration_data.csv</code>. This ensures that all preprocessing steps are reproducible, and the dataset can be used consistently across various analysis stages.</p>
-<div id="cell-39" class="cell" data-execution_count="350">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../../data/processed-data/illinois_exoneration_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to 'illinois_exoneration_data.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-42" class="cell" data-execution_count="361">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../../data/processed-data/illinois_exoneration_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to 'illinois_exoneration_data.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data saved to 'illinois_exoneration_data.csv'</code></pre>
 </div>
@@ -1887,9 +2221,2035 @@ dtype: object</code></pre>
 <section id="summary-and-next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="summary-and-next-steps">Summary and Next Steps</h2>
 <p>This data cleaning process ensures the Illinois exoneration dataset is free of inconsistencies and ready for analysis. The cleaned data will now be used to conduct EDA and investigate patterns of racial disparity and judicial misconduct in wrongful convictions.</p>
-
-
 </section>
+</section>
+<section id="illinois-arrest-data" class="level1">
+<h1>Illinois Arrest Data</h1>
+<div id="cell-45" class="cell" data-execution_count="362">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load exoneration dataset</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>arrest_data <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/illinois_arrest_explorer_data.csv'</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Initial Dataset: "</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>) <span class="co"># Enables display of every column</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>arrest_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Initial Dataset: </code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="362">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">county_Adams</th>
+<th data-quarto-table-cell-role="th">county_Alexander</th>
+<th data-quarto-table-cell-role="th">county_Bond</th>
+<th data-quarto-table-cell-role="th">county_Boone</th>
+<th data-quarto-table-cell-role="th">county_Brown</th>
+<th data-quarto-table-cell-role="th">county_Bureau</th>
+<th data-quarto-table-cell-role="th">county_Calhoun</th>
+<th data-quarto-table-cell-role="th">county_Carroll</th>
+<th data-quarto-table-cell-role="th">county_Cass</th>
+<th data-quarto-table-cell-role="th">county_Champaign</th>
+<th data-quarto-table-cell-role="th">county_Christian</th>
+<th data-quarto-table-cell-role="th">county_Clark</th>
+<th data-quarto-table-cell-role="th">county_Clay</th>
+<th data-quarto-table-cell-role="th">county_Clinton</th>
+<th data-quarto-table-cell-role="th">county_Coles</th>
+<th data-quarto-table-cell-role="th">county_Cook Chicago</th>
+<th data-quarto-table-cell-role="th">county_Cook County Suburbs</th>
+<th data-quarto-table-cell-role="th">county_Crawford</th>
+<th data-quarto-table-cell-role="th">county_Cumberland</th>
+<th data-quarto-table-cell-role="th">county_Dekalb</th>
+<th data-quarto-table-cell-role="th">county_Dewitt</th>
+<th data-quarto-table-cell-role="th">county_Douglas</th>
+<th data-quarto-table-cell-role="th">county_Dupage</th>
+<th data-quarto-table-cell-role="th">county_Edgar</th>
+<th data-quarto-table-cell-role="th">county_Edwards</th>
+<th data-quarto-table-cell-role="th">county_Effingham</th>
+<th data-quarto-table-cell-role="th">county_Fayette</th>
+<th data-quarto-table-cell-role="th">county_Ford</th>
+<th data-quarto-table-cell-role="th">county_Franklin</th>
+<th data-quarto-table-cell-role="th">county_Fulton</th>
+<th data-quarto-table-cell-role="th">county_Gallatin</th>
+<th data-quarto-table-cell-role="th">county_Greene</th>
+<th data-quarto-table-cell-role="th">county_Grundy</th>
+<th data-quarto-table-cell-role="th">county_Hamilton</th>
+<th data-quarto-table-cell-role="th">county_Hancock</th>
+<th data-quarto-table-cell-role="th">county_Hardin</th>
+<th data-quarto-table-cell-role="th">county_Henderson</th>
+<th data-quarto-table-cell-role="th">county_Henry</th>
+<th data-quarto-table-cell-role="th">county_Iroquois</th>
+<th data-quarto-table-cell-role="th">county_Jackson</th>
+<th data-quarto-table-cell-role="th">county_Jasper</th>
+<th data-quarto-table-cell-role="th">county_Jefferson</th>
+<th data-quarto-table-cell-role="th">county_Jersey</th>
+<th data-quarto-table-cell-role="th">county_Jo Daviess</th>
+<th data-quarto-table-cell-role="th">county_Johnson</th>
+<th data-quarto-table-cell-role="th">county_Kane</th>
+<th data-quarto-table-cell-role="th">county_Kankakee</th>
+<th data-quarto-table-cell-role="th">county_Kendall</th>
+<th data-quarto-table-cell-role="th">county_Knox</th>
+<th data-quarto-table-cell-role="th">county_Lake</th>
+<th data-quarto-table-cell-role="th">county_Lasalle</th>
+<th data-quarto-table-cell-role="th">county_Lawrence</th>
+<th data-quarto-table-cell-role="th">county_Lee</th>
+<th data-quarto-table-cell-role="th">county_Livingston</th>
+<th data-quarto-table-cell-role="th">county_Logan</th>
+<th data-quarto-table-cell-role="th">county_Macon</th>
+<th data-quarto-table-cell-role="th">county_Macoupin</th>
+<th data-quarto-table-cell-role="th">county_Madison</th>
+<th data-quarto-table-cell-role="th">county_Marion</th>
+<th data-quarto-table-cell-role="th">county_Marshall</th>
+<th data-quarto-table-cell-role="th">county_Mason</th>
+<th data-quarto-table-cell-role="th">county_Massac</th>
+<th data-quarto-table-cell-role="th">county_Mcdonough</th>
+<th data-quarto-table-cell-role="th">county_Mchenry</th>
+<th data-quarto-table-cell-role="th">county_Mclean</th>
+<th data-quarto-table-cell-role="th">county_Menard</th>
+<th data-quarto-table-cell-role="th">county_Mercer</th>
+<th data-quarto-table-cell-role="th">county_Monroe</th>
+<th data-quarto-table-cell-role="th">county_Montgomery</th>
+<th data-quarto-table-cell-role="th">county_Morgan</th>
+<th data-quarto-table-cell-role="th">county_Moultrie</th>
+<th data-quarto-table-cell-role="th">county_Non County Agencies</th>
+<th data-quarto-table-cell-role="th">county_Ogle</th>
+<th data-quarto-table-cell-role="th">county_Peoria</th>
+<th data-quarto-table-cell-role="th">county_Perry</th>
+<th data-quarto-table-cell-role="th">county_Piatt</th>
+<th data-quarto-table-cell-role="th">county_Pike</th>
+<th data-quarto-table-cell-role="th">county_Pope</th>
+<th data-quarto-table-cell-role="th">county_Pulaski</th>
+<th data-quarto-table-cell-role="th">county_Putnam</th>
+<th data-quarto-table-cell-role="th">county_Randolph</th>
+<th data-quarto-table-cell-role="th">county_Richland</th>
+<th data-quarto-table-cell-role="th">county_Rock Island</th>
+<th data-quarto-table-cell-role="th">county_Saline</th>
+<th data-quarto-table-cell-role="th">county_Sangamon</th>
+<th data-quarto-table-cell-role="th">county_Schuyler</th>
+<th data-quarto-table-cell-role="th">county_Scott</th>
+<th data-quarto-table-cell-role="th">county_Shelby</th>
+<th data-quarto-table-cell-role="th">county_St. Clair</th>
+<th data-quarto-table-cell-role="th">county_Stark</th>
+<th data-quarto-table-cell-role="th">county_Stephenson</th>
+<th data-quarto-table-cell-role="th">county_Tazewell</th>
+<th data-quarto-table-cell-role="th">county_Union</th>
+<th data-quarto-table-cell-role="th">county_Vermilion</th>
+<th data-quarto-table-cell-role="th">county_Wabash</th>
+<th data-quarto-table-cell-role="th">county_Warren</th>
+<th data-quarto-table-cell-role="th">county_Washington</th>
+<th data-quarto-table-cell-role="th">county_Wayne</th>
+<th data-quarto-table-cell-role="th">county_White</th>
+<th data-quarto-table-cell-role="th">county_Whiteside</th>
+<th data-quarto-table-cell-role="th">county_Will</th>
+<th data-quarto-table-cell-role="th">county_Williamson</th>
+<th data-quarto-table-cell-role="th">county_Winnebago</th>
+<th data-quarto-table-cell-role="th">county_Woodford</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>African American</td>
+<td>226</td>
+<td>147</td>
+<td>25</td>
+<td>18</td>
+<td>18</td>
+<td>48</td>
+<td>6</td>
+<td>12</td>
+<td>1</td>
+<td>2059</td>
+<td>16</td>
+<td>6</td>
+<td>1</td>
+<td>22</td>
+<td>130</td>
+<td>86781</td>
+<td>26301</td>
+<td>6</td>
+<td>1</td>
+<td>342</td>
+<td>11</td>
+<td>18</td>
+<td>2265</td>
+<td>1</td>
+<td>1</td>
+<td>108</td>
+<td>6</td>
+<td>1</td>
+<td>6</td>
+<td>25</td>
+<td>1</td>
+<td>1</td>
+<td>52</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>92</td>
+<td>250</td>
+<td>580</td>
+<td>1</td>
+<td>246</td>
+<td>6</td>
+<td>16</td>
+<td>16</td>
+<td>2804</td>
+<td>1669</td>
+<td>122</td>
+<td>314</td>
+<td>5712</td>
+<td>184</td>
+<td>6</td>
+<td>86</td>
+<td>180</td>
+<td>71</td>
+<td>1104</td>
+<td>34</td>
+<td>1567</td>
+<td>146</td>
+<td>6</td>
+<td>1</td>
+<td>91</td>
+<td>105</td>
+<td>213</td>
+<td>905</td>
+<td>1</td>
+<td>6</td>
+<td>20</td>
+<td>38</td>
+<td>287</td>
+<td>6</td>
+<td>1</td>
+<td>57</td>
+<td>3403</td>
+<td>60</td>
+<td>1</td>
+<td>13</td>
+<td>1</td>
+<td>153</td>
+<td>1</td>
+<td>81</td>
+<td>6</td>
+<td>1215</td>
+<td>104</td>
+<td>2200</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>2462</td>
+<td>1</td>
+<td>355</td>
+<td>168</td>
+<td>17</td>
+<td>876</td>
+<td>6</td>
+<td>46</td>
+<td>25</td>
+<td>6</td>
+<td>16</td>
+<td>128</td>
+<td>3000</td>
+<td>75</td>
+<td>2509</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2001</td>
+<td>Asian</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>49</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>722</td>
+<td>460</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>139</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>97</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>135</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>6</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>17</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>14</td>
+<td>1</td>
+<td>28</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2001</td>
+<td>Hispanic</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2001</td>
+<td>Native American</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>146</td>
+<td>30</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>17</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>10</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2001</td>
+<td>White</td>
+<td>939</td>
+<td>52</td>
+<td>209</td>
+<td>674</td>
+<td>107</td>
+<td>509</td>
+<td>139</td>
+<td>298</td>
+<td>88</td>
+<td>2334</td>
+<td>335</td>
+<td>264</td>
+<td>117</td>
+<td>229</td>
+<td>1635</td>
+<td>37099</td>
+<td>36690</td>
+<td>470</td>
+<td>164</td>
+<td>1740</td>
+<td>539</td>
+<td>181</td>
+<td>13019</td>
+<td>301</td>
+<td>41</td>
+<td>986</td>
+<td>382</td>
+<td>217</td>
+<td>724</td>
+<td>926</td>
+<td>19</td>
+<td>57</td>
+<td>1014</td>
+<td>78</td>
+<td>206</td>
+<td>75</td>
+<td>134</td>
+<td>569</td>
+<td>585</td>
+<td>857</td>
+<td>87</td>
+<td>607</td>
+<td>575</td>
+<td>532</td>
+<td>198</td>
+<td>9634</td>
+<td>1607</td>
+<td>1465</td>
+<td>1160</td>
+<td>15136</td>
+<td>2689</td>
+<td>412</td>
+<td>845</td>
+<td>1146</td>
+<td>586</td>
+<td>1388</td>
+<td>523</td>
+<td>4359</td>
+<td>571</td>
+<td>263</td>
+<td>274</td>
+<td>455</td>
+<td>1007</td>
+<td>3879</td>
+<td>2285</td>
+<td>92</td>
+<td>410</td>
+<td>572</td>
+<td>749</td>
+<td>1053</td>
+<td>149</td>
+<td>1</td>
+<td>1009</td>
+<td>3120</td>
+<td>430</td>
+<td>211</td>
+<td>368</td>
+<td>45</td>
+<td>248</td>
+<td>151</td>
+<td>460</td>
+<td>323</td>
+<td>3117</td>
+<td>711</td>
+<td>3635</td>
+<td>274</td>
+<td>22</td>
+<td>486</td>
+<td>1601</td>
+<td>59</td>
+<td>644</td>
+<td>1804</td>
+<td>327</td>
+<td>1743</td>
+<td>324</td>
+<td>444</td>
+<td>265</td>
+<td>245</td>
+<td>668</td>
+<td>1304</td>
+<td>4144</td>
+<td>631</td>
+<td>4253</td>
+<td>462</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-46" class="cell" data-execution_count="363">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename columns by removing 'county_' prefix</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>arrest_data.columns <span class="op">=</span> [col.replace(<span class="st">'county_'</span>, <span class="st">''</span>).capitalize() <span class="cf">if</span> col.startswith(<span class="st">'county_'</span>) <span class="cf">else</span> col <span class="cf">for</span> col <span class="kw">in</span> arrest_data.columns]</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename "African American" to "Black" in the column names</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>arrest_data[<span class="st">'race'</span>] <span class="op">=</span> arrest_data[<span class="st">'race'</span>].replace(<span class="st">'African American'</span>, <span class="st">'Black'</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine "Cook Chicago" and "Cook County Suburbs" into a single "Cook" column</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>arrest_data[<span class="st">'Cook'</span>] <span class="op">=</span> arrest_data[<span class="st">'Cook chicago'</span>] <span class="op">+</span> arrest_data[<span class="st">'Cook county suburbs'</span>]</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the old columns</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>arrest_data.drop(columns<span class="op">=</span>[<span class="st">'Cook chicago'</span>, <span class="st">'Cook county suburbs'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>arrest_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="363">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">Adams</th>
+<th data-quarto-table-cell-role="th">Alexander</th>
+<th data-quarto-table-cell-role="th">Bond</th>
+<th data-quarto-table-cell-role="th">Boone</th>
+<th data-quarto-table-cell-role="th">Brown</th>
+<th data-quarto-table-cell-role="th">Bureau</th>
+<th data-quarto-table-cell-role="th">Calhoun</th>
+<th data-quarto-table-cell-role="th">Carroll</th>
+<th data-quarto-table-cell-role="th">Cass</th>
+<th data-quarto-table-cell-role="th">Champaign</th>
+<th data-quarto-table-cell-role="th">Christian</th>
+<th data-quarto-table-cell-role="th">Clark</th>
+<th data-quarto-table-cell-role="th">Clay</th>
+<th data-quarto-table-cell-role="th">Clinton</th>
+<th data-quarto-table-cell-role="th">Coles</th>
+<th data-quarto-table-cell-role="th">Crawford</th>
+<th data-quarto-table-cell-role="th">Cumberland</th>
+<th data-quarto-table-cell-role="th">Dekalb</th>
+<th data-quarto-table-cell-role="th">Dewitt</th>
+<th data-quarto-table-cell-role="th">Douglas</th>
+<th data-quarto-table-cell-role="th">Dupage</th>
+<th data-quarto-table-cell-role="th">Edgar</th>
+<th data-quarto-table-cell-role="th">Edwards</th>
+<th data-quarto-table-cell-role="th">Effingham</th>
+<th data-quarto-table-cell-role="th">Fayette</th>
+<th data-quarto-table-cell-role="th">Ford</th>
+<th data-quarto-table-cell-role="th">Franklin</th>
+<th data-quarto-table-cell-role="th">Fulton</th>
+<th data-quarto-table-cell-role="th">Gallatin</th>
+<th data-quarto-table-cell-role="th">Greene</th>
+<th data-quarto-table-cell-role="th">Grundy</th>
+<th data-quarto-table-cell-role="th">Hamilton</th>
+<th data-quarto-table-cell-role="th">Hancock</th>
+<th data-quarto-table-cell-role="th">Hardin</th>
+<th data-quarto-table-cell-role="th">Henderson</th>
+<th data-quarto-table-cell-role="th">Henry</th>
+<th data-quarto-table-cell-role="th">Iroquois</th>
+<th data-quarto-table-cell-role="th">Jackson</th>
+<th data-quarto-table-cell-role="th">Jasper</th>
+<th data-quarto-table-cell-role="th">Jefferson</th>
+<th data-quarto-table-cell-role="th">Jersey</th>
+<th data-quarto-table-cell-role="th">Jo daviess</th>
+<th data-quarto-table-cell-role="th">Johnson</th>
+<th data-quarto-table-cell-role="th">Kane</th>
+<th data-quarto-table-cell-role="th">Kankakee</th>
+<th data-quarto-table-cell-role="th">Kendall</th>
+<th data-quarto-table-cell-role="th">Knox</th>
+<th data-quarto-table-cell-role="th">Lake</th>
+<th data-quarto-table-cell-role="th">Lasalle</th>
+<th data-quarto-table-cell-role="th">Lawrence</th>
+<th data-quarto-table-cell-role="th">Lee</th>
+<th data-quarto-table-cell-role="th">Livingston</th>
+<th data-quarto-table-cell-role="th">Logan</th>
+<th data-quarto-table-cell-role="th">Macon</th>
+<th data-quarto-table-cell-role="th">Macoupin</th>
+<th data-quarto-table-cell-role="th">Madison</th>
+<th data-quarto-table-cell-role="th">Marion</th>
+<th data-quarto-table-cell-role="th">Marshall</th>
+<th data-quarto-table-cell-role="th">Mason</th>
+<th data-quarto-table-cell-role="th">Massac</th>
+<th data-quarto-table-cell-role="th">Mcdonough</th>
+<th data-quarto-table-cell-role="th">Mchenry</th>
+<th data-quarto-table-cell-role="th">Mclean</th>
+<th data-quarto-table-cell-role="th">Menard</th>
+<th data-quarto-table-cell-role="th">Mercer</th>
+<th data-quarto-table-cell-role="th">Monroe</th>
+<th data-quarto-table-cell-role="th">Montgomery</th>
+<th data-quarto-table-cell-role="th">Morgan</th>
+<th data-quarto-table-cell-role="th">Moultrie</th>
+<th data-quarto-table-cell-role="th">Non county agencies</th>
+<th data-quarto-table-cell-role="th">Ogle</th>
+<th data-quarto-table-cell-role="th">Peoria</th>
+<th data-quarto-table-cell-role="th">Perry</th>
+<th data-quarto-table-cell-role="th">Piatt</th>
+<th data-quarto-table-cell-role="th">Pike</th>
+<th data-quarto-table-cell-role="th">Pope</th>
+<th data-quarto-table-cell-role="th">Pulaski</th>
+<th data-quarto-table-cell-role="th">Putnam</th>
+<th data-quarto-table-cell-role="th">Randolph</th>
+<th data-quarto-table-cell-role="th">Richland</th>
+<th data-quarto-table-cell-role="th">Rock island</th>
+<th data-quarto-table-cell-role="th">Saline</th>
+<th data-quarto-table-cell-role="th">Sangamon</th>
+<th data-quarto-table-cell-role="th">Schuyler</th>
+<th data-quarto-table-cell-role="th">Scott</th>
+<th data-quarto-table-cell-role="th">Shelby</th>
+<th data-quarto-table-cell-role="th">St. clair</th>
+<th data-quarto-table-cell-role="th">Stark</th>
+<th data-quarto-table-cell-role="th">Stephenson</th>
+<th data-quarto-table-cell-role="th">Tazewell</th>
+<th data-quarto-table-cell-role="th">Union</th>
+<th data-quarto-table-cell-role="th">Vermilion</th>
+<th data-quarto-table-cell-role="th">Wabash</th>
+<th data-quarto-table-cell-role="th">Warren</th>
+<th data-quarto-table-cell-role="th">Washington</th>
+<th data-quarto-table-cell-role="th">Wayne</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Whiteside</th>
+<th data-quarto-table-cell-role="th">Will</th>
+<th data-quarto-table-cell-role="th">Williamson</th>
+<th data-quarto-table-cell-role="th">Winnebago</th>
+<th data-quarto-table-cell-role="th">Woodford</th>
+<th data-quarto-table-cell-role="th">Cook</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>Black</td>
+<td>226</td>
+<td>147</td>
+<td>25</td>
+<td>18</td>
+<td>18</td>
+<td>48</td>
+<td>6</td>
+<td>12</td>
+<td>1</td>
+<td>2059</td>
+<td>16</td>
+<td>6</td>
+<td>1</td>
+<td>22</td>
+<td>130</td>
+<td>6</td>
+<td>1</td>
+<td>342</td>
+<td>11</td>
+<td>18</td>
+<td>2265</td>
+<td>1</td>
+<td>1</td>
+<td>108</td>
+<td>6</td>
+<td>1</td>
+<td>6</td>
+<td>25</td>
+<td>1</td>
+<td>1</td>
+<td>52</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>92</td>
+<td>250</td>
+<td>580</td>
+<td>1</td>
+<td>246</td>
+<td>6</td>
+<td>16</td>
+<td>16</td>
+<td>2804</td>
+<td>1669</td>
+<td>122</td>
+<td>314</td>
+<td>5712</td>
+<td>184</td>
+<td>6</td>
+<td>86</td>
+<td>180</td>
+<td>71</td>
+<td>1104</td>
+<td>34</td>
+<td>1567</td>
+<td>146</td>
+<td>6</td>
+<td>1</td>
+<td>91</td>
+<td>105</td>
+<td>213</td>
+<td>905</td>
+<td>1</td>
+<td>6</td>
+<td>20</td>
+<td>38</td>
+<td>287</td>
+<td>6</td>
+<td>1</td>
+<td>57</td>
+<td>3403</td>
+<td>60</td>
+<td>1</td>
+<td>13</td>
+<td>1</td>
+<td>153</td>
+<td>1</td>
+<td>81</td>
+<td>6</td>
+<td>1215</td>
+<td>104</td>
+<td>2200</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>2462</td>
+<td>1</td>
+<td>355</td>
+<td>168</td>
+<td>17</td>
+<td>876</td>
+<td>6</td>
+<td>46</td>
+<td>25</td>
+<td>6</td>
+<td>16</td>
+<td>128</td>
+<td>3000</td>
+<td>75</td>
+<td>2509</td>
+<td>42</td>
+<td>113082</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2001</td>
+<td>Asian</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>49</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>139</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>97</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>135</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>6</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>17</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>14</td>
+<td>1</td>
+<td>28</td>
+<td>1</td>
+<td>1182</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2001</td>
+<td>Hispanic</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2001</td>
+<td>Native American</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>17</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>10</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>176</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2001</td>
+<td>White</td>
+<td>939</td>
+<td>52</td>
+<td>209</td>
+<td>674</td>
+<td>107</td>
+<td>509</td>
+<td>139</td>
+<td>298</td>
+<td>88</td>
+<td>2334</td>
+<td>335</td>
+<td>264</td>
+<td>117</td>
+<td>229</td>
+<td>1635</td>
+<td>470</td>
+<td>164</td>
+<td>1740</td>
+<td>539</td>
+<td>181</td>
+<td>13019</td>
+<td>301</td>
+<td>41</td>
+<td>986</td>
+<td>382</td>
+<td>217</td>
+<td>724</td>
+<td>926</td>
+<td>19</td>
+<td>57</td>
+<td>1014</td>
+<td>78</td>
+<td>206</td>
+<td>75</td>
+<td>134</td>
+<td>569</td>
+<td>585</td>
+<td>857</td>
+<td>87</td>
+<td>607</td>
+<td>575</td>
+<td>532</td>
+<td>198</td>
+<td>9634</td>
+<td>1607</td>
+<td>1465</td>
+<td>1160</td>
+<td>15136</td>
+<td>2689</td>
+<td>412</td>
+<td>845</td>
+<td>1146</td>
+<td>586</td>
+<td>1388</td>
+<td>523</td>
+<td>4359</td>
+<td>571</td>
+<td>263</td>
+<td>274</td>
+<td>455</td>
+<td>1007</td>
+<td>3879</td>
+<td>2285</td>
+<td>92</td>
+<td>410</td>
+<td>572</td>
+<td>749</td>
+<td>1053</td>
+<td>149</td>
+<td>1</td>
+<td>1009</td>
+<td>3120</td>
+<td>430</td>
+<td>211</td>
+<td>368</td>
+<td>45</td>
+<td>248</td>
+<td>151</td>
+<td>460</td>
+<td>323</td>
+<td>3117</td>
+<td>711</td>
+<td>3635</td>
+<td>274</td>
+<td>22</td>
+<td>486</td>
+<td>1601</td>
+<td>59</td>
+<td>644</td>
+<td>1804</td>
+<td>327</td>
+<td>1743</td>
+<td>324</td>
+<td>444</td>
+<td>265</td>
+<td>245</td>
+<td>668</td>
+<td>1304</td>
+<td>4144</td>
+<td>631</td>
+<td>4253</td>
+<td>462</td>
+<td>73789</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-47" class="cell" data-execution_count="364">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>arrest_data.to_csv(<span class="st">'../../data/processed-data/arrest_data_by_year.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-48" class="cell" data-execution_count="365">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate totals across years for each race</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> arrest_data.groupby(<span class="st">'race'</span>).<span class="bu">sum</span>(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> aggregated_data.drop(columns<span class="op">=</span>[<span class="st">'Year'</span>])</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> aggregated_data.reset_index()</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the aggregated data</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>aggregated_data.head()</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="365">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">Adams</th>
+<th data-quarto-table-cell-role="th">Alexander</th>
+<th data-quarto-table-cell-role="th">Bond</th>
+<th data-quarto-table-cell-role="th">Boone</th>
+<th data-quarto-table-cell-role="th">Brown</th>
+<th data-quarto-table-cell-role="th">Bureau</th>
+<th data-quarto-table-cell-role="th">Calhoun</th>
+<th data-quarto-table-cell-role="th">Carroll</th>
+<th data-quarto-table-cell-role="th">Cass</th>
+<th data-quarto-table-cell-role="th">Champaign</th>
+<th data-quarto-table-cell-role="th">Christian</th>
+<th data-quarto-table-cell-role="th">Clark</th>
+<th data-quarto-table-cell-role="th">Clay</th>
+<th data-quarto-table-cell-role="th">Clinton</th>
+<th data-quarto-table-cell-role="th">Coles</th>
+<th data-quarto-table-cell-role="th">Crawford</th>
+<th data-quarto-table-cell-role="th">Cumberland</th>
+<th data-quarto-table-cell-role="th">Dekalb</th>
+<th data-quarto-table-cell-role="th">Dewitt</th>
+<th data-quarto-table-cell-role="th">Douglas</th>
+<th data-quarto-table-cell-role="th">Dupage</th>
+<th data-quarto-table-cell-role="th">Edgar</th>
+<th data-quarto-table-cell-role="th">Edwards</th>
+<th data-quarto-table-cell-role="th">Effingham</th>
+<th data-quarto-table-cell-role="th">Fayette</th>
+<th data-quarto-table-cell-role="th">Ford</th>
+<th data-quarto-table-cell-role="th">Franklin</th>
+<th data-quarto-table-cell-role="th">Fulton</th>
+<th data-quarto-table-cell-role="th">Gallatin</th>
+<th data-quarto-table-cell-role="th">Greene</th>
+<th data-quarto-table-cell-role="th">Grundy</th>
+<th data-quarto-table-cell-role="th">Hamilton</th>
+<th data-quarto-table-cell-role="th">Hancock</th>
+<th data-quarto-table-cell-role="th">Hardin</th>
+<th data-quarto-table-cell-role="th">Henderson</th>
+<th data-quarto-table-cell-role="th">Henry</th>
+<th data-quarto-table-cell-role="th">Iroquois</th>
+<th data-quarto-table-cell-role="th">Jackson</th>
+<th data-quarto-table-cell-role="th">Jasper</th>
+<th data-quarto-table-cell-role="th">Jefferson</th>
+<th data-quarto-table-cell-role="th">Jersey</th>
+<th data-quarto-table-cell-role="th">Jo daviess</th>
+<th data-quarto-table-cell-role="th">Johnson</th>
+<th data-quarto-table-cell-role="th">Kane</th>
+<th data-quarto-table-cell-role="th">Kankakee</th>
+<th data-quarto-table-cell-role="th">Kendall</th>
+<th data-quarto-table-cell-role="th">Knox</th>
+<th data-quarto-table-cell-role="th">Lake</th>
+<th data-quarto-table-cell-role="th">Lasalle</th>
+<th data-quarto-table-cell-role="th">Lawrence</th>
+<th data-quarto-table-cell-role="th">Lee</th>
+<th data-quarto-table-cell-role="th">Livingston</th>
+<th data-quarto-table-cell-role="th">Logan</th>
+<th data-quarto-table-cell-role="th">Macon</th>
+<th data-quarto-table-cell-role="th">Macoupin</th>
+<th data-quarto-table-cell-role="th">Madison</th>
+<th data-quarto-table-cell-role="th">Marion</th>
+<th data-quarto-table-cell-role="th">Marshall</th>
+<th data-quarto-table-cell-role="th">Mason</th>
+<th data-quarto-table-cell-role="th">Massac</th>
+<th data-quarto-table-cell-role="th">Mcdonough</th>
+<th data-quarto-table-cell-role="th">Mchenry</th>
+<th data-quarto-table-cell-role="th">Mclean</th>
+<th data-quarto-table-cell-role="th">Menard</th>
+<th data-quarto-table-cell-role="th">Mercer</th>
+<th data-quarto-table-cell-role="th">Monroe</th>
+<th data-quarto-table-cell-role="th">Montgomery</th>
+<th data-quarto-table-cell-role="th">Morgan</th>
+<th data-quarto-table-cell-role="th">Moultrie</th>
+<th data-quarto-table-cell-role="th">Non county agencies</th>
+<th data-quarto-table-cell-role="th">Ogle</th>
+<th data-quarto-table-cell-role="th">Peoria</th>
+<th data-quarto-table-cell-role="th">Perry</th>
+<th data-quarto-table-cell-role="th">Piatt</th>
+<th data-quarto-table-cell-role="th">Pike</th>
+<th data-quarto-table-cell-role="th">Pope</th>
+<th data-quarto-table-cell-role="th">Pulaski</th>
+<th data-quarto-table-cell-role="th">Putnam</th>
+<th data-quarto-table-cell-role="th">Randolph</th>
+<th data-quarto-table-cell-role="th">Richland</th>
+<th data-quarto-table-cell-role="th">Rock island</th>
+<th data-quarto-table-cell-role="th">Saline</th>
+<th data-quarto-table-cell-role="th">Sangamon</th>
+<th data-quarto-table-cell-role="th">Schuyler</th>
+<th data-quarto-table-cell-role="th">Scott</th>
+<th data-quarto-table-cell-role="th">Shelby</th>
+<th data-quarto-table-cell-role="th">St. clair</th>
+<th data-quarto-table-cell-role="th">Stark</th>
+<th data-quarto-table-cell-role="th">Stephenson</th>
+<th data-quarto-table-cell-role="th">Tazewell</th>
+<th data-quarto-table-cell-role="th">Union</th>
+<th data-quarto-table-cell-role="th">Vermilion</th>
+<th data-quarto-table-cell-role="th">Wabash</th>
+<th data-quarto-table-cell-role="th">Warren</th>
+<th data-quarto-table-cell-role="th">Washington</th>
+<th data-quarto-table-cell-role="th">Wayne</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Whiteside</th>
+<th data-quarto-table-cell-role="th">Will</th>
+<th data-quarto-table-cell-role="th">Williamson</th>
+<th data-quarto-table-cell-role="th">Winnebago</th>
+<th data-quarto-table-cell-role="th">Woodford</th>
+<th data-quarto-table-cell-role="th">Cook</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Asian</td>
+<td>31</td>
+<td>21</td>
+<td>21</td>
+<td>40</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>1186</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>26</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>301</td>
+<td>21</td>
+<td>21</td>
+<td>4509</td>
+<td>26</td>
+<td>21</td>
+<td>65</td>
+<td>26</td>
+<td>21</td>
+<td>32</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>31</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>31</td>
+<td>21</td>
+<td>170</td>
+<td>21</td>
+<td>31</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>2239</td>
+<td>46</td>
+<td>76</td>
+<td>21</td>
+<td>2562</td>
+<td>166</td>
+<td>21</td>
+<td>21</td>
+<td>90</td>
+<td>36</td>
+<td>86</td>
+<td>21</td>
+<td>550</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>60</td>
+<td>76</td>
+<td>498</td>
+<td>564</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>36</td>
+<td>31</td>
+<td>21</td>
+<td>21</td>
+<td>26</td>
+<td>381</td>
+<td>26</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>31</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>251</td>
+<td>21</td>
+<td>500</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>382</td>
+<td>21</td>
+<td>31</td>
+<td>132</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>58</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>46</td>
+<td>1443</td>
+<td>51</td>
+<td>767</td>
+<td>60</td>
+<td>26764</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Black</td>
+<td>4022</td>
+<td>2722</td>
+<td>533</td>
+<td>2410</td>
+<td>105</td>
+<td>780</td>
+<td>36</td>
+<td>292</td>
+<td>239</td>
+<td>45547</td>
+<td>459</td>
+<td>190</td>
+<td>85</td>
+<td>877</td>
+<td>4029</td>
+<td>282</td>
+<td>121</td>
+<td>16146</td>
+<td>594</td>
+<td>500</td>
+<td>59262</td>
+<td>127</td>
+<td>26</td>
+<td>3293</td>
+<td>591</td>
+<td>278</td>
+<td>520</td>
+<td>627</td>
+<td>26</td>
+<td>118</td>
+<td>2249</td>
+<td>21</td>
+<td>132</td>
+<td>21</td>
+<td>210</td>
+<td>2131</td>
+<td>3283</td>
+<td>13120</td>
+<td>61</td>
+<td>5960</td>
+<td>526</td>
+<td>943</td>
+<td>281</td>
+<td>59806</td>
+<td>27437</td>
+<td>4308</td>
+<td>7545</td>
+<td>78841</td>
+<td>7344</td>
+<td>337</td>
+<td>1654</td>
+<td>4521</td>
+<td>2353</td>
+<td>27094</td>
+<td>818</td>
+<td>51485</td>
+<td>4542</td>
+<td>128</td>
+<td>222</td>
+<td>1731</td>
+<td>4214</td>
+<td>6581</td>
+<td>27867</td>
+<td>191</td>
+<td>268</td>
+<td>885</td>
+<td>1275</td>
+<td>7157</td>
+<td>168</td>
+<td>694</td>
+<td>1685</td>
+<td>79960</td>
+<td>1901</td>
+<td>359</td>
+<td>519</td>
+<td>36</td>
+<td>3384</td>
+<td>56</td>
+<td>1731</td>
+<td>213</td>
+<td>26048</td>
+<td>1796</td>
+<td>63703</td>
+<td>91</td>
+<td>21</td>
+<td>116</td>
+<td>60744</td>
+<td>41</td>
+<td>11866</td>
+<td>8363</td>
+<td>399</td>
+<td>17641</td>
+<td>156</td>
+<td>1024</td>
+<td>489</td>
+<td>99</td>
+<td>464</td>
+<td>2893</td>
+<td>58968</td>
+<td>4809</td>
+<td>55837</td>
+<td>2841</td>
+<td>1772659</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Hispanic</td>
+<td>26</td>
+<td>21</td>
+<td>26</td>
+<td>530</td>
+<td>21</td>
+<td>130</td>
+<td>21</td>
+<td>50</td>
+<td>82</td>
+<td>998</td>
+<td>21</td>
+<td>26</td>
+<td>21</td>
+<td>106</td>
+<td>135</td>
+<td>36</td>
+<td>36</td>
+<td>1796</td>
+<td>98</td>
+<td>161</td>
+<td>13841</td>
+<td>21</td>
+<td>21</td>
+<td>68</td>
+<td>54</td>
+<td>83</td>
+<td>40</td>
+<td>21</td>
+<td>21</td>
+<td>46</td>
+<td>484</td>
+<td>21</td>
+<td>26</td>
+<td>21</td>
+<td>31</td>
+<td>37</td>
+<td>118</td>
+<td>200</td>
+<td>21</td>
+<td>174</td>
+<td>41</td>
+<td>115</td>
+<td>21</td>
+<td>14164</td>
+<td>648</td>
+<td>278</td>
+<td>337</td>
+<td>10232</td>
+<td>775</td>
+<td>21</td>
+<td>150</td>
+<td>431</td>
+<td>64</td>
+<td>130</td>
+<td>21</td>
+<td>347</td>
+<td>43</td>
+<td>31</td>
+<td>30</td>
+<td>21</td>
+<td>152</td>
+<td>4139</td>
+<td>1452</td>
+<td>21</td>
+<td>21</td>
+<td>35</td>
+<td>31</td>
+<td>138</td>
+<td>21</td>
+<td>21</td>
+<td>364</td>
+<td>21</td>
+<td>58</td>
+<td>21</td>
+<td>36</td>
+<td>21</td>
+<td>119</td>
+<td>21</td>
+<td>93</td>
+<td>36</td>
+<td>1149</td>
+<td>21</td>
+<td>46</td>
+<td>31</td>
+<td>21</td>
+<td>21</td>
+<td>461</td>
+<td>21</td>
+<td>55</td>
+<td>207</td>
+<td>36</td>
+<td>21</td>
+<td>21</td>
+<td>157</td>
+<td>31</td>
+<td>21</td>
+<td>26</td>
+<td>450</td>
+<td>3835</td>
+<td>231</td>
+<td>3535</td>
+<td>80</td>
+<td>144574</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Native American</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>302</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>46</td>
+<td>21</td>
+<td>21</td>
+<td>703</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>26</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>154</td>
+<td>21</td>
+<td>31</td>
+<td>21</td>
+<td>220</td>
+<td>26</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>26</td>
+<td>21</td>
+<td>76</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>36</td>
+<td>41</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>56</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>46</td>
+<td>21</td>
+<td>21</td>
+<td>26</td>
+<td>56</td>
+<td>21</td>
+<td>26</td>
+<td>26</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>21</td>
+<td>113</td>
+<td>21</td>
+<td>152</td>
+<td>21</td>
+<td>2351</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>White</td>
+<td>16743</td>
+<td>1340</td>
+<td>3964</td>
+<td>16580</td>
+<td>1812</td>
+<td>9593</td>
+<td>1844</td>
+<td>5530</td>
+<td>2826</td>
+<td>41996</td>
+<td>10983</td>
+<td>6714</td>
+<td>4818</td>
+<td>8858</td>
+<td>23779</td>
+<td>8663</td>
+<td>4228</td>
+<td>35622</td>
+<td>7121</td>
+<td>5676</td>
+<td>215397</td>
+<td>7031</td>
+<td>1019</td>
+<td>23978</td>
+<td>9115</td>
+<td>4630</td>
+<td>22754</td>
+<td>14545</td>
+<td>838</td>
+<td>5147</td>
+<td>18813</td>
+<td>1218</td>
+<td>5203</td>
+<td>1766</td>
+<td>2653</td>
+<td>11472</td>
+<td>11041</td>
+<td>16698</td>
+<td>3124</td>
+<td>14526</td>
+<td>14337</td>
+<td>7841</td>
+<td>3325</td>
+<td>170618</td>
+<td>31714</td>
+<td>27222</td>
+<td>20553</td>
+<td>188224</td>
+<td>54179</td>
+<td>8499</td>
+<td>13856</td>
+<td>20172</td>
+<td>14366</td>
+<td>30283</td>
+<td>12071</td>
+<td>130786</td>
+<td>19686</td>
+<td>4240</td>
+<td>6970</td>
+<td>8491</td>
+<td>18618</td>
+<td>101548</td>
+<td>48554</td>
+<td>3974</td>
+<td>7257</td>
+<td>10734</td>
+<td>16631</td>
+<td>23129</td>
+<td>2920</td>
+<td>752</td>
+<td>19240</td>
+<td>64589</td>
+<td>12123</td>
+<td>4323</td>
+<td>7890</td>
+<td>795</td>
+<td>4457</td>
+<td>1683</td>
+<td>12061</td>
+<td>6823</td>
+<td>53728</td>
+<td>12729</td>
+<td>82714</td>
+<td>2136</td>
+<td>585</td>
+<td>8671</td>
+<td>49390</td>
+<td>1442</td>
+<td>13615</td>
+<td>61546</td>
+<td>6165</td>
+<td>30772</td>
+<td>6491</td>
+<td>7459</td>
+<td>5220</td>
+<td>5146</td>
+<td>11318</td>
+<td>22690</td>
+<td>97863</td>
+<td>26871</td>
+<td>85292</td>
+<td>12676</td>
+<td>1174775</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-49" class="cell" data-execution_count="366">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>aggregated_data.to_csv(<span class="st">'../../data/processed-data/aggregated_arrests_2001_to_2021.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1928,7 +4288,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1960,29 +4331,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1990,7 +4339,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

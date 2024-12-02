@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,6 +101,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.scss">
@@ -152,12 +189,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
-  <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
-  </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link active" data-scroll-target="#code">Code</a></li>
   </ul>
 </nav>
     </div>
@@ -183,99 +215,1347 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- After digesting the instructions, you can delete this cell, these are assignment instructions and do not need to be included in your final submission.  -->
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you put on this page will be specific you your project and data. Some things might “make more sense” on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
-<ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
-</ul>
-</section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>The <strong>EDA (Exploratory Data Analysis)</strong> tab in your portfolio serves as a crucial foundation for your project. It provides a thorough overview of the dataset, highlights patterns, identifies potential issues, and prepares the data for further analysis. Follow these instructions to document your EDA effectively:</p>
-<p>The goal of EDA is to gain a deeper understanding of the dataset and its relevance to your project’s objectives. It involves summarizing key data characteristics, identifying patterns, anomalies, and preparing for future analysis phases.</p>
-<p>Here are suggestions for things to include on this page</p>
-<p><strong>Univariate Analysis</strong>:</p>
-<ul>
-<li><strong>Numerical Variables</strong>:
-<ul>
-<li>Provide summary statistics (mean, median, standard deviation).</li>
-<li>Visualize distributions using histograms or density plots.</li>
-</ul></li>
-<li><strong>Categorical Variables</strong>:
-<ul>
-<li>Present frequency counts and visualize distributions using bar charts or pie charts.</li>
-</ul></li>
-<li><strong>Key Insights</strong>:
-<ul>
-<li>Highlight any notable trends or patterns observed.</li>
-</ul></li>
-</ul>
-<p><strong>Bivariate and Multivariate Analysis</strong>:</p>
-<ul>
-<li><strong>Correlation Analysis</strong>:
-<ul>
-<li>Analyze relationships between numerical variables using a correlation matrix.</li>
-<li>Visualize with heatmaps or pair plots and discuss any strong correlations.</li>
-</ul></li>
-<li><strong>Crosstabulations</strong>:
-<ul>
-<li>For categorical variables, use crosstabs to explore relationships and visualize them with grouped bar plots.</li>
-</ul></li>
-<li><strong>Feature Pairings</strong>:
-<ul>
-<li>Analyze relationships between key variables, particularly those related to your target.</li>
-<li>Visualize with scatter plots, box plots, or violin plots.</li>
-</ul></li>
-</ul>
-<p><strong>Data Distribution and Normalization</strong>:</p>
-<ul>
-<li><strong>Skewness and Kurtosis</strong>:</li>
-<li>Analyze and discuss the distribution of variables.</li>
-<li>Apply transformations (e.g., log transformation) if needed for skewed data.</li>
-<li><strong>Normalization</strong>:</li>
-<li>Apply normalization or scaling techniques (e.g., min-max scaling, z-score).</li>
-<li>Document and visualize the impact of normalization.</li>
-</ul>
-<p><strong>Statistical Insights</strong>:</p>
-<ul>
-<li>Conduct basic statistical tests (e.g., T-tests, ANOVA, chi-square) to explore relationships between variables.</li>
-<li>Summarize the statistical results and their implications for your analysis.</li>
-</ul>
-<p><strong>Data Visualization and Storytelling</strong>:</p>
-<ul>
-<li><strong>Visual Summary</strong>:</li>
-<li>Present key insights using charts and visualizations (e.g., Matplotlib, Seaborn, Plotly).</li>
-<li>Ensure all visualizations are well-labeled and easy to interpret.</li>
-<li><strong>Interactive Visualizations (Optional)</strong>:</li>
-<li>Include interactive elements (e.g., Plotly, Bokeh) to allow users to explore the data further.</li>
-</ul>
-<p><strong>Conclusions and Next Steps</strong>:</p>
-<ul>
-<li><strong>Summary of EDA Findings</strong>:</li>
-<li>Highlight the main takeaways from the EDA process (key trends, patterns, data quality issues).</li>
-<li><strong>Implications for Modeling</strong>:</li>
-<li>Discuss how your EDA informs the next steps in your project (e.g., feature selection, data transformations).</li>
-<li>Outline any further data cleaning or preparation required before moving into modeling.</li>
-</ul>
-</section>
-</section>
 <section id="code" class="level1">
 <h1>Code</h1>
 <p>Provide the source code used for this section of the project here.</p>
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
 <p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
 <p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-2" class="cell" data-execution_count="178">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import necessary Libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load cleaned exoneration dataset</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/illinois_exoneration_data.csv'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>) <span class="co"># Enables display of every column</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="178">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">county</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">worst_crime_display</th>
+<th data-quarto-table-cell-role="th">sentence</th>
+<th data-quarto-table-cell-role="th">sentence_in_years</th>
+<th data-quarto-table-cell-role="th">posting_date</th>
+<th data-quarto-table-cell-role="th">om</th>
+<th data-quarto-table-cell-role="th">date_of_exoneration</th>
+<th data-quarto-table-cell-role="th">date_of_1st_conviction</th>
+<th data-quarto-table-cell-role="th">date_of_release</th>
+<th data-quarto-table-cell-role="th">arson</th>
+<th data-quarto-table-cell-role="th">bitemark</th>
+<th data-quarto-table-cell-role="th">co_defendant_confessed</th>
+<th data-quarto-table-cell-role="th">conviction_integrity_unit</th>
+<th data-quarto-table-cell-role="th">child_sex_abuse_hysteria_case</th>
+<th data-quarto-table-cell-role="th">child_victim</th>
+<th data-quarto-table-cell-role="th">female_exoneree</th>
+<th data-quarto-table-cell-role="th">federal_case</th>
+<th data-quarto-table-cell-role="th">homicide</th>
+<th data-quarto-table-cell-role="th">innocence_organization</th>
+<th data-quarto-table-cell-role="th">jailhouse_informant</th>
+<th data-quarto-table-cell-role="th">juvenile_defendant</th>
+<th data-quarto-table-cell-role="th">misdemeanor</th>
+<th data-quarto-table-cell-role="th">no_crime_case</th>
+<th data-quarto-table-cell-role="th">guilty_plea_case</th>
+<th data-quarto-table-cell-role="th">posthumous_exoneration</th>
+<th data-quarto-table-cell-role="th">sexual_assault</th>
+<th data-quarto-table-cell-role="th">shaken_baby_syndrome_case</th>
+<th data-quarto-table-cell-role="th">prosecutor_misconduct</th>
+<th data-quarto-table-cell-role="th">police_officer_misconduct</th>
+<th data-quarto-table-cell-role="th">forensic_analyst_misconduct</th>
+<th data-quarto-table-cell-role="th">child_welfare_worker_misconduct</th>
+<th data-quarto-table-cell-role="th">withheld_exculpatory_evidence</th>
+<th data-quarto-table-cell-role="th">misconduct_that_is_not_withholding_evidence</th>
+<th data-quarto-table-cell-role="th">knowingly_permitting_perjury</th>
+<th data-quarto-table-cell-role="th">witness_tampering_or_misconduct_interrogating_co_defendant</th>
+<th data-quarto-table-cell-role="th">misconduct_in_interrogation_of_exoneree</th>
+<th data-quarto-table-cell-role="th">perjury_by_official</th>
+<th data-quarto-table-cell-role="th">prosecutor_lied_in_court</th>
+<th data-quarto-table-cell-role="th">tag_sum</th>
+<th data-quarto-table-cell-role="th">geocode_address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abbott</td>
+<td>Cinque</td>
+<td>19.0</td>
+<td>Black</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Drug Possession or Sale</td>
+<td>Probation</td>
+<td>0.0</td>
+<td>2022-02-14</td>
+<td>1</td>
+<td>2022-02-01</td>
+<td>2008-03-25</td>
+<td>2008-03-25</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abernathy</td>
+<td>Christopher</td>
+<td>17.0</td>
+<td>White</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>Life without parole</td>
+<td>100.0</td>
+<td>2015-02-13</td>
+<td>1</td>
+<td>2015-02-11</td>
+<td>1987-01-15</td>
+<td>2015-02-11</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abrego</td>
+<td>Eruby</td>
+<td>20.0</td>
+<td>Hispanic</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>90 years</td>
+<td>90.0</td>
+<td>2022-08-25</td>
+<td>1</td>
+<td>2022-07-21</td>
+<td>2004-09-22</td>
+<td>2022-07-21</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>9</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adams</td>
+<td>Demetris</td>
+<td>22.0</td>
+<td>Black</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Drug Possession or Sale</td>
+<td>1 year</td>
+<td>1.0</td>
+<td>2020-04-13</td>
+<td>1</td>
+<td>2020-02-11</td>
+<td>2004-09-08</td>
+<td>2004-12-26</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adams</td>
+<td>Kenneth</td>
+<td>22.0</td>
+<td>Black</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>75 years</td>
+<td>75.0</td>
+<td>2011-08-29</td>
+<td>1</td>
+<td>1996-07-02</td>
+<td>1978-10-20</td>
+<td>1996-06-14</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>11</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-3" class="cell" data-execution_count="179">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Folium map centered on Illinois</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>illinois_map <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">40.0</span>, <span class="op">-</span><span class="fl">89.0</span>], zoom_start<span class="op">=</span><span class="dv">6</span>)  <span class="co"># Centered on Illinois with appropriate zoom</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add markers for each exoneration in the dataset</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> df.iterrows():</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.notnull(row[<span class="st">'latitude'</span>]) <span class="kw">and</span> pd.notnull(row[<span class="st">'longitude'</span>]):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        folium.Marker(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            location<span class="op">=</span>[row[<span class="st">'latitude'</span>], row[<span class="st">'longitude'</span>]],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            popup<span class="op">=</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"&lt;b&gt;County:&lt;/b&gt; </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"&lt;b&gt;Worst Crime:&lt;/b&gt; </span><span class="sc">{</span>row[<span class="st">'worst_crime_display'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"&lt;b&gt;Sentence:&lt;/b&gt; </span><span class="sc">{</span>row[<span class="st">'sentence_in_years'</span>]<span class="sc">}</span><span class="ss"> years"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'blue'</span>, icon<span class="op">=</span><span class="st">'info-sign'</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        ).add_to(illinois_map)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>source: https://clearinghouse.isgs.illinois.edu/data/reference/illinois-county-boundaries-polygons-and-lines</p>
+<div id="cell-5" class="cell" data-execution_count="180">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fiona</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create geometry column for points based on latitude and longitude</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>geometry <span class="op">=</span> [Point(xy) <span class="cf">for</span> xy <span class="kw">in</span> <span class="bu">zip</span>(df[<span class="st">'longitude'</span>], df[<span class="st">'latitude'</span>])]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>geo_df <span class="op">=</span> gpd.GeoDataFrame(df, geometry<span class="op">=</span>geometry)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Illinois county shapefile </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>illinois_counties <span class="op">=</span> gpd.read_file(<span class="st">'../../data/geospatial/IL_BNDY_COUNTY_Py.shp'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Illinois map and overlay exoneration cases</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>illinois_counties.boundary.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Plot county boundaries</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>geo_df.plot(ax<span class="op">=</span>ax, markersize<span class="op">=</span><span class="dv">20</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Exoneration Cases'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the map</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exoneration Cases in Illinois"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plt.grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="181">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate exoneration counts by county</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>exoneration_counts <span class="op">=</span> df.groupby(<span class="st">'county'</span>).size().reset_index(name<span class="op">=</span><span class="st">'num_exonerations'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the aggregated exoneration counts</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Exoneration counts by county:"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(exoneration_counts)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Exoneration counts by county:
+        county  num_exonerations
+0        Adams                 1
+1    Champaign                 3
+2         Cook               474
+3       Dekalb                 1
+4       Dupage                10
+5        Edgar                 2
+6     Iroquois                 2
+7      Jackson                 1
+8    Jefferson                 1
+9         Kane                 4
+10    Kankakee                 2
+11        Lake                10
+12     Lasalle                 1
+13    Lawrence                 1
+14  Livingston                 1
+15       Macon                 3
+16     Madison                 1
+17     Mchenry                 3
+18      Mclean                 4
+19    Moultrie                 1
+20      Peoria                 3
+21   St. Clair                 5
+22   Vermilion                 1
+23        Will                 4
+24  Williamson                 1
+25   Winnebago                 7
+26    Woodford                 1</code></pre>
+</div>
+</div>
+<div id="cell-7" class="cell" data-execution_count="182">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefile and prepare it</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>illinois_counties <span class="op">=</span> gpd.read_file(<span class="st">'../../data/geospatial/IL_BNDY_COUNTY_Py.shp'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>illinois_counties[<span class="st">'county'</span>] <span class="op">=</span> illinois_counties[<span class="st">'COUNTY_NAM'</span>].<span class="bu">str</span>.title()  <span class="co"># Match casing</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge exoneration data with shapefile</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>merged_counties <span class="op">=</span> illinois_counties.merge(exoneration_counts, on<span class="op">=</span><span class="st">'county'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NaN values with 0 for counties without exonerations</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>merged_counties[<span class="st">'num_exonerations'</span>] <span class="op">=</span> merged_counties[<span class="st">'num_exonerations'</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out Cook County (outlier)</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>filtered_counties <span class="op">=</span> merged_counties[merged_counties[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create side-by-side plots</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the gradient map with all counties</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>merged_counties.plot(</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'num_exonerations'</span>,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Reds'</span>,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Number of Exonerations by County in Illinois"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the gradient map excluding Cook County</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>filtered_counties.plot(</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'num_exonerations'</span>,</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Reds'</span>,</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Number of Exonerations by County (Excluding Cook)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="183">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/aggregated_arrests_2001_to_2021.csv'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>aggregated_data_melted <span class="op">=</span> aggregated_data.melt(id_vars<span class="op">=</span><span class="st">'race'</span>, var_name<span class="op">=</span><span class="st">'county'</span>, value_name<span class="op">=</span><span class="st">'total_arrests'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate total arrests by county for all races</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>total_arrests_by_county <span class="op">=</span> aggregated_data_melted.groupby(<span class="st">'county'</span>)[<span class="st">'total_arrests'</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure county names are consistent</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>total_arrests_by_county[<span class="st">'county'</span>] <span class="op">=</span> total_arrests_by_county[<span class="st">'county'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>illinois_counties[<span class="st">'county'</span>] <span class="op">=</span> illinois_counties[<span class="st">'county'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge total arrests data with the shapefile</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>merged_total_arrests <span class="op">=</span> illinois_counties.merge(</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    total_arrests_by_county,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">'county'</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Fill NaN values with 0 for counties without data</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>merged_total_arrests[<span class="st">'total_arrests'</span>] <span class="op">=</span> merged_total_arrests[<span class="st">'total_arrests'</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out Cook County</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>filtered_total_arrests <span class="op">=</span> merged_total_arrests[merged_total_arrests[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create side-by-side plots</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the gradient map for total arrests by county (including all counties)</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>merged_total_arrests.plot(</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'total_arrests'</span>,</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Blues'</span>,  <span class="co">#</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Total Arrests by County in Illinois"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the gradient map excluding Cook County</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>filtered_total_arrests.plot(</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'total_arrests'</span>,</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Blues'</span>, </span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Total Arrests by County (Excluding Cook) in Illinois"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the side-by-side maps</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-9" class="cell" data-execution_count="184">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the races to plot</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>races_to_plot <span class="op">=</span> [<span class="st">"Black"</span>, <span class="st">"White"</span>, <span class="st">"Hispanic"</span>, <span class="st">"Asian"</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out Cook County</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>merged_data_excluding_cook <span class="op">=</span> merged_data[merged_data[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create subplots</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="bu">len</span>(races_to_plot), figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot each race's data (including Cook County) on the first row</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, race <span class="kw">in</span> <span class="bu">enumerate</span>(races_to_plot):</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    race_data <span class="op">=</span> merged_data[merged_data[<span class="st">'race'</span>] <span class="op">==</span> race]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure data is not empty</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> race_data.empty:</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"No data available for the selected race: </span><span class="sc">{</span>race<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot the gradient map for the current race</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    race_data.plot(</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        column<span class="op">=</span><span class="st">'total_arrests'</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        cmap<span class="op">=</span><span class="st">'Reds'</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        ax<span class="op">=</span>axes[<span class="dv">0</span>, i],</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        legend<span class="op">=</span>(i <span class="op">==</span> <span class="bu">len</span>(races_to_plot) <span class="op">-</span> <span class="dv">1</span>)  <span class="co"># Show legend only on the last subplot</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, i].set_title(<span class="ss">f"Total Arrests (Including Cook): </span><span class="sc">{</span>race<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, i].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, i].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, i].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot each race's data (excluding Cook County) on the second row</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, race <span class="kw">in</span> <span class="bu">enumerate</span>(races_to_plot):</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    race_data <span class="op">=</span> merged_data_excluding_cook[merged_data_excluding_cook[<span class="st">'race'</span>] <span class="op">==</span> race]</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure data is not empty</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> race_data.empty:</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"No data available for the selected race: </span><span class="sc">{</span>race<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot the gradient map for the current race</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    race_data.plot(</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>        column<span class="op">=</span><span class="st">'total_arrests'</span>,</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>        cmap<span class="op">=</span><span class="st">'Reds'</span>,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>        linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>        ax<span class="op">=</span>axes[<span class="dv">1</span>, i],</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>        legend<span class="op">=</span>(i <span class="op">==</span> <span class="bu">len</span>(races_to_plot) <span class="op">-</span> <span class="dv">1</span>)  <span class="co"># Show legend only on the last subplot</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, i].set_title(<span class="ss">f"Total Arrests (Excluding Cook): </span><span class="sc">{</span>race<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, i].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, i].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, i].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-10" class="cell" data-execution_count="185">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge shapefile with exoneration and arrest datasets</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>merged_exonerations <span class="op">=</span> illinois_counties.merge(exoneration_counts, on<span class="op">=</span><span class="st">'county'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>merged_exonerations[<span class="st">'num_exonerations'</span>] <span class="op">=</span> merged_exonerations[<span class="st">'num_exonerations'</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>merged_arrests <span class="op">=</span> illinois_counties.merge(total_arrests_by_county, on<span class="op">=</span><span class="st">'county'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>merged_arrests[<span class="st">'total_arrests'</span>] <span class="op">=</span> merged_arrests[<span class="st">'total_arrests'</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to exclude Cook County for both datasets</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>filtered_exonerations <span class="op">=</span> merged_exonerations[merged_exonerations[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>filtered_arrests <span class="op">=</span> merged_arrests[merged_arrests[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create side-by-side plots (Excluding Cook Only)</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Exonerations (Excluding Cook)</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>filtered_exonerations.plot(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'num_exonerations'</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Reds'</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Exonerations by County (Excluding Cook)"</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Arrests (Excluding Cook)</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>filtered_arrests.plot(</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'total_arrests'</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Blues'</span>,</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Arrests by County (Excluding Cook)"</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the combined plots</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-11" class="cell" data-execution_count="186">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter arrests data for Black individuals only</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>black_arrests <span class="op">=</span> aggregated_data_melted[aggregated_data_melted[<span class="st">'race'</span>] <span class="op">==</span> <span class="st">'Black'</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge shapefile with arrests data (Black only)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>merged_black_arrests <span class="op">=</span> illinois_counties.merge(black_arrests, on<span class="op">=</span><span class="st">'county'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>merged_black_arrests[<span class="st">'total_arrests'</span>] <span class="op">=</span> merged_black_arrests[<span class="st">'total_arrests'</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to exclude Cook County</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>filtered_exonerations <span class="op">=</span> merged_exonerations[merged_exonerations[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>filtered_black_arrests <span class="op">=</span> merged_black_arrests[merged_black_arrests[<span class="st">'county'</span>] <span class="op">!=</span> <span class="st">'Cook'</span>]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create side-by-side plots</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Exonerations (Excluding Cook)</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>filtered_exonerations.plot(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'num_exonerations'</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Reds'</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Exonerations by County (Excluding Cook)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Arrests for Black Individuals (Excluding Cook)</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>filtered_black_arrests.plot(</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'total_arrests'</span>,</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Blues'</span>,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Arrests for Black Individuals by County (Excluding Cook)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Longitude"</span>)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Latitude"</span>)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the combined plots</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="187">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary statistics</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Summary statistics:"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe(include<span class="op">=</span><span class="st">'all'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Summary statistics:
+       last_name first_name         age   race   sex     state county  \
+count        548        548  547.000000    548   548       548    548   
+unique       380        332         NaN      5     2         1     27   
+top      Johnson    Anthony         NaN  Black  male  Illinois   Cook   
+freq          12         14         NaN    418   518       548    474   
+mean         NaN        NaN   25.555759    NaN   NaN       NaN    NaN   
+std          NaN        NaN    8.557824    NaN   NaN       NaN    NaN   
+min          NaN        NaN   13.000000    NaN   NaN       NaN    NaN   
+25%          NaN        NaN   19.000000    NaN   NaN       NaN    NaN   
+50%          NaN        NaN   23.000000    NaN   NaN       NaN    NaN   
+75%          NaN        NaN   30.000000    NaN   NaN       NaN    NaN   
+max          NaN        NaN   57.000000    NaN   NaN       NaN    NaN   
+
+          latitude   longitude worst_crime_display   sentence  \
+count   548.000000  548.000000                 548        548   
+unique         NaN         NaN                  20         86   
+top            NaN         NaN              Murder  Probation   
+freq           NaN         NaN                 242         65   
+mean     41.709350  -87.870354                 NaN        NaN   
+std       0.567452    0.393484                 NaN        NaN   
+min      37.723129  -91.211006                 NaN        NaN   
+25%      41.819738  -87.756525                 NaN        NaN   
+50%      41.819738  -87.756525                 NaN        NaN   
+75%      41.819738  -87.756525                 NaN        NaN   
+max      42.332738  -87.714336                 NaN        NaN   
+
+        sentence_in_years posting_date          om date_of_exoneration  \
+count          537.000000          548  548.000000                 548   
+unique                NaN          259         NaN                 303   
+top                   NaN   2011-08-29         NaN          2022-04-22   
+freq                  NaN           87         NaN                  41   
+mean            35.054469          NaN    0.872263                 NaN   
+std             37.388023          NaN    0.334102                 NaN   
+min              0.000000          NaN    0.000000                 NaN   
+25%              2.166667          NaN    1.000000                 NaN   
+50%             20.000000          NaN    1.000000                 NaN   
+75%             60.000000          NaN    1.000000                 NaN   
+max            100.000000          NaN    1.000000                 NaN   
+
+       date_of_1st_conviction date_of_release       arson    bitemark  \
+count                     548             548  548.000000  548.000000   
+unique                    497             490         NaN         NaN   
+top                1982-09-22      2003-01-10         NaN         NaN   
+freq                        4               4         NaN         NaN   
+mean                      NaN             NaN    0.021898    0.005474   
+std                       NaN             NaN    0.146484    0.073854   
+min                       NaN             NaN    0.000000    0.000000   
+25%                       NaN             NaN    0.000000    0.000000   
+50%                       NaN             NaN    0.000000    0.000000   
+75%                       NaN             NaN    0.000000    0.000000   
+max                       NaN             NaN    1.000000    1.000000   
+
+        co_defendant_confessed  conviction_integrity_unit  \
+count               548.000000                 548.000000   
+unique                     NaN                        NaN   
+top                        NaN                        NaN   
+freq                       NaN                        NaN   
+mean                  0.217153                   0.439781   
+std                   0.412685                   0.496814   
+min                   0.000000                   0.000000   
+25%                   0.000000                   0.000000   
+50%                   0.000000                   0.000000   
+75%                   0.000000                   1.000000   
+max                   1.000000                   1.000000   
+
+        child_sex_abuse_hysteria_case  child_victim  female_exoneree  \
+count                           548.0    548.000000       548.000000   
+unique                            NaN           NaN              NaN   
+top                               NaN           NaN              NaN   
+freq                              NaN           NaN              NaN   
+mean                              0.0      0.131387         0.054745   
+std                               0.0      0.338132         0.227689   
+min                               0.0      0.000000         0.000000   
+25%                               0.0      0.000000         0.000000   
+50%                               0.0      0.000000         0.000000   
+75%                               0.0      0.000000         0.000000   
+max                               0.0      1.000000         1.000000   
+
+        federal_case    homicide  innocence_organization  jailhouse_informant  \
+count          548.0  548.000000              548.000000           548.000000   
+unique           NaN         NaN                     NaN                  NaN   
+top              NaN         NaN                     NaN                  NaN   
+freq             NaN         NaN                     NaN                  NaN   
+mean             0.0    0.445255                0.583942             0.043796   
+std              0.0    0.497448                0.493354             0.204827   
+min              0.0    0.000000                0.000000             0.000000   
+25%              0.0    0.000000                0.000000             0.000000   
+50%              0.0    0.000000                1.000000             0.000000   
+75%              0.0    1.000000                1.000000             0.000000   
+max              0.0    1.000000                1.000000             1.000000   
+
+        juvenile_defendant  misdemeanor  no_crime_case  guilty_plea_case  \
+count           548.000000   548.000000     548.000000        548.000000   
+unique                 NaN          NaN            NaN               NaN   
+top                    NaN          NaN            NaN               NaN   
+freq                   NaN          NaN            NaN               NaN   
+mean              0.142336     0.007299       0.496350          0.410584   
+std               0.349713     0.085201       0.500443          0.492389   
+min               0.000000     0.000000       0.000000          0.000000   
+25%               0.000000     0.000000       0.000000          0.000000   
+50%               0.000000     0.000000       0.000000          0.000000   
+75%               0.000000     0.000000       1.000000          1.000000   
+max               1.000000     1.000000       1.000000          1.000000   
+
+        posthumous_exoneration  sexual_assault  shaken_baby_syndrome_case  \
+count               548.000000      548.000000                 548.000000   
+unique                     NaN             NaN                        NaN   
+top                        NaN             NaN                        NaN   
+freq                       NaN             NaN                        NaN   
+mean                  0.001825        0.124088                   0.001825   
+std                   0.042718        0.329983                   0.042718   
+min                   0.000000        0.000000                   0.000000   
+25%                   0.000000        0.000000                   0.000000   
+50%                   0.000000        0.000000                   0.000000   
+75%                   0.000000        0.000000                   0.000000   
+max                   1.000000        1.000000                   1.000000   
+
+        prosecutor_misconduct  police_officer_misconduct  \
+count              548.000000                 548.000000   
+unique                    NaN                        NaN   
+top                       NaN                        NaN   
+freq                      NaN                        NaN   
+mean                 0.195255                   0.813869   
+std                  0.396759                   0.389568   
+min                  0.000000                   0.000000   
+25%                  0.000000                   1.000000   
+50%                  0.000000                   1.000000   
+75%                  0.000000                   1.000000   
+max                  1.000000                   1.000000   
+
+        forensic_analyst_misconduct  child_welfare_worker_misconduct  \
+count                    548.000000                            548.0   
+unique                          NaN                              NaN   
+top                             NaN                              NaN   
+freq                            NaN                              NaN   
+mean                       0.031022                              0.0   
+std                        0.173535                              0.0   
+min                        0.000000                              0.0   
+25%                        0.000000                              0.0   
+50%                        0.000000                              0.0   
+75%                        0.000000                              0.0   
+max                        1.000000                              0.0   
+
+        withheld_exculpatory_evidence  \
+count                      548.000000   
+unique                            NaN   
+top                               NaN   
+freq                              NaN   
+mean                         0.801095   
+std                          0.399541   
+min                          0.000000   
+25%                          1.000000   
+50%                          1.000000   
+75%                          1.000000   
+max                          1.000000   
+
+        misconduct_that_is_not_withholding_evidence  \
+count                                    548.000000   
+unique                                          NaN   
+top                                             NaN   
+freq                                            NaN   
+mean                                       0.839416   
+std                                        0.367482   
+min                                        0.000000   
+25%                                        1.000000   
+50%                                        1.000000   
+75%                                        1.000000   
+max                                        1.000000   
+
+        knowingly_permitting_perjury  \
+count                     548.000000   
+unique                           NaN   
+top                              NaN   
+freq                             NaN   
+mean                        0.062044   
+std                         0.241455   
+min                         0.000000   
+25%                         0.000000   
+50%                         0.000000   
+75%                         0.000000   
+max                         1.000000   
+
+        witness_tampering_or_misconduct_interrogating_co_defendant  \
+count                                          548.000000            
+unique                                                NaN            
+top                                                   NaN            
+freq                                                  NaN            
+mean                                             0.271898            
+std                                              0.445344            
+min                                              0.000000            
+25%                                              0.000000            
+50%                                              0.000000            
+75%                                              1.000000            
+max                                              1.000000            
+
+        misconduct_in_interrogation_of_exoneree  perjury_by_official  \
+count                                548.000000           548.000000   
+unique                                      NaN                  NaN   
+top                                         NaN                  NaN   
+freq                                        NaN                  NaN   
+mean                                   0.195255             0.299270   
+std                                    0.396759             0.458357   
+min                                    0.000000             0.000000   
+25%                                    0.000000             0.000000   
+50%                                    0.000000             0.000000   
+75%                                    0.000000             1.000000   
+max                                    1.000000             1.000000   
+
+        prosecutor_lied_in_court     tag_sum  \
+count                 548.000000  548.000000   
+unique                       NaN         NaN   
+top                          NaN         NaN   
+freq                         NaN         NaN   
+mean                    0.040146    6.677007   
+std                     0.196481    2.573892   
+min                     0.000000    0.000000   
+25%                     0.000000    6.000000   
+50%                     0.000000    7.000000   
+75%                     0.000000    8.000000   
+max                     1.000000   14.000000   
+
+                             geocode_address  
+count                                    548  
+unique                                    27  
+top     Cook County, Illinois, United States  
+freq                                     474  
+mean                                     NaN  
+std                                      NaN  
+min                                      NaN  
+25%                                      NaN  
+50%                                      NaN  
+75%                                      NaN  
+max                                      NaN  </code></pre>
+</div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="188">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>, category<span class="op">=</span><span class="pp">FutureWarning</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="189">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the specific columns to visualize</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>columns_to_plot <span class="op">=</span> [<span class="st">'age'</span>, <span class="st">'race'</span>, <span class="st">'county'</span>, <span class="st">'sentence_in_years'</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histograms for the numeric or categorical distributions</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> columns_to_plot:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col <span class="kw">in</span> df.columns:  <span class="co"># Ensure the column exists</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if the column is numeric or categorical</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> pd.api.types.is_numeric_dtype(df[col]):</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            sns.histplot(df[col], kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            plt.title(<span class="ss">f'Distribution of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            plt.xlabel(col)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>            plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            sns.countplot(y<span class="op">=</span>df[col], order<span class="op">=</span>df[col].value_counts().index, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>            plt.title(<span class="ss">f'Distribution of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>            plt.xlabel(<span class="st">'Count'</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>            plt.ylabel(col)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        plt.show()</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Column '</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">' does not exist in the dataset."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-13-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-13-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-13-output-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="190">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the columns for counts</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>columns_to_count <span class="op">=</span> [<span class="st">'worst_crime_display'</span>, <span class="st">'sex'</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate count plots for these columns</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> columns_to_count:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col <span class="kw">in</span> df.columns:  <span class="co"># Ensure the column exists</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        sns.countplot(y<span class="op">=</span>df[col], order<span class="op">=</span>df[col].value_counts().index, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="ss">f'Count of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        plt.xlabel(<span class="st">'Count'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        plt.ylabel(col)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        plt.show()</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Column '</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">' does not exist in the dataset."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-14-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="191">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'worst_crime_display'</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'race'</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    order<span class="op">=</span>df[<span class="st">'worst_crime_display'</span>].value_counts().index,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'viridis'</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Worst Crime Display by Race'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Count'</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Worst Crime Display'</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Race'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-17" class="cell" data-execution_count="192">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where sentence_in_years equals 100 -&gt; life sentence and death penalty</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> df[df[<span class="st">'sentence_in_years'</span>] <span class="op">!=</span> <span class="dv">100</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Sentence in Years by Race</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df_filtered, x<span class="op">=</span><span class="st">'race'</span>, y<span class="op">=</span><span class="st">'sentence_in_years'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Sentence Length in Years by Race (Excluding Life Sentence and Death Penalty)'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Race'</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Sentence Length (Years)'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-18" class="cell" data-execution_count="193">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate sample size per race</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>race_counts <span class="op">=</span> df_filtered[<span class="st">'race'</span>].value_counts()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Z-Score normalization</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>df_filtered[<span class="st">'normalized_sentence_length'</span>] <span class="op">=</span> (</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    df_filtered.groupby(<span class="st">'race'</span>)[<span class="st">'sentence_in_years'</span>]</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    .transform(<span class="kw">lambda</span> x: (x <span class="op">-</span> x.mean()) <span class="op">/</span> x.std())</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the normalized sentence lengths</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df_filtered, x<span class="op">=</span><span class="st">'race'</span>, y<span class="op">=</span><span class="st">'normalized_sentence_length'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Normalized Sentence Length in Years by Race'</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Race'</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Normalized Sentence Length'</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\court\AppData\Local\Temp\ipykernel_6756\1186036694.py:5: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_filtered['normalized_sentence_length'] = (</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-17-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="194">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the frequency of each tag</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tag_columns <span class="op">=</span> [</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'arson'</span>, <span class="st">'bitemark'</span>, <span class="st">'co_defendant_confessed'</span>, <span class="st">'conviction_integrity_unit'</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'child_sex_abuse_hysteria_case'</span>, <span class="st">'child_victim'</span>, <span class="st">'female_exoneree'</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'federal_case'</span>, <span class="st">'homicide'</span>, <span class="st">'innocence_organization'</span>, <span class="st">'jailhouse_informant'</span>, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'juvenile_defendant'</span>, <span class="st">'misdemeanor'</span>, <span class="st">'no_crime_case'</span>, <span class="st">'guilty_plea_case'</span>, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'posthumous_exoneration'</span>, <span class="st">'sexual_assault'</span>, <span class="st">'shaken_baby_syndrome_case'</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'prosecutor_misconduct'</span>, <span class="st">'police_officer_misconduct'</span>, <span class="st">'forensic_analyst_misconduct'</span>, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'child_welfare_worker_misconduct'</span>, <span class="st">'withheld_exculpatory_evidence'</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'misconduct_that_is_not_withholding_evidence'</span>, <span class="st">'knowingly_permitting_perjury'</span>, </span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'witness_tampering_or_misconduct_interrogating_co_defendant'</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'misconduct_in_interrogation_of_exoneree'</span>, <span class="st">'perjury_by_official'</span>, </span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'prosecutor_lied_in_court'</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Count occurrences of each tag</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>tag_counts <span class="op">=</span> df[tag_columns].<span class="bu">sum</span>().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>tag_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Frequency of Tags in Cases"</span>)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tags"</span>)</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-20" class="cell" data-execution_count="205">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of tag_sum</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'tag_sum'</span>], kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">20</span>, color<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Total Tags Per Case"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Total Tags (tag_sum)"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Tag sum by county</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'county'</span>, y<span class="op">=</span><span class="st">'tag_sum'</span>, palette<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Total Tags by County"</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"County"</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Total Tags"</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="200">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group misconduct-related tags</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>misconduct_tags <span class="op">=</span> [</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'prosecutor_misconduct'</span>, <span class="st">'police_officer_misconduct'</span>, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'forensic_analyst_misconduct'</span>, <span class="st">'child_welfare_worker_misconduct'</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'withheld_exculpatory_evidence'</span>, <span class="st">'misconduct_that_is_not_withholding_evidence'</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'knowingly_permitting_perjury'</span>, <span class="st">'witness_tampering_or_misconduct_interrogating_co_defendant'</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'misconduct_in_interrogation_of_exoneree'</span>, <span class="st">'perjury_by_official'</span>, </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'prosecutor_lied_in_court'</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a column for combined misconduct</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'total_misconduct'</span>] <span class="op">=</span> df[misconduct_tags].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate total misconduct by race (using sum for total counts)</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>race_misconduct <span class="op">=</span> df.groupby(<span class="st">'race'</span>)[<span class="st">'total_misconduct'</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot of total misconduct by race</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>race_misconduct, x<span class="op">=</span><span class="st">'race'</span>, y<span class="op">=</span><span class="st">'total_misconduct'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Total Misconduct Tags by Race"</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Race"</span>)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Total Number of Misconduct Tags"</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="206">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate each misconduct tag by race</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>misconduct_by_race <span class="op">=</span> df.groupby(<span class="st">'race'</span>)[misconduct_tags].<span class="bu">sum</span>()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of misconduct types by race with improved layout</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))  <span class="co"># Adjust figure size for better spacing</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    misconduct_by_race, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    annot<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'coolwarm'</span>, </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    fmt<span class="op">=</span><span class="st">'d'</span>, </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.5</span>, </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'Counts'</span>},  <span class="co"># Add a color bar label</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    xticklabels<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    yticklabels<span class="op">=</span><span class="va">True</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Breakdown of Misconduct Types by Race"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)  <span class="co"># Larger title font size</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Misconduct Type"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)  <span class="co"># Larger x-axis label font size</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Race"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)  <span class="co"># Larger y-axis label font size</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">30</span>, ha<span class="op">=</span><span class="st">'right'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)  <span class="co"># Rotate x-axis labels for readability</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">10</span>)  <span class="co"># Adjust y-axis label font size</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># Optimize layout to avoid overlap</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="209">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate misconduct by county and type</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>misconduct_county <span class="op">=</span> df.groupby(<span class="st">'county'</span>)[misconduct_tags].<span class="bu">sum</span>()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of misconduct types by county</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    misconduct_county,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'viridis'</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    fmt<span class="op">=</span><span class="st">'.0f'</span>,  <span class="co"># Format numbers as integers</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'Counts'</span>}</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Breakdown of Misconduct Types by County"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Misconduct Type"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"County"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">30</span>, ha<span class="op">=</span><span class="st">'right'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-24" class="cell" data-execution_count="201">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows where OM equals 1</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df_misconduct <span class="op">=</span> df[df[<span class="st">'om'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Misconduct counts by county</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>county_misconduct <span class="op">=</span> df_misconduct.groupby(<span class="st">'county'</span>).size().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot for misconduct by county</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>county_misconduct.plot(kind<span class="op">=</span><span class="st">'bar'</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'coral'</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Total Misconduct Cases by County (OM = 1)"</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"County"</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count of Misconduct Cases"</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-25" class="cell" data-execution_count="211">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate misconduct by county and race</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>misconduct_race_county <span class="op">=</span> df.groupby([<span class="st">'county'</span>, <span class="st">'race'</span>])[<span class="st">'total_misconduct'</span>].<span class="bu">sum</span>().unstack()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of misconduct by county and race</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    misconduct_race_county,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    annot<span class="op">=</span><span class="va">True</span>,  <span class="co"># Add cell annotations</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'viridis'</span>, </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    fmt<span class="op">=</span><span class="st">'.0f'</span>,  <span class="co"># Format annotations as integers</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.5</span>,  <span class="co"># Add gridlines</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'Total Misconduct'</span>}</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Misconduct Tags by County and Race"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Race"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"County"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">30</span>, ha<span class="op">=</span><span class="st">'right'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># Adjust layout for readability</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
