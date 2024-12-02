@@ -1,11 +1,81 @@
 /*-- scss:defaults --*/
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Oswald:wght@300;400;500&family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@300;400;500;700&family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&family=Source+Code+Pro:wght@400;500;700&display=swap';
 
+$darkest-rose: #9e7495;
+$cream: #FAF8F2;
 
-body {
-    font-family: 'Nunito Sans', sans-serif;
+$navbar-hl: $cream;
+$navbar-fg: gray;
+
+/* Title Styling */
+.title {
+    font-family: 'DM Sans', sans-serif !important;
+    text-align: left;
+    color: darkslategray !important;
+    font-size: 1000px;
 }
 
-p, li, span, a {
-    font-family: 'Nunito Sans', sans-serif; 
+/* General Body Styling */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: black;
+}
+
+/* Header Styling with DM Sans */
+h1 {
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 40px !important;
+    letter-spacing: 0px !important;
+}
+
+h2 {
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 550 !important;
+    font-size: 30px !important;
+    letter-spacing: 0px !important;
+}
+
+h3 {
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 450 !important;
+    font-size: 20px !important;
+}
+
+h4 {
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+}
+
+/* Code Block Styling - Cosmo Defaults */
+pre.sourceCode {
+    background-color: #b5babd; /* Light gray */
+    border: 1px solid #e1e4e8; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1em; /* Inner spacing */
+    overflow: auto; /* Enable scrolling for long code */
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    font-size: 0.95em; /* Slightly smaller font size */
+    color: #333; /* Default text color */
+}
+
+code.sourceCode {
+    background-color: inherit; /* Match pre background */
+    font-family: inherit; /* Use same font as pre */
+    font-size: inherit; /* Match size */
+}
+
+pre.sourceCode > code.sourceCode > span {
+    color: initial; /* Syntax highlighting colors handled by Quarto */
+}
+
+/* Quarto-specific styles for links in code blocks */
+pre.sourceCode a {
+    text-decoration: none;
+    color: #007bff; /* Cosmo link blue */
+}
+
+pre.sourceCode a:hover {
+    text-decoration: underline;
 }

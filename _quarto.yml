@@ -42,11 +42,12 @@ page-footer:
 
 format:
   html:
-    theme: lux
+    theme:
+      - lux
+      - styles.scss
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
-    css: styles.scss
     page-layout: full 
     
 
