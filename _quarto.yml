@@ -11,7 +11,7 @@ website:
   title: "DSAN-5000: Project"
   favicon: "assets/gu-logo.png"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: instructions/overview.qmd
@@ -36,12 +36,17 @@ website:
           - text: LLM usage Log
             href: technical-details/llm-usage-log.qmd
 
+page-footer:
+    background: light # or `dark`
+    left: Copyright 2024, Courtney Green
+
 format:
   html:
     theme: lux
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
+    page-layout: full 
 
 
 

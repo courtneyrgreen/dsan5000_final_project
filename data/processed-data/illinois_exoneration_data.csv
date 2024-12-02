@@ -1,0 +1,549 @@
+last_name,first_name,age,race,sex,state,county,worst_crime_display,sentence,sentence_in_years,posting_date,date_of_exoneration,date_of_1st_conviction,date_of_release,arson,bitemark,co_defendant_confessed,conviction_integrity_unit,child_sex_abuse_hysteria_case,child_victim,female_exoneree,federal_case,homicide,innocence_organization,jailhouse_informant,juvenile_defendant,misdemeanor,no_crime_case,guilty_plea_case,posthumous_exoneration,sexual_assault,shaken_baby_syndrome_case,prosecutor_misconduct,police_officer_misconduct,forensic_analyst_misconduct,child_welfare_worker_misconduct,withheld_exculpatory_evidence,misconduct_that_is_not_withholding_evidence,knowingly_permitting_perjury,witness_tampering_or_misconduct_interrogating_co_defendant,misconduct_in_interrogation_of_exoneree,perjury_by_official,prosecutor_lied_in_court,tag_sum
+Abbott,Cinque,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-14,2022-02-01,2008-03-25,2008-03-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Abernathy,Christopher,17.0,White,male,Illinois,Cook,Murder,Life without parole,100.0,2015-02-13,2015-02-11,1987-01-15,2015-02-11,0,0,0,1,0,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,6
+Abrego,Eruby ,20.0,Hispanic,male,Illinois,Cook,Murder,90 years,90.0,2022-08-25,2022-07-21,2004-09-22,2022-07-21,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Adams,Demetris,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2020-04-13,2020-02-11,2004-09-08,2004-12-26,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Adams,Kenneth,22.0,Black,male,Illinois,Cook,Murder,75 years,75.0,2011-08-29,1996-07-02,1978-10-20,1996-06-14,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Adams,Seneca,20.0,Black,male,Illinois,Cook,Assault,Probation,0.0,2014-12-08,2006-12-19,2006-05-18,2006-05-18,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Adams,Tari,18.0,Black,male,Illinois,Cook,Assault,Probation,0.0,2014-12-08,2006-12-19,2006-05-18,2006-05-18,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Agnew,Gregory,28.0,Black,male,Illinois,Lake,Robbery,30 years,30.0,2018-01-18,2001-11-07,1988-06-14,2001-11-07,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Aguirre,Omar,28.0,Hispanic,male,Illinois,Cook,Murder,55 years,55.0,2011-08-29,2003-02-18,1999-03-09,2002-12-18,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Ali,Chauncey,37.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2020-04-13,2020-02-11,2007-01-17,2007-06-27,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Allen,Crystal,22.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-10,2022-02-01,2007-09-07,2007-09-07,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Allen,Crystal,22.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-04-27,2022-04-22,2007-09-07,2007-09-07,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Allen,James,34.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2021-09-27,2021-09-15,1987-08-28,1987-08-28,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Allen,Landon,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-09,2018-09-24,2004-07-08,2004-07-08,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Almendarez,Arthur,19.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2022-08-08,2022-07-13,1990-01-29,2022-07-13,1,0,1,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Almodovar,Roberto,19.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2017-04-26,2017-04-14,1995-11-30,2017-04-14,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Almond,George,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2018-12-09,2018-11-02,2006-10-05,2008-02-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Almond,George,30.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2021-12-06,2021-11-04,2008-05-29,2009-10-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Alvarado,Victor,26.0,Hispanic,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2013-05-31,2013-05-01,2012-06-04,2013-05-01,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Amor,William,39.0,White,male,Illinois,DuPage,Murder,45 years,45.0,2018-02-23,2018-02-21,1997-09-17,2017-05-30,1,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Andersen,Daniel,19.0,White,male,Illinois,Cook,Murder,55 years,55.0,2015-08-15,2015-08-13,1982-03-11,2007-04-27,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Anderson,Deonta,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-05-02,2022-04-22,2004-10-06,2005-02-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Anderson,Herbert,44.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-04-28,2022-04-22,2004-08-02,2004-08-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Anderson,Tyjuan,19.0,Black,male,Illinois,Winnebago,Murder,50 years,50.0,2015-11-24,2015-11-06,2002-11-06,2013-04-30,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Andino,Carlos,21.0,Hispanic,male,Illinois,Cook,Murder,60 years,60.0,2022-08-23,2022-08-09,1996-11-21,2022-08-09,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Andrews,James,21.0,Black,male,Illinois,Cook,Murder,Life,100.0,2012-12-21,2008-02-01,1985-03-08,2007-11-21,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Antusas,Wayne,17.0,White,male,Illinois,Cook,Murder,Life without parole,100.0,2021-02-19,2021-02-11,1998-02-09,2021-02-11,0,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Armstrong,Craig,40.0,Black,male,Illinois,Cook,Sex Offender Registration,1 year,1.0,2019-09-22,2018-02-23,2005-03-25,2005-05-29,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Armstrong,Craig,46.0,Black,male,Illinois,DuPage,Sex Offender Registration,3 years,3.0,2019-09-22,2016-05-31,2012-07-11,2013-10-07,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Arroyo,Rogelio,25.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,1991-09-05,1982-09-22,1991-01-09,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Ayala,David,18.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2023-12-21,2023-12-14,1982-09-30,2023-12-14,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bailey,Kevin,19.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2018-02-03,2018-01-30,1990-10-18,2018-01-30,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Baker,Anthony,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-10,2022-02-01,2003-08-11,2003-08-11,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Baker,Ben,32.0,Black,male,Illinois,Cook,Drug Possession or Sale,18 years,18.0,2016-01-19,2016-01-14,2006-06-09,2016-01-14,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Baker,Ben,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2016-03-28,2016-03-23,2006-09-18,2010-01-31,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Banks,Gregory,20.0,Black,male,Illinois,Cook,Murder,50 years,50.0,2019-07-11,1990-10-31,1985-09-09,1990-10-31,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Barr,Jonathan,14.0,Black,male,Illinois,Cook,Murder,85 years,85.0,2012-01-23,2011-11-03,1997-06-30,2011-11-03,0,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,6
+Batchelor,Corey,19.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2018-02-03,2018-01-30,1991-04-05,2004-08-06,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Bates,David,18.0,Black,male,Illinois,Cook,Murder,20 years,20.0,2015-01-30,1995-12-21,1985-09-09,1994-05-29,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Beal,Teshama,22.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-10,2022-02-01,2005-10-07,2005-10-07,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Beals,Brian,22.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2024-01-03,2023-12-12,1990-01-24,2023-12-12,0,0,0,1,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Beaman,Alan W.,20.0,White,male,Illinois,McLean,Murder,50 years,50.0,2011-08-29,2009-01-29,1995-04-01,2009-01-29,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Bell,Deandre,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-09,2018-09-24,2007-08-20,2007-08-20,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bell,Jimmie,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-08,2022-02-01,2004-09-22,2004-09-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Benitez,Francisco,18.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2023-10-05,2023-09-26,1991-08-16,2023-08-29,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Berry,Wilder,20.0,Black,male,Illinois,Cook,Sexual Assault,35 years,35.0,2011-08-29,2000-02-01,1992-06-30,1999-12-23,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Blackmon,Eric,20.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2019-01-28,2019-01-16,2004-09-27,2018-03-30,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Blair,Harvey,35.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-09,2018-11-06,2005-09-12,2005-12-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bolden,Eddie,24.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2016-04-22,2016-04-19,1996-10-30,2016-04-19,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Bolden,Percy,36.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years and 6 months,2.5,2022-05-17,2022-04-22,2006-09-14,2007-03-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bonners,Catrina,24.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-03-02,2021-02-19,2007-07-05,2007-07-05,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Bouto,Robert,17.0,White,male,Illinois,Cook,Murder,45 years,45.0,2018-07-02,2018-06-25,1996-08-01,2015-10-26,0,0,0,0,0,1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Boyd,Darryl,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-09,2022-02-01,2005-11-30,2005-11-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Boyd,Lathierial,24.0,Black,male,Illinois,Cook,Murder,82 years,82.0,2013-09-10,2013-09-10,1990-10-24,2013-09-10,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Bradford,Marcellius,17.0,Black,male,Illinois,Cook,Kidnapping,12 years,12.0,2011-08-29,2001-12-05,1988-09-19,1994-06-30,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bradley,Antwan,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-01-19,2020-12-15,2008-06-18,2008-06-18,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bradley,Javon,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-12,2022-02-01,2008-08-19,2008-08-19,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Brakes,Warren,41.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2022-02-15,2022-02-01,2008-02-14,2010-09-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Brayboy,Glen,44.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-02-14,2022-02-01,2008-04-08,2008-04-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Breeland,Vernell,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-02-14,2022-02-01,2004-06-09,2005-03-21,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Britton,Robert,38.0,Black,male,Illinois,Cook,Sexual Assault,50 years,50.0,2014-11-12,2014-11-05,1996-03-21,2014-11-05,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Brock,Donald,,Black,male,Illinois,Cook,Theft,Not sentenced,,2011-08-29,1989-10-05,1989-04-10,1989-10-05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Brooks, Jr.",Claude,35.0,Black,male,Illinois,Cook,Child Sex Abuse,22 years,22.0,2017-06-20,2013-04-30,2000-03-09,2008-08-26,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Brown,Arthur,37.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2017-11-26,2017-11-14,1990-04-23,2017-11-14,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Brown,Jason,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-24,2022-04-22,2008-06-17,2009-12-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Brown,Marcel,18.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2018-07-24,2018-07-18,2011-01-06,2018-07-18,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Brown,Robert,42.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2011-08-29,1989-10-30,1984-09-08,1989-10-30,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Bullock,Ronnie,27.0,Black,male,Illinois,Cook,Child Sex Abuse,60 years,60.0,2011-08-29,1994-11-23,1984-05-02,1994-10-14,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Burrell,Frank,24.0,Black,male,Illinois,Cook,Murder,32 years,32.0,2024-04-04,2024-03-05,2002-07-25,2019-10-24,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Burrows,Joseph,35.0,White,male,Illinois,Iroquois,Murder,Death,100.0,2011-08-29,1996-07-03,1989-08-15,1994-09-08,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Bush,Sean,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2022-02-10,2022-02-01,2007-11-29,2010-02-20,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Bynum,Jerome,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-24,2022-04-22,2004-12-01,2004-12-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Byrd,Darron,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2019-02-26,2019-02-11,2007-06-25,2007-08-27,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Caban,Sandro,38.0,Hispanic,male,Illinois,Cook,Burglary/Unlawful Entry,12 years,12.0,2023-02-15,2020-08-11,2014-09-25,2019-05-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cage,Dean ,28.0,Black,male,Illinois,Cook,Child Sex Abuse,40 years,40.0,2011-08-29,2008-05-27,1996-11-06,2008-05-27,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Cain,Jeremiah,23.0,White,male,Illinois,Cook,Murder,25 years,25.0,2022-08-25,2022-07-21,2001-08-28,2022-07-21,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Caine,Eric,20.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-31,2011-03-16,1989-09-15,2011-03-16,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Cameron,Darrell,19.0,Black,male,Illinois,Cook,Robbery,Not sentenced,,2011-08-29,1992-06-30,1991-06-30,1992-06-30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Campbell,Teshome,21.0,Black,male,Illinois,Champaign,Murder,55 years,55.0,2016-02-09,2016-01-29,1998-10-15,2016-01-29,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Carini,William,28.0,White,male,Illinois,Lake,Sexual Assault,26 years,26.0,2017-01-10,2017-01-03,1992-04-07,2002-10-30,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Carter,Brad,38.0,White,male,Illinois,Williamson,Child Sex Abuse,Not sentenced,,2015-02-09,2015-01-28,2013-04-11,2013-07-30,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Carter,Raynard,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years and 6 months,4.5,2019-02-26,2019-02-11,2006-07-10,2008-02-14,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Carter,William,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,9 years,9.0,2017-07-17,2017-07-10,2007-02-01,2010-01-21,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Casciaro,Mario,19.0,White,male,Illinois,McHenry,Murder,26 years,26.0,2016-04-12,2016-03-30,2013-04-02,2015-09-23,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Castillo,Miguel,35.0,Hispanic,male,Illinois,Cook,Murder,48 years,48.0,2011-08-29,2001-01-18,1991-10-24,2001-01-18,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Catron,Xavier,22.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2011-08-29,2000-02-01,1992-08-19,2000-02-01,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Cerami,Sean,47.0,White,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2016-06-08,2013-08-16,2012-02-28,2013-07-19,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Champagne,Terrell,16.0,Black,male,Illinois,Cook,Drug Possession or Sale,30 days,,2023-09-19,2021-10-06,2008-04-29,2008-05-29,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Chatman,Carl,47.0,Black,male,Illinois,Cook,Sexual Assault,30 years,30.0,2013-09-10,2013-09-10,2004-01-29,2013-09-10,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Chatmon,Timothy,30.0,Black,male,Illinois,Winnebago,Murder,35 years,35.0,2014-03-10,1995-11-30,1990-01-31,1995-02-15,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Claybon,Lugene,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-02-14,2022-02-01,2007-11-21,2008-09-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Claybron,Eson,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-14,2022-02-01,2006-03-23,2006-03-23,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Cleveland,Albert,20.0,Black,male,Illinois,Cook,Murder,45 years,45.0,2019-04-16,2017-03-22,1996-09-27,2017-02-16,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Coleman,Bobby,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-09,2018-09-12,2005-02-14,2005-06-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Coleman,Christopher,20.0,Black,male,Illinois,Peoria,Sexual Assault,60 years,60.0,2014-03-13,2014-03-13,1995-04-06,2013-11-26,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Coleman,Jermaine,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2019-02-21,2019-02-13,2006-06-29,2007-11-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Coleman,Jermaine,16.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-02-14,2022-02-01,2004-09-07,2004-10-05,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Coleman,Laurarence,43.0,Black,female,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-02-16,2022-02-01,2008-06-12,2008-08-19,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Coleman,Nevest,25.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2017-12-04,2017-12-01,1997-05-13,2017-11-20,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Colon,David,20.0,Hispanic,male,Illinois,Cook,Murder,50 years,50.0,2022-08-25,2022-08-09,1993-07-28,2017-08-27,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Colon,Edgardo,34.0,Hispanic,male,Illinois,Cook,Murder,84 years,84.0,2023-07-19,2023-06-21,2017-07-13,2022-03-31,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Colvin,Craig,36.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2018-12-05,2018-11-02,2004-07-30,2006-09-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Conley,Michael,30.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 months and 25 days,5.083333333333334,2022-02-12,2022-02-01,2004-08-31,2004-08-31,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Conley,Michael,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years and 6 months,2.5,2022-04-28,2022-04-22,2007-05-15,2007-11-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Cooper,Tracy,31.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2022-05-16,2022-04-22,2004-02-10,2006-05-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Craine,Alandis,29.0,Black,male,Illinois,Cook,Weapon Possession or Sale,2 years and 2 months,2.1666666666666665,2022-11-30,2021-05-19,2016-12-01,2017-05-05,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Crawford,William,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-24,2022-04-22,2004-12-01,2004-12-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Crivens III,Algie,18.0,Black,male,Illinois,Cook,Murder,20 years,20.0,2011-08-29,2000-06-30,1992-01-12,1999-04-28,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Cruz,Jose,24.0,Hispanic,male,Illinois,Cook,Murder,90 years,90.0,2022-07-18,2022-07-12,1996-01-30,2022-07-12,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Cruz,Rolando,19.0,Hispanic,male,Illinois,DuPage,Murder,Death,100.0,2011-08-29,1995-11-03,1985-02-22,1995-11-03,0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Culverson,Damian,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 months,0.25,2022-10-07,2022-10-03,2007-11-28,2008-02-26,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Curtis,Joshua,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-09,2018-09-24,2005-10-11,2007-01-13,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Davila,Edwin,21.0,Hispanic,male,Illinois,Cook,Murder,50 years,50.0,2022-12-19,2022-11-15,1996-03-20,2020-02-07,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Davis,Andre,19.0,Black,male,Illinois,Champaign,Murder,Life,100.0,2012-07-06,2012-07-06,1981-01-21,2012-07-06,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Davis,Corey,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-15,2022-02-01,2005-02-15,2005-02-15,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Davis,Lavelle,20.0,Black,male,Illinois,Kane,Murder,45 years,45.0,2011-08-29,2009-04-15,1997-02-15,2006-03-22,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Day,Arnold,18.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2018-12-20,2018-12-18,1994-06-23,2018-12-18,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Day,Lee Antione,28.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2011-08-29,2002-05-08,1992-11-12,2002-05-08,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Del Prete,Jennifer,31.0,White,female,Illinois,Will,Murder,20 years,20.0,2022-10-13,2022-10-05,2005-03-04,2014-04-30,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5
+"Delaney, Jr.",Milton,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2018-12-10,2018-09-24,2008-07-07,2008-11-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+DeLeon-Reyes,Arturo,25.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2018-01-03,2017-12-21,2000-06-20,2017-12-21,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Delphie,Maurice,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2023-12-11,2023-10-13,2004-06-08,2005-08-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Diaz,Angel,21.0,Hispanic,male,Illinois,Cook,Murder,44 years,44.0,2024-08-15,2023-04-25,1996-01-17,2010-01-10,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Dick,Steven,18.0,White,male,Illinois,Cook,Drug Possession or Sale,6 months,0.5,2013-03-21,2001-11-28,1983-12-07,1984-06-15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dixon,Matthew,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-07-24,2022-07-13,2017-08-15,2017-08-15,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Dobbins,Gregory,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2019-02-26,2019-02-11,2004-06-17,2005-12-17,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Dobbins,Gregory,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years and 6 months,2.5,2022-04-30,2022-04-22,2009-10-07,2010-06-29,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Dominguez,Alejandro,16.0,Hispanic,male,Illinois,Lake,Sexual Assault,9 years,9.0,2011-08-29,2002-04-26,1990-02-27,1993-12-22,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Dotson,Gary,20.0,White,male,Illinois,Cook,Sexual Assault,25 to 50 years,37.5,2011-08-29,1989-08-14,1979-05-15,1985-05-12,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Dowaliby,David,31.0,White,male,Illinois,Cook,Murder,45 years,45.0,2012-02-25,1992-02-05,1990-05-02,1991-11-12,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Drew,Frank,16.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2024-04-10,2024-03-12,1999-03-15,2022-06-17,0,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Eardley,James,23.0,White,male,Illinois,McLean,Destruction of Property,Not sentenced,,2014-10-28,1991-02-21,1990-01-19,1990-01-19,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Eason,Corey,23.0,Black,male,Illinois,McLean,Sex Offender Registration,Not sentenced,,2011-08-29,2005-10-25,2005-06-30,2005-06-30,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Edwards,James,44.0,Black,male,Illinois,Lake,Murder,Life without parole,100.0,2012-06-10,2012-05-29,1996-10-31,1997-08-29,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Ellis,Bernard,26.0,Black,male,Illinois,Cook,Murder,55 years,55.0,2014-08-24,2001-10-25,1996-02-15,2001-10-25,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Elsayed,Jessica,21.0,White,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2016-06-23,2013-10-25,2012-05-07,2012-05-07,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Enriquez,Danielle,28.0,Hispanic,female,Illinois,DuPage,Drug Possession or Sale,Probation,0.0,2016-06-08,2013-02-13,2011-09-23,2011-09-23,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Escamilla,Nicholas,20.0,Hispanic,male,Illinois,Cook,Murder,29 years,29.0,2023-11-14,2023-10-31,1994-06-02,2008-06-02,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Evans,Dionte,16.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2023-09-13,2022-06-03,2006-06-21,2006-06-21,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Evans,Michael,17.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,2003-08-22,1976-06-17,2003-05-23,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Ezell,LaShawn,15.0,Black,male,Illinois,Cook,Robbery,20 years,20.0,2017-03-01,2017-02-15,1998-11-19,2005-06-30,0,0,1,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Farris,Christopher,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2020-04-13,2020-02-11,2004-11-24,2006-11-24,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Fauntleroy,David,22.0,Black,male,Illinois,Cook,Murder,Life,100.0,2012-12-21,2009-01-09,1986-08-26,2009-01-09,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Fears,Jerome,22.0,Black,male,Illinois,Cook,Assault,2 years,2.0,2022-04-27,2022-04-22,2009-06-16,2009-08-21,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Fenton,Joey,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-04-30,2022-04-22,2011-11-21,2012-07-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Fenton,Tyronne,32.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-04-30,2022-04-22,2007-12-19,2009-12-18,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Fields,Nathson Edgar,29.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,2009-04-08,1986-09-19,2003-05-09,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Fisher,Christine,23.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-02,2022-04-22,2004-08-30,2004-08-30,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Flagg,Michael,39.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-05-17,2022-04-22,2002-10-23,2002-12-26,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"Fletcher, Jr.",James,27.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2020-02-24,2020-01-30,2005-02-25,2020-01-30,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Flores,Johnny,18.0,Hispanic,male,Illinois,Cook,Murder,40 years,40.0,2022-09-06,2022-08-09,1990-12-19,2018-11-16,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Forney,Robert,44.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2018-12-09,2018-02-16,2007-09-05,2009-01-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Fountain,Ricky,29.0,Black,male,Illinois,Cook,Attempted Murder,26 years,26.0,2023-05-30,2018-09-28,2013-01-31,2018-09-28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Frye,Ralph,21.0,White,male,Illinois,Iroquois,Murder,23 years,23.0,2011-08-29,1996-07-08,1989-06-30,1996-07-08,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Fulton,Darryl,26.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2017-12-04,2017-12-01,1997-05-13,2017-11-20,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Fulton,John,18.0,Black,male,Illinois,Cook,Murder,31 years,31.0,2020-06-17,2019-06-01,2006-08-31,2019-02-26,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gaines,Brian,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 months,0.25,2022-10-05,2022-10-03,2005-01-12,2005-04-12,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Galvan,John,18.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2022-08-08,2022-07-13,1989-05-30,2022-07-13,1,0,1,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Garcia,Sergio,24.0,Hispanic,male,Illinois,Cook,Drug Possession or Sale,11 years,11.0,2016-06-08,2014-08-19,2012-09-24,2014-08-19,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gardner,Lewis,15.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2014-06-24,2014-06-24,1995-03-15,2007-06-30,0,0,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Gauger,Gary,41.0,White,male,Illinois,McHenry,Murder,Death,100.0,2011-08-29,1996-10-04,1993-10-03,1996-10-04,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gayles,Anthony,49.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-02-16,2022-02-01,2004-03-24,2003-04-07,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Gayol,Robert,33.0,Hispanic,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,2003-02-25,2001-06-30,2003-02-25,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gecht,David,18.0,White,male,Illinois,Cook,Murder,45 years,45.0,2022-08-04,2022-07-18,2000-03-23,2022-07-18,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+"Geralds, Jr.",Hubert,30.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-31,2000-02-10,1997-11-13,2000-02-10,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gibbs,Marcus,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2018-11-28,2017-11-16,2007-04-27,2008-07-06,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Gibson,James,23.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2019-05-04,2019-04-26,1991-10-08,2019-04-18,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Giles,Marc,38.0,Black,male,Illinois,Cook,Drug Possession or Sale,8 years,8.0,2021-03-02,2021-02-19,2003-11-06,2007-01-15,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Gillard,Larry,22.0,Black,male,Illinois,Cook,Sexual Assault,24 years,24.0,2011-08-29,2009-08-27,1982-01-21,2009-05-15,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gillespie,Jerry,18.0,Black,male,Illinois,Cook,Murder,40 years,40.0,2024-04-18,2024-02-21,1994-06-16,2014-03-17,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Gipson,Leonard,26.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years and four months,3.0,2018-11-28,2017-11-16,2007-11-15,2009-12-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Glenn,Clarissa,34.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2016-03-28,2016-03-23,2006-09-18,2006-09-18,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Glover,Cleon,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2018-12-09,2018-09-24,2006-07-18,2008-07-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Gold-Smith,Robert,50.0,White,male,Illinois,Will,Other Violent Felony,30 years,30.0,2023-05-01,2023-03-01,2016-03-08,2019-12-12,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gomez,Ariel,17.0,Hispanic,male,Illinois,Cook,Murder,35 years,35.0,2018-02-20,2018-02-15,1998-08-11,2017-10-17,0,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Gonzalez,Alfredo,32.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2022-08-23,2022-08-09,1992-04-30,2022-08-09,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gonzalez,Angel,20.0,Hispanic,male,Illinois,Lake,Sexual Assault,55 years,55.0,2015-03-12,2015-03-09,1995-06-15,2015-03-09,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Gonzalez,Nelson,24.0,Hispanic,male,Illinois,Cook,Murder,45 years,45.0,2022-08-22,2022-08-09,1994-11-10,2016-10-25,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Gonzalez,Tony,21.0,Hispanic,male,Illinois,Cook,Murder,42 years,42.0,2024-01-31,2024-01-23,1999-10-18,2024-01-23,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Goodwin,Darnell,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-02-16,2022-02-08,2005-06-02,2005-10-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Gordon,Kenneth,40.0,Black,male,Illinois,Cook,Theft,9 years,9.0,2016-02-11,2008-06-14,2002-04-25,2006-01-25,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Goree,Erica,31.0,Black,female,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-05-16,2022-04-22,2006-01-06,2007-10-29,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Gray,Adam,14.0,White,male,Illinois,Cook,Murder,Life without parole,100.0,2017-05-12,2017-05-03,1996-04-26,2017-05-03,1,0,0,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Gray,David A. ,25.0,Black,male,Illinois,Madison,Attempted Murder,60 years,60.0,2011-08-29,1999-06-23,1978-10-02,1999-01-26,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Gray,Paula,17.0,Black,female,Illinois,Cook,Murder,50 years,50.0,2011-08-29,2002-11-14,1978-10-20,1985-06-30,0,0,0,0,0,0,1,0,1,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,6
+Green,Debra,31.0,Black,female,Illinois,Cook,Assault,Probation,0.0,2013-08-26,2011-08-19,2010-09-21,2010-09-21,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Gresham,Lakiya,26.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-15,2022-02-08,2005-02-02,2005-02-02,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Hall,Darryl,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years and 6 months,3.5,2022-05-03,2022-04-22,2006-04-03,2007-05-21,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hampton,Patrick,18.0,Black,male,Illinois,Cook,Sexual Assault,60 years,60.0,2014-07-06,2011-10-05,1982-10-12,2002-01-28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1
+Harden,James,16.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2012-01-23,2011-11-03,1995-06-30,2011-11-03,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Harper,Lafayette,35.0,Black,male,Illinois,Vermilion,Murder,65 years,65.0,2019-02-14,2019-01-14,2014-10-02,2019-01-14,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Harper,Maurice,23.0,Black,male,Illinois,Jackson,Murder,25 years,25.0,2011-08-29,2007-03-15,2002-09-26,2005-07-15,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Harris,Darien,18.0,Black,male,Illinois,Cook,Murder,76 years,76.0,2024-01-03,2023-12-19,2014-04-01,2023-12-19,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Harris,Darnell,31.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years and 6 months,2.5,2021-12-06,2021-11-04,2008-07-01,2009-06-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Harris,Eveless,44.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2021-03-02,2021-02-19,2007-09-05,2007-10-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Harris,Keith,19.0,Black,male,Illinois,St. Clair,Attempted Murder,50 years,50.0,2011-08-29,2003-01-10,1979-04-30,2001-05-01,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Harris,Lee,34.0,Black,male,Illinois,Cook,Murder,90 years,90.0,2023-04-08,2023-03-16,1992-03-06,2023-03-16,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Harris,Maurice,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2021-12-06,2021-11-04,2006-10-10,2009-01-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Harris,Nicole,23.0,Black,female,Illinois,Cook,Murder,30 years,30.0,2013-06-17,2013-06-17,2005-10-26,2013-02-25,0,0,0,1,0,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+Harris,Rodney,15.0,Black,male,Illinois,Cook,Child Sex Abuse,15 years,15.0,2017-04-11,2013-05-03,2002-05-10,2010-07-13,0,0,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Harris,Warren,29.0,Black,male,Illinois,Cook,Murder,50 to Life,100.0,2014-07-05,1990-03-13,1977-12-21,1990-03-13,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Harrison,Stefon,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2020-04-13,2020-02-11,2007-01-25,2009-06-29,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Harvey,Sydney,47.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years and 6 months,4.5,2019-02-22,2019-02-11,2007-01-31,2008-07-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Haynes,Gregory,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-05-04,2022-04-22,2007-05-29,2007-08-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Haynes,Terrence,22.0,Black,male,Illinois,Kankakee,Murder,45 years,45.0,2019-06-11,2019-06-03,2000-08-16,2019-01-11,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Haywood,Antonio,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-02-14,2022-02-08,2005-07-18,2006-12-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Henderson,Reginald,18.0,Black,male,Illinois,Cook,Murder,55 years,55.0,2021-10-12,2021-09-17,1996-08-21,2020-04-16,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Henderson,Rickey,34.0,Black,male,Illinois,Cook,Drug Possession or Sale,12 years,12.0,2018-12-10,2018-11-02,2006-08-25,2010-02-11,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hendricks,Sonny,26.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-02-15,2022-02-08,2008-10-30,2009-03-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hernandez,Alejandro,19.0,Hispanic,male,Illinois,DuPage,Murder,Death,100.0,2011-08-29,1995-12-08,1985-02-22,1995-11-03,0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Hernandez,Juan,20.0,Hispanic,male,Illinois,Cook,Murder,86 years,86.0,2022-08-15,2022-07-21,2001-11-19,2022-07-21,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Hernandez,Rosendo,19.0,Hispanic,male,Illinois,Cook,Murder,75 years,75.0,2022-08-15,2022-07-21,1999-08-12,2022-07-21,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Herron,Tyrone,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2021-03-02,2021-02-19,2007-01-17,2007-06-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hester,Lee Arthur,14.0,Black,male,Illinois,Cook,Murder,55 years,55.0,2020-01-23,2019-05-01,2061-10-09,1972-08-08,0,0,0,1,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Hicks,Kenneth,38.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2018-12-06,2018-11-02,2007-12-20,2009-05-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hill,Dwayne,33.0,Black,male,Illinois,Cook,Attempted Murder,26 years,26.0,2023-05-30,2018-09-28,2013-01-31,2018-09-28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hill,Harold,16.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,2005-01-31,1994-09-20,2005-01-31,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,6
+Hill,Robert,36.0,Black,male,Illinois,Cook,Murder,70 years,70.0,2022-05-24,2021-05-27,2012-07-18,2017-12-15,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Hinton,Larry,31.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-06,2022-04-22,2009-05-04,2009-11-03,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hinton,Roy,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-05-06,2022-04-22,2009-05-28,2009-07-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hobley,Madison,26.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,2003-01-10,1990-08-02,2003-01-10,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Hogans,Terrance,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-02-14,2022-02-08,2004-07-06,2006-04-23,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Holland,Dana,25.0,Black,male,Illinois,Cook,Sexual Assault,90 years,90.0,2011-08-29,2003-01-30,1997-04-15,1997-04-15,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Holland,Dana,25.0,Black,male,Illinois,Cook,Attempted Murder,28 years,28.0,2011-08-29,2003-06-05,1995-03-24,2003-06-05,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Holmes,David ,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2021-01-19,2020-12-15,2007-10-18,2009-05-23,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Holmes,Dwayne,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-06,2022-04-22,2007-01-16,2008-06-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Hood,Tyrone,29.0,Black,male,Illinois,Cook,Murder,75 years,75.0,2015-02-12,2015-02-09,1996-05-06,2015-01-14,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Horton,John,17.0,Black,male,Illinois,Winnebago,Murder,Life without parole,100.0,2017-10-09,2017-10-04,1995-03-22,2017-02-10,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Houston,Elton,27.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2011-08-29,1989-10-30,1984-09-08,1989-10-30,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Howard,Darnell,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2021-12-06,2021-11-04,2007-03-07,2009-12-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Howard,Stanley,21.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,2003-01-10,1987-06-30,2003-01-10,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Hunt,Brian,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-05,2018-09-24,2008-04-29,2008-04-29,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Iglesias,Geraldo,24.0,Hispanic,male,Illinois,Cook,Murder,35 years,35.0,2019-01-30,2019-01-16,1994-12-19,2010-09-10,0,0,0,1,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Irving,Melvin,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-10-04,2022-10-03,2006-01-12,2006-06-20,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Ivory,Torrence,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-17,2022-04-22,2006-03-07,2007-07-31,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Jackson,Allen,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2018-11-28,2017-11-16,2006-09-05,2006-09-05,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Jackson,Ieliot,26.0,Black,male,Illinois,Cook,Drug Possession or Sale,13 years,13.0,2019-10-10,2018-10-18,2010-07-14,2018-01-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Jackson,Jeremy,16.0,Black,male,Illinois,Cook,Murder,50 years,50.0,2022-07-26,2022-07-11,2002-11-14,2022-06-08,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Jakes,Anthony,15.0,Black,male,Illinois,Cook,Murder,40 years,40.0,2018-05-16,2018-04-30,1993-09-10,2012-06-21,0,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+James,Shaun,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2018-12-07,2017-11-16,2004-05-14,2005-05-14,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+James,Shaun,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2021-01-19,2020-12-15,2009-08-04,2010-07-27,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Janke,Joseph,22.0,White,male,Illinois,Cook,Attempted Murder,60 years,60.0,2023-07-18,2023-06-26,2015-03-03,2022-05-30,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Jefferson,Goleather,45.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years and 6 months,3.5,2018-12-09,2018-09-24,2006-10-30,2008-03-17,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Jefferson,Thomas,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-06,2017-11-16,2005-08-18,2008-01-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Jimenez,Thaddeus,13.0,Hispanic,male,Illinois,Cook,Murder,50 years,50.0,2011-08-29,2009-05-01,1994-10-15,2009-05-01,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Jimerson,Verneal,25.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,1996-06-24,1985-11-07,1996-01-04,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Johnson,Anthony,17.0,Black,male,Illinois,Cook,Murder,47 years,47.0,2015-02-27,2014-12-31,2007-10-10,2014-01-30,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Johnson,Chad,28.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2019-09-29,2018-06-11,2009-03-05,2018-06-11,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Johnson,Charles,19.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2017-03-01,2017-02-15,1998-01-20,2016-09-26,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Johnson,Charles,14.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2023-09-19,2022-06-03,2005-04-21,2005-04-21,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Johnson,Demetrius,15.0,Black,male,Illinois,Cook,Murder,25 years,25.0,2020-01-02,2019-12-20,1992-11-23,2004-10-15,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Johnson,Donald,41.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-02-14,2022-02-08,2005-07-08,2005-12-03,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Johnson,Juan,19.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2011-08-29,2004-02-23,1991-09-27,2002-11-15,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Johnson,Lumont,29.0,Black,male,Illinois,Winnebago,Murder,50 years,50.0,2015-11-24,2015-11-06,2002-11-06,2013-04-15,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Johnson,Richard,31.0,Black,male,Illinois,Cook,Sexual Assault,36 years,36.0,2011-08-29,1996-03-08,1992-12-21,1995-12-05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1
+Johnson,Sherman,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-06,2022-04-22,2004-09-16,2005-09-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Johnson,Trinere,18.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-03-02,2021-02-19,2008-06-04,2008-06-04,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Johnson,Zarice,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2019-02-26,2019-02-11,2008-06-17,2009-08-03,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Jones,Christopher,27.0,Black,male,Illinois,Cook,Weapon Possession or Sale,4 years,4.0,2022-10-11,2022-10-03,2008-09-12,2010-05-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Jones,Isiah,16.0,Black,male,Illinois,Cook,Drug Possession or Sale,18 months,1.5,2023-12-11,2023-04-14,2004-08-03,2004-08-03,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Jones,Melvin,30.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2013-05-18,1989-04-24,1983-06-15,1989-04-24,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Jones,Michael,44.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2023-05-23,2022-08-26,2015-07-23,2016-08-16,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Jones,Ronald,34.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,1999-05-17,1989-07-17,1999-05-17,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Jordan,Elgin,46.0,Black,male,Illinois,Cook,Drug Possession or Sale,8 years,8.0,2023-05-24,2022-12-02,2016-01-06,2018-11-05,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Jordan,Sam,57.0,Black,male,Illinois,Cook,Theft,6 months,0.5,2019-09-26,2019-03-13,2013-11-05,2013-11-13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kayer,Brian,34.0,Asian,male,Illinois,Livingston,Sex Offender Registration,3 years,3.0,2017-10-15,2015-06-15,2011-09-15,2013-05-29,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Kelly,Thomas,17.0,Hispanic,male,Illinois,Cook,Murder,25 years,25.0,2024-02-05,2024-01-31,2001-08-07,2024-01-17,0,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Key,George,41.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-10,2022-04-22,2004-03-09,2004-03-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+King,Joshua,18.0,Black,male,Illinois,Cook,Weapon Possession or Sale,1 year and 4 months,1.3333333333333333,2022-10-04,2022-10-03,2007-06-06,2007-11-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Kitchen,Ronald,22.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,2009-07-07,1990-09-19,2009-07-07,0,0,0,0,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Kitterman,Shane,34.0,Black,male,Illinois,St. Clair,Sex Offender Registration,Probation,0.0,2019-03-18,2018-12-21,2013-12-17,2013-12-17,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Kittler,Eric,15.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2011-08-29,2002-03-21,1999-06-30,2002-03-21,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Kluppelberg,James,18.0,White,male,Illinois,Cook,Murder,Life,100.0,2012-05-31,2012-05-30,1989-07-14,2012-05-30,1,0,0,1,0,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+Kwil,Richard,19.0,Native American,male,Illinois,Cook,Murder,30 years,30.0,2023-04-24,2023-04-13,2000-03-23,2023-04-13,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Lane,Lionel,33.0,Black,male,Illinois,Kane,Murder,60 years,60.0,2011-08-29,1995-05-26,1995-02-07,1995-05-26,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Lawson,Carl,23.0,Black,male,Illinois,St. Clair,Murder,Death,100.0,2011-08-29,1996-12-11,1990-10-02,1996-12-11,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Leaks,Marie,44.0,Black,female,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-02-14,2022-02-08,2007-04-18,2009-02-26,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Lenoir,Thomas,55.0,Black,male,Illinois,Cook,Theft,8 years and 6 months,8.5,2022-12-12,2022-02-14,2017-12-12,2021-03-18,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Lewis,Derrick,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years and 6 months,6.5,2019-02-22,2019-02-11,2005-07-26,2007-08-07,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Lewis,Earl,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-04-27,2022-04-22,2005-03-01,2005-07-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Lewis,Jamar,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2018-11-28,2017-11-16,2005-01-06,2008-08-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Lewis,Sherman,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-02-14,2022-02-08,2005-06-15,2006-02-05,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Liebich,Randy,22.0,White,male,Illinois,Dupage,Murder,65 years,65.0,2019-04-20,2019-04-17,2004-07-16,2018-09-24,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Lindsey,Robert,30.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2019-02-22,2019-02-13,2010-09-22,2010-11-12,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Linscott,Steven,26.0,White,male,Illinois,Cook,Murder,40 years,40.0,2011-08-29,1992-07-15,1982-06-16,1985-11-01,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Lipscomb,Russ,40.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2022-02-14,2022-02-08,2005-09-14,2007-11-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Lockett,Jesse,18.0,Black,male,Illinois,Cook,Weapon Possession or Sale,Probation,0.0,2021-01-19,2019-07-24,2005-10-20,2005-10-20,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Logan ,Alton,28.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,2008-09-05,1982-06-30,2008-04-18,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Logan,Leonard,24.0,Black,male,Illinois,Cook,Murder,45 years,45.0,2023-10-26,2023-09-14,2000-11-17,2019-11-12,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Lomax,Larry,45.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-09,2018-09-24,2003-11-06,2003-11-06,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Lyons,Marcus,29.0,Black,male,Illinois,DuPage,Sexual Assault,6 years,6.0,2011-08-29,2007-09-28,1988-10-19,1991-03-15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1
+Madison,Lonnell,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-02-14,2022-02-08,2003-06-04,2003-09-06,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Mapp,Derrick,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2021-01-19,2020-12-15,2006-06-16,2008-04-11,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Marshall,James,32.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2024-08-28,2024-06-17,1991-02-06,2019-03-01,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Martin,Darnell,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-02-14,2022-02-08,2004-01-30,2004-01-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Martin,Willie,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years and 6 months,3.5,2018-12-09,2018-09-24,2007-05-30,2008-10-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Martinez,John,18.0,Hispanic,male,Illinois,Cook,Murder,25 years,25.0,2023-03-03,2023-02-09,2001-08-07,2023-02-09,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Masterson,Kerry,23.0,Hispanic,female,Illinois,Cook,Murder,58 years,58.0,2017-11-10,2017-11-02,2011-10-20,2017-11-02,0,0,1,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Maxson,Mark,31.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2016-10-02,2016-09-27,1994-03-24,2016-09-27,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Mayberry,David,35.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2020-04-13,2020-02-11,2006-05-24,2006-10-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Mays,Anthony,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years and 6 months,2.5,2020-02-26,2020-02-11,2006-06-19,2007-09-27,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Mays,Anthony,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-02-13,2022-02-08,2003-02-06,2004-04-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Mays,Anthony,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-05-10,2022-04-22,2004-11-03,2005-09-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Maysonet,Jose,22.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2017-11-20,2017-11-15,1995-08-11,2017-11-15,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+McCarty,Desmond,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2024-08-07,2017-12-21,2001-07-17,2003-02-17,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+McCaughn,Patrick,25.0,White,male,Illinois,Lake,Robbery,12 years,12.0,2011-08-29,1999-09-17,1996-12-19,1999-09-17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+McCoy,Troshawn,17.0,Black,male,Illinois,Cook,Murder,55 years,55.0,2017-03-01,2017-02-15,1998-12-21,2017-02-15,0,0,1,1,0,0,0,0,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+McCullough,Jack,18.0,White,male,Illinois,Dekalb,Murder,Life,100.0,2016-05-02,2016-04-22,2012-09-14,2016-04-15,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+McDaniels,Anthony,40.0,Black,male,Illinois,Cook,Weapon Possession or Sale,12 years,12.0,2018-11-28,2018-06-25,2011-02-24,2018-06-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+McDonald,Octayvia,17.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-09,2018-11-02,2005-10-24,2005-10-24,0,0,0,1,0,0,1,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+McIntosh,Norman,23.0,Black,male,Illinois,Cook,Murder,45 years,45.0,2016-10-26,2016-10-04,2003-12-18,2016-10-04,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+McNairy,Andre,44.0,Black,male,Illinois,Cook,Drug Possession or Sale,9 years,9.0,2018-11-28,2017-11-16,2009-10-23,2015-11-18,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Mendoza,Madeline,16.0,Hispanic,female,Illinois,Cook,Murder,35 years,35.0,2023-01-10,2023-01-03,1993-09-22,2009-08-05,0,0,1,0,0,0,1,0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+Miller,Jerry,23.0,Black,male,Illinois,Cook,Sexual Assault,45 years,45.0,2011-08-29,2007-04-23,1982-10-01,2006-05-15,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Mims,Bernard,20.0,Black,male,Illinois,Cook,Murder,95 years,95.0,2016-11-01,2016-10-27,2006-05-16,2016-10-27,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Mitchell,Anthony,17.0,Black,male,Illinois,Cook,Murder,31 years,31.0,2020-06-17,2019-06-01,2006-08-31,2019-02-26,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Mitchell,Keith,15.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2017-06-11,2017-11-06,1995-07-24,2008-03-14,0,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Molette,Gregory,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2023-04-27,2020-02-11,2006-10-20,2007-08-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Montanez,Jose,25.0,Hispanic,male,Illinois,Cook,Murder,55 years,55.0,2016-07-23,2016-07-20,1994-10-21,2016-07-20,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Montgomery,Carl,44.0,White,male,Illinois,Moultrie,Burglary/Unlawful Entry,7 years,7.0,2014-07-16,1989-09-21,1984-03-15,1987-09-15,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Moore,Elgen,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-10,2022-04-22,2005-02-16,2005-02-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Moore,James,45.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2018-12-09,2018-09-24,2006-01-09,2007-03-21,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Moore,Jonathan,18.0,Black,male,Illinois,Kane,Murder,76 years,76.0,2012-06-18,2012-03-06,2002-08-15,2012-03-06,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Moore,Omar,37.0,Black,male,Illinois,Cook,Murder,34 years,34.0,2024-08-29,2018-06-12,2009-09-24,2018-06-12,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Morales,Miguel,19.0,Hispanic,male,Illinois,Cook,Murder,45 years,45.0,2023-11-14,2023-10-31,1994-03-19,2015-08-12,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Moran,Nakiya,17.0,White,male,Illinois,Cook,Attempted Murder,62 years,62.0,2018-06-06,2017-02-17,2009-08-24,2017-02-17,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Morfin,Nicholas,17.0,White,male,Illinois,Cook,Murder,Life without parole,100.0,2021-02-08,2021-01-22,1997-07-18,2021-01-22,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Morris,Jermaine,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2021-01-19,2020-12-15,2005-02-02,2005-12-23,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Morris,Jermaine,26.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2021-03-02,2021-02-19,2006-06-23,2007-08-05,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Morris,Jermaine,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-05-10,2022-04-22,2004-10-08,2004-10-08,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Moye,Terrence,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2020-04-13,2020-02-11,2008-10-27,2010-09-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Mulero,Marilyn,21.0,Hispanic,female,Illinois,Cook,Murder,Death,100.0,2022-08-22,2022-08-09,1993-09-27,2020-04-09,0,0,1,0,0,0,1,0,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+Munoz,Cesar,21.0,Hispanic,male,Illinois,Cook,Murder,45 years,45.0,2013-08-19,2013-06-12,2000-11-09,2010-02-15,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Munoz,Reynaldo,16.0,Hispanic,male,Illinois,Cook,Murder,60 years,60.0,2022-03-09,2022-02-22,1986-11-25,2016-09-15,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Murphy,Cortez,26.0,Black,male,Illinois,Macon,Burglary/Unlawful Entry,6 years,6.0,2017-10-16,2015-12-02,2013-01-15,2015-05-20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Myles,Roosevelt,29.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2023-01-05,2022-12-05,1996-01-10,2020-07-20,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Nanez,Francisco,21.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2022-08-08,2022-07-13,1990-01-29,2022-07-13,1,0,1,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Nash,Alprentiss,20.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2012-08-30,2012-08-30,1997-01-17,2012-08-30,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Nash,Thomas,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-10,2022-04-22,2004-03-22,2004-03-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Negron,William,17.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2017-04-26,2017-04-14,1995-11-30,1995-11-30,0,0,0,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Nelson,Terry Lee,37.0,White,male,Illinois,St. Clair,Murder,40 years,40.0,2011-08-29,1994-11-23,1989-07-12,1989-07-12,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Newell,Lolita,24.0,Black,female,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-05-18,2022-04-22,2005-01-10,2005-10-10,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Newman,Lloyd,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-03-02,2021-02-19,2007-05-16,2007-05-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Newsome,James,24.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,1995-06-30,1980-09-15,1994-12-06,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Nile,JaJuan,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2020-04-13,2020-02-11,2008-02-07,2009-06-21,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Ochoa,Daniel Alberto,20.0,Hispanic,male,Illinois,Cook,Murder,90 years,90.0,2021-12-17,2019-10-23,2005-03-31,2019-10-23,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Ollie,George,35.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2018-12-09,2018-09-24,2004-01-14,2004-01-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Ollins,Calvin,14.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,2001-12-05,1988-02-09,2001-12-05,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Ollins,Larry,16.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,2001-12-05,1988-06-20,2001-12-05,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+O'Neal,Harry,42.0,Black,male,Illinois,Will,Assault,6 years,6.0,2020-01-09,2019-12-02,2015-01-07,2018-11-19,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Orange,Leroy,32.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,2003-01-10,1985-05-24,2003-01-10,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Ortiz,Edwin,15.0,Hispanic,male,Illinois,Cook,Murder,40 years,40.0,2024-08-06,2024-07-25,1993-05-03,2010-07-10,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Ortiz,Luis,18.0,Hispanic,male,Illinois,Cook,Murder,25 years,25.0,2011-08-29,2003-02-18,2000-08-15,2003-02-18,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Owens,Keith,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-16,2022-04-22,2007-08-21,2007-08-21,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Owens,Ron,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-11,2022-04-22,2004-01-09,2004-01-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Palmer,Charles,43.0,Black,male,Illinois,Macon,Murder,Life without parole,100.0,2016-12-04,2016-11-23,2000-04-27,2016-11-23,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Patrick,Bryant,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2021-01-19,2020-12-15,2007-08-20,2010-03-17,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Patrick,Bryant,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-03-02,2021-02-19,2005-06-22,2005-06-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Patrick,Deon,20.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2014-01-10,2014-01-10,1995-03-10,2014-01-10,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Patterson ,Maurice,35.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2011-08-29,2010-10-08,2003-06-30,2010-10-08,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Patterson,Aaron,21.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,2003-01-10,1989-10-02,2003-01-10,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Patterson,Javon,25.0,Black,male,Illinois,Cook,Weapon Possession or Sale,6 years,6.0,2011-08-29,2010-01-13,2007-02-20,2008-05-16,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Payne,Cordero,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2019-02-22,2019-02-11,2006-11-20,2007-02-20,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Payne,Cordero,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2023-03-05,2022-04-22,2005-01-25,2005-11-25,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Pearson,Mister Lucky,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-09,2018-09-24,2008-12-10,2011-07-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Pendleton,Marlon,35.0,Black,male,Illinois,Cook,Sexual Assault,20 years,20.0,2011-08-29,2006-12-08,1996-01-24,2006-11-30,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Perez,Victor,19.0,Hispanic,male,Illinois,Kane,Murder,20 years,20.0,2020-05-21,2001-07-10,1996-06-12,2000-03-01,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Perkins,Jarvis,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-02-12,2022-02-08,2009-01-28,2009-07-25,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Perry,Joseph,19.0,Black,male,Illinois,Cook,Weapon Possession or Sale,3 years,3.0,2022-10-11,2022-10-03,2005-06-20,2006-10-06,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Phillips,Paul,17.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2014-06-24,2014-06-24,1995-03-15,2007-06-30,0,0,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Pittman,Marcellous,18.0,Black,male,Illinois,Cook,Attempted Murder,80 years,80.0,2022-10-26,2022-10-12,2005-08-26,2020-12-08,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Porter,Anthony,27.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,1999-03-11,1983-09-07,1999-02-05,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Potts,Hasaan,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2020-04-13,2020-02-11,2003-05-06,2004-01-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Powell,Bruce,42.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2017-08-03,2017-07-10,2009-08-25,2010-01-15,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Prince,Patrick,19.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2017-05-27,2017-05-16,1994-08-24,2017-05-16,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Pursley,Patrick,28.0,Black,male,Illinois,Winnebago,Murder,Life without parole,100.0,2019-02-04,2019-01-16,1994-04-28,2017-04-27,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Quiambao-Holland,Camaran,19.0,Hispanic,male,Illinois,DuPage,Drug Possession or Sale,Probation,0.0,2016-06-14,2013-03-15,2009-06-30,2009-06-30,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Rainey,Lee,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-06,2017-11-16,2003-08-19,2003-08-19,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Rainge,Willie,20.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,1996-07-02,1978-10-20,1996-06-14,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Randolph,James,30.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2022-02-15,2022-02-08,2004-03-10,2007-05-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Rea,Julie,28.0,White,female,Illinois,Lawrence,Murder,65 years,65.0,2011-08-29,2006-07-26,2002-03-04,2004-07-22,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Reed,Carl,41.0,Black,male,Illinois,Cook,Murder,27 years,27.0,2023-06-15,2023-05-26,2005-12-05,2020-04-07,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Reed,Gerald,26.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2024-06-03,2024-05-15,1993-12-15,2021-04-02,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Reeves,Marvin,29.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,2009-07-07,1991-05-28,2009-07-07,1,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Relerford,Walter,28.0,Black,male,Illinois,Cook,Stalking,6 years,6.0,2019-03-18,2018-08-31,2013-05-23,2016-07-21,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Reyes,Andrew,22.0,Hispanic,male,Illinois,Cook,Attempted Murder,12 years,12.0,2020-06-02,2010-10-28,1992-04-10,1993-09-05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reyna,Tyrone,15.0,Hispanic,male,Illinois,Cook,Murder,25 years,25.0,2023-11-14,2023-10-31,1994-04-18,2007-05-11,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Reynolds,Donald,20.0,Black,male,Illinois,Cook,Sexual Assault,69 years,69.0,2011-08-29,1997-11-18,1988-04-19,1997-11-18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1
+Richardson,Dietrich,22.0,Black,male,Illinois,Peoria,Robbery,30 years,30.0,2017-01-08,2016-12-16,2011-10-05,2014-06-14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Richardson,Harold,16.0,Black,male,Illinois,Cook,Murder,40 years,40.0,2012-01-27,2012-01-17,1997-11-24,2011-11-18,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Rios,Jaime,20.0,Hispanic,male,Illinois,Cook,Murder,36 years,36.0,2022-09-06,2022-08-09,1990-11-30,2008-04-06,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Rivera,Gamalier,21.0,Hispanic,male,Illinois,Cook,Murder,45 years,45.0,2022-09-06,2022-08-16,1998-01-28,2019-10-15,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Rivera,Jacques,23.0,Hispanic,male,Illinois,Cook,Murder,80 years,80.0,2011-10-12,2011-10-04,1990-06-30,2011-10-04,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Rivera ,Juan,19.0,Hispanic,male,Illinois,Lake,Murder,Life,100.0,2012-02-07,2012-01-06,1993-11-19,2012-01-06,0,0,0,0,0,1,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Roberson,Willie,40.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-12-06,2021-11-04,2005-10-12,2006-04-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Roberts,Clifford,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2021-03-02,2021-02-19,2003-10-09,2005-07-24,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Robinson,Allen,21.0,Black,male,Illinois,Cook,Murder,55 years,55.0,2023-06-14,2022-05-09,2011-06-23,2022-05-09,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Robinson,Anthony,20.0,Black,male,Illinois,Cook,Murder,55 years,55.0,2024-04-22,2024-04-08,2014-12-12,2024-04-08,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Robinson,Calvin,51.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2020-04-13,2020-02-11,2007-04-04,2008-02-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Robinson,Louis,28.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2023-08-25,2023-08-10,1997-08-26,2023-08-10,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Rocquemore,Sharron,29.0,Black,female,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2021-09-20,2021-09-09,2017-12-29,2017-12-29,0,0,0,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Rodriguez,Angel,33.0,Hispanic,male,Illinois,Cook,Murder,60 years,60.0,2011-08-29,2000-08-14,1998-03-10,2000-03-31,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Rodriguez,Daniel,21.0,Hispanic,male,Illinois,Cook,Murder,25 years,25.0,2022-05-10,2022-04-25,1993-07-29,2008-08-08,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Rodriguez,Juan,23.0,Hispanic,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2020-03-13,2019-01-09,2005-01-19,2005-01-19,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Rodriguez,Ricardo,22.0,Hispanic,male,Illinois,Cook,Murder,90 years,90.0,2018-04-04,2018-03-27,1997-03-19,2018-03-27,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Rollins,Lafonso,17.0,Black,male,Illinois,Cook,Sexual Assault,75 years,75.0,2011-08-29,2004-07-12,1994-03-03,2004-07-12,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Romero,Francisco,18.0,Hispanic,male,Illinois,Cook,Murder,65 years,65.0,2024-07-15,2024-06-26,2006-01-20,2023-12-14,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Rosario,Adolfo,25.0,Hispanic,male,Illinois,Cook,Murder,57 years,57.0,2024-03-12,2022-11-02,1991-07-19,2019-12-23,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Ross,Anthony,21.0,Black,male,Illinois,Winnebago,Murder,50 years,50.0,2015-11-13,2015-11-06,2004-02-23,2013-04-15,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Safforld,Victor,19.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2020-02-11,2010-05-15,1992-05-15,2005-06-30,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Salcedo,Claudia,21.0,Hispanic,female,Illinois,Cook,Assault,Probation,0.0,2015-03-09,2007-08-29,2005-06-09,2005-06-09,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Salcedo,Gloria,46.0,Hispanic,female,Illinois,Cook,Assault,Probation,0.0,2015-03-09,2007-08-29,2005-06-09,2005-06-09,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Salcedo,Teresa,17.0,Hispanic,female,Illinois,Cook,Assault,Probation,0.0,2015-03-09,2007-08-29,2005-06-09,2005-06-09,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Samanta,Michael,20.0,Hispanic,male,Illinois,Cook,Murder,25 years,25.0,2024-07-15,2024-06-26,2006-08-07,2023-08-24,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Sanchez,Isauro,20.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,1991-09-05,1982-09-22,1991-01-09,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Sanchez,Jesus,18.0,Hispanic,male,Illinois,Cook,Murder,45 years,45.0,2018-06-06,2018-04-10,2014-11-07,2018-04-10,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Sanders,Jamell,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-06,2017-11-16,2006-07-17,2006-07-17,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Sanders,Rodell,28.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2014-07-29,2014-07-22,1995-01-15,2014-07-22,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Santiago,Fabian,16.0,Hispanic,male,Illinois,Cook,Murder,90 years,90.0,2023-10-22,2022-10-25,1994-05-18,2019-09-13,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Santos,Edar Duarte,26.0,Hispanic,male,Illinois,Cook,Murder,12 years,12.0,2011-08-29,2003-02-18,2002-06-30,2002-12-18,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Saunders,Frank,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-07,2017-11-16,2007-05-07,2009-05-20,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Saunders,Leonard,38.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-02-12,2022-02-01,2004-09-01,2006-02-27,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Saunders,Michael,15.0,Black,male,Illinois,Cook,Murder,40 years,40.0,2012-01-27,2012-01-17,1998-01-27,2011-11-03,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Saunders,Omar,18.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,2001-12-05,1988-05-10,2001-12-05,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Savory,Johnnie,14.0,Black,male,Illinois,Peoria,Murder,50 to 100 years,75.0,2015-02-02,2015-01-12,1977-07-01,2006-12-19,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Scales,Richard,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-18,2022-04-22,2005-01-10,2005-10-26,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Scott,Christopher,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-03,2017-11-16,2006-05-24,2006-05-24,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Seats,Devin,22.0,Black,male,Illinois,Cook,Other Nonviolent Felony,2 years,2.0,2022-12-12,2022-05-23,2009-04-28,2009-08-20,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Serrano,Armando,20.0,Hispanic,male,Illinois,Cook,Murder,55 years,55.0,2016-07-23,2016-07-20,1994-10-21,2016-07-20,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Shakirov,Mansur,28.0,White,male,Illinois,McLean,Manslaughter,4 years,4.0,2018-06-05,2018-04-03,2014-03-14,2015-11-13,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Shannon,Mason,42.0,White,male,Illinois,LaSalle,Manslaughter,Not sentenced,,2024-07-15,2024-03-14,2018-09-13,2018-09-13,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Shannon,Rasaan,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 months,0.3333333333333333,2022-03-13,2022-02-16,2005-10-17,2006-02-17,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Sharp,Shainne,16.0,Black,male,Illinois,Cook,Murder,20 years,20.0,2012-01-23,2011-12-11,1994-06-30,2002-07-15,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,6
+Shaw,Anthony,29.0,Black,male,Illinois,Cook,Robbery,6 years,6.0,2019-04-24,2018-04-03,2012-10-18,2015-03-11,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Shelton,Stephen,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-05-24,2022-04-22,2007-10-19,2008-10-31,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"Shenault, Jr.",Angelo,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-03,2018-02-13,2006-07-19,2007-02-08,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"Shenault, Jr.",Angelo,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years and 6 months,4.5,2018-12-03,2018-04-16,2008-04-22,2009-12-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"Shenault, Sr.",Angelo,41.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years and 3 months,4.25,2018-12-09,2018-02-13,2004-12-08,2006-02-11,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Sierra,Thomas,19.0,Hispanic,male,Illinois,Cook,Murder,55 years,55.0,2018-01-16,2018-01-09,1997-02-07,2017-11-17,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Simon,Alstory,32.0,Black,male,Illinois,Cook,Murder,37 years,37.0,2014-10-31,2014-10-30,1999-09-07,2014-10-30,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Sims,Germin,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2019-02-22,2019-02-13,2010-07-12,2011-09-08,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Sims,Oliver,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 months,0.5,2022-03-08,2022-02-16,2004-03-19,2004-05-21,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Slaughter,Charles,42.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2022-10-11,2022-10-03,2011-05-18,2011-10-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Smith,Adam,32.0,White,male,Illinois,Macon,Threats,10 years,10.0,2021-12-17,2020-09-16,2016-05-13,2019-12-19,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Smith,Alonzo,35.0,Black,male,Illinois,Cook,Murder,40 years,40.0,2017-03-21,2015-10-19,1984-07-02,2002-10-15,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Smith,Kenneth,25.0,White,male,Illinois,McHenry,Murder,67 years,67.0,2021-08-19,2021-05-24,2003-06-26,2021-04-20,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Smith,Robert,38.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2020-11-05,2020-10-23,1990-08-31,2020-10-23,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Smith,Steven,37.0,Black,male,Illinois,Cook,Murder,Death,100.0,2012-09-03,1999-02-19,1986-08-12,1999-02-19,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Smith,Taurus,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-07,2017-11-16,2004-06-23,2004-06-23,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Smith,Tyree,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-24,2022-04-22,2007-09-17,2008-05-23,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Smith,Tyrone,24.0,Black,male,Illinois,Cook,Murder,Not sentenced,,2024-01-17,2024-01-08,2020-02-14,2024-01-08,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Solache,Gabriel,23.0,Hispanic,male,Illinois,Cook,Murder,Death,100.0,2018-01-03,2017-12-21,2000-06-20,2017-12-21,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Sopron,Matthew,22.0,White,male,Illinois,Cook,Murder,Life without parole,100.0,2018-12-31,2018-12-18,1998-02-09,2018-12-18,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Soto,James,20.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2023-12-21,2023-12-14,1982-09-30,2023-12-14,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Spates,Jamie,41.0,Black,male,Illinois,Winnebago,Murder,Not sentenced,,2021-09-08,2021-08-18,2018-03-29,2018-03-29,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Starks,Bennie,26.0,Black,male,Illinois,Lake,Sexual Assault,60 years,60.0,2013-01-07,2013-01-07,1986-06-30,2006-10-04,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Steidl,Gordon,35.0,White,male,Illinois,Edgar,Murder,Death,100.0,2011-08-29,2004-05-28,1987-07-15,2004-05-28,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Stokes,Alhummza,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2020-04-13,2020-02-11,2006-07-10,2007-10-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Stokes,Jabal,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2019-02-21,2019-02-13,2006-07-17,2007-11-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Strong,Jason,24.0,White,male,Illinois,Lake,Murder,46 years,46.0,2015-05-30,2015-05-28,2000-10-18,2015-05-28,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Styles ,Larod,16.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2017-03-01,2017-02-15,1998-01-15,2016-09-26,0,0,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Swift,Terrill,17.0,Black,male,Illinois,Cook,Murder,36 years,36.0,2012-01-27,2012-01-17,1998-05-01,2011-11-18,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4
+Taylor,Daniel,17.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2013-06-28,2013-06-28,1995-09-15,2013-06-28,0,0,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Taylor,Lavell,19.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2021-12-17,2015-05-13,1998-04-02,2013-08-26,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Taylor,Patrick,37.0,Black,male,Illinois,Cook,Murder,Life,100.0,2023-10-30,2023-10-11,2011-07-06,2023-10-11,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Taylor,Robert,14.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2012-01-15,2011-11-03,1997-06-30,2011-11-03,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Terry,Paul,17.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,2003-08-22,1977-04-27,2003-05-23,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Thames,Vincent,17.0,Black,male,Illinois,Cook,Murder,30 years,30.0,2012-01-27,2012-01-17,1998-02-10,2011-07-15,0,0,1,0,0,0,0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Thomas,Henry,22.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-07,2017-11-16,2003-09-08,2006-08-08,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Thomas,Henry,26.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2019-02-22,2019-02-11,2007-01-17,2008-06-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Thomas,Nephus,37.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2018-12-09,2018-09-24,2008-06-11,2009-08-26,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Thomas,Phillip,47.0,Black,male,Illinois,Cook,Drug Possession or Sale,6 years,6.0,2018-11-28,2017-11-16,2008-01-18,2011-11-07,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Thomas,Walter,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-03-14,2022-02-16,2004-08-20,2004-11-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Thompson,Franklin,45.0,Black,male,Illinois,Will,Murder,24 years,24.0,2011-08-29,2003-01-11,1997-09-26,2003-01-11,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Thompson,Grover,46.0,Black,male,Illinois,Jefferson,Attempted Murder,40 years,40.0,2019-02-15,2019-01-14,1981-12-09,1996-06-28,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Thompson,Joseph,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-03-02,2022-02-16,2003-01-08,2003-02-14,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Thompson,Lapon,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2018-12-06,2018-11-02,2007-04-04,2008-10-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Thompson,Patrick,35.0,Black,male,Illinois,Champaign,Sexual Assault,Not sentenced,,2012-07-29,2008-05-12,2006-07-07,2006-07-07,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Thompson,Terrance,36.0,Black,male,Illinois,Cook,Weapon Possession or Sale,8 years,8.0,2011-08-29,2006-12-05,2003-11-04,2006-12-05,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Tillman,Michael,20.0,Black,male,Illinois,Cook,Murder,Life,100.0,2011-08-29,2010-01-14,1986-12-18,2010-01-14,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Tinajero,Jose,19.0,Hispanic,male,Illinois,Cook,Murder,30 years,30.0,2024-02-05,2024-01-31,2001-08-07,2024-01-31,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Turner,Christopher,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-03-14,2022-02-16,2005-08-07,2007-05-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Tyler,Sean,17.0,Black,male,Illinois,Cook,Murder,58 years,58.0,2021-10-12,2021-09-17,1995-09-27,2019-02-15,0,0,1,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Varela,Ignacio,42.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,1991-09-05,1982-09-22,1991-01-09,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Varela,Joaquin,22.0,Hispanic,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,1991-09-05,1982-09-22,1991-01-09,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Veal,Robert,14.0,Black,male,Illinois,Cook,Murder,20 years,20.0,2012-01-15,2011-12-11,1994-06-30,2002-07-15,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,6
+Velez,John,18.0,Hispanic,male,Illinois,Cook,Murder,55 years,55.0,2017-12-22,2017-12-11,2002-10-15,2017-12-11,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Vera,Francisco,29.0,Hispanic,male,Illinois,Cook,Assault,17 years,17.0,2012-10-14,1998-02-26,1992-12-29,1996-01-18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Waddy,Alvin,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2019-02-22,2019-02-11,2007-08-06,2008-05-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Walker,Bruce,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-03-01,2022-02-16,2004-05-19,2004-05-19,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Walker,Danny,47.0,Black,male,Illinois,DuPage,Fraud,6 months,0.5,2018-04-20,2018-02-21,2012-06-14,2012-12-14,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Walker,David,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-03-02,2022-02-16,2007-11-28,2009-04-28,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Walker,Derek,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-03-02,2022-02-16,2004-07-27,2004-10-17,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Walker,Jamal,31.0,Black,male,Illinois,Cook,Weapon Possession or Sale,8 years and 6 months,8.5,2021-05-27,2020-10-26,2016-04-11,2019-09-15,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Walker,Jermaine,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,10 to 22 years,16.0,2016-04-26,2016-03-25,2006-06-02,2016-03-25,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Walker,Keith,23.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2020-08-26,2020-08-13,1994-12-08,2020-08-13,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Walker,Russell,30.0,Black,male,Illinois,Cook,Drug Possession or Sale,7 years,7.0,2018-05-13,2017-10-17,2007-05-21,2009-08-21,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Walker,Xavier,19.0,Black,male,Illinois,Cook,Murder,35 years,35.0,2020-01-02,2019-12-11,2004-06-22,2019-12-11,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Walls,Dorian,24.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-04-27,2022-04-22,2005-08-22,2006-10-02,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Ward,Madeleine,52.0,White,female,Illinois,DuPage,Theft,6 years and 7 months,6.583333333333333,2013-04-05,2008-04-22,2006-01-30,2008-04-22,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Wardell,Billy,21.0,Black,male,Illinois,Cook,Sexual Assault,69 years,69.0,2011-08-29,1997-11-18,1988-04-19,1997-11-18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1
+Ware,Robert,40.0,Black,male,Illinois,Woodford,Assault,4 years,4.0,2023-05-31,2022-10-04,2017-12-05,2021-03-04,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Warren,Gregory,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-10,2018-09-24,2007-08-16,2007-08-16,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Washington,Mahlik,16.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2023-09-13,2022-06-03,2008-10-29,2008-10-29,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Washington,Wayne,20.0,Black,male,Illinois,Cook,Murder,25 years,25.0,2015-02-12,2015-02-09,1996-10-21,2007-05-27,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Washington-Riley,Alexander,20.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2020-03-13,2019-01-22,2014-11-19,2014-11-19,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Watkins,Kimberly,31.0,Black,female,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2022-03-01,2022-02-16,2007-04-27,2007-06-28,0,0,0,1,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Weekly,Isaac,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-12-10,2018-11-02,2007-11-01,2007-11-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Weekly,London,15.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2024-06-21,2024-05-29,2005-09-20,2005-09-20,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Weston,Demond,17.0,Black,male,Illinois,Cook,Murder,75 years,75.0,2020-01-09,2019-12-18,1992-04-21,2019-12-18,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Whirl,Shawn,20.0,Black,male,Illinois,Cook,Murder,60 years,60.0,2015-10-22,2015-10-13,1991-10-07,2015-10-13,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+White,Antoine,21.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-05-16,2022-04-22,2003-05-01,2003-05-01,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"White, Jr.",Lionel,17.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2018-11-28,2017-11-16,2006-10-17,2006-10-17,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+"White, Sr.",Lionel,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2016-12-20,2016-12-14,2006-06-26,2008-10-15,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Whitlock,Herbert,39.0,White,male,Illinois,Edgar,Murder,Life,100.0,2011-08-29,2008-01-08,1987-05-22,2008-01-08,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Wilbourn,Kim,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2019-02-26,2019-02-11,2006-10-17,2007-03-05,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Wilbourn,Vondell,29.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years and 6 months,5.5,2018-12-09,2018-09-24,2005-11-10,2006-11-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Wilkins,Theodore,27.0,Black,male,Illinois,Cook,Drug Possession or Sale,8 years,8.0,2022-03-13,2022-02-16,2008-01-23,2011-03-09,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Williams,Bernard,17.0,Black,male,Illinois,Cook,Murder,80 years,80.0,2023-10-02,2023-08-31,1998-11-10,2019-06-21,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Williams,Cordell,19.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2022-12-20,2022-10-17,1995-06-29,2022-10-17,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Williams,Darnell,36.0,Black,male,Illinois,Cook,Other Violent Misdemeanor,Probation,0.0,2024-06-28,2020-11-04,2017-01-17,2017-01-17,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Williams,Demarko,38.0,Black,male,Illinois,Cook,Other Nonviolent Felony,10 years,10.0,2024-08-13,2023-04-07,2018-03-29,2023-04-07,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Williams,Dennis,21.0,Black,male,Illinois,Cook,Murder,Death,100.0,2011-08-29,1996-07-02,1978-10-20,1996-06-14,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Williams,Emmaline,43.0,Black,female,Illinois,Cook,Child Sex Abuse,12 years,12.0,2014-07-03,1995-08-11,1986-12-15,1994-10-13,0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5
+Williams,Herman,29.0,White,male,Illinois,Lake,Murder,Life without parole,100.0,2022-09-26,2022-09-06,1994-02-18,2022-09-06,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Williams,John,37.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 months,0.25,2022-03-14,2022-02-16,2007-06-19,2008-04-22,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Williams,Leroy,28.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-03-14,2022-02-16,2008-01-09,2009-04-27,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Williams,Robert,28.0,Black,male,Illinois,Kankakee,Assault,9 years,9.0,2021-12-10,2021-07-12,2017-12-15,2020-09-24,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Willing,Rusty,34.0,White,male,Illinois,Adams,Child Sex Abuse,30 years,30.0,2020-06-23,2020-06-11,2016-11-07,2018-12-12,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,3
+Willis,Deon,33.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 Years,,2018-12-03,2018-11-02,2008-11-24,2010-02-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Willis,Dexter,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-16,2022-04-22,2004-05-27,2005-03-11,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Willis,Dexter,18.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 months,0.25,2022-10-04,2022-10-03,2003-01-24,2003-04-24,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Willis,John,42.0,Black,male,Illinois,Cook,Sexual Assault,Life,100.0,2011-08-29,1999-03-15,1993-02-13,1999-02-24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1
+Wilson,Jackie,21.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2020-10-16,2020-10-01,1983-02-04,2018-06-22,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Wilson,Robert,41.0,Black,male,Illinois,Cook,Attempted Murder,30 years,30.0,2011-08-29,2006-12-04,1999-11-15,2006-12-04,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Winston,Michael,21.0,Black,male,Illinois,Cook,Murder,40 years,40.0,2012-07-05,2012-07-02,2007-03-21,2012-07-02,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Wise,Martez,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year,1.0,2018-12-03,2018-09-24,2007-01-18,2008-01-04,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Woidtke,Rodney,27.0,White,male,Illinois,St. Clair,Murder,45 years,45.0,2011-08-29,2001-03-30,1989-08-25,2001-03-30,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Woods,D'Andra,25.0,Black,male,Illinois,Cook,Drug Possession or Sale,3 years,3.0,2022-05-18,2022-04-22,2004-08-11,2006-02-12,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Wrice,Stanley,28.0,Black,male,Illinois,Cook,Sexual Assault,Life,100.0,2013-12-12,2013-12-12,1983-05-20,2013-12-10,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2
+Wright,Anthony ,42.0,Black,male,Illinois,Cook,Drug Possession or Sale,2 years,2.0,2022-03-14,2022-02-16,2007-05-25,2007-07-30,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Wright,David,17.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2023-04-20,2023-03-29,1996-11-01,2022-09-17,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Wright,Ervin,43.0,Black,male,Illinois,Cook,Drug Possession or Sale,1 year and 6 months,1.5,2023-09-13,2023-04-14,2004-03-17,2004-07-12,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Wright,Joseph,23.0,Black,male,Illinois,Cook,Drug Possession or Sale,Probation,0.0,2022-03-14,2022-02-16,2005-04-13,2005-04-13,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"Wright, Jr.",Anthony,19.0,Black,male,Illinois,Cook,Drug Possession or Sale,5 years,5.0,2022-05-11,2022-04-22,2005-01-11,2006-07-12,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Wynn,Morris,21.0,White,male,Illinois,Cook,Drug Possession or Sale,8 years,8.0,2011-08-29,2006-12-07,2005-04-11,2006-12-07,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Young,Gregory,38.0,Black,male,Illinois,Cook,Drug Possession or Sale,4 years,4.0,2022-03-08,2022-02-16,2003-04-21,2005-03-10,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+"Young, Jr.",Dan,30.0,Black,male,Illinois,Cook,Murder,Life without parole,100.0,2011-08-29,2005-01-31,1994-09-20,2005-01-31,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,5

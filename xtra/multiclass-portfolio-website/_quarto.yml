@@ -11,7 +11,7 @@ website:
   title: "Portfolio"
   favicon: "images/gu-logo.png"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
 
