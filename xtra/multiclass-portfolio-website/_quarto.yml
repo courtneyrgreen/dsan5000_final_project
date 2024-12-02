@@ -33,6 +33,7 @@ format:
       - lux
       - custom.scss
     toc: true
+    page-layout: full 
 
 
 

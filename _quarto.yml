@@ -46,7 +46,9 @@ format:
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
+    css: styles.scss
     page-layout: full 
+    
 
 
 
