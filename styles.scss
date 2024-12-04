@@ -9,10 +9,11 @@ $navbar-fg: gray;
 
 /* Title Styling */
 .title {
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
     text-align: left;
     color: darkslategray !important;
     font-size: 1000px;
+    text-transform: uppercase !important;
 }
 
 /* General Body Styling */
@@ -23,10 +24,11 @@ body {
 
 /* Header Styling with DM Sans */
 h1 {
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
     font-size: 40px !important;
     letter-spacing: 0px !important;
+    text-transform: none !important;
 }
 
 h2 {
@@ -34,18 +36,21 @@ h2 {
     font-weight: 550 !important;
     font-size: 30px !important;
     letter-spacing: 0px !important;
+    text-transform: none !important;
 }
 
 h3 {
     font-family: 'DM Sans', sans-serif !important;
     font-weight: 450 !important;
     font-size: 20px !important;
+    text-transform: none !important;
 }
 
 h4 {
     font-family: 'DM Sans', sans-serif !important;
     font-weight: 400 !important;
     font-size: 15px !important;
+    text-transform: none !important;
 }
 
 /* Code Block Styling - Cosmo Defaults */

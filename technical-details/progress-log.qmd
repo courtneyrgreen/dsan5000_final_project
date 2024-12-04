@@ -5,8 +5,11 @@ title: "Progress log"
 Use this page to track your progress and keep a log of your contributions to the project, please update this each time you work on your project, it is generally a good habit to adopt.
 
 ## To-do
-* [ ] Meet with Prof. Jeff to go over datasets and ask research questions
-* [ ] Clean and preprocess initial datasets for analysis
+* [ ] Write explanation prose for EDA
+* [ ] Make edits to data cleaning document, including the inclusion of OM tags and then cleaning the arrest data + explain
+* [ ] Complete data collection documents
+* [ ] start unsupervised learning
+
 
 ## Weekly Progress:
 
@@ -53,6 +56,12 @@ Use this page to track your progress and keep a log of your contributions to the
 
 * [x] Completed multi-class-portfolio website rough draft and pushed to GU domains.
 * [x] Added in-line prose to data-cleaning exoneration data to explain data cleaning process.
+* [x] Started EDA, beginning with a GIS to analyze the locations of arrests and exonerees 
+
+**Tues: 12-3-2024**
+
+* [x] Met with professor Jacobs to answer questions about my EDA and normalization/scaling + sharing misconduct results + help with supervised learning
+* [x] Completed EDA (still have to add in-text prose to explain)
 
 
 
