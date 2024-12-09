@@ -25,6 +25,8 @@ website:
             href: technical-details/data-collection/main.ipynb 
           - text: Data-cleaning
             href: technical-details/data-cleaning/main.ipynb 
+          - text: Counterfactual Data Balancing
+            href: technical-details/data-balancing/main.ipynb
           - text: Exploratory Data Analysis
             href: technical-details/eda/main.ipynb 
           - text: Unsupervised Learning

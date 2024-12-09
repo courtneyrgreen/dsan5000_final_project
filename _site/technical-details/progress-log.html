@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Progress log</title>
+<title>Progress log – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.scss">
 </head>
 
 <body class="nav-fixed">
@@ -84,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -102,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-technical-details">    
@@ -138,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -183,8 +182,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="to-do" class="level2">
 <h2 class="anchored" data-anchor-id="to-do">To-do</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Meet with Prof.&nbsp;Jeff to go over datasets and ask research questions</label></li>
-<li><label><input type="checkbox">Clean and preprocess initial datasets for analysis</label></li>
+<li><label><input type="checkbox">Write explanation prose for EDA</label></li>
+<li><label><input type="checkbox">Make edits to data cleaning document, including the inclusion of OM tags and then cleaning the arrest data + explain</label></li>
+<li><label><input type="checkbox">Complete data collection documents</label></li>
+<li><label><input type="checkbox">start unsupervised learning</label></li>
 </ul>
 </section>
 <section id="weekly-progress" class="level2">
@@ -233,6 +234,12 @@ ul.task-list li input[type="checkbox"] {
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Completed multi-class-portfolio website rough draft and pushed to GU domains.</label></li>
 <li><label><input type="checkbox" checked="">Added in-line prose to data-cleaning exoneration data to explain data cleaning process.</label></li>
+<li><label><input type="checkbox" checked="">Started EDA, beginning with a GIS to analyze the locations of arrests and exonerees</label></li>
+</ul>
+<p><strong>Tues: 12-3-2024</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Met with professor Jacobs to answer questions about my EDA and normalization/scaling + sharing misconduct results + help with supervised learning</label></li>
+<li><label><input type="checkbox" checked="">Completed EDA (still have to add in-text prose to explain)</label></li>
 </ul>
 
 
@@ -274,18 +281,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -317,7 +313,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -325,7 +343,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
