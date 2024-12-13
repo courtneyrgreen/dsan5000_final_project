@@ -1,6 +1,6 @@
 ---
 title: "Courtney Green"
-id: about-block
+id: index-page
 about:
     template: trestles
     image: images/profile.jpg
@@ -18,57 +18,65 @@ about:
           text: Email
           href: mailto:cgreen@georgetown.edu
 toc: true
+output: 
+  html: 
+    embedded-sources: true
 ---
 
 :::: {.columns}
 
-::: {.column width="100%"}
+::: {.column width="125%"}
 # About Me
 
 As a Master’s student in Data Science with a foundation in public policy, I explore how data can be harnessed to address complex societal challenges. My work focuses on leveraging advanced analytics and machine learning to develop actionable insights that inform equitable, evidence-based policies. By bridging technical expertise with policy understanding, I aim to create innovative solutions that drive meaningful social impact.
-
 :::
-
 ::::
-
 :::: {.columns}
-
 ::: {.column width="50%"}
 - **Occupation:** Master’s Student in Data Science & Analytics
 :::
-
 ::: {.column width="50%"}
 - **City:** Washington, D.C.  
 :::
+::::
 
+
+:::: {.columns}
+::: {.column width="125%"}
+## Objective 
+To secure a summer internship in data science or analytics where I can expand my technical expertise in predictive modeling, data engineering, and advanced machine learning while contributing to impactful, data-driven solutions in dynamic, team-oriented environments.
+:::
 ::::
 
 :::: {.columns}
+::: {.column width="125%"}
 
-::: {.column width="100%"}
 ## Education
 
-### Georgetown University, Graduate School of Arts & Sciences  
-*Washington, D.C.*  
-**Master of Science in Data Science and Analytics**  
-
+### Georgetown University 
+#### Graduate School of Arts & Sciences  
+Washington, D.C.  
+**Master of Science in Data Science & Analytics**  
 *Expected May 2026*
 
-### University of Virginia, Frank Batten School of Leadership and Public Policy  
+### University of Virginia 
+#### Frank Batten School of Leadership & Public Policy  
 *Charlottesville, VA*  
-**Bachelor of Arts in Public Policy and Leadership; Minor in Computer Science**  
-
+**Bachelor of Arts in Public Policy & Leadership; Minor in Computer Science**  
 *May 2024*
 :::
 
 ::::
 
+
 :::: {.columns}
-
-::: {.column width="100%"}
+::: {.column width="125%"}
 ## Interests
-
 Outside of work, I enjoy baking, European monarchal history, embroidery, and tackling creative projects. I’m always driven by curiosity, whether I’m crafting new recipes or analyzing complex datasets.
 :::
 
 ::::
+
+
+
+

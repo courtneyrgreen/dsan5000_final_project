@@ -11,7 +11,8 @@ website:
   title: "DSAN-5000: Project"
   favicon: "assets/gu-logo.png"
   navbar:
-    right:
+    search: true
+    left:
       - href: index.qmd
         text: Home
       - href: instructions/overview.qmd
@@ -37,6 +38,9 @@ website:
             href: technical-details/progress-log.qmd
           - text: LLM usage Log
             href: technical-details/llm-usage-log.qmd
+     - icon: github
+       href: "https://github.com/dsan-5000/project-courtneyrgreen.git"
+
 
 page-footer:
     background: light # or `dark`
@@ -50,6 +54,7 @@ format:
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
+    toc-depth: 3 
     page-layout: full 
     
 

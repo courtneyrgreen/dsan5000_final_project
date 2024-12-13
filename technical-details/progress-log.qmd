@@ -9,6 +9,7 @@ Use this page to track your progress and keep a log of your contributions to the
 * [ ] Make edits to data cleaning document, including the inclusion of OM tags and then cleaning the arrest data + explain
 * [ ] Complete data collection documents
 * [ ] start unsupervised learning
+* [ ] for supervised learning on original dataset to test probabiity of police misconduct by race
 
 
 ## Weekly Progress:
@@ -63,6 +64,12 @@ Use this page to track your progress and keep a log of your contributions to the
 * [x] Met with professor Jacobs to answer questions about my EDA and normalization/scaling + sharing misconduct results + help with supervised learning
 * [x] Completed EDA (still have to add in-text prose to explain)
 
+
+
+
+**Sun: 12-8-2024**
+* [x] Creation of Exoneration Counterfactuals 
+* [x] Completed Supervised Learning (still have to add in-text prose to explain)
 
 
 
