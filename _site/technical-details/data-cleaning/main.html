@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -124,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
@@ -141,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-technical-details">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
         <li>
     <a class="dropdown-item" href="../../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
@@ -149,6 +169,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../technical-details/data-cleaning/main.html">
  <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../technical-details/eda/main.html">
@@ -172,6 +196,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -203,7 +234,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#identifying-missing-data" id="toc-identifying-missing-data" class="nav-link" data-scroll-target="#identifying-missing-data">Identifying Missing Data</a></li>
   <li><a href="#handling-missing-data-1" id="toc-handling-missing-data-1" class="nav-link" data-scroll-target="#handling-missing-data-1">Handling Missing Data</a></li>
-  <li><a href="#summary-of-missing-data-handling" id="toc-summary-of-missing-data-handling" class="nav-link" data-scroll-target="#summary-of-missing-data-handling">Summary of Missing Data Handling</a></li>
   </ul></li>
   <li><a href="#column-standardization" id="toc-column-standardization" class="nav-link" data-scroll-target="#column-standardization">Column Standardization</a>
   <ul class="collapse">
@@ -215,16 +245,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#date-time-conversion" id="toc-date-time-conversion" class="nav-link" data-scroll-target="#date-time-conversion">Date-Time Conversion</a></li>
   <li><a href="#standardizing-the-sentence-column" id="toc-standardizing-the-sentence-column" class="nav-link" data-scroll-target="#standardizing-the-sentence-column">Standardizing the <code>sentence</code> Column</a></li>
   </ul></li>
-  <li><a href="#cleaning-the-tags-column-update-this" id="toc-cleaning-the-tags-column-update-this" class="nav-link" data-scroll-target="#cleaning-the-tags-column-update-this">Cleaning the <code>tags</code> Column !!UPDATE THIS</a></li>
+  <li><a href="#cleaning-the-tags-and-om-tags-columns" id="toc-cleaning-the-tags-and-om-tags-columns" class="nav-link" data-scroll-target="#cleaning-the-tags-and-om-tags-columns">Cleaning the <code>tags</code> and <code>OM-tags</code> Columns</a></li>
   <li><a href="#county-geocoding" id="toc-county-geocoding" class="nav-link" data-scroll-target="#county-geocoding">County Geocoding</a>
   <ul class="collapse">
   <li><a href="#optimization-of-the-geocoding-process" id="toc-optimization-of-the-geocoding-process" class="nav-link" data-scroll-target="#optimization-of-the-geocoding-process">Optimization of the Geocoding Process</a></li>
   </ul></li>
+  <li><a href="#calculating-years-lost" id="toc-calculating-years-lost" class="nav-link" data-scroll-target="#calculating-years-lost">Calculating Years Lost</a></li>
   <li><a href="#column-reorganization" id="toc-column-reorganization" class="nav-link" data-scroll-target="#column-reorganization">Column Reorganization</a></li>
   <li><a href="#exporting-the-cleaned-dataset" id="toc-exporting-the-cleaned-dataset" class="nav-link" data-scroll-target="#exporting-the-cleaned-dataset">Exporting the Cleaned Dataset</a></li>
   <li><a href="#summary-and-next-steps" id="toc-summary-and-next-steps" class="nav-link" data-scroll-target="#summary-and-next-steps">Summary and Next Steps</a></li>
   </ul></li>
-  <li><a href="#illinois-arrest-data" id="toc-illinois-arrest-data" class="nav-link" data-scroll-target="#illinois-arrest-data">Illinois Arrest Data</a></li>
+  <li><a href="#illinois-arrest-data-cleaning" id="toc-illinois-arrest-data-cleaning" class="nav-link" data-scroll-target="#illinois-arrest-data-cleaning">Illinois Arrest Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-motivation-1" id="toc-introduction-and-motivation-1" class="nav-link" data-scroll-target="#introduction-and-motivation-1">Introduction and Motivation</a></li>
+  <li><a href="#initial-overview-of-the-dataset-1" id="toc-initial-overview-of-the-dataset-1" class="nav-link" data-scroll-target="#initial-overview-of-the-dataset-1">Initial Overview of the Dataset</a></li>
+  <li><a href="#column-renaming-and-consolidation" id="toc-column-renaming-and-consolidation" class="nav-link" data-scroll-target="#column-renaming-and-consolidation">Column Renaming and Consolidation</a></li>
+  <li><a href="#handling-placeholder-values" id="toc-handling-placeholder-values" class="nav-link" data-scroll-target="#handling-placeholder-values">Handling Placeholder Values</a></li>
+  <li><a href="#exporting-cleaned-and-aggregated-datasets" id="toc-exporting-cleaned-and-aggregated-datasets" class="nav-link" data-scroll-target="#exporting-cleaned-and-aggregated-datasets">Exporting Cleaned and Aggregated Datasets</a>
+  <ul class="collapse">
+  <li><a href="#exporting-the-cleaned-dataset-1" id="toc-exporting-the-cleaned-dataset-1" class="nav-link" data-scroll-target="#exporting-the-cleaned-dataset-1">1. Exporting the Cleaned Dataset</a></li>
+  <li><a href="#aggregating-arrest-data-by-race-and-county" id="toc-aggregating-arrest-data-by-race-and-county" class="nav-link" data-scroll-target="#aggregating-arrest-data-by-race-and-county">2. Aggregating Arrest Data by Race and County</a></li>
+  </ul></li>
+  <li><a href="#summary-and-next-steps-1" id="toc-summary-and-next-steps-1" class="nav-link" data-scroll-target="#summary-and-next-steps-1">Summary and Next Steps</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -254,28 +297,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>U.S. Exoneration Data Cleaning</h1>
 <section id="introduction-and-motivation" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
-<p>This section documents the steps taken to clean and preprocess the U.S. exoneration dataset, with a specific focus on Illinois cases. The cleaning process transforms raw data into a usable format, ensuring accuracy and reliability for subsequent analysis. This iterative approach supports the investigation of systemic racial and judicial disparities in wrongful convictions.</p>
-<p>By the end of this phase, the dataset will be structured, free of inconsistencies, and ready for exploratory data analysis (EDA) and machine learning workflows.</p>
+<p>This section outlines the steps taken to clean and preprocess the U.S. exoneration dataset, with a specific focus on Illinois cases. The cleaning process organizes the raw data into a structured and usable format for exploratory data analysis (EDA) and subsequent analysis workflows. By the end of this phase, the dataset will be well-structured, free of inconsistencies, and ready for further exploratory data analysis and machine learning workflows.</p>
 </section>
 <section id="initial-overview-of-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="initial-overview-of-the-dataset">Initial Overview of the Dataset</h2>
 <section id="loading-the-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="loading-the-dataset">Loading the Dataset</h3>
-<p>The dataset is first loaded to inspect its structure and contents. The purpose of this step is to get an initial sense of the data types, potential missing values, and the distribution of key variables. This helps inform the cleaning steps required to make the data consistent and analyzable.</p>
-<div id="cell-4" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import necessary Libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load exoneration dataset</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/US_exoneration_data.csv'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Initial Dataset: "</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>) <span class="co"># Enables display of every column</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The dataset is first loaded to inspect its structure and contents. The purpose of this step is to get an initial sense of the data types, potential missing values, and the distribution of key variables which helps inform the cleaning steps required to make the data consistent and analyzable.</p>
+<div id="cell-4" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import necessary Libraries:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd  <span class="co"># Used for data management, exploration, and manipulation</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  <span class="co"># Used for numerical operations and array-based data processing</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns  <span class="co"># Used for data visualization, especially for missing values</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  <span class="co"># Used for plotting and visualizing data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re  <span class="co"># Used for handling and processing regular expressions, e.g., date cleaning</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim  <span class="co"># Used for geocoding (converting addresses to locations)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Load exoneration dataset:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/US_exoneration_data.csv'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Initial Dataset: "</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>) <span class="co"># Enables display of every column</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Initial Dataset: </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="73">
 <div>
 
 
@@ -443,19 +489,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="subsetting-the-data-illinois" class="level2">
 <h2 class="anchored" data-anchor-id="subsetting-the-data-illinois">Subsetting the Data: Illinois</h2>
-<p>Before diving into the broader data cleaning process, I decided to narrow the scope of my research question to Illinois. This choice was intentional to focus the analysis on a specific region, ensuring that the findings are both relevant and manageable within the scope of this project. Illinois was selected because of its extensive record of exoneration cases, particularly in Cook County, which provides a valuable dataset for analyzing systemic issues within the criminal justice system. Chicago, in particular, has long been associated with significant racial disparities and deeply entrenched problems in policing and prosecution, making it a critical focal point for this analysis. By focusing on Illinois, the dataset remains consistent in terms of jurisdictional laws and practices, allowing for a more accurate and concentrated exploration of patterns and trends in over-policing and wrongful convictions. This regional focus highlights the broader systemic failures of the criminal justice system while enabling a detailed examination of one of the most historically inequitable jurisdictions in terms of racial justice.</p>
+<p>Before diving into the broader data cleaning process, I decided to narrow the scope of my research question to Illinois. This choice was intentional to focus the analysis on a specific region, ensuring that the findings are both relevant and manageable within the scope of this project. Illinois was selected because of its extensive record of exoneration cases, particularly in Cook Count (Chicago), which provides a valuable dataset for analyzing systemic issues within the criminal justice system. Chicago, in particular, has long been associated with significant racial disparities and deeply entrenched problems in policing and prosecution, making it a critical focal point for this analysis<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">1</a></sup></span>. By focusing on Illinois, the dataset remains consistent in terms of jurisdictional laws and practices, allowing for a more accurate and concentrated exploration of patterns and trends in over-policing and wrongful convictions. This regional focus highlights the broader systemic failures of the criminal justice system while enabling a detailed examination of one of the most historically inequitable jurisdictions in terms of racial justice.</p>
 <section id="filtering-the-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-the-dataset">Filtering the Dataset</h3>
 <p>To isolate Illinois cases, the dataset was filtered by the state column, retaining only rows where the value matched “Illinois.” This step reduced the dataset to 548 rows, making it more manageable for analysis and visualization. Below is a preview of the filtered dataset:</p>
-<div id="cell-6" class="cell" data-execution_count="342">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois </span></span>
+<div id="cell-6" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois: </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'State'</span>] <span class="op">==</span> <span class="st">'Illinois'</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of exonerees for Illinois subset: "</span> , df.shape[<span class="dv">0</span>]) </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of exonerees for Illinois subset:  548</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="342">
+<div class="cell-output cell-output-display" data-execution_count="74">
 <div>
 
 
@@ -626,8 +672,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="identifying-missing-data" class="level3">
 <h3 class="anchored" data-anchor-id="identifying-missing-data">Identifying Missing Data</h3>
 <p>Missing values are identified using <code>isnull()</code> to determine their extent and distribution across the dataset. The goal is to ensure that no critical data gaps remain unaddressed before proceeding with analysis.</p>
-<div id="cell-8" class="cell" data-execution_count="343">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Managing Missing Data - Identifying which columns have a lot of missing data</span></span>
+<div id="cell-8" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Managing Missing Data - Identifying which columns have a lot of missing data:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>na_counts <span class="op">=</span> df.isna().<span class="bu">sum</span>()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(na_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -661,10 +707,13 @@ dtype: int64</code></pre>
 <h3 class="anchored" data-anchor-id="handling-missing-data-1">Handling Missing Data</h3>
 <section id="rationale-for-dropping-columns" class="level4">
 <h4 class="anchored" data-anchor-id="rationale-for-dropping-columns">Rationale for Dropping Columns</h4>
-<p>The following columns were removed due to excessive missing data or redundancy: - <strong>F/MFE, ILD, P/FA, DNA, MWID, FC</strong>: Each of these columns had more than 50% missing values, which made them unreliable for meaningful analysis. Removing them ensures the dataset remains robust and manageable without introducing bias from imputation.</p>
-<p>FIX!! While <strong>OM Tags and OM</strong> columns had a lot of missing values, I initiall removed them but during EDA realized I actually wanted to explore.</p>
-<div id="cell-10" class="cell" data-execution_count="344">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop columns with excessive missing values </span></span>
+<p>The following columns were removed due to excessive missing data:</p>
+<ul>
+<li><strong>F/MFE, ILD, P/FA, DNA, MWID, FC:</strong> Each of these columns had more than 50% missing values, which made them unreliable for meaningful analysis. Removing them ensures the dataset remains robust and manageable without introducing bias from imputation.</li>
+</ul>
+<p><strong>Retaining “OM” and “OM Tags” Columns</strong> Initially, I removed the OM (Official Misconduct) and OM Tags columns, assuming their information would be captured in the general Tags column. However, during the exploratory data analysis (EDA), I discovered that these columns contained unique and valuable insights not present in the Tags column; as a result I retained them for further analysis.</p>
+<div id="cell-10" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop columns with excessive missing values: </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_original <span class="op">=</span> df.copy()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.drop(columns <span class="op">=</span> [<span class="st">'F/MFE'</span>, <span class="st">'ILD'</span>, <span class="st">'P/FA'</span>, <span class="st">'DNA'</span>, <span class="st">'MWID'</span>, <span class="st">'FC'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -675,15 +724,12 @@ dtype: int64</code></pre>
 <section id="heatmap-of-missing-values-before-cleaning" class="level5">
 <h5 class="anchored" data-anchor-id="heatmap-of-missing-values-before-cleaning">Heatmap of Missing Values (Before Cleaning)</h5>
 <p>A heatmap is generated to visualize the extent of missing data before cleaning. Columns with a high proportion of missing values are easily identifiable, providing a clear justification for their removal.</p>
-<div id="cell-12" class="cell" data-execution_count="345">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data before cleaning</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df_original.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (Before Cleaning)'</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-12" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data before cleaning:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df_original.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (Before Cleaning)'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -696,8 +742,8 @@ dtype: int64</code></pre>
 <section id="heatmap-of-missing-values-after-cleaning" class="level5">
 <h5 class="anchored" data-anchor-id="heatmap-of-missing-values-after-cleaning">Heatmap of Missing Values (After Cleaning)</h5>
 <p>A second heatmap is generated after cleaning to confirm that all unnecessary columns with excessive missing values have been removed. This ensures the dataset is now complete and ready for further analysis.</p>
-<div id="cell-14" class="cell" data-execution_count="346">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data after cleaning</span></span>
+<div id="cell-14" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap of missing data after cleaning:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df.isnull(), cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Heatmap of Missing Data (After Cleaning)'</span>)</span>
@@ -713,154 +759,14 @@ dtype: int64</code></pre>
 </section>
 </section>
 </section>
-<section id="summary-of-missing-data-handling" class="level3">
-<h3 class="anchored" data-anchor-id="summary-of-missing-data-handling">Summary of Missing Data Handling</h3>
-<p>Through this process, all missing data was evaluated and either addressed or removed. Columns with excessive missing values were dropped, while remaining data was retained to ensure completeness and reliability. The resulting dataset is now free of significant missing data, ready for further cleaning and analysis steps.</p>
-<div id="cell-16" class="cell" data-execution_count="347">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Data for Illinois </span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'State'</span>] <span class="op">==</span> <span class="st">'Illinois'</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of exonerees for Illinois subset: "</span> , df.shape[<span class="dv">0</span>]) </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of exonerees for Illinois subset:  548</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="347">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Last Name</th>
-<th data-quarto-table-cell-role="th">First Name</th>
-<th data-quarto-table-cell-role="th">Age</th>
-<th data-quarto-table-cell-role="th">Race</th>
-<th data-quarto-table-cell-role="th">Sex</th>
-<th data-quarto-table-cell-role="th">State</th>
-<th data-quarto-table-cell-role="th">County</th>
-<th data-quarto-table-cell-role="th">Tags</th>
-<th data-quarto-table-cell-role="th">Worst Crime Display</th>
-<th data-quarto-table-cell-role="th">Sentence</th>
-<th data-quarto-table-cell-role="th">Posting Date</th>
-<th data-quarto-table-cell-role="th">OM Tags</th>
-<th data-quarto-table-cell-role="th">OM</th>
-<th data-quarto-table-cell-role="th">Date of Exoneration</th>
-<th data-quarto-table-cell-role="th">Date of 1st Conviction</th>
-<th data-quarto-table-cell-role="th">Date of Release</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Abbott</td>
-<td>Cinque</td>
-<td>19.0</td>
-<td>Black</td>
-<td>Male</td>
-<td>Illinois</td>
-<td>Cook</td>
-<td>CIU;#IO;#NC;#P</td>
-<td>Drug Possession or Sale</td>
-<td>Probation</td>
-<td>2/14/22</td>
-<td>OF;#WH;#NW</td>
-<td>OM</td>
-<td>2/1/22</td>
-<td>3/25/08</td>
-<td>3/25/08</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Abernathy</td>
-<td>Christopher</td>
-<td>17.0</td>
-<td>White</td>
-<td>Male</td>
-<td>Illinois</td>
-<td>Cook</td>
-<td>CIU;#CV;#H;#IO;#JV;#SA</td>
-<td>Murder</td>
-<td>Life without parole</td>
-<td>2/13/15</td>
-<td>OF;#WH;#NW;#INT</td>
-<td>OM</td>
-<td>2/11/15</td>
-<td>1/15/87</td>
-<td>2/11/15</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Abrego</td>
-<td>Eruby</td>
-<td>20.0</td>
-<td>Hispanic</td>
-<td>Male</td>
-<td>Illinois</td>
-<td>Cook</td>
-<td>CDC;#H;#IO</td>
-<td>Murder</td>
-<td>90 years</td>
-<td>8/25/22</td>
-<td>OF;#WH;#NW;#WT;#INT;#PJ</td>
-<td>OM</td>
-<td>7/21/22</td>
-<td>9/22/04</td>
-<td>7/21/22</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Adams</td>
-<td>Demetris</td>
-<td>22.0</td>
-<td>Black</td>
-<td>Male</td>
-<td>Illinois</td>
-<td>Cook</td>
-<td>CIU;#IO;#NC;#P</td>
-<td>Drug Possession or Sale</td>
-<td>1 year</td>
-<td>4/13/20</td>
-<td>OF;#WH;#NW</td>
-<td>OM</td>
-<td>2/11/20</td>
-<td>9/8/04</td>
-<td>12/26/04</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">15</td>
-<td>Adams</td>
-<td>Kenneth</td>
-<td>22.0</td>
-<td>Black</td>
-<td>Male</td>
-<td>Illinois</td>
-<td>Cook</td>
-<td>CDC;#H;#IO;#JI;#SA</td>
-<td>Murder</td>
-<td>75 years</td>
-<td>8/29/11</td>
-<td>PR;#OF;#WH;#NW;#KP;#WT</td>
-<td>OM</td>
-<td>7/2/96</td>
-<td>10/20/78</td>
-<td>6/14/96</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="column-standardization" class="level2">
 <h2 class="anchored" data-anchor-id="column-standardization">Column Standardization</h2>
 <p>To ensure consistency and simplify future operations, all column names were standardized by converting them to lowercase and replacing spaces with underscores (_). This transformation enhances readability, aligns with Python’s naming conventions, and makes column names easier to reference in code. For example, a column originally labeled First Name is now first_name.</p>
-<div id="cell-18" class="cell" data-execution_count="348">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize column names by converting to lowercase and replacing spaces with '_'</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-16" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize column names by converting to lowercase and replacing spaces with '_':</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['last_name', 'first_name', 'age', 'race', 'sex', 'state', 'county',
        'tags', 'worst_crime_display', 'sentence', 'posting_date', 'om_tags',
@@ -872,11 +778,11 @@ dtype: int64</code></pre>
 <section id="text-value-standardization" class="level3">
 <h3 class="anchored" data-anchor-id="text-value-standardization">Text Value Standardization</h3>
 <p>Additionally, the sex column was converted to lowercase to maintain uniformity across textual data. This step ensures that values like “Male” and “male” are treated equivalently during analysis, reducing potential discrepancies caused by case sensitivity.</p>
-<div id="cell-20" class="cell" data-execution_count="349">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert sex values to lowercase </span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>] <span class="op">=</span> df[<span class="st">'sex'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="349">
+<div id="cell-18" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert sex values to lowercase: </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>] <span class="op">=</span> df[<span class="st">'sex'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sex'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="80">
 <pre><code>1     male
 3     male
 5     male
@@ -889,10 +795,10 @@ Name: sex, dtype: object</code></pre>
 </section>
 <section id="data-type-correction-and-formatting" class="level2">
 <h2 class="anchored" data-anchor-id="data-type-correction-and-formatting">Data Type Correction and Formatting</h2>
-<p>Accurate data type formatting is essential for effective analysis. This section ensures that all variables are correctly identified as numerical, categorical, or date-time types and that they are ready for further processing.</p>
-<div id="cell-22" class="cell" data-execution_count="350">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display data types for each column</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Accurate data type formatting is essential for effective analysis. This section ensures that all variables are correctly identified as numerical, categorical, or date-time types so that they are ready for further processing.</p>
+<div id="cell-20" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display data types for each column:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                  object
 first_name                 object
@@ -916,13 +822,13 @@ dtype: object</code></pre>
 <section id="data-type-correction-for-textual-data" class="level3">
 <h3 class="anchored" data-anchor-id="data-type-correction-for-textual-data">Data Type Correction for Textual Data</h3>
 <p>Upon reviewing the data types, it was noted that several columns, such as Last Name, First Name, Race, State, County, and Worst Crime Display, were classified as object. While this is acceptable for textual data, converting these columns to string ensures consistency and prevents potential issues when performing text-specific operations. This transformation also allows for better optimization and clarity in the data processing pipeline. The changes were necessary to standardize the dataset and ensure compatibility with downstream analysis tasks.</p>
-<div id="cell-24" class="cell" data-execution_count="351">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert relevant columns to string type</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>string_columns <span class="op">=</span> [<span class="st">'last_name'</span>, <span class="st">'first_name'</span>, <span class="st">'race'</span>, <span class="st">'sex'</span>, <span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'worst_crime_display'</span>]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df[string_columns] <span class="op">=</span> df[string_columns].astype(<span class="st">'string'</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-22" class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert relevant columns to string type</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>string_columns <span class="op">=</span> [<span class="st">'last_name'</span>, <span class="st">'first_name'</span>, <span class="st">'race'</span>, <span class="st">'sex'</span>, <span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'worst_crime_display'</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df[string_columns] <span class="op">=</span> df[string_columns].astype(<span class="st">'string'</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                 string[python]
 first_name                string[python]
@@ -947,17 +853,13 @@ dtype: object</code></pre>
 <section id="date-time-conversion" class="level3">
 <h3 class="anchored" data-anchor-id="date-time-conversion">Date-Time Conversion</h3>
 <p>All date columns (<code>posting_date</code>, <code>date_of_exoneration</code>, <code>date_of_1st_conviction</code>, <code>date_of_release</code>) are converted to <code>datetime</code> format. This transformation ensures consistency and allows for easier time-based calculations, such as measuring the time between conviction and exoneration.</p>
-<div id="cell-26" class="cell" data-execution_count="352">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date columns into datetime format</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> [<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]:</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Attempt to convert with explicit format (MM/DD/YY)</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> pd.to_datetime(df[col], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%y'</span>, errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error processing column </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        df[col] <span class="op">=</span> pd.to_datetime(df[col], errors<span class="op">=</span><span class="st">'coerce'</span>)  <span class="co"># Fallback to auto-detection</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-24" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date columns into datetime format:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> [<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert with explicit format (MM/DD/YY):</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    df[col] <span class="op">=</span> pd.to_datetime(df[col], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%y'</span>, errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'posting_date'</span>, <span class="st">'date_of_exoneration'</span>, <span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   posting_date date_of_exoneration date_of_1st_conviction date_of_release
 1    2022-02-14          2022-02-01             2008-03-25      2008-03-25
@@ -967,9 +869,9 @@ dtype: object</code></pre>
 15   2011-08-29          1996-07-02             1978-10-20      1996-06-14</code></pre>
 </div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="353">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-25" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify updated data types:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                 string[python]
 first_name                string[python]
@@ -993,11 +895,11 @@ dtype: object</code></pre>
 </section>
 <section id="standardizing-the-sentence-column" class="level3">
 <h3 class="anchored" data-anchor-id="standardizing-the-sentence-column">Standardizing the <code>sentence</code> Column</h3>
-<p>The <code>sentence</code> column contains textual descriptions of sentencing outcomes, including terms like “Life without parole,” “Death,” or a specified number of years. To facilitate analysis, I transform this column into a numerical format (<code>sentence_in_years</code>) by converting life sentences and probation to placeholder values and handling ranges or mixed units (e.g., years and months).</p>
-<div id="cell-29" class="cell" data-execution_count="354">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print unique sentencing values for a better idea on how to best clean column </span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>unique_sentences <span class="op">=</span> df[<span class="st">'sentence'</span>].unique()</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_sentences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>sentence</code> column contains textual descriptions of sentencing outcomes, including terms like “Life without parole,” “Death,” or a specified number of years. To facilitate analysis, this column is transformed into a numerical format (<code>sentence_in_years</code>) by converting life sentences and probation to placeholder values and handling ranges or mixed units (e.g., years and months).</p>
+<div id="cell-27" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print unique sentencing values for a better idea on how to best clean column: </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>unique_sentences <span class="op">=</span> df[<span class="st">'sentence'</span>].unique()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_sentences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Probation' 'Life without parole' '90 years' '1 year' '75 years'
  '30 years' '55 years' '2 years' '3 years' '6 years' '45 years'
@@ -1022,51 +924,50 @@ dtype: object</code></pre>
 <h5 class="anchored" data-anchor-id="transforming-the-sentence-column">Transforming the <code>sentence</code> Column</h5>
 <p>The <code>sentence</code> column is cleaned to convert textual descriptions into numerical values: 1. Probation and Not Sentenced are set to <code>0</code>. 2. Life sentences and the death penalty are represented as <code>100</code> for placeholder analysis. 3. Ranges (e.g., “25 to 50 years”) are averaged to a single value. 4. Years and months are combined into total years for uniformity.</p>
 <p>This standardization facilitates meaningful comparisons and quantitative analysis of sentencing patterns.</p>
-<div id="cell-31" class="cell" data-execution_count="355">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_sentence(value):</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Cleans the 'sentence' column values to numeric years for numerical EDA </span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">    - Probation is represented as 0.</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Not sentenced' is converted to np.nan.</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Life' and 'Death' sentences are represented as 100 (placeholder).</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - Years and months are converted to a numeric value in years. """</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">==</span> <span class="st">'Probation'</span>:</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> value <span class="op">==</span> <span class="st">'Not sentenced'</span>:</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># NaN for not sentenced</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'Life'</span> <span class="kw">in</span> value <span class="kw">or</span> value <span class="op">==</span> <span class="st">'Death'</span>:</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">100</span>  <span class="co"># Placeholder for life sentences or death penalty</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'year'</span> <span class="kw">in</span> value <span class="kw">or</span> <span class="st">'month'</span> <span class="kw">in</span> value:</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handles ranges like '25 to 50 years'</span></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'to'</span> <span class="kw">in</span> value:</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>            years <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">sum</span>(years) <span class="op">/</span> <span class="bu">len</span>(years)  <span class="co"># Average the range </span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle "X years and Y months"</span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'and'</span> <span class="kw">in</span> value:</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>            numbers <span class="op">=</span> [<span class="bu">float</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">2</span>:  <span class="co"># Both years and months are present</span></span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>                years, months <span class="op">=</span> numbers</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> years <span class="op">+</span> (months <span class="op">/</span> <span class="dv">12</span>)  <span class="co"># Convert months to years</span></span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># Only one number is present</span></span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> numbers[<span class="dv">0</span>]  <span class="co"># Treat it as years</span></span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle only months or only years</span></span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'months'</span> <span class="kw">in</span> value:</span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>            months <span class="op">=</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> months <span class="op">/</span> <span class="dv">12</span>  <span class="co"># Convert months to years</span></span>
-<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Only years</span></span>
-<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
-<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># Anything unexpected as None</span></span>
-<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sentence_in_years'</span>] <span class="op">=</span> df[<span class="st">'sentence'</span>].<span class="bu">apply</span>(clean_sentence)</span>
-<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Check results</span></span>
-<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'sentence'</span>, <span class="st">'sentence_in_years'</span>]].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="355">
+<div id="cell-29" class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_sentence(value):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Cleans the 'sentence' column values to numeric years for numerical EDA </span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">    - Probation is represented as 0.</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Not sentenced' is converted to np.nan.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - 'Life' and 'Death' sentences are represented as 100 (placeholder).</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - Years and months are converted to a numeric value in years. """</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="op">==</span> <span class="st">'Probation'</span>:</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> value <span class="op">==</span> <span class="st">'Not sentenced'</span>:</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># NaN for not sentenced</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'Life'</span> <span class="kw">in</span> value <span class="kw">or</span> value <span class="op">==</span> <span class="st">'Death'</span>:</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">100</span>  <span class="co"># Placeholder for life sentences or death penalty</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">'year'</span> <span class="kw">in</span> value <span class="kw">or</span> <span class="st">'month'</span> <span class="kw">in</span> value:</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handles ranges like '25 to 50 years'</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'to'</span> <span class="kw">in</span> value:</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>            years <span class="op">=</span> [<span class="bu">int</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">sum</span>(years) <span class="op">/</span> <span class="bu">len</span>(years)  <span class="co"># Average the range </span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle "X years and Y months"</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'and'</span> <span class="kw">in</span> value:</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>            numbers <span class="op">=</span> [<span class="bu">float</span>(num) <span class="cf">for</span> num <span class="kw">in</span> re.findall(<span class="vs">r'\d+'</span>, value)]</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">2</span>:  <span class="co"># Both years and months are present</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>                years, months <span class="op">=</span> numbers</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> years <span class="op">+</span> (months <span class="op">/</span> <span class="dv">12</span>)  <span class="co"># Convert months to years</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># Only one number is present</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> numbers[<span class="dv">0</span>]  <span class="co"># Treat it as years</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle only months or only years</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">'months'</span> <span class="kw">in</span> value:</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>            months <span class="op">=</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> months <span class="op">/</span> <span class="dv">12</span>  <span class="co"># Convert months to years</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Only years</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">int</span>(re.search(<span class="vs">r'\d+'</span>, value).group())</span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan  <span class="co"># Anything unexpected as None</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sentence_in_years'</span>] <span class="op">=</span> df[<span class="st">'sentence'</span>].<span class="bu">apply</span>(clean_sentence)</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Check results</span></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'sentence'</span>, <span class="st">'sentence_in_years'</span>]].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
 <div>
 
 
@@ -1135,9 +1036,9 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="356">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-30" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check updated data types</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>last_name                 string[python]
 first_name                string[python]
@@ -1159,83 +1060,87 @@ sentence_in_years                float64
 dtype: object</code></pre>
 </div>
 </div>
-<p>After transforming the sentence column into a numerical format, the new column, <code>sentence_in_years</code> is now represented as a float64, which aligns with the desired structure for numerical analysis. This conversion allows for quantitative exploration of the sentencing data, such as aggregations and comparisons, during later stages of analysis. The original sentence column is retained for reference purposes, as it preserves the detailed textual descriptions that might be useful for contextual insights. The tags column will be addressed later, so for now the datatype may remain as an object.</p>
+<p>After transforming the sentence column into a numerical format, the new column, <code>sentence_in_years</code> is now represented as a float64, which aligns with the desired structure for numerical analysis. This conversion allows for quantitative exploration of the sentencing data, such as aggregations and comparisons, during later stages of analysis. The original sentence column is retained for reference purposes, as it preserves the detailed textual descriptions that might be useful for contextual insights. The <code>tags</code>, <code>OM</code>, and <code>OM_tags</code> columns will be addressed later, so for now the datatype may remain as an object.</p>
 </section>
 </section>
 </section>
-<section id="cleaning-the-tags-column-update-this" class="level2">
-<h2 class="anchored" data-anchor-id="cleaning-the-tags-column-update-this">Cleaning the <code>tags</code> Column !!UPDATE THIS</h2>
-<p>The <code>tags</code> column contains important categorical information about each exoneration case. To make this data more useful for analysis, I transformed the column into multiple binary columns, where each tag indicates the presence (<code>1</code>) or absence (<code>0</code>) of a specific feature. Additionally, I created a <code>tag_sum</code> column to capture the total number of tags associated with each case, providing a quick summary metric.</p>
+<section id="cleaning-the-tags-and-om-tags-columns" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-the-tags-and-om-tags-columns">Cleaning the <code>tags</code> and <code>OM-tags</code> Columns</h2>
+<p>The <code>tags</code> and <code>OM-tags</code> columns contain important categorical information about each exoneration case. To make this data more useful for analysis, both columns were transformed into multiple binary columns, where each tag indicates the presence (<code>1</code>) or absence (<code>0</code>) of a specific feature. Additionally, a <code>tag_sum</code> column was created to capture the total number of tags associated with each case, providing a summary metric.</p>
 <p>The cleaning process involved the following steps:</p>
 <ol type="1">
-<li><p><strong>Removing Unnecessary Characters</strong>: Unwanted characters such as <code>#</code> were removed, and delimiters were standardized to ensure consistency in the data.</p></li>
-<li><p><strong>Splitting Tags</strong>: The <code>tags</code> column was split into individual values to facilitate binary encoding.</p></li>
-<li><p><strong>Renaming Binary Columns</strong>: Each binary column was renamed using clear and descriptive labels by mapping the original tags to their definitions. This mapping process translated short tag codes into their full meanings, improving interpretability. For reference, the definitions of the tags are based on the descriptions provided on the <a href="https://www.law.umich.edu/special/exoneration/Pages/detaillist.aspx" target="_blank">National Registry of Exonerations: Exoneration Detail List</a> .</p></li>
-<li><p><strong>Adding a <code>tag_sum</code> Column</strong>: A new column was created to calculate the total number of tags for each case, enabling easier analysis of case complexity.</p></li>
+<li><p><strong>Removing Unnecessary Characters</strong>:<br>
+Unwanted characters such as <code>#</code> were removed, and delimiters were standardized to ensure consistency in the data.</p></li>
+<li><p><strong>Splitting Tags</strong>:<br>
+The <code>tags</code> and <code>OM-tags</code> columns were split into individual values to facilitate binary encoding.</p></li>
+<li><p><strong>Renaming Binary Columns</strong>:<br>
+Each binary column was renamed using clear and descriptive labels by mapping the original tags to their definitions. This mapping process translated short tag codes into their full meanings, improving interpretability. For reference, the definitions of the tags are based on the descriptions provided by the National Registry of Exonerations<span class="citation" data-cites="university_of_california_irvine_newkirk_center_for_science__society_exoneration"><sup><a href="#ref-university_of_california_irvine_newkirk_center_for_science__society_exoneration" role="doc-biblioref">2</a></sup></span>.</p></li>
+<li><p><strong>Adding a <code>tag_sum</code> Column</strong>:<br>
+A new column was created to calculate the total number of tags for each case, enabling easier analysis of case complexity.</p></li>
 </ol>
 <p>This transformation ensures the data is well-structured and ready for exploratory analysis, providing detailed insights into the systemic patterns in exoneration cases.</p>
-<div id="cell-35" class="cell" data-execution_count="357">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean 'tags' column</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'OM-tags'</span>] <span class="op">=</span> df[<span class="st">'om_tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the mapping for tags</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>tag_mapping <span class="op">=</span> {</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: <span class="st">"arson"</span>,</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BM"</span>: <span class="st">"bitemark"</span>,</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CDC"</span>: <span class="st">"co_defendant_confessed"</span>,</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CIU"</span>: <span class="st">"conviction_integrity_unit"</span>,</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CSH"</span>: <span class="st">"child_sex_abuse_hysteria_case"</span>,</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CV"</span>: <span class="st">"child_victim"</span>,</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span>: <span class="st">"female_exoneree"</span>,</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FED"</span>: <span class="st">"federal_case"</span>,</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: <span class="st">"homicide"</span>,</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IO"</span>: <span class="st">"innocence_organization"</span>,</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JI"</span>: <span class="st">"jailhouse_informant"</span>,</span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JV"</span>: <span class="st">"juvenile_defendant"</span>,</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"M"</span>: <span class="st">"misdemeanor"</span>,</span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NC"</span>: <span class="st">"no_crime_case"</span>,</span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"P"</span>: <span class="st">"guilty_plea_case"</span>,</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PH"</span>: <span class="st">"posthumous_exoneration"</span>,</span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SA"</span>: <span class="st">"sexual_assault"</span>,</span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SBS"</span>: <span class="st">"shaken_baby_syndrome_case"</span>,</span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PR"</span>: <span class="st">"prosecutor_misconduct"</span>,</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OF"</span>: <span class="st">"police_officer_misconduct"</span>,</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FA"</span>: <span class="st">"forensic_analyst_misconduct"</span>,</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CW"</span>: <span class="st">"child_welfare_worker_misconduct"</span>,</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WH"</span>: <span class="st">"withheld_exculpatory_evidence"</span>,</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NW"</span>: <span class="st">"misconduct_that_is_not_withholding_evidence"</span>,</span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KP"</span>: <span class="st">"knowingly_permitting_perjury"</span>,</span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WT"</span>: <span class="st">"witness_tampering_or_misconduct_interrogating_co_defendant"</span>,</span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"INT"</span>: <span class="st">"misconduct_in_interrogation_of_exoneree"</span>,</span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PJ"</span>: <span class="st">"perjury_by_official"</span>,</span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PL"</span>: <span class="st">"prosecutor_lied_in_court"</span></span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Split 'tags' and 'OM-tags' into lists</span></span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'OM-tags'</span>] <span class="op">=</span> df[<span class="st">'OM-tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
-<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary columns for tags from both 'tags' and 'OM-tags'</span></span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tag <span class="kw">in</span> tag_mapping.keys():</span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the tag exists in 'tags' or 'OM-tags'</span></span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>    df[tag] <span class="op">=</span> df.<span class="bu">apply</span>(</span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">lambda</span> row: <span class="dv">1</span> <span class="cf">if</span> (<span class="bu">isinstance</span>(row[<span class="st">'tags'</span>], <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> row[<span class="st">'tags'</span>]) <span class="kw">or</span> </span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>                          (<span class="bu">isinstance</span>(row[<span class="st">'OM-tags'</span>], <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> row[<span class="st">'OM-tags'</span>]) <span class="cf">else</span> <span class="dv">0</span>,</span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>        axis<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the binary columns using the tag_mapping dictionary</span></span>
-<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>tag_mapping, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Create `tag_sum` column to count the total number of tags for each exoneree</span></span>
-<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tag_sum'</span>] <span class="op">=</span> df[<span class="bu">list</span>(tag_mapping.values())].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original 'tags' and 'OM-tags' columns</span></span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'tags'</span>, <span class="st">'om_tags'</span>, <span class="st">'OM-tags'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>df.head()  <span class="co"># Preview the updated DataFrame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="357">
+<div id="cell-33" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean 'tags' column:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'OM-tags'</span>] <span class="op">=</span> df[<span class="st">'om_tags'</span>].<span class="bu">str</span>.replace(<span class="st">'#'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.replace(<span class="st">";"</span>, <span class="st">","</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the mapping for tags:</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>tag_mapping <span class="op">=</span> {</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A"</span>: <span class="st">"arson"</span>,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BM"</span>: <span class="st">"bitemark"</span>,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CDC"</span>: <span class="st">"co_defendant_confessed"</span>,</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CIU"</span>: <span class="st">"conviction_integrity_unit"</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CSH"</span>: <span class="st">"child_sex_abuse_hysteria_case"</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CV"</span>: <span class="st">"child_victim"</span>,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F"</span>: <span class="st">"female_exoneree"</span>,</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FED"</span>: <span class="st">"federal_case"</span>,</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: <span class="st">"homicide"</span>,</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IO"</span>: <span class="st">"innocence_organization"</span>,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JI"</span>: <span class="st">"jailhouse_informant"</span>,</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JV"</span>: <span class="st">"juvenile_defendant"</span>,</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"M"</span>: <span class="st">"misdemeanor"</span>,</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NC"</span>: <span class="st">"no_crime_case"</span>,</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"P"</span>: <span class="st">"guilty_plea_case"</span>,</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PH"</span>: <span class="st">"posthumous_exoneration"</span>,</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SA"</span>: <span class="st">"sexual_assault"</span>,</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SBS"</span>: <span class="st">"shaken_baby_syndrome_case"</span>,</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PR"</span>: <span class="st">"prosecutor_misconduct"</span>,</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OF"</span>: <span class="st">"police_officer_misconduct"</span>,</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FA"</span>: <span class="st">"forensic_analyst_misconduct"</span>,</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CW"</span>: <span class="st">"child_welfare_worker_misconduct"</span>,</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WH"</span>: <span class="st">"withheld_exculpatory_evidence"</span>,</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NW"</span>: <span class="st">"misconduct_that_is_not_withholding_evidence"</span>,</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"KP"</span>: <span class="st">"knowingly_permitting_perjury"</span>,</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WT"</span>: <span class="st">"witness_tampering_or_misconduct_interrogating_co_defendant"</span>,</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"INT"</span>: <span class="st">"misconduct_in_interrogation_of_exoneree"</span>,</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PJ"</span>: <span class="st">"perjury_by_official"</span>,</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PL"</span>: <span class="st">"prosecutor_lied_in_court"</span></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Split 'tags' and 'OM-tags' into lists:</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tags'</span>] <span class="op">=</span> df[<span class="st">'tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'OM-tags'</span>] <span class="op">=</span> df[<span class="st">'OM-tags'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.split(<span class="st">','</span>) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x)</span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary columns for tags from both 'tags' and 'OM-tags':</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tag <span class="kw">in</span> tag_mapping.keys():</span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the tag exists in 'tags' or 'OM-tags':</span></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>    df[tag] <span class="op">=</span> df.<span class="bu">apply</span>(</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">lambda</span> row: <span class="dv">1</span> <span class="cf">if</span> (<span class="bu">isinstance</span>(row[<span class="st">'tags'</span>], <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> row[<span class="st">'tags'</span>]) <span class="kw">or</span> </span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>                          (<span class="bu">isinstance</span>(row[<span class="st">'OM-tags'</span>], <span class="bu">list</span>) <span class="kw">and</span> tag <span class="kw">in</span> row[<span class="st">'OM-tags'</span>]) <span class="cf">else</span> <span class="dv">0</span>,</span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>        axis<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the binary columns using the tag_mapping dictionary:</span></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>tag_mapping, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Create `tag_sum` column to count the total number of tags for each exoneree:</span></span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tag_sum'</span>] <span class="op">=</span> df[<span class="bu">list</span>(tag_mapping.values())].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original 'tags' and 'OM-tags' columns:</span></span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'tags'</span>, <span class="st">'om_tags'</span>, <span class="st">'OM-tags'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a>df.head()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
 <div>
 
 
@@ -1537,12 +1442,12 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-36" class="cell" data-execution_count="358">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'OM' column to binary (1 if "OM" is present, 0 otherwise)</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'om'</span>] <span class="op">=</span> df[<span class="st">'om'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> <span class="bu">str</span>(x).strip().upper() <span class="op">==</span> <span class="st">"OM"</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the transformation</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'om'</span>].value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-34" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'OM' column to binary (1 if "OM" is present, 0 otherwise)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'om'</span>] <span class="op">=</span> df[<span class="st">'om'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> <span class="bu">str</span>(x).strip().upper() <span class="op">==</span> <span class="st">"OM"</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the transformation</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'om'</span>].value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>om
 1    478
@@ -1554,55 +1459,53 @@ Name: count, dtype: int64</code></pre>
 <section id="county-geocoding" class="level2">
 <h2 class="anchored" data-anchor-id="county-geocoding">County Geocoding</h2>
 <p>To enrich the dataset and enable more advanced geographic analysis, I incorporated geocoded data, including latitude, longitude, and full address (geocode). This addition allows for deeper exploratory data analysis (EDA) of geographic patterns within Illinois. By including location data, I can examine trends and disparities across counties, evaluate geographic clustering of exoneration cases, and explore how systemic factors vary by region. The geocoded data adds a crucial spatial dimension to the analysis, providing the foundation for mapping, visualizations, and further geographic exploration.</p>
-<p>To perform the geocoding, I used <strong>GeoPy</strong>, a Python client for geocoding web services (<a href="https://geopy.readthedocs.io/en/stable/" target="_blank">documentation here</a>). GeoPy provides an easy-to-use interface for accessing geocoding services, including the ability to retrieve latitude, longitude, and full address information from place names.</p>
+<p>To perform the geocoding, I used <a href="https://geopy.readthedocs.io/en/stable/" target="_blank"><strong>GeoPy</strong></a>, a Python client for geocoding web services . GeoPy provides an easy-to-use interface for accessing geocoding services, including the ability to retrieve latitude, longitude, and full address information from place names.</p>
 <section id="optimization-of-the-geocoding-process" class="level3">
 <h3 class="anchored" data-anchor-id="optimization-of-the-geocoding-process">Optimization of the Geocoding Process</h3>
-<p>To minimize redundant API calls and enhance efficiency, I focused on unique combinations of county and state. Instead of geocoding every record in the dataset (which would result in repeated calls for the same county, such as Cook County), I first extracted unique county-state pairs. These unique combinations were geocoded, capturing the address, latitude, and longitude for each pair. The results were then mapped back to the full dataset based on county and state.</p>
-<p>This approach not only reduced the number of API calls, saving both time and resources, but also ensured consistency in the geocoded results. By geocoding only unique counties, I avoided unnecessary repetition and maintained a streamlined process while enriching the dataset with geographic context.</p>
-<div id="cell-38" class="cell" data-execution_count="359">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Strip extra spaces and ensure consistent capitalization</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'county'</span>] <span class="op">=</span> df[<span class="st">'county'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'state'</span>] <span class="op">=</span> df[<span class="st">'state'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the geolocator</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"illinois_exoneration_geocode"</span>) </span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unique combinations of county and state - avoids repition and extra work for geocoder</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>unique_counties <span class="op">=</span> df[[<span class="st">'county'</span>, <span class="st">'state'</span>]].drop_duplicates()</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  Define a function to geocode unique counties</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocode_unique(row):</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"Geocoding: {row['county']} County, {row['state']}, USA") # Debugging</span></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> geolocator.geocode(<span class="ss">f"</span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss"> County, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">, USA"</span>)</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> location:</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print(f"Success: {location.address}") #debugging</span></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> {</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">'address'</span>: location.address,</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">'latitude'</span>: location.latitude,</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">'longitude'</span>: location.longitude</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Failed: No result for </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss"> County, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error geocoding </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the geocoding function to unique counties</span></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>geocoded_results <span class="op">=</span> unique_counties.<span class="bu">apply</span>(geocode_unique, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Split results into separate columns</span></span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'geocode_address'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'address'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'address'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'latitude'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'latitude'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'latitude'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'longitude'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'longitude'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'longitude'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the geocoded results back into the original dataset</span></span>
-<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.merge(unique_counties, on<span class="op">=</span>[<span class="st">'county'</span>, <span class="st">'state'</span>], how<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'geocode_address'</span>, <span class="st">'latitude'</span>, <span class="st">'longitude'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To minimize redundant API calls and enhance efficiency, I focused on unique combinations of county and state. Instead of geocoding every record in the dataset (which would result in repeated calls for the same county, such as Cook County), I first extracted unique county-state pairs. These unique combinations were geocoded, capturing the address, latitude, and longitude for each pair with the results then mapped back to the full dataset based on county and state.</p>
+<p>This approach not only reduced the number of API calls, saving both time and resources, but also ensured consistency in the geocoded results. By geocoding only unique counties,unnecessary repetition was avoided and a streamlined process was maintained while enriching the dataset with geographic context for further EDA.</p>
+<div id="cell-36" class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strip extra spaces and ensure consistent capitalization:</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'county'</span>] <span class="op">=</span> df[<span class="st">'county'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'state'</span>] <span class="op">=</span> df[<span class="st">'state'</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the geolocator:</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"illinois_exoneration_geocode"</span>) </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unique combinations of county and state - avoids repition and extra work for geocoder:</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>unique_counties <span class="op">=</span> df[[<span class="st">'county'</span>, <span class="st">'state'</span>]].drop_duplicates()</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  Define a function to geocode unique counties:</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocode_unique(row):</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"Geocoding: {row['county']} County, {row['state']}, USA") # Debugging</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>        location <span class="op">=</span> geolocator.geocode(<span class="ss">f"</span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss"> County, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">, USA"</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> location:</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print(f"Success: {location.address}") #debugging</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> {</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>                <span class="st">'address'</span>: location.address,</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">'latitude'</span>: location.latitude,</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">'longitude'</span>: location.longitude</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Failed: No result for </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss"> County, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error geocoding </span><span class="sc">{</span>row[<span class="st">'county'</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>row[<span class="st">'state'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the geocoding function to unique counties:</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>geocoded_results <span class="op">=</span> unique_counties.<span class="bu">apply</span>(geocode_unique, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Split results into separate columns:</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'geocode_address'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'address'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'address'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'latitude'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'latitude'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'latitude'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>unique_counties[<span class="st">'longitude'</span>] <span class="op">=</span> geocoded_results.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'longitude'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'longitude'</span> <span class="kw">in</span> x <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the geocoded results back into the original dataset:</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.merge(unique_counties, on<span class="op">=</span>[<span class="st">'county'</span>, <span class="st">'state'</span>], how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'state'</span>, <span class="st">'county'</span>, <span class="st">'geocode_address'</span>, <span class="st">'latitude'</span>, <span class="st">'longitude'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      state county                       geocode_address   latitude  longitude
 0  Illinois   Cook  Cook County, Illinois, United States  41.819738 -87.756525
@@ -1614,22 +1517,65 @@ Name: count, dtype: int64</code></pre>
 </div>
 </section>
 </section>
+<section id="calculating-years-lost" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-years-lost">Calculating Years Lost</h2>
+<p>To quantify the <code>years_lost</code> due to wrongful conviction, this step calculates the difference in years between an individual’s <code>date_of_1st_conviction</code> and their <code>date_of_release</code>.</p>
+<div id="cell-38" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate "years lost" as the difference in years between release and conviction:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'years_lost'</span>] <span class="op">=</span> (df[<span class="st">'date_of_release'</span>] <span class="op">-</span> df[<span class="st">'date_of_1st_conviction'</span>]).dt.days <span class="op">/</span> <span class="fl">365.25</span> <span class="co"># Dividing by 365.25 accounts for leap years</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the years lost to 2 decimal places:</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'years_lost'</span>] <span class="op">=</span> df[<span class="st">'years_lost'</span>].<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Updated DataFrame:</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[[<span class="st">'date_of_1st_conviction'</span>, <span class="st">'date_of_release'</span>, <span class="st">'years_lost'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    date_of_1st_conviction date_of_release  years_lost
+0               2008-03-25      2008-03-25        0.00
+1               1987-01-15      2015-02-11       28.07
+2               2004-09-22      2022-07-21       17.83
+3               2004-09-08      2004-12-26        0.30
+4               1978-10-20      1996-06-14       17.65
+..                     ...             ...         ...
+543             2005-04-13      2005-04-13        0.00
+544             2005-01-11      2006-07-12        1.50
+545             2005-04-11      2006-12-07        1.66
+546             2003-04-21      2005-03-10        1.89
+547             1994-09-20      2005-01-31       10.37
+
+[548 rows x 3 columns]</code></pre>
+</div>
+</div>
+</section>
 <section id="column-reorganization" class="level2">
 <h2 class="anchored" data-anchor-id="column-reorganization">Column Reorganization</h2>
-<p>To improve readability and logical flow, I move the <code>sentence_in_years</code> column to appear immediately after <code>sentence</code>. This makes it easier to analyze the cleaned numerical representation of the sentencing data alongside its original textual description.</p>
-<div id="cell-40" class="cell" data-execution_count="360">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reordering columns</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> <span class="bu">list</span>(df.columns)  <span class="co"># Get all columns</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'sentence'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'sentence_in_years'</span>)))  <span class="co"># Move 'sentence_in_years'</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Move 'latitude' and 'longitude' after 'county'</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'county'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'latitude'</span>)))</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'county'</span>) <span class="op">+</span> <span class="dv">2</span>, columns.pop(columns.index(<span class="st">'longitude'</span>)))</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[columns]  <span class="co"># Reorder DataFrame</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="360">
+<p>To improve readability and logical flow, the following changes were made to the column order:</p>
+<ol type="1">
+<li><p><strong>Align Sentencing Data</strong>:<br>
+The <code>sentence_in_years</code> column was moved to appear immediately after <code>sentence</code>, ensuring that the cleaned numerical representation of sentencing data is logically aligned with its original textual description.</p></li>
+<li><p><strong>Reorganize Release and Years Lost</strong>:<br>
+The <code>years_lost</code> column was moved to appear immediately after <code>date_of_release</code>, facilitating easier comparison of release dates and the calculated time lost due to wrongful incarceration.</p></li>
+<li><p><strong>Group Geographic Data</strong>:<br>
+The <code>latitude</code> and <code>longitude</code> columns were moved to follow the <code>county</code> column, grouping geographic information together.</p></li>
+</ol>
+<div id="cell-40" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reordering columns:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> <span class="bu">list</span>(df.columns)  </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Aligning sentencing data:  </span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'sentence'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'sentence_in_years'</span>)))  <span class="co"># Move 'sentence_in_years'</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Reorganizing release and years lost</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'date_of_release'</span>) <span class="op">+</span><span class="dv">1</span>, columns.pop(columns.index(<span class="st">'years_lost'</span>))) <span class="co">#Move 'years_lost' </span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Move 'latitude' and 'longitude' after 'county'</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'county'</span>) <span class="op">+</span> <span class="dv">1</span>, columns.pop(columns.index(<span class="st">'latitude'</span>)))</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>columns.insert(columns.index(<span class="st">'county'</span>) <span class="op">+</span> <span class="dv">2</span>, columns.pop(columns.index(<span class="st">'longitude'</span>)))</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[columns]  <span class="co"># Reorder DataFrame</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
 <div>
 
 
@@ -1654,6 +1600,7 @@ Name: count, dtype: int64</code></pre>
 <th data-quarto-table-cell-role="th">date_of_exoneration</th>
 <th data-quarto-table-cell-role="th">date_of_1st_conviction</th>
 <th data-quarto-table-cell-role="th">date_of_release</th>
+<th data-quarto-table-cell-role="th">years_lost</th>
 <th data-quarto-table-cell-role="th">arson</th>
 <th data-quarto-table-cell-role="th">bitemark</th>
 <th data-quarto-table-cell-role="th">co_defendant_confessed</th>
@@ -1707,6 +1654,7 @@ Name: count, dtype: int64</code></pre>
 <td>2022-02-01</td>
 <td>2008-03-25</td>
 <td>2008-03-25</td>
+<td>0.00</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1758,6 +1706,7 @@ Name: count, dtype: int64</code></pre>
 <td>2015-02-11</td>
 <td>1987-01-15</td>
 <td>2015-02-11</td>
+<td>28.07</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1809,6 +1758,7 @@ Name: count, dtype: int64</code></pre>
 <td>2022-07-21</td>
 <td>2004-09-22</td>
 <td>2022-07-21</td>
+<td>17.83</td>
 <td>0</td>
 <td>0</td>
 <td>1</td>
@@ -1860,6 +1810,7 @@ Name: count, dtype: int64</code></pre>
 <td>2020-02-11</td>
 <td>2004-09-08</td>
 <td>2004-12-26</td>
+<td>0.30</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1911,6 +1862,7 @@ Name: count, dtype: int64</code></pre>
 <td>1996-07-02</td>
 <td>1978-10-20</td>
 <td>1996-06-14</td>
+<td>17.65</td>
 <td>0</td>
 <td>0</td>
 <td>1</td>
@@ -1962,6 +1914,7 @@ Name: count, dtype: int64</code></pre>
 <td>2006-12-19</td>
 <td>2006-05-18</td>
 <td>2006-05-18</td>
+<td>0.00</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -2013,6 +1966,7 @@ Name: count, dtype: int64</code></pre>
 <td>2006-12-19</td>
 <td>2006-05-18</td>
 <td>2006-05-18</td>
+<td>0.00</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -2064,6 +2018,7 @@ Name: count, dtype: int64</code></pre>
 <td>2001-11-07</td>
 <td>1988-06-14</td>
 <td>2001-11-07</td>
+<td>13.40</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -2115,6 +2070,7 @@ Name: count, dtype: int64</code></pre>
 <td>2003-02-18</td>
 <td>1999-03-09</td>
 <td>2002-12-18</td>
+<td>3.78</td>
 <td>0</td>
 <td>0</td>
 <td>1</td>
@@ -2166,6 +2122,7 @@ Name: count, dtype: int64</code></pre>
 <td>2020-02-11</td>
 <td>2007-01-17</td>
 <td>2007-06-27</td>
+<td>0.44</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -2207,11 +2164,10 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="exporting-the-cleaned-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="exporting-the-cleaned-dataset">Exporting the Cleaned Dataset</h2>
-<p>The final cleaned dataset is saved as <code>illinois_exoneration_data.csv</code>. This ensures that all preprocessing steps are reproducible, and the dataset can be used consistently across various analysis stages.</p>
-<div id="cell-42" class="cell" data-execution_count="361">
+<p>The final cleaned dataset is saved as <code>illinois_exoneration_data.csv</code>, ensuring that all preprocessing steps are reproducible, and the dataset can be used consistently across various analysis stages.</p>
+<div id="cell-42" class="cell" data-execution_count="93">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../../data/processed-data/illinois_exoneration_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to 'illinois_exoneration_data.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to 'illinois_exoneration_data.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data saved to 'illinois_exoneration_data.csv'</code></pre>
 </div>
@@ -2222,10 +2178,18 @@ Name: count, dtype: int64</code></pre>
 <p>This data cleaning process ensures the Illinois exoneration dataset is free of inconsistencies and ready for analysis. The cleaned data will now be used to conduct EDA and investigate patterns of racial disparity and judicial misconduct in wrongful convictions.</p>
 </section>
 </section>
-<section id="illinois-arrest-data" class="level1">
-<h1>Illinois Arrest Data</h1>
-<div id="cell-45" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load exoneration dataset</span></span>
+<section id="illinois-arrest-data-cleaning" class="level1">
+<h1>Illinois Arrest Data Cleaning</h1>
+<section id="introduction-and-motivation-1" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation-1">Introduction and Motivation</h2>
+<p>This section documents the steps taken to clean and preprocess the Illinois arrest dataset. Similarly to the U.S. exoneration dataset, the goal is to transform the raw data into a structured and reliable format for analysis. However, this dataset required fewer cleaning steps due to its uniform structure and consistent formatting.</p>
+<p>By the end of this phase, the Illinois arrest dataset will be well-prepared for exploratory data analysis (EDA) and integration into broader investigative workflows.</p>
+</section>
+<section id="initial-overview-of-the-dataset-1" class="level2">
+<h2 class="anchored" data-anchor-id="initial-overview-of-the-dataset-1">Initial Overview of the Dataset</h2>
+<p>The dataset is first loaded to inspect its structure and contents.</p>
+<div id="cell-46" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load exoneration dataset:</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>arrest_data <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/illinois_arrest_explorer_data.csv'</span>)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Initial Dataset: "</span>)</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>) <span class="co"># Enables display of every column</span></span>
@@ -2233,7 +2197,7 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Initial Dataset: </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="94">
 <div>
 
 
@@ -2901,33 +2865,281 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-46" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename columns by removing 'county_' prefix</span></span>
+</section>
+<section id="column-renaming-and-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="column-renaming-and-consolidation">Column Renaming and Consolidation</h2>
+<p>To streamline the Illinois arrest dataset and improve clarity, the following transformations were applied:</p>
+<ol type="1">
+<li><p><strong>Removing Prefixes for Simplicity</strong>:<br>
+Columns with the <code>county_</code> prefix were renamed by removing the prefix and capitalizing the remaining column names. This makes the column headers cleaner and more intuitive for analysis.</p></li>
+<li><p><strong>Standardizing Race Terminology</strong>:<br>
+The term <em>“African American”</em> in the <code>race</code> column was replaced with <em>“Black”</em> to ensure consistency with the exoneration dataset.</p></li>
+<li><p><strong>Consolidating Cook County Data</strong>:<br>
+The columns <code>Cook Chicago</code> and <code>Cook County Suburbs</code> were combined into a single <code>Cook</code> column. This consolidation simplifies the data and groups all arrest information related to Cook County into a unified metric.</p></li>
+</ol>
+<div id="cell-48" class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns by removing 'county_' prefix:</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>arrest_data.columns <span class="op">=</span> [col.replace(<span class="st">'county_'</span>, <span class="st">''</span>).capitalize() <span class="cf">if</span> col.startswith(<span class="st">'county_'</span>) <span class="cf">else</span> col <span class="cf">for</span> col <span class="kw">in</span> arrest_data.columns]</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Rename "African American" to "Black" in the column names</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename "African American" to "Black" in the column names:</span></span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>arrest_data[<span class="st">'race'</span>] <span class="op">=</span> arrest_data[<span class="st">'race'</span>].replace(<span class="st">'African American'</span>, <span class="st">'Black'</span>)</span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine "Cook Chicago" and "Cook County Suburbs" into a single "Cook" column</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine "Cook Chicago" and "Cook County Suburbs" into a single "Cook" column:</span></span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>arrest_data[<span class="st">'Cook'</span>] <span class="op">=</span> arrest_data[<span class="st">'Cook chicago'</span>] <span class="op">+</span> arrest_data[<span class="st">'Cook county suburbs'</span>]</span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the old columns</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the old columns:</span></span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>arrest_data.drop(columns<span class="op">=</span>[<span class="st">'Cook chicago'</span>, <span class="st">'Cook county suburbs'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 1s with 0s in the arrest data</span></span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Explanation: </span></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The '1's in this dataset are likely placeholders or redacted data to protect anonymity </span></span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="co"># (e.g., if there is only one person of a specific race in a county). </span></span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore, we are replacing these values with '0' to avoid skewing the analysis.</span></span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>arrest_data.replace(<span class="dv">1</span>, <span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the updated dataset to confirm changes</span></span>
-<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>arrest_data.head()</span>
-<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>arrest_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>arrest_data.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="95">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">Adams</th>
+<th data-quarto-table-cell-role="th">Alexander</th>
+<th data-quarto-table-cell-role="th">Bond</th>
+<th data-quarto-table-cell-role="th">Boone</th>
+<th data-quarto-table-cell-role="th">Brown</th>
+<th data-quarto-table-cell-role="th">Bureau</th>
+<th data-quarto-table-cell-role="th">Calhoun</th>
+<th data-quarto-table-cell-role="th">Carroll</th>
+<th data-quarto-table-cell-role="th">Cass</th>
+<th data-quarto-table-cell-role="th">Champaign</th>
+<th data-quarto-table-cell-role="th">Christian</th>
+<th data-quarto-table-cell-role="th">Clark</th>
+<th data-quarto-table-cell-role="th">Clay</th>
+<th data-quarto-table-cell-role="th">Clinton</th>
+<th data-quarto-table-cell-role="th">Coles</th>
+<th data-quarto-table-cell-role="th">Crawford</th>
+<th data-quarto-table-cell-role="th">Cumberland</th>
+<th data-quarto-table-cell-role="th">Dekalb</th>
+<th data-quarto-table-cell-role="th">Dewitt</th>
+<th data-quarto-table-cell-role="th">Douglas</th>
+<th data-quarto-table-cell-role="th">Dupage</th>
+<th data-quarto-table-cell-role="th">Edgar</th>
+<th data-quarto-table-cell-role="th">Edwards</th>
+<th data-quarto-table-cell-role="th">Effingham</th>
+<th data-quarto-table-cell-role="th">Fayette</th>
+<th data-quarto-table-cell-role="th">Ford</th>
+<th data-quarto-table-cell-role="th">Franklin</th>
+<th data-quarto-table-cell-role="th">Fulton</th>
+<th data-quarto-table-cell-role="th">Gallatin</th>
+<th data-quarto-table-cell-role="th">Greene</th>
+<th data-quarto-table-cell-role="th">Grundy</th>
+<th data-quarto-table-cell-role="th">Hamilton</th>
+<th data-quarto-table-cell-role="th">Hancock</th>
+<th data-quarto-table-cell-role="th">Hardin</th>
+<th data-quarto-table-cell-role="th">Henderson</th>
+<th data-quarto-table-cell-role="th">Henry</th>
+<th data-quarto-table-cell-role="th">Iroquois</th>
+<th data-quarto-table-cell-role="th">Jackson</th>
+<th data-quarto-table-cell-role="th">Jasper</th>
+<th data-quarto-table-cell-role="th">Jefferson</th>
+<th data-quarto-table-cell-role="th">Jersey</th>
+<th data-quarto-table-cell-role="th">Jo daviess</th>
+<th data-quarto-table-cell-role="th">Johnson</th>
+<th data-quarto-table-cell-role="th">Kane</th>
+<th data-quarto-table-cell-role="th">Kankakee</th>
+<th data-quarto-table-cell-role="th">Kendall</th>
+<th data-quarto-table-cell-role="th">Knox</th>
+<th data-quarto-table-cell-role="th">Lake</th>
+<th data-quarto-table-cell-role="th">Lasalle</th>
+<th data-quarto-table-cell-role="th">Lawrence</th>
+<th data-quarto-table-cell-role="th">Lee</th>
+<th data-quarto-table-cell-role="th">Livingston</th>
+<th data-quarto-table-cell-role="th">Logan</th>
+<th data-quarto-table-cell-role="th">Macon</th>
+<th data-quarto-table-cell-role="th">Macoupin</th>
+<th data-quarto-table-cell-role="th">Madison</th>
+<th data-quarto-table-cell-role="th">Marion</th>
+<th data-quarto-table-cell-role="th">Marshall</th>
+<th data-quarto-table-cell-role="th">Mason</th>
+<th data-quarto-table-cell-role="th">Massac</th>
+<th data-quarto-table-cell-role="th">Mcdonough</th>
+<th data-quarto-table-cell-role="th">Mchenry</th>
+<th data-quarto-table-cell-role="th">Mclean</th>
+<th data-quarto-table-cell-role="th">Menard</th>
+<th data-quarto-table-cell-role="th">Mercer</th>
+<th data-quarto-table-cell-role="th">Monroe</th>
+<th data-quarto-table-cell-role="th">Montgomery</th>
+<th data-quarto-table-cell-role="th">Morgan</th>
+<th data-quarto-table-cell-role="th">Moultrie</th>
+<th data-quarto-table-cell-role="th">Non county agencies</th>
+<th data-quarto-table-cell-role="th">Ogle</th>
+<th data-quarto-table-cell-role="th">Peoria</th>
+<th data-quarto-table-cell-role="th">Perry</th>
+<th data-quarto-table-cell-role="th">Piatt</th>
+<th data-quarto-table-cell-role="th">Pike</th>
+<th data-quarto-table-cell-role="th">Pope</th>
+<th data-quarto-table-cell-role="th">Pulaski</th>
+<th data-quarto-table-cell-role="th">Putnam</th>
+<th data-quarto-table-cell-role="th">Randolph</th>
+<th data-quarto-table-cell-role="th">Richland</th>
+<th data-quarto-table-cell-role="th">Rock island</th>
+<th data-quarto-table-cell-role="th">Saline</th>
+<th data-quarto-table-cell-role="th">Sangamon</th>
+<th data-quarto-table-cell-role="th">Schuyler</th>
+<th data-quarto-table-cell-role="th">Scott</th>
+<th data-quarto-table-cell-role="th">Shelby</th>
+<th data-quarto-table-cell-role="th">St. clair</th>
+<th data-quarto-table-cell-role="th">Stark</th>
+<th data-quarto-table-cell-role="th">Stephenson</th>
+<th data-quarto-table-cell-role="th">Tazewell</th>
+<th data-quarto-table-cell-role="th">Union</th>
+<th data-quarto-table-cell-role="th">Vermilion</th>
+<th data-quarto-table-cell-role="th">Wabash</th>
+<th data-quarto-table-cell-role="th">Warren</th>
+<th data-quarto-table-cell-role="th">Washington</th>
+<th data-quarto-table-cell-role="th">Wayne</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Whiteside</th>
+<th data-quarto-table-cell-role="th">Will</th>
+<th data-quarto-table-cell-role="th">Williamson</th>
+<th data-quarto-table-cell-role="th">Winnebago</th>
+<th data-quarto-table-cell-role="th">Woodford</th>
+<th data-quarto-table-cell-role="th">Cook</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>Black</td>
+<td>226</td>
+<td>147</td>
+<td>25</td>
+<td>18</td>
+<td>18</td>
+<td>48</td>
+<td>6</td>
+<td>12</td>
+<td>1</td>
+<td>2059</td>
+<td>16</td>
+<td>6</td>
+<td>1</td>
+<td>22</td>
+<td>130</td>
+<td>6</td>
+<td>1</td>
+<td>342</td>
+<td>11</td>
+<td>18</td>
+<td>2265</td>
+<td>1</td>
+<td>1</td>
+<td>108</td>
+<td>6</td>
+<td>1</td>
+<td>6</td>
+<td>25</td>
+<td>1</td>
+<td>1</td>
+<td>52</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>6</td>
+<td>92</td>
+<td>250</td>
+<td>580</td>
+<td>1</td>
+<td>246</td>
+<td>6</td>
+<td>16</td>
+<td>16</td>
+<td>2804</td>
+<td>1669</td>
+<td>122</td>
+<td>314</td>
+<td>5712</td>
+<td>184</td>
+<td>6</td>
+<td>86</td>
+<td>180</td>
+<td>71</td>
+<td>1104</td>
+<td>34</td>
+<td>1567</td>
+<td>146</td>
+<td>6</td>
+<td>1</td>
+<td>91</td>
+<td>105</td>
+<td>213</td>
+<td>905</td>
+<td>1</td>
+<td>6</td>
+<td>20</td>
+<td>38</td>
+<td>287</td>
+<td>6</td>
+<td>1</td>
+<td>57</td>
+<td>3403</td>
+<td>60</td>
+<td>1</td>
+<td>13</td>
+<td>1</td>
+<td>153</td>
+<td>1</td>
+<td>81</td>
+<td>6</td>
+<td>1215</td>
+<td>104</td>
+<td>2200</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>2462</td>
+<td>1</td>
+<td>355</td>
+<td>168</td>
+<td>17</td>
+<td>876</td>
+<td>6</td>
+<td>46</td>
+<td>25</td>
+<td>6</td>
+<td>16</td>
+<td>128</td>
+<td>3000</td>
+<td>75</td>
+<td>2509</td>
+<td>42</td>
+<td>113082</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="handling-placeholder-values" class="level2">
+<h2 class="anchored" data-anchor-id="handling-placeholder-values">Handling Placeholder Values</h2>
+<p>During preprocessing, it was observed that the dataset contains <code>1</code>s in certain fields. These values are likely placeholders for N/A or redacted data to protect anonymity—such as when there is only one individual of a specific race recorded in a county. Keeping these <code>1</code>s could distort the analysis, as they likely do not accurately reflect arrest counts.</p>
+<p>To address this:<br>
+- All <code>1</code>s in the dataset were replaced with <code>0</code>s to ensure the integrity of the analysis.</p>
+<p>This decision ensures that the data is not skewed by suspicious or placeholder values, which could misrepresent trends or introduce bias into the results.</p>
+<blockquote class="blockquote">
+<p><strong>Note</strong>: The reasoning behind the presence of these placeholder values is discussed further in the <em>Data Collection</em> section.</p>
+</blockquote>
+<div id="cell-50" class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 1s with 0s: </span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>arrest_data.replace(<span class="dv">1</span>, <span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the updated dataset to confirm changes:</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>arrest_data.head()</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>arrest_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="96">
 <div>
 
 
@@ -3589,18 +3801,36 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-47" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>arrest_data.to_csv(<span class="st">'../../data/processed-data/arrest_data_by_year.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exporting-cleaned-and-aggregated-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-cleaned-and-aggregated-datasets">Exporting Cleaned and Aggregated Datasets</h2>
+<section id="exporting-the-cleaned-dataset-1" class="level3">
+<h3 class="anchored" data-anchor-id="exporting-the-cleaned-dataset-1">1. Exporting the Cleaned Dataset</h3>
+<p>After cleaning the Illinois arrest dataset, the cleaned version was saved as a CSV file. This dataset retains the original structure, including arrest counts broken down by race, county, and year. Maintaining the year-specific information allows for detailed time-series analysis and year-over-year comparisons.</p>
+<div id="cell-52" class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>arrest_data.to_csv(<span class="st">'../../data/processed-data/arrest_data_by_year.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to 'arrest_data_by_year.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data saved to 'arrest_data_by_year.csv'</code></pre>
 </div>
-<div id="cell-48" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate totals across years for each race</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> arrest_data.groupby(<span class="st">'race'</span>).<span class="bu">sum</span>(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> aggregated_data.drop(columns<span class="op">=</span>[<span class="st">'Year'</span>])</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> aggregated_data.reset_index()</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the aggregated data</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>aggregated_data.head()</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+</div>
+</section>
+<section id="aggregating-arrest-data-by-race-and-county" class="level3">
+<h3 class="anchored" data-anchor-id="aggregating-arrest-data-by-race-and-county">2. Aggregating Arrest Data by Race and County</h3>
+<p>The arrest data was aggregated to simplify the analysis by summing totals across all years for each race and county. This step removes the <code>Year</code> column and groups arrests solely by race and county.</p>
+<p><strong>Steps</strong>:<br>
+- Grouped the dataset by the <code>race</code> column.<br>
+- Summed arrest counts for each county across all years.<br>
+- Reset the index for a clean, tabular structure.</p>
+<div id="cell-54" class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate totals across years for each race:</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> arrest_data.groupby(<span class="st">'race'</span>).<span class="bu">sum</span>(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> aggregated_data.drop(columns<span class="op">=</span>[<span class="st">'Year'</span>])</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>aggregated_data <span class="op">=</span> aggregated_data.reset_index()</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the aggregated data:</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>aggregated_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
 <div>
 
 
@@ -4256,14 +4486,32 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-49" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>aggregated_data.to_csv(<span class="st">'../../data/processed-data/aggregated_arrests_2001_to_2021.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-55" class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>aggregated_data.to_csv(<span class="st">'../../data/processed-data/aggregated_arrests_2001_to_2021.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"'aggregated_arrests_2001_to_2021.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'aggregated_arrests_2001_to_2021.csv'</code></pre>
 </div>
+</div>
+</section>
+</section>
+<section id="summary-and-next-steps-1" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-next-steps-1">Summary and Next Steps</h2>
+<p>This data cleaning process ensures the Illinois arrest dataset is free of inconsistencies and properly structured for analysis. The cleaned data will now be used to conduct exploratory data analysis (EDA) and investigate patterns of overpolicing, racial disparities, and geographic trends in arrest data across Illinois.</p>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-wttwChicagoRanks" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Cherone, H. Chicago ranks no. 1 in exonerations for 5th year in a row, accounting for more than half of national total: report. (2023).</div>
+</div>
+<div id="ref-university_of_california_irvine_newkirk_center_for_science__society_exoneration" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">University of California Irvine Newkirk Center for Science &amp; Society &amp; University of Michigan Law School &amp; Michigan State University College of Law. <a href="https://www.law.umich.edu/special/exoneration/Pages/detaillist.aspx">Exoneration <span>Detail</span> <span>List</span></a>. <em>The National Registry of Exonerations</em> (2024).</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

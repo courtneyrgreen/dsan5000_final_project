@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Counterfactual Data Balancing – DSAN-5000: Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/gu-logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">DSAN-5000: Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../instructions/overview.html"> 
+<span class="menu-text">Instructions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../report/report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Technical details</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-collection/main.html">
+ <span class="dropdown-text">Data-collection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a>
+  <ul class="collapse">
+  <li><a href="#why-counterfactual-data" id="toc-why-counterfactual-data" class="nav-link" data-scroll-target="#why-counterfactual-data">Why Counterfactual Data?</a>
+  <ul class="collapse">
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a>
+  <ul class="collapse">
+  <li><a href="#scrapping-cleaning-rows-for-exoneree-data" id="toc-scrapping-cleaning-rows-for-exoneree-data" class="nav-link" data-scroll-target="#scrapping-cleaning-rows-for-exoneree-data">Scrapping &amp; Cleaning Rows for Exoneree Data</a></li>
+  <li><a href="#narrowing-to-incarcerated-population" id="toc-narrowing-to-incarcerated-population" class="nav-link" data-scroll-target="#narrowing-to-incarcerated-population">Narrowing to Incarcerated Population</a></li>
+  <li><a href="#illinois-exoneree-countsdemographics" id="toc-illinois-exoneree-countsdemographics" class="nav-link" data-scroll-target="#illinois-exoneree-countsdemographics">Illinois Exoneree Counts/Demographics</a></li>
+  <li><a href="#samplng-from-incarcerated-population" id="toc-samplng-from-incarcerated-population" class="nav-link" data-scroll-target="#samplng-from-incarcerated-population">Samplng from Incarcerated Population</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Counterfactual Data Balancing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-and-motivation" class="level1">
+<h1>Introduction and Motivation</h1>
+<p>In this project, I aim to create a balanced dataset to facilitate supervised learning for predicting factors associated with exoneration. The core idea behind this counterfactual balancing is to construct a dataset that includes both exonerated individuals and a comparable set of non-exonerated individuals, representative of the incarcerated population in Illinois. This allows for fair and meaningful comparisons in modeling exoneration outcomes.</p>
+<section id="why-counterfactual-data" class="level2">
+<h2 class="anchored" data-anchor-id="why-counterfactual-data">Why Counterfactual Data?</h2>
+<p>Counterfactual data is critical when direct access to complete prison population databases is unavailable. Since I don’t have access to a comprehensive dataset of all incarcerated individuals in Illinois and their exoneration statuses, I use counterfactuals to create a synthetic, balanced dataset.</p>
+<p>A counterfactual statement allows us to explore “what if” scenarios, comparing two outcomes that differ in one key aspect. For example, a counterfactual asks: What if this person had not been exonerated? Would their characteristics resemble those of non-exonerated individuals?</p>
+<p>As explained in this <a href="https://bayes.cs.ucla.edu/PRIMER/primer-ch4.pdf" target="_blank">primer on counterfactuals and their applications</a> , “This kind of statement—an ‘if’ statement in which the ‘if’ portion is untrue or unrealized—is known as a counterfactual. The ‘if’ portion of a counterfactual is called the hypothetical condition, or more often, the antecedent.” Counterfactual data allows us to compare outcomes under identical conditions, differing only in the hypothetical condition—in this case, exoneration versus non-exoneration. This approach helps mitigate biases and ensures the models have balanced, reliable inputs for training.</p>
+<section id="acknowledgments" class="level3">
+<h3 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h3>
+<p>The implementation of this counterfactual data balancing relied heavily on expert guidance and code contributions from <a href="https://gufaculty360.georgetown.edu/s/contact/003Hp00002jMlEDIA0/jeffrey-jacobs" target="_blank">Professor Jeff Jacobs</a>. His guidance helped shape the methodology and implementation of the counterfactual sampling process.</p>
+</section>
+</section>
+</section>
+<section id="implementation" class="level1">
+<h1>Implementation</h1>
+<div id="cell-3" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tqdm.pandas()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="scrapping-cleaning-rows-for-exoneree-data" class="level2">
+<h2 class="anchored" data-anchor-id="scrapping-cleaning-rows-for-exoneree-data">Scrapping &amp; Cleaning Rows for Exoneree Data</h2>
+<p>Raw HTML from <a href="https://www.prisonpolicy.org/racialgeography/counties.html">Prison Policy Initiative</a></p>
+<div id="cell-5" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>html_url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/jpowerj/dsan-content/refs/heads/main/2024-fall-dsan5000/exoneration/counties.html"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> requests.get(html_url)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(result.text)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>table_elt <span class="op">=</span> soup.find(<span class="st">"table"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>table_sio <span class="op">=</span> StringIO(<span class="bu">str</span>(table_elt))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>county_df <span class="op">=</span> pd.read_html(table_sio)[<span class="dv">0</span>]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>county_df.columns <span class="op">=</span> [c.replace(<span class="st">""</span>,<span class="st">""</span>).replace(<span class="st">""</span>,<span class="st">""</span>).strip() <span class="cf">for</span> c <span class="kw">in</span> county_df.columns]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>il_df <span class="op">=</span> county_df[county_df[<span class="st">'State'</span>] <span class="op">==</span> <span class="st">"Illinois"</span>].copy()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>il_df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total Population</th>
+<th data-quarto-table-cell-role="th">Total White Population</th>
+<th data-quarto-table-cell-role="th">Total Black Population</th>
+<th data-quarto-table-cell-role="th">Total Latino Population</th>
+<th data-quarto-table-cell-role="th">Incarcerated Population</th>
+<th data-quarto-table-cell-role="th">Incarcerated White Population</th>
+<th data-quarto-table-cell-role="th">Incarcerated Black Population</th>
+<th data-quarto-table-cell-role="th">Incarcerated Latino Population</th>
+<th data-quarto-table-cell-role="th">Non-incarcerated Population</th>
+<th data-quarto-table-cell-role="th">Non-incarcerated White Population</th>
+<th data-quarto-table-cell-role="th">Non-Incarcerated Black Population</th>
+<th data-quarto-table-cell-role="th">Non-Incarcerated Latino Population</th>
+<th data-quarto-table-cell-role="th">Ratio of Overrepresentation of Whites Incarcerated Compared to Whites Non-Incarcerated</th>
+<th data-quarto-table-cell-role="th">Ratio of Overrepresentation of Blacks Incarcerated Compared to Blacks Non-Incarcerated</th>
+<th data-quarto-table-cell-role="th">Ratio of Overrepresentation of Latinos Incarcerated Compared to Latinos Non-Incarcerated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">595</td>
+<td>Adams County</td>
+<td>Illinois</td>
+<td>67103</td>
+<td>62414</td>
+<td>2331</td>
+<td>776</td>
+<td>110</td>
+<td>73</td>
+<td>36</td>
+<td>0</td>
+<td>66993</td>
+<td>62341</td>
+<td>2295</td>
+<td>776</td>
+<td>0.71</td>
+<td>9.54</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">596</td>
+<td>Alexander County</td>
+<td>Illinois</td>
+<td>8238</td>
+<td>4983</td>
+<td>2915</td>
+<td>155</td>
+<td>411</td>
+<td>89</td>
+<td>242</td>
+<td>79</td>
+<td>7827</td>
+<td>4894</td>
+<td>2673</td>
+<td>76</td>
+<td>0.35</td>
+<td>1.72</td>
+<td>19.82</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">597</td>
+<td>Bond County</td>
+<td>Illinois</td>
+<td>17768</td>
+<td>15797</td>
+<td>1080</td>
+<td>547</td>
+<td>1542</td>
+<td>500</td>
+<td>657</td>
+<td>304</td>
+<td>16226</td>
+<td>15297</td>
+<td>423</td>
+<td>243</td>
+<td>0.34</td>
+<td>16.32</td>
+<td>13.14</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="narrowing-to-incarcerated-population" class="level2">
+<h2 class="anchored" data-anchor-id="narrowing-to-incarcerated-population">Narrowing to Incarcerated Population</h2>
+<p>We’re interested specifically in simulating “draws” from the incarcerated population of Illinois. So, we select the relevant subset of columns here (renaming them to be a bit shorter while we’re at it – two birds one stone)</p>
+<div id="cell-7" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>rename_map <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'County'</span>: <span class="st">'County'</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'State'</span>: <span class="st">'State'</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Incarcerated Population'</span>: <span class="st">'Total'</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Incarcerated White Population'</span>: <span class="st">'White'</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Incarcerated Black Population'</span>: <span class="st">'Black'</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Incarcerated Latino Population'</span>: <span class="st">'Latino'</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the cols in the rename_map</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>cols_to_keep <span class="op">=</span> <span class="bu">list</span>(rename_map.keys())</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>il_df <span class="op">=</span> il_df[cols_to_keep].copy()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># And do the renaming</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>il_df.rename(columns<span class="op">=</span>rename_map, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>il_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">595</td>
+<td>Adams County</td>
+<td>Illinois</td>
+<td>110</td>
+<td>73</td>
+<td>36</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">596</td>
+<td>Alexander County</td>
+<td>Illinois</td>
+<td>411</td>
+<td>89</td>
+<td>242</td>
+<td>79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">597</td>
+<td>Bond County</td>
+<td>Illinois</td>
+<td>1542</td>
+<td>500</td>
+<td>657</td>
+<td>304</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">598</td>
+<td>Boone County</td>
+<td>Illinois</td>
+<td>71</td>
+<td>38</td>
+<td>12</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">599</td>
+<td>Brown County</td>
+<td>Illinois</td>
+<td>2059</td>
+<td>419</td>
+<td>1267</td>
+<td>367</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Snce the Exoneree project uses just the county name (like "Cook"), we'll remove the trailing " County" (so, e.g., "Cook County" will turn into just "Cook"):</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>il_df[<span class="st">'County'</span>] <span class="op">=</span> il_df[<span class="st">'County'</span>].<span class="bu">str</span>.replace(<span class="st">" County"</span>,<span class="st">""</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># And, we can compute a state_prop column representing the % of all Illinois inmates contained in each county:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>il_df[<span class="st">'state_prop'</span>] <span class="op">=</span> il_df[<span class="st">'Total'</span>] <span class="op">/</span> il_df[<span class="st">'Total'</span>].<span class="bu">sum</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>il_df.sort_values(by<span class="op">=</span><span class="st">'state_prop'</span>, ascending<span class="op">=</span><span class="va">False</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+<th data-quarto-table-cell-role="th">state_prop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">610</td>
+<td>Cook</td>
+<td>Illinois</td>
+<td>11649</td>
+<td>1769</td>
+<td>8369</td>
+<td>1468</td>
+<td>0.164469</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">693</td>
+<td>Will</td>
+<td>Illinois</td>
+<td>3902</td>
+<td>811</td>
+<td>2528</td>
+<td>538</td>
+<td>0.055091</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">673</td>
+<td>Randolph</td>
+<td>Illinois</td>
+<td>3571</td>
+<td>934</td>
+<td>2250</td>
+<td>377</td>
+<td>0.050418</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">648</td>
+<td>Logan</td>
+<td>Illinois</td>
+<td>3060</td>
+<td>963</td>
+<td>1705</td>
+<td>389</td>
+<td>0.043203</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">647</td>
+<td>Livingston</td>
+<td>Illinois</td>
+<td>2798</td>
+<td>905</td>
+<td>1577</td>
+<td>294</td>
+<td>0.039504</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>So we see that our sample should be about 16.4% from Cook County, 5.5% from Will, 5% from Randolph, and so on.</p>
+<p>To avoid confusing the state_prop value with the sampled proportion that we compute below, we can drop state_prop now:</p>
+<div id="cell-10" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Since they're only tracking three racial groups, the total of the three race counts should not equal the total incarcerated population. But let's check:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>il_df[<span class="st">'three_cat_total'</span>] <span class="op">=</span> il_df[<span class="st">'Black'</span>] <span class="op">+</span> il_df[<span class="st">'White'</span>] <span class="op">+</span> il_df[<span class="st">'Latino'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>il_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+<th data-quarto-table-cell-role="th">state_prop</th>
+<th data-quarto-table-cell-role="th">three_cat_total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">595</td>
+<td>Adams</td>
+<td>Illinois</td>
+<td>110</td>
+<td>73</td>
+<td>36</td>
+<td>0</td>
+<td>0.001553</td>
+<td>109</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">596</td>
+<td>Alexander</td>
+<td>Illinois</td>
+<td>411</td>
+<td>89</td>
+<td>242</td>
+<td>79</td>
+<td>0.005803</td>
+<td>410</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">597</td>
+<td>Bond</td>
+<td>Illinois</td>
+<td>1542</td>
+<td>500</td>
+<td>657</td>
+<td>304</td>
+<td>0.021771</td>
+<td>1461</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">598</td>
+<td>Boone</td>
+<td>Illinois</td>
+<td>71</td>
+<td>38</td>
+<td>12</td>
+<td>21</td>
+<td>0.001002</td>
+<td>71</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">599</td>
+<td>Brown</td>
+<td>Illinois</td>
+<td>2059</td>
+<td>419</td>
+<td>1267</td>
+<td>367</td>
+<td>0.029070</td>
+<td>2053</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Since we need our sample to be fully representative of the county-by-county distributions, we need to use the difference (between three_cat_total and total) to construct an other category:</p>
+<div id="cell-12" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>il_df[<span class="st">'Other'</span>] <span class="op">=</span> il_df[<span class="st">'Total'</span>] <span class="op">-</span> il_df[<span class="st">'three_cat_total'</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>il_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+<th data-quarto-table-cell-role="th">state_prop</th>
+<th data-quarto-table-cell-role="th">three_cat_total</th>
+<th data-quarto-table-cell-role="th">Other</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">595</td>
+<td>Adams</td>
+<td>Illinois</td>
+<td>110</td>
+<td>73</td>
+<td>36</td>
+<td>0</td>
+<td>0.001553</td>
+<td>109</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">596</td>
+<td>Alexander</td>
+<td>Illinois</td>
+<td>411</td>
+<td>89</td>
+<td>242</td>
+<td>79</td>
+<td>0.005803</td>
+<td>410</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">597</td>
+<td>Bond</td>
+<td>Illinois</td>
+<td>1542</td>
+<td>500</td>
+<td>657</td>
+<td>304</td>
+<td>0.021771</td>
+<td>1461</td>
+<td>81</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">598</td>
+<td>Boone</td>
+<td>Illinois</td>
+<td>71</td>
+<td>38</td>
+<td>12</td>
+<td>21</td>
+<td>0.001002</td>
+<td>71</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">599</td>
+<td>Brown</td>
+<td>Illinois</td>
+<td>2059</td>
+<td>419</td>
+<td>1267</td>
+<td>367</td>
+<td>0.029070</td>
+<td>2053</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>It’s not all that well-documented in the source for this data, but I think there might be some counties that report people more than once if they put more than one race down? I say that because, some of the three_cat_total values are actually higher than the overall county totals:</p>
+<div id="cell-14" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>il_df[il_df[<span class="st">'three_cat_total'</span>] <span class="op">&gt;</span> il_df[<span class="st">'Total'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+<th data-quarto-table-cell-role="th">state_prop</th>
+<th data-quarto-table-cell-role="th">three_cat_total</th>
+<th data-quarto-table-cell-role="th">Other</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">608</td>
+<td>Clinton</td>
+<td>Illinois</td>
+<td>1599</td>
+<td>486</td>
+<td>917</td>
+<td>199</td>
+<td>0.022576</td>
+<td>1602</td>
+<td>-3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">611</td>
+<td>Crawford</td>
+<td>Illinois</td>
+<td>1230</td>
+<td>310</td>
+<td>782</td>
+<td>141</td>
+<td>0.017366</td>
+<td>1233</td>
+<td>-3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">620</td>
+<td>Fayette</td>
+<td>Illinois</td>
+<td>1527</td>
+<td>467</td>
+<td>933</td>
+<td>129</td>
+<td>0.021559</td>
+<td>1529</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">635</td>
+<td>Jefferson</td>
+<td>Illinois</td>
+<td>1857</td>
+<td>827</td>
+<td>812</td>
+<td>224</td>
+<td>0.026218</td>
+<td>1863</td>
+<td>-6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">645</td>
+<td>Lawrence</td>
+<td>Illinois</td>
+<td>2358</td>
+<td>486</td>
+<td>1490</td>
+<td>393</td>
+<td>0.033292</td>
+<td>2369</td>
+<td>-11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">654</td>
+<td>Madison</td>
+<td>Illinois</td>
+<td>14</td>
+<td>0</td>
+<td>11</td>
+<td>14</td>
+<td>0.000198</td>
+<td>25</td>
+<td>-11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">655</td>
+<td>Marion</td>
+<td>Illinois</td>
+<td>114</td>
+<td>69</td>
+<td>37</td>
+<td>10</td>
+<td>0.001610</td>
+<td>116</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">686</td>
+<td>Vermilion</td>
+<td>Illinois</td>
+<td>2084</td>
+<td>536</td>
+<td>1236</td>
+<td>319</td>
+<td>0.029423</td>
+<td>2091</td>
+<td>-7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">690</td>
+<td>Wayne</td>
+<td>Illinois</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>0.000028</td>
+<td>4</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">691</td>
+<td>White</td>
+<td>Illinois</td>
+<td>72</td>
+<td>35</td>
+<td>19</td>
+<td>36</td>
+<td>0.001017</td>
+<td>90</td>
+<td>-18</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>However, since most of these are low numbers (Madison County and White County are obviously exceptions, sketchy af but… not much we could do besides contacting the correctional facilities in those counties 😵), we will set the other value to 0 in these cases:</p>
+<div id="cell-16" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>il_df[<span class="st">'Other'</span>] <span class="op">=</span> il_df[<span class="st">'Other'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">0</span> <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="cf">else</span> x)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># And now we can drop three_cat_total, since we only needed that in order to form the other count:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>il_df.drop(columns<span class="op">=</span>[<span class="st">'three_cat_total'</span>], inplace<span class="op">=</span><span class="va">True</span>, errors<span class="op">=</span><span class="st">'ignore'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  since we've now arrived at consistent names for the four race categories used by PPI, we store these names in a list for future use (to ensure consistency in naming throughout):</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>race_category_names <span class="op">=</span> [<span class="st">'White'</span>, <span class="st">'Black'</span>, <span class="st">'Latino'</span>, <span class="st">'Other'</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>il_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+<th data-quarto-table-cell-role="th">state_prop</th>
+<th data-quarto-table-cell-role="th">Other</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">595</td>
+<td>Adams</td>
+<td>Illinois</td>
+<td>110</td>
+<td>73</td>
+<td>36</td>
+<td>0</td>
+<td>0.001553</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">596</td>
+<td>Alexander</td>
+<td>Illinois</td>
+<td>411</td>
+<td>89</td>
+<td>242</td>
+<td>79</td>
+<td>0.005803</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">597</td>
+<td>Bond</td>
+<td>Illinois</td>
+<td>1542</td>
+<td>500</td>
+<td>657</td>
+<td>304</td>
+<td>0.021771</td>
+<td>81</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">598</td>
+<td>Boone</td>
+<td>Illinois</td>
+<td>71</td>
+<td>38</td>
+<td>12</td>
+<td>21</td>
+<td>0.001002</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">599</td>
+<td>Brown</td>
+<td>Illinois</td>
+<td>2059</td>
+<td>419</td>
+<td>1267</td>
+<td>367</td>
+<td>0.029070</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="illinois-exoneree-countsdemographics" class="level2">
+<h2 class="anchored" data-anchor-id="illinois-exoneree-countsdemographics">Illinois Exoneree Counts/Demographics</h2>
+<div id="cell-18" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>exon_il_df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/illinois_exoneration_data.csv'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>exon_il_df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">county</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">worst_crime_display</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">child_welfare_worker_misconduct</th>
+<th data-quarto-table-cell-role="th">withheld_exculpatory_evidence</th>
+<th data-quarto-table-cell-role="th">misconduct_that_is_not_withholding_evidence</th>
+<th data-quarto-table-cell-role="th">knowingly_permitting_perjury</th>
+<th data-quarto-table-cell-role="th">witness_tampering_or_misconduct_interrogating_co_defendant</th>
+<th data-quarto-table-cell-role="th">misconduct_in_interrogation_of_exoneree</th>
+<th data-quarto-table-cell-role="th">perjury_by_official</th>
+<th data-quarto-table-cell-role="th">prosecutor_lied_in_court</th>
+<th data-quarto-table-cell-role="th">tag_sum</th>
+<th data-quarto-table-cell-role="th">geocode_address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abbott</td>
+<td>Cinque</td>
+<td>19.0</td>
+<td>Black</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Drug Possession or Sale</td>
+<td>...</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abernathy</td>
+<td>Christopher</td>
+<td>17.0</td>
+<td>White</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>...</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abrego</td>
+<td>Eruby</td>
+<td>20.0</td>
+<td>Hispanic</td>
+<td>male</td>
+<td>Illinois</td>
+<td>Cook</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>...</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>9</td>
+<td>Cook County, Illinois, United States</td>
+</tr>
+</tbody>
+</table>
+
+<p>3 rows × 48 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>num_il <span class="op">=</span> <span class="bu">len</span>(exon_il_df)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>num_il</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>548</code></pre>
+</div>
+</div>
+<div id="cell-20" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>exon_il_df[<span class="st">'race'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>race
+Black              0.762774
+Hispanic           0.147810
+White              0.085766
+Asian              0.001825
+Native American    0.001825
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+<p>Since the PPI data only has black, white, latino, and other, we need to rename Hispanic and then combine Asian and Native American into “other” (since we’re going to combine these at the end, based on the race_categories list we created above). We still keep the original Race variable, just in a new column named Race_orig:</p>
+<div id="cell-22" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>recode_map <span class="op">=</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Black'</span>: <span class="st">'Black'</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Hispanic'</span>: <span class="st">'Latino'</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'White'</span>: <span class="st">'White'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Asian'</span>: <span class="st">'Other'</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Native American'</span>: <span class="st">'Other'</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>exon_il_df[<span class="st">'Race_orig'</span>] <span class="op">=</span> exon_il_df[<span class="st">'race'</span>]</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>exon_il_df[<span class="st">'race'</span>] <span class="op">=</span> exon_il_df[<span class="st">'race'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: recode_map[x])</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>exon_il_df[<span class="st">'race'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>race
+Black     0.762774
+Latino    0.147810
+White     0.085766
+Other     0.003650
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="samplng-from-incarcerated-population" class="level2">
+<h2 class="anchored" data-anchor-id="samplng-from-incarcerated-population">Samplng from Incarcerated Population</h2>
+<p>Now we can conduct the simulated “sample”. The first step is to:</p>
+<p>Sample 548 “people” from among the prison population in Illinois, by first taking a weighted replacement sample of size 548 from il_df, which will give us a valid population-weighted sample of 548 “people” where all we know about these people is their county. Here we also make sure to set the seed for Pandas’ random number generator, so that our sample is replicable:</p>
+<div id="cell-24" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>il_sample_df <span class="op">=</span> il_df.sample(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    num_il,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    replace <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">=</span> il_df[<span class="st">'Total'</span>],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    random_state <span class="op">=</span> <span class="dv">5000</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>).copy()</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>il_sample_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">White</th>
+<th data-quarto-table-cell-role="th">Black</th>
+<th data-quarto-table-cell-role="th">Latino</th>
+<th data-quarto-table-cell-role="th">state_prop</th>
+<th data-quarto-table-cell-role="th">Other</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">610</td>
+<td>Cook</td>
+<td>Illinois</td>
+<td>11649</td>
+<td>1769</td>
+<td>8369</td>
+<td>1468</td>
+<td>0.164469</td>
+<td>43</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">631</td>
+<td>Henry</td>
+<td>Illinois</td>
+<td>301</td>
+<td>172</td>
+<td>108</td>
+<td>21</td>
+<td>0.004250</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">667</td>
+<td>Perry</td>
+<td>Illinois</td>
+<td>2323</td>
+<td>561</td>
+<td>1398</td>
+<td>352</td>
+<td>0.032798</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">610</td>
+<td>Cook</td>
+<td>Illinois</td>
+<td>11649</td>
+<td>1769</td>
+<td>8369</td>
+<td>1468</td>
+<td>0.164469</td>
+<td>43</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">648</td>
+<td>Logan</td>
+<td>Illinois</td>
+<td>3060</td>
+<td>963</td>
+<td>1705</td>
+<td>389</td>
+<td>0.043203</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-25" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>il_sample_df[<span class="st">'County'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>County
+Cook        0.142336
+Will        0.060219
+Randolph    0.056569
+Perry       0.040146
+Logan       0.040146
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+<p>Now, all that’s left is the second step:</p>
+<p>For each row in il_sample_df, use the counts for each race to form a distribution, then draw from it to replicate that county’s racial distribution of inmates in our sample. This time, since we’re working row-by-row, we use NumPy, still making sure to seed the RNG so that our results are replicable:</p>
+<div id="cell-27" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed <span class="op">=</span> <span class="dv">5000</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_race_sample(row):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  race_counts <span class="op">=</span> [row[cur_val] <span class="cf">for</span> cur_val <span class="kw">in</span> race_category_names]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  total_count <span class="op">=</span> <span class="bu">sum</span>(race_counts)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  race_probs <span class="op">=</span> [cur_count <span class="op">/</span> total_count <span class="cf">for</span> cur_count <span class="kw">in</span> race_counts]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># And now we have a probability distribution! We can use rng.choice() to</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sample from it</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  sampled_vals <span class="op">=</span> rng.choice(race_category_names, size<span class="op">=</span><span class="dv">1</span>, p<span class="op">=</span>race_probs)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We only sampled 1 value here, so we use [0] to extract it</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  sampled_val <span class="op">=</span> <span class="bu">list</span>(sampled_vals)[<span class="dv">0</span>]</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> sampled_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before using it to sample, it’s helpful to check that our function works by using it to draw a bunch of samples for a specific county (Cook, in this case). First, let’s compute what we would expect in terms of proportions if we sampled N inmates from Cook:</p>
+<div id="cell-29" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cook_row <span class="op">=</span> il_df[il_df[<span class="st">'County'</span>] <span class="op">==</span> <span class="st">"Cook"</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cname <span class="kw">in</span> race_category_names:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  cook_row[<span class="ss">f'</span><span class="sc">{</span>cname<span class="sc">}</span><span class="ss">_prop'</span>] <span class="op">=</span> cook_row[cname] <span class="op">/</span> cook_row[<span class="st">'Total'</span>]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>cook_row</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>County             Cook
+State          Illinois
+Total             11649
+White              1769
+Black              8369
+Latino             1468
+state_prop     0.164469
+Other                43
+White_prop     0.151859
+Black_prop     0.718431
+Latino_prop    0.126019
+Other_prop     0.003691
+Name: 610, dtype: object</code></pre>
+</div>
+</div>
+<p>This means that, if our draw_race_sample() function is working correctly, we’d expect it to generate “white” 15.2% of the time, “black” 71.8% of the time, and so on. So, let’s check that by using it to generate an N=5000 sample from Cook:</p>
+<div id="cell-31" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>cook_samples <span class="op">=</span> [draw_race_sample(cook_row) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(N)]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>cook_sample_df <span class="op">=</span> pd.DataFrame(cook_samples, columns <span class="op">=</span> [<span class="st">'Race'</span>])</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>cook_sample_df[<span class="st">'Race'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>Race
+Black     0.7186
+White     0.1518
+Latino    0.1260
+Other     0.0036
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+<p>Looks good, very close to the expected proportions! So, now that we trust our draw_race_sample() function a bit more, we can use it to sample a race value for each row in il_sample_df. This also gives me a chance to show how the tqdm library works, which is helpful when doing things like this to check the progress (and thus to make sure that your simulation code isn’t taking too long per row):</p>
+<div id="cell-33" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>il_sample_df[<span class="st">'Race'</span>] <span class="op">=</span> il_sample_df.progress_apply(draw_race_sample, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 548/548 [00:00&lt;00:00, 22719.42it/s]</code></pre>
+</div>
+</div>
+<div id="cell-34" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sample_cols_to_keep <span class="op">=</span> [</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'County'</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'State'</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Race'</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>il_sample_df <span class="op">=</span> il_sample_df[sample_cols_to_keep].copy()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>il_sample_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Race</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">610</td>
+<td>Cook</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">631</td>
+<td>Henry</td>
+<td>Illinois</td>
+<td>White</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">667</td>
+<td>Perry</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">610</td>
+<td>Cook</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">648</td>
+<td>Logan</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">646</td>
+<td>Lee</td>
+<td>Illinois</td>
+<td>White</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">605</td>
+<td>Christian</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">620</td>
+<td>Fayette</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">639</td>
+<td>Kane</td>
+<td>Illinois</td>
+<td>White</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">647</td>
+<td>Livingston</td>
+<td>Illinois</td>
+<td>Black</td>
+</tr>
+</tbody>
+</table>
+
+<p>548 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>Let’s see what the racial distribution of the Cook County subset of our sample ended up looking like:</p>
+<div id="cell-36" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>cook_sample_df <span class="op">=</span> il_sample_df[il_sample_df[<span class="st">'County'</span>] <span class="op">==</span> <span class="st">"Cook"</span>].copy()</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>cook_sample_df[<span class="st">'Race'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>Race
+Black     0.743590
+Latino    0.166667
+White     0.089744
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+<p>So, we ended up with a slight oversample of Latinos relative to the population expectation, and an undersample of Whites, but that’s exactly (as weird as it might feel) a “feature” of this mode of sampling: it’s what we want since we’re trying to simulate our simplified model of the Exoneration Project: that their sample of exonerees represents some subset of 548 inmates from Cook, so we want to compare them with another size-548 subset of those still incarcerated in Cook.</p>
+<p>So, with all that completed, we can combine the 548 rows in il_sample_df with exon_il_df to create a balanced DataFrame with (548 * 2) = 1096 rows, half of which are exonerated inmates from Illinois and half of which are non-exonerated inmates from Illinois (where the non-exonerated group is statistically representative of the incarcerated population of Illinois as a whole):</p>
+<div id="cell-38" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct our new label: exonerated vs. non-exonerated</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>exon_il_df[<span class="st">'Label'</span>] <span class="op">=</span> <span class="st">"Exonerated"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>il_sample_df[<span class="st">'Label'</span>] <span class="op">=</span> <span class="st">"Non-Exonerated"</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># And combine!</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>balanced_df <span class="op">=</span> pd.concat([exon_il_df, il_sample_df], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the mapping for 'race'</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>race_mapping <span class="op">=</span> {</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Asian'</span>: <span class="st">'Other'</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Native American'</span>: <span class="st">'Other'</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Black'</span>: <span class="st">'Black'</span>,</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'White'</span>: <span class="st">'White'</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Hispanic'</span>: <span class="st">'Hispanic'</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Map the 'race' column</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>balanced_df[<span class="st">'race'</span>] <span class="op">=</span> balanced_df[<span class="st">'race'</span>].<span class="bu">map</span>(race_mapping)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine 'race' and 'Race' columns, prioritizing non-NaN values</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>balanced_df[<span class="st">'Race'</span>] <span class="op">=</span> balanced_df[<span class="st">'race'</span>].combine_first(balanced_df[<span class="st">'Race'</span>])</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the old 'race' column</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>balanced_df.drop(columns<span class="op">=</span>[<span class="st">'race'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine 'county' and 'County' columns, prioritizing non-NaN values</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>balanced_df[<span class="st">'County'</span>] <span class="op">=</span> balanced_df[<span class="st">'county'</span>].combine_first(balanced_df[<span class="st">'County'</span>])</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the old 'county' column</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>balanced_df.drop(columns<span class="op">=</span>[<span class="st">'county'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the final Race column</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(balanced_df[<span class="st">'Race'</span>].value_counts())</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(balanced_df[<span class="st">'County'</span>].value_counts())</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>balanced_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Race
+Black     709
+White     207
+Latino     92
+Other       5
+Name: count, dtype: int64
+County
+Cook           552
+Will            37
+Randolph        31
+Jefferson       23
+Perry           22
+Livingston      22
+Logan           22
+Johnson         21
+Fulton          21
+Tazewell        19
+Lawrence        18
+Montgomery      17
+Bond            17
+Vermilion       16
+Winnebago       15
+La Salle        14
+Clinton         14
+St. Clair       14
+Lake            14
+Fayette         13
+Lee             13
+Kane            12
+Brown           12
+Knox            11
+Dupage          10
+Morgan          10
+Rock Island     10
+Peoria          10
+Crawford         9
+Macon            9
+DuPage           6
+Williamson       6
+Christian        6
+Champaign        5
+Sangamon         4
+Mclean           4
+McHenry          4
+Mchenry          3
+Henry            3
+Kankakee         3
+Iroquois         2
+Stephenson       2
+Effingham        2
+Edgar            2
+Woodford         2
+Adams            2
+Menard           1
+Boone            1
+Pope             1
+Jackson          1
+Cumberland       1
+Madison          1
+Washington       1
+Dekalb           1
+Moultrie         1
+Lasalle          1
+Richland         1
+De Witt          1
+Name: count, dtype: int64</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">last_name</th>
+<th data-quarto-table-cell-role="th">first_name</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">worst_crime_display</th>
+<th data-quarto-table-cell-role="th">sentence</th>
+<th data-quarto-table-cell-role="th">sentence_in_years</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">misconduct_in_interrogation_of_exoneree</th>
+<th data-quarto-table-cell-role="th">perjury_by_official</th>
+<th data-quarto-table-cell-role="th">prosecutor_lied_in_court</th>
+<th data-quarto-table-cell-role="th">tag_sum</th>
+<th data-quarto-table-cell-role="th">geocode_address</th>
+<th data-quarto-table-cell-role="th">Race_orig</th>
+<th data-quarto-table-cell-role="th">Label</th>
+<th data-quarto-table-cell-role="th">County</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Race</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Abbott</td>
+<td>Cinque</td>
+<td>19.0</td>
+<td>male</td>
+<td>Illinois</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Drug Possession or Sale</td>
+<td>Probation</td>
+<td>0.0</td>
+<td>...</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>7.0</td>
+<td>Cook County, Illinois, United States</td>
+<td>Black</td>
+<td>Exonerated</td>
+<td>Cook</td>
+<td>NaN</td>
+<td>Black</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Abernathy</td>
+<td>Christopher</td>
+<td>17.0</td>
+<td>male</td>
+<td>Illinois</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>Life without parole</td>
+<td>100.0</td>
+<td>...</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.0</td>
+<td>Cook County, Illinois, United States</td>
+<td>White</td>
+<td>Exonerated</td>
+<td>Cook</td>
+<td>NaN</td>
+<td>White</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abrego</td>
+<td>Eruby</td>
+<td>20.0</td>
+<td>male</td>
+<td>Illinois</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>90 years</td>
+<td>90.0</td>
+<td>...</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>9.0</td>
+<td>Cook County, Illinois, United States</td>
+<td>Hispanic</td>
+<td>Exonerated</td>
+<td>Cook</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adams</td>
+<td>Demetris</td>
+<td>22.0</td>
+<td>male</td>
+<td>Illinois</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Drug Possession or Sale</td>
+<td>1 year</td>
+<td>1.0</td>
+<td>...</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>7.0</td>
+<td>Cook County, Illinois, United States</td>
+<td>Black</td>
+<td>Exonerated</td>
+<td>Cook</td>
+<td>NaN</td>
+<td>Black</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adams</td>
+<td>Kenneth</td>
+<td>22.0</td>
+<td>male</td>
+<td>Illinois</td>
+<td>41.819738</td>
+<td>-87.756525</td>
+<td>Murder</td>
+<td>75 years</td>
+<td>75.0</td>
+<td>...</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>11.0</td>
+<td>Cook County, Illinois, United States</td>
+<td>Black</td>
+<td>Exonerated</td>
+<td>Cook</td>
+<td>NaN</td>
+<td>Black</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 51 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>balanced_df.to_csv(<span class="st">"../../data/processed-data/exonerees_balanced.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

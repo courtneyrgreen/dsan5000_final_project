@@ -33,7 +33,7 @@ As a Master’s student in Data Science with a foundation in public policy, I ex
 ::::
 :::: {.columns}
 ::: {.column width="50%"}
-- **Occupation:** Master’s Student in Data Science & Analytics
+- **Occupation:** <br> Master’s Student in Data Science & Analytics
 :::
 ::: {.column width="50%"}
 - **City:** Washington, D.C.  

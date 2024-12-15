@@ -2,6 +2,7 @@
 title: "Experience"
 toc: true
 toc-location: right
+toc-depth: 2
 ---
 
 ## [Georgetown Prisons & Justice Initiative](https://prisonsandjustice.georgetown.edu/){target="_blank"}  
