@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -87,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
@@ -104,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-technical-details">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
         <li>
     <a class="dropdown-item" href="../../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
@@ -112,6 +132,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../technical-details/data-cleaning/main.html">
  <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../technical-details/eda/main.html">
@@ -136,6 +160,13 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -151,7 +182,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#methods" id="toc-methods" class="nav-link active" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link active" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#illinois-arrest-data" id="toc-illinois-arrest-data" class="nav-link" data-scroll-target="#illinois-arrest-data">Illinois Arrest Data</a></li>
+  <li><a href="#exoneration-data" id="toc-exoneration-data" class="nav-link" data-scroll-target="#exoneration-data">Exoneration Data</a></li>
+  <li><a href="#mass-incarceration-racial-geography" id="toc-mass-incarceration-racial-geography" class="nav-link" data-scroll-target="#mass-incarceration-racial-geography">Mass Incarceration Racial Geography</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -163,13 +199,56 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<p>In this section, provide an overview summary of the methods used on this page. This should include a brief description of the key techniques, algorithms, tools, or processes employed in your work. Make sure to outline the approach taken for data collection, processing, analysis, or any specific technical steps relevant to the project.</p>
-<p>If you are developing a package, include a reference to the relevant documentation and provide a link here for easy access. Ensure that the package details are properly documented in its dedicated section, but mentioned and connected here for a complete understanding of the methods used in this project.</p>
+<p>The methods combined direct downloads, web scraping, and API-based geocoding to assemble a robust dataset for analysis. The exoneration and arrest datasets served as the foundation, while geocoding and additional scraping added valuable spatial and demographic context.</p>
+<section id="illinois-arrest-data" class="level2">
+<h2 class="anchored" data-anchor-id="illinois-arrest-data">Illinois Arrest Data</h2>
+<p>The Illinois arrest dataset was sourced from the <a href="https://icjia.illinois.gov/arrestexplorer/docs/#data-privacy-and-precision" target="_blank"><strong>Illinois Criminal Justice Information Authority’s (ICJIA) Arrest Explorer</strong></a>, a platform providing aggregate arrest data from the <strong>Criminal History Record Information (CHRI)</strong> system—a statewide resource for demographic and offense-related variables.<span class="citation" data-cites="illinois_criminal_justice_information_authority_overview_2024"><sup><a href="#ref-illinois_criminal_justice_information_authority_overview_2024" role="doc-biblioref">1</a></sup></span></p>
+<p>To ensure privacy and confidentiality, ICJIA applied the following modifications:<br>
+- Counts under 10 are approximated (e.g., 1 for counts 0–4, 6 for counts 5–9),<br>
+- Subtotals, such as arrests by race or county, are accurate within +1/-1, and<br>
+- Statewide totals align exactly with the CHRI database at the time of retrieval, which occurs twice annually.</p>
+<p>Further, the dataset excludes juvenile arrests, class C misdemeanors, and cases with missing demographic details. For this project, the data was first filtered by <strong>race, county, and year</strong>, and then downloaded directly to examine patterns relevant to my analysis.<span class="citation" data-cites="illinois_criminal_justice_information_authority_arrests_2024"><sup><a href="#ref-illinois_criminal_justice_information_authority_arrests_2024" role="doc-biblioref">2</a></sup></span></p>
+</section>
+<section id="exoneration-data" class="level2">
+<h2 class="anchored" data-anchor-id="exoneration-data">Exoneration Data</h2>
+<p>The exoneration dataset was downloaded directly from the <a href="https://www.law.umich.edu/special/exoneration/Pages/Spread-Sheet-Request-Form.aspx" target="_blank"><strong>National Registry of Exonerations</strong></a>, which collects and publishes searchable, online statistical data and case details for known exonerations of innocent criminal defendants in the United States from 1989 to the present.<span class="citation" data-cites="university_of_california_irvine_newkirk_center_for_science__society_national_2024"><sup><a href="#ref-university_of_california_irvine_newkirk_center_for_science__society_national_2024" role="doc-biblioref">3</a></sup></span></p>
+<p>The Registry defines exonerations as cases where a person, following new evidence of innocence, is officially cleared through actions like <strong>factual declarations of innocence</strong>, <strong>pardons</strong>, or the <strong>dismissal/acquittal</strong> of charges.<span class="citation" data-cites="university_of_california_irvine_newkirk_center_for_science__society_national_criteria"><sup><a href="#ref-university_of_california_irvine_newkirk_center_for_science__society_national_criteria" role="doc-biblioref">4</a></sup></span></p>
+<p>To access the data, a <a href="https://www.law.umich.edu/special/exoneration/Pages/Spread-Sheet-Request-Form.aspx" target="_blank"><strong>spreadsheet request form</strong></a> had to be submitted, and the dataset was provided under specific conditions to ensure its proper use:</p>
+<ol type="1">
+<li><strong>No retransmission</strong>: The spreadsheet or any substantial portion of it cannot be shared with anyone who has not agreed to the conditions.<br>
+</li>
+<li><strong>Advance notice</strong>: The National Registry must be informed in advance of any publication or distribution of data derived from the spreadsheet.<br>
+</li>
+<li><strong>Corrections and additions</strong>: Recipients agree to report any errors or missing data they identify to the Registry.</li>
+</ol>
+</section>
+<section id="mass-incarceration-racial-geography" class="level2">
+<h2 class="anchored" data-anchor-id="mass-incarceration-racial-geography">Mass Incarceration Racial Geography</h2>
+<p>The population and incarceration data for Illinois counties were obtained by scraping <a href="https://www.prisonpolicy.org/racialgeography/counties.html"><strong>Prison Policy Initiative’s</strong></a> website which provides information on total population and incarcerated populations broken down by race for counties across the United States<span class="citation" data-cites="prison_policy_initiative_home_2024"><sup><a href="#ref-prison_policy_initiative_home_2024" role="doc-biblioref">5</a></sup></span>.</p>
+<p>To extract the data, the <code>requests</code> library was used to retrieve the webpage’s HTML content, and <code>BeautifulSoup</code> was employed to parse the HTML and locate the relevant table which was then converted into a <code>Pandas</code> DataFrame for cleaning and analysis. Here is the code used:</p>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-illinois_criminal_justice_information_authority_overview_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Illinois Criminal Justice Information Authority. <a href="https://icjia.illinois.gov/arrestexplorer/docs/#what-data-is-available">Overview <span></span> arrest explorer</a>. <em>Arrest Explorer</em> (2024).</div>
+</div>
+<div id="ref-illinois_criminal_justice_information_authority_arrests_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Illinois Criminal Justice Information Authority. <a href="https://icjia.illinois.gov/arrestexplorer/">Arrests by race, county, and year</a>. <em>Arrest Explorer</em> (2024).</div>
+</div>
+<div id="ref-university_of_california_irvine_newkirk_center_for_science__society_national_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">University of California Irvine Newkirk Center for Science &amp; Society &amp; University of Michigan Law School &amp; Michigan State University College of Law. <a href="https://www.law.umich.edu/special/exoneration/Pages/about.aspx">The <span>National</span> <span>Registry</span> of <span>Exonerations</span> - <span>Exoneration</span> <span>Registry</span></a>. <em>The National Registry of Exonerations</em> (2024).</div>
+</div>
+<div id="ref-university_of_california_irvine_newkirk_center_for_science__society_national_criteria" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">University of California Irvine Newkirk Center for Science &amp; Society &amp; University of Michigan Law School &amp; Michigan State University College of Law. <a href="https://www.law.umich.edu/special/exoneration/Pages/glossary.aspx">The <span>National</span> <span>Registry</span> of <span>Exonerations</span> - <span>Glossary</span></a>. <em>The National Registry of Exonerations</em> (2024).</div>
+</div>
+<div id="ref-prison_policy_initiative_home_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Initiative, P. P. <a href="https://www.prisonpolicy.org/racialgeography/counties.html"><span>Appendix</span> <span>A</span>. <span>Counties</span> – <span>Ratios</span> of <span>Overrepresentation</span></a>. (2024).</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

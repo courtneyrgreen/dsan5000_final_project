@@ -9,7 +9,7 @@ title: "Project Planning Document"
 
 **Goal:** Demonstrate how systemic issues create a feedback loop where poverty (which is intertwined with race) leads to more police interactions, resulting in higher arrest rates for minor infractions. With this project, using Chicago, a microcosm representing the broader dynamics of racial and socioeconomic disparities in policing in the U.S, I hope to highlight how these dynamics disproportionately affect Black communities, inflating crime statistics and criminalizing poverty. 
 
-**Why this matters:** Many fail to grasp the deeper context behind statistics showing higher conviction and incarceration rates for Black individuals, which reinforces harmful stereotypes that portray Black people as inherently more violent and criminal. Too often, crime data is oversimplified, failing to account for longstanding systemic issues, such as the over-policing of marginalized communities, economic disparities, and racism. Through this project I want to bridge that gap by providing a data-driven narrative that explins why these disparities exist and persist. 
+**Why this matters:** 
 
 ## Working Idea #2: 
 

@@ -1,3 +1,12 @@
+---
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+bibliography: ../../references.bib
+---
+
 # Overview
 For the data collection process, I gathered multiple datasets, including arrest records from the ICJIA Arrest Explorer, exoneration data from the National Registry of Exonerations, incarceration demographics from the Prison Policy Initiative, and geospatial information. This diverse collection enabled an in-depth examination of systemic racial inequities that drive the over-policing of marginalized communities while also facilitating a critical analysis of nuanced racial patterns in exoneration data, exploring their connection to broader societal structures. Together, these datasets provide a framework for understanding the interconnected dynamics of racial injustice in the criminal justice system. 
 

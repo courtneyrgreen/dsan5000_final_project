@@ -65,8 +65,6 @@ Use this page to track your progress and keep a log of your contributions to the
 * [x] Completed EDA (still have to add in-text prose to explain)
 
 
-
-
 **Sun: 12-8-2024**
 * [x] Creation of Exoneration Counterfactuals 
 * [x] Completed Supervised Learning (still have to add in-text prose to explain)

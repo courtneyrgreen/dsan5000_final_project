@@ -1,7 +1,16 @@
+---
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+bibliography: ../../references.bib
+---
+
 # Summary
 
 ## Challenges  
-The foundation for meaningful data analysis is accurate and reliable crime data, yet long-standing challenges in criminal history record systems continue to undermine their precision and dependability [@woodard_use_1993]. As outlined in the **Use and Management of Criminal History Record Information Report (1993)**, issues such as incomplete data reporting, delays in recording arrests and case dispositions, and inconsistent fingerprint submissions have plagued the system for decades. Criminal History Record Information (CHRI), the backbone for arrest datasets like those from the Illinois Criminal Justice Information Authority (ICJIA), is vulnerable to these shortcomings. Dispositions, or the outcomes of arrests, are often missing or delayed, leaving critical gaps in the data that make it difficult to analyze systemic trends. While advances in technology, such as digital fingerprinting, have improved some processes, data fragmentation and insufficient oversight remain persistent barriers to comprehensive and accurate reporting.  
+The foundation for meaningful data analysis is accurate and reliable crime data, yet long-standing challenges in criminal history record systems continue to undermine their precision and dependability [@woodard_use_1993]. As outlined in the **Use and Management of Criminal History Record Information Report (1993)**, issues such as incomplete data reporting, delays in recording arrests and case dispositions, and inconsistent fingerprint submissions have plagued the system for decades [@woodard_use_1993] . Criminal History Record Information (CHRI), the backbone for arrest datasets like those from the Illinois Criminal Justice Information Authority (ICJIA), is vulnerable to these shortcomings. Dispositions, or the outcomes of arrests, are often missing or delayed, leaving critical gaps in the data that make it difficult to analyze systemic trends. While advances in technology, such as digital fingerprinting, have improved some processes, data fragmentation and insufficient oversight remain persistent barriers to comprehensive and accurate reporting.  
 
 Fast forward thirty years, and many of these challenges remain unresolved—now further complicated by uneven implementation of modern systems. The Marshall Project highlights a striking example: in 2022, the FBI’s shift to the **National Incident-Based Reporting System (NIBRS)** created a significant data gap in national crime statistics [@li_many_2023]. Over 6,000 police agencies failed to submit their data, representing nearly one-third of all agencies and leaving vast portions of the U.S. population unaccounted for. This includes major departments like the NYPD and LAPD, alongside countless smaller agencies [@li_many_2023]. These gaps reflect broader systemic failures—inconsistent adoption of updated systems, lack of adequate funding, and minimal oversight—that echo the same issues identified decades ago.  
 

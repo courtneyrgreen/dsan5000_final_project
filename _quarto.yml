@@ -37,9 +37,15 @@ website:
             href: technical-details/progress-log.qmd
           - text: LLM usage Log
             href: technical-details/llm-usage-log.qmd
+      - href: bibliography.qmd
+        text: Bibliography
+      - href: appendix.qmd
+        text: Appendix
     right:
       - icon: github
         href: "https://github.com/dsan-5000/project-courtneyrgreen.git"
+      - text: "Back to Portfolio"
+        href: "https://crg123.georgetown.domains/"
 
 page-footer:
     background: light # or `dark`
@@ -51,7 +57,7 @@ format:
       - lux
       - styles.scss
     bibliography:   ./assets/references.bib
-    csl:  ./assets/nature.csl
+    csl:  ./assets/apa-numeric-superscript.csl
     toc: true
     toc-depth: 3 
     page-layout: full 
