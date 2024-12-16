@@ -1,12 +1,13 @@
 # Overview
+For the data collection process, I gathered multiple datasets, including arrest records from the ICJIA Arrest Explorer, exoneration data from the National Registry of Exonerations, incarceration demographics from the Prison Policy Initiative, and geospatial information. This diverse collection enabled an in-depth examination of systemic racial inequities that drive the over-policing of marginalized communities while also facilitating a critical analysis of nuanced racial patterns in exoneration data, exploring their connection to broader societal structures. Together, these datasets provide a framework for understanding the interconnected dynamics of racial injustice in the criminal justice system. 
 
-In this section, provide a high-level overview for technical staff, summarizing the key tasks and processes carried out here. Include the following elements:
+## Goals & Motivation
+My goal in the data collection process is to gather the datasets needed to examine systemic racial disparities in policing and exonerations. I’m focused on sourcing reliable arrest records, exoneration data, incarceration demographics, and geospatial information. Ultimately, I aim to compile data that can stand alone or work together to analyze over-policing trends, uncover racial patterns in exonerations, and explore the geographic dynamics connected to these issues.
+I’m particularly driven by the need to ground these systemic inequities in hard numbers and statistical analysis. Too often, people refuse to acknowledge the reality of racism without concrete evidence. By putting real data behind these patterns, I hope to demonstrate the scope and impact of these injustices in a way that cannot be ignored.
 
-- **Goals**: Clearly define the purpose of the tasks or analysis being conducted.
-- **Motivation**: Explain the reasoning behind the work, such as solving a specific problem, improving a system, or optimizing performance.
-- **Objectives**: Outline the specific outcomes you aim to achieve, whether it's implementing a solution, analyzing data, or building a model.
-
-This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.
-
-
-
+## Objectives 
+- Identify and collect datasets needed to analyze racial disparities in over-policing and wrongful convictions in Illinois, including arrest records, exoneration data, incarceration demographics, and geospatial information.  
+- Ensure datasets are accurate, up-to-date, and aligned with the project’s goals by prioritizing reliable sources like official registries and well-documented repositories.  
+- Structure the data to support analysis of racial patterns in policing and exonerations, allowing for both independent and interconnected evaluations.  
+- Document all steps in the data collection process, including sourcing methods and preprocessing workflows, to ensure transparency and reproducibility.  
+- Collect and preprocess geocoded data and Illinois county shapefiles to enable geographic exploratory data analysis and visualizations.  

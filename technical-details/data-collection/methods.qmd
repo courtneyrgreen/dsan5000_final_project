@@ -1,5 +1,37 @@
+---
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+bibliography: ../../references.bib
+---
+
 # Methods
+The methods combined direct downloads, web scraping, and API-based geocoding to assemble a robust dataset for analysis. The exoneration and arrest datasets served as the foundation, while geocoding and additional scraping added valuable spatial and demographic context.
 
-In this section, provide an overview summary of the methods used on this page. This should include a brief description of the key techniques, algorithms, tools, or processes employed in your work. Make sure to outline the approach taken for data collection, processing, analysis, or any specific technical steps relevant to the project.
+## Illinois Arrest Data
+The Illinois arrest dataset was sourced from the [**Illinois Criminal Justice Information Authority's (ICJIA) Arrest Explorer**](https://icjia.illinois.gov/arrestexplorer/docs/#data-privacy-and-precision){target="_blank"}, a platform providing aggregate arrest data from the **Criminal History Record Information (CHRI)** system—a statewide resource for demographic and offense-related variables. [@illinois_criminal_justice_information_authority_overview_2024]
 
-If you are developing a package, include a reference to the relevant documentation and provide a link here for easy access. Ensure that the package details are properly documented in its dedicated section, but mentioned and connected here for a complete understanding of the methods used in this project.
+To ensure privacy and confidentiality, ICJIA applied the following modifications:  
+- Counts under 10 are approximated (e.g., 1 for counts 0–4, 6 for counts 5–9),  
+- Subtotals, such as arrests by race or county, are accurate within +1/-1, and  
+- Statewide totals align exactly with the CHRI database at the time of retrieval, which occurs twice annually.  
+
+Further, the dataset excludes juvenile arrests, class C misdemeanors, and cases with missing demographic details. For this project, the data was first filtered by **race, county, and year**, and then downloaded directly to examine patterns relevant to my analysis. [@illinois_criminal_justice_information_authority_arrests_2024] 
+
+## Exoneration Data 
+The exoneration dataset was downloaded directly from the [**National Registry of Exonerations**](https://www.law.umich.edu/special/exoneration/Pages/Spread-Sheet-Request-Form.aspx){target=_blank}, which collects and publishes searchable, online statistical data and case details for known exonerations of innocent criminal defendants in the United States from 1989 to the present. [@university_of_california_irvine_newkirk_center_for_science__society_national_2024]  
+
+The Registry defines exonerations as cases where a person, following new evidence of innocence, is officially cleared through actions like **factual declarations of innocence**, **pardons**, or the **dismissal/acquittal** of charges. [@university_of_california_irvine_newkirk_center_for_science__society_national_criteria]
+
+To access the data, a [**spreadsheet request form**](https://www.law.umich.edu/special/exoneration/Pages/Spread-Sheet-Request-Form.aspx){target=_blank} had to be submitted, and the dataset was provided under specific conditions to ensure its proper use:  
+
+1. **No retransmission**: The spreadsheet or any substantial portion of it cannot be shared with anyone who has not agreed to the conditions.  
+2. **Advance notice**: The National Registry must be informed in advance of any publication or distribution of data derived from the spreadsheet.  
+3. **Corrections and additions**: Recipients agree to report any errors or missing data they identify to the Registry.  
+
+## Mass Incarceration Racial Geography 
+The population and incarceration data for Illinois counties were obtained by scraping [**Prison Policy Initiative's**](https://www.prisonpolicy.org/racialgeography/counties.html) website which provides information on total population and incarcerated populations broken down by race for counties across the United States[@prison_policy_initiative_home_2024].  
+
+To extract the data, the `requests` library was used to retrieve the webpage's HTML content, and `BeautifulSoup` was employed to parse the HTML and locate the relevant table which was then converted into a `Pandas` DataFrame for cleaning and analysis. Here is the code used:  
