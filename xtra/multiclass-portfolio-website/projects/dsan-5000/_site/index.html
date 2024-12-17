@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Courtney Green">
 
-<title>DSAN-5000: Project - Landing page</title>
+<title>DSAN-5000: Project - Cell Block Tango:  Steps of Misconduct, Over-Policing, and Cycles of Racial Injustice in Chicago’s Criminal Justice System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -93,14 +114,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./collaborators.html"> 
-<span class="menu-text">Collaborators</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
@@ -113,8 +126,55 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./bibliography.html"> 
+<span class="menu-text">Bibliography</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -123,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -131,27 +191,35 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-to-include-on-this-page" id="toc-what-to-include-on-this-page" class="nav-link active" data-scroll-target="#what-to-include-on-this-page">What to Include on This Page</a></li>
-  <li><a href="#create-an-about-you-page" id="toc-create-an-about-you-page" class="nav-link" data-scroll-target="#create-an-about-you-page">Create an “About You” Page</a></li>
-  <li><a href="#create-a-landing-page-for-your-project" id="toc-create-a-landing-page-for-your-project" class="nav-link" data-scroll-target="#create-a-landing-page-for-your-project">Create a Landing Page for Your Project</a>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link active" data-scroll-target="#research-questions">Research Questions</a></li>
+  <li><a href="#visualizing-injustice-exonerations-and-arrests-across-illinois" id="toc-visualizing-injustice-exonerations-and-arrests-across-illinois" class="nav-link" data-scroll-target="#visualizing-injustice-exonerations-and-arrests-across-illinois">Visualizing Injustice: Exonerations and Arrests Across Illinois</a></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a>
   <ul class="collapse">
-  <li><a href="#additional-ideas-for-this-page" id="toc-additional-ideas-for-this-page" class="nav-link" data-scroll-target="#additional-ideas-for-this-page">Additional Ideas for This Page</a></li>
+  <li><a href="#citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics" id="toc-citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics" class="nav-link" data-scroll-target="#citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics"><em>Citizens’ Perceptions of Over-and Under-Policing: A Look at Race, Ethnicity, and Community Characteristics</em></a></li>
+  <li><a href="#over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms" id="toc-over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms" class="nav-link" data-scroll-target="#over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms"><em>Over-Policing Black Bodies: The Need for Multidimensional and Transformative Reforms</em></a></li>
+  <li><a href="#chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total" id="toc-chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total" class="nav-link" data-scroll-target="#chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total"><em>Chicago Ranks No.&nbsp;1 in Exonerations for 5th Year in a Row, Accounting for More Than Half of National Total</em></a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Landing page</h1>
+<h1 class="title">Cell Block Tango: <br> Steps of Misconduct, Over-Policing, and Cycles of Racial Injustice in Chicago’s Criminal Justice System</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Courtney Green </p>
+          </div>
+  </div>
     
   
     
@@ -162,51 +230,74 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To begin the project, first read the instruction document (<a href="./instructions/overview.html">click here</a>). This document is also accessible from the navigation bar.</p>
-<p>Once you’ve completed that, you can proceed with the instructions found throughout the website.</p>
-<section id="what-to-include-on-this-page" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-include-on-this-page">What to Include on This Page</h2>
-<p>This is the landing page for your project. Content from this page can be reused in sections of your final report.</p>
+<p>Chicago serves as both a microcosm and a magnifying glass for the systemic failures embedded in the U.S. criminal justice system. For five consecutive years, the city has led the nation in exonerations, a grim testament to entrenched racial bias, police misconduct, and flawed policing practices<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">1</a></sup></span>. Yet, Chicago is more than an anomaly—it is a focal point within a broader, statewide crisis.</p>
+<p>This project expands the lens to examine Illinois as a whole, using Chicago as a critical case study to investigate how wrongful convictions and over-policing disproportionately devastate Black and Latino communities. By analyzing exoneration patterns, arrest rates, incarceration data, and demographics at the county level, this work uncovers the ways systemic injustices ripple across Illinois. Chicago’s staggering share of exonerations exposes the extreme, but it also reflects a deeper, structural issue that transcends city limits.</p>
+<section id="research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions">Research Questions</h2>
+<ol type="1">
+<li>What patterns emerge in exoneration data across Illinois counties, and how do they reflect systemic failures in the justice system?<br>
+</li>
+<li>Why does Chicago account for such a disproportionate share of wrongful convictions in Illinois?<br>
+</li>
+<li>Does over-policing disproportionately target marginalized communities, particularly Black and Latino populations?<br>
+</li>
+<li>What role does police misconduct play in wrongful convictions across Illinois? Is there a relationship between misconduct and race?<br>
+</li>
+<li>Can data-driven models identify predictive patterns of wrongful convictions and over-policing across Illinois counties?</li>
+</ol>
+<hr>
 </section>
-<section id="create-an-about-you-page" class="level2">
-<h2 class="anchored" data-anchor-id="create-an-about-you-page">Create an “About You” Page</h2>
-<ul>
-<li>Develop your “About You” page. You can reuse content from previous assignments.</li>
-<li>You can include the content here or on a separate page.
-<ul>
-<li>It’s recommended to create one “About You” page for all DSAN projects, with links to your various class projects.</li>
-</ul></li>
-</ul>
+<section id="visualizing-injustice-exonerations-and-arrests-across-illinois" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-injustice-exonerations-and-arrests-across-illinois">Visualizing Injustice: Exonerations and Arrests Across Illinois</h2>
+<p><img src="images/log_scaled_exonerations_by_county.png" class="img-fluid" alt="Illinois Log-Scaled Exonerations by County"><br>
+<em>Figure 1: Log-Scaled Exonerations by County (including and excluding Cook County).</em></p>
+<p><img src="images/log_scaled_arrests_by_county.png" class="img-fluid" alt="Illinois Log-Scaled Arrests by County"><br>
+<em>Figure 2: Log-Scaled Arrests by County (including and excluding Cook County).</em></p>
 </section>
-<section id="create-a-landing-page-for-your-project" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-landing-page-for-your-project">Create a Landing Page for Your Project</h2>
+<section id="literature-review" class="level1">
+<h1>Literature Review</h1>
+<p>This section lays the groundwork for understanding systemic issues within Illinois’ law enforcement system, including over-policing, wrongful convictions, and racial disparities. By combining empirical studies, historical context, and policy analysis, the literature highlights persistent patterns:</p>
 <ul>
-<li>Summarize your topic, its significance, related work, and the questions you plan to explore.</li>
-<li>Cite at least <strong>3 academic publications</strong> per group member, and include <strong>internal academic citations</strong>.</li>
-<li>Draft an introduction with at least <strong>5 research questions</strong>. These may evolve as your project progresses, since data science is an iterative process.
-<ul>
-<li>Include your data science questions on this page.</li>
-</ul></li>
+<li>The <strong>over-under-policing paradox</strong>, where marginalized communities face aggressive surveillance yet lack adequate protection.<br>
+</li>
+<li>Systemic police misconduct and its role in driving wrongful convictions.<br>
+</li>
+<li>How race and socioeconomic status intersect to shape crime patterns, policing practices, and perceptions of justice.</li>
 </ul>
-<section id="additional-ideas-for-this-page" class="level3">
-<h3 class="anchored" data-anchor-id="additional-ideas-for-this-page">Additional Ideas for This Page</h3>
-<ul>
-<li><strong>Audience</strong>: Who is this for? Data professionals, businesses, researchers, or curious readers.</li>
-<li><strong>Headline</strong>: A captivating title introducing the data science theme (e.g., “Unlocking Insights Through Data Stories”).</li>
-<li><strong>Introduction</strong>: A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).</li>
-<li><strong>Questions You Are Addressing</strong>: What do you hope to learn?</li>
-<li><strong>Motivation</strong>: Explain why this topic matters, highlighting the importance of data in solving real-world problems.</li>
-<li><strong>Key Topics</strong>: List the main focus areas (e.g., machine learning, data visualization, predictive modeling).</li>
-<li><strong>Use Cases/Examples</strong>: A brief teaser of compelling stories or case studies you’ve worked on.</li>
-<li><strong>Call to Action</strong>: Invite visitors to explore the content, follow along, or contact you for more information.</li>
-<li><strong>Visual/Infographic</strong>: Add a simple graphic or visual element to make the page more dynamic.</li>
-</ul>
+<p>By distilling these insights, this review sets the stage for a deeper, more critical analysis of Illinois’ justice system and the structures that sustain its failures.</p>
+<section id="citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics" class="level2">
+<h2 class="anchored" data-anchor-id="citizens-perceptions-of-over-and-under-policing-a-look-at-race-ethnicity-and-community-characteristics"><em>Citizens’ Perceptions of Over-and Under-Policing: A Look at Race, Ethnicity, and Community Characteristics</em></h2>
+<p>Boehme, Cann, and Isom (2020) examine how race, ethnicity, and community characteristics influence public perceptions of policing, shedding light on the <strong>over-under-policing paradox</strong>. The authors demonstrate how marginalized communities—particularly Black and Latino neighborhoods—experience aggressive over-policing through surveillance and frequent police encounters, while simultaneously being under-protected when it comes to safety and support. This dual dynamic fosters a deep sense of distrust, isolation, and legal cynicism, perpetuating systemic divides. Importantly, their findings emphasize that race remains a consistent predictor of these perceptions, even after accounting for economic conditions and neighborhood characteristics like concentrated disadvantage and ethnic diversity<span class="citation" data-cites="boehme_citizens_2020"><sup><a href="#ref-boehme_citizens_2020" role="doc-biblioref">2</a></sup></span>.</p>
+<p>Using data from the <strong>PHDCN Community Survey</strong>, which captures responses from 8,782 participants across 343 Chicago neighborhoods, the authors employ <strong>Hierarchical Linear Modeling (HLM)</strong> to analyze how individual- and community-level factors shape perceptions of policing. Their results reveal that while neighborhood context plays a significant role, racialized policing persists, with Black and Latino residents disproportionately reporting over-policing experiences regardless of socioeconomic conditions<span class="citation" data-cites="boehme_citizens_2020"><sup><a href="#ref-boehme_citizens_2020" role="doc-biblioref">2</a></sup></span>.</p>
+<p>The study is particularly important to this project for two key reasons. First, it highlights how structural factors—such as poverty, race, and neighborhood composition—intersect to produce divergent policing experiences. This intersectionality aligns with the project’s focus on exploring the racialized and systemic roots of policing disparities in Chicago and Illinois as a whole. Second, the research exposes a <strong>feedback loop</strong> in which over-surveillance and under-service deepen distrust and isolation within marginalized communities. This insight reinforces the project’s aim to uncover how systemic racial biases and inequities sustain harmful policing cycles, particularly in Black and Latino neighborhoods across Chicago<span class="citation" data-cites="boehme_citizens_2020"><sup><a href="#ref-boehme_citizens_2020" role="doc-biblioref">2</a></sup></span>.</p>
+</section>
+<section id="over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms" class="level2">
+<h2 class="anchored" data-anchor-id="over-policing-black-bodies-the-need-for-multidimensional-and-transformative-reforms"><em>Over-Policing Black Bodies: The Need for Multidimensional and Transformative Reforms</em></h2>
+<p>Jones-Brown and Williams (2021) provide a critical analysis of over-policing in Black communities, demonstrating how racial disparities in police interactions—such as traffic stops, consent searches, and arrests—are rooted in systemic biases that criminalize Black identity. Drawing on both quantitative data and qualitative accounts, the authors reveal the psychological toll of aggressive policing, which fosters a <strong>feedback loop</strong> of fear, mistrust, and isolation. High-profile cases like the deaths of George Floyd and Breonna Taylor serve as stark representations of this broader issue, amplified by social media as a tool for documenting police brutality. Meanwhile, mainstream media often mischaracterizes Black-led protests, further reinforcing harmful stereotypes. By situating these patterns within a historical context—referencing the 1967 Katzenbach Report and the <strong>War on Drugs</strong>—the authors expose the longstanding structural roots of racialized policing, particularly relevant to cities like Chicago<span class="citation" data-cites="jones-brown_over-policing_2021"><sup><a href="#ref-jones-brown_over-policing_2021" role="doc-biblioref">3</a></sup></span>.</p>
+<p>Jones-Brown and Williams’ study is integral context for the research for several reasons. First, it underscores how structural racism and historical policy decisions continue to drive over-policing in Black communities, a phenomenon reflected in Chicago’s policing data. Second, it highlights the dual perspective of quantitative evidence and qualitative lived experiences—an approach I aim to incorporate into my analysis to capture both the scope and human impact of over-policing. Lastly, their reform recommendations offer a foundation for addressing systemic disparities, aligning with my goal of examining how community-driven solutions can disrupt harmful policing cycles<span class="citation" data-cites="jones-brown_over-policing_2021"><sup><a href="#ref-jones-brown_over-policing_2021" role="doc-biblioref">3</a></sup></span>. By situating over-policing within a historical and structural framework, this study provides a comprehensive understanding of the issue and offers pathways for transformative change. These insights directly support the project’s examination of how racialized policing practices and systemic corruption perpetuate injustice in Chicago’s Black communities<span class="citation" data-cites="jones-brown_over-policing_2021"><sup><a href="#ref-jones-brown_over-policing_2021" role="doc-biblioref">3</a></sup></span>.</p>
+</section>
+<section id="chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total" class="level2">
+<h2 class="anchored" data-anchor-id="chicago-ranks-no.-1-in-exonerations-for-5th-year-in-a-row-accounting-for-more-than-half-of-national-total"><em>Chicago Ranks No.&nbsp;1 in Exonerations for 5th Year in a Row, Accounting for More Than Half of National Total</em></h2>
+<p>Heather Cherone (2023) highlights Chicago’s troubling distinction as the nation’s leader in wrongful convictions, with Cook County alone accounting for over half of all U.S. exonerations in 2022. Drawing on data from the <strong>National Registry of Exonerations</strong>, the analysis uncovers systemic patterns of police misconduct, racial disparities, and institutional resistance to reform—issues central to this project’s examination of injustice within Illinois’ criminal justice system<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">1</a></sup></span>.</p>
+<p>The article reveals the disproportionate toll of wrongful convictions on Black and Latino communities, underscoring the racialized nature of policing in Chicago. At the core of this crisis is police misconduct, exemplified by officers like Ronald Watts and Reynaldo Guevara, whose corrupt practices—ranging from extortion to framing suspects—are linked to a significant share of exonerations. These patterns not only devastate individuals and their communities but also impose a staggering financial burden on the city. In 2022, Chicago spent <strong>$98 million</strong> settling police misconduct cases, with the 2023 budget allocating another <strong>$82 million</strong>, signaling the immense economic cost of systemic failures. Despite the federal consent decree issued in 2017 to address these issues, the Chicago Police Department remains only <strong>3% compliant</strong>, reflecting deep institutional resistance to change<span class="citation" data-cites="wttwChicagoRanks"><sup><a href="#ref-wttwChicagoRanks" role="doc-biblioref">1</a></sup></span>.</p>
+<p>This analysis provides a critical foundation for the project. By examining exoneration data, it highlights the role of racialized policing practices and systemic misconduct in perpetuating wrongful convictions. Chicago’s prominence in these statistics offers a unique lens through which to explore broader patterns of injustice across Illinois, serving as both a focal point and a microcosm of nationwide systemic failures. Additionally, the data-driven approach of the <strong>National Registry of Exonerations</strong> aligns closely with this project’s methodology. While not replicating the study, this project builds upon its findings by conducting further analysis of Illinois exoneration trends to uncover how race, police misconduct, and institutional barriers contribute to these systemic injustices.</p>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-wttwChicagoRanks" class="csl-entry" role="listitem">
+1. Cherone, H. (2023). Chicago ranks no. 1 in exonerations for 5th year in a row, accounting for more than half of national total: report. In <em>WTTW</em>. <a href="&quot;https://news.wttw.com/2023/05/16/chicago-ranks-no-1-exonerations-5th-year-row-accounting-more-half-national-total-report&quot;">"https://news.wttw.com/2023/05/16/chicago-ranks-no-1-exonerations-5th-year-row-accounting-more-half-national-total-report"</a>
+</div>
+<div id="ref-boehme_citizens_2020" class="csl-entry" role="listitem">
+2. Boehme, H. M., Cann, D., &amp; Isom, D. A. (2020). Citizens’ <span>Perceptions</span> of <span>Over</span>- and <span>Under</span>-<span>Policing</span>: <span>A</span> <span>Look</span> at <span>Race</span>, <span>Ethnicity</span>, and <span>Community</span> <span>Characteristics</span>. <em>Sage</em>, 32. <a href="https://doi.org/10.1177/0011128720974309">https://doi.org/10.1177/0011128720974309</a>
+</div>
+<div id="ref-jones-brown_over-policing_2021" class="csl-entry" role="listitem">
+3. Jones-Brown, D., &amp; Williams, J. M. (2021). Over-policing <span>Black</span> bodies: The need for multidimensional and transformative reforms. <em>Journal of Ethnicity in Criminal Justice</em>, <em>19</em>(3-4), 181–187. <a href="https://doi.org/10.1080/15377938.2021.1992326">https://doi.org/10.1080/15377938.2021.1992326</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

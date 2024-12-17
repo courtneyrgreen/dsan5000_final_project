@@ -1,83 +1,60 @@
 ---
-title: "Landing page"
+title: "Cell Block Tango: <br> Steps of Misconduct, Over-Policing, and Cycles of Racial Injustice in Chicago's Criminal Justice System"
+author: Courtney Green 
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+bibliography: references.bib
 ---
 
-**Audio instructions:**
+Chicago serves as both a microcosm and a magnifying glass for the systemic failures embedded in the U.S. criminal justice system. For five consecutive years, the city has led the nation in exonerations, a grim testament to entrenched racial bias, police misconduct, and flawed policing practices [@wttwChicagoRanks]. Yet, Chicago is more than an anomaly—it is a focal point within a broader, statewide crisis.  
 
-If you want, you can listen to the instructions:
+This project expands the lens to examine Illinois as a whole, using Chicago as a critical case study to investigate how wrongful convictions and over-policing disproportionately devastate Black and Latino communities. By analyzing exoneration patterns, arrest rates, incarceration data, and demographics at the county level, this work uncovers the ways systemic injustices ripple across Illinois. Chicago’s staggering share of exonerations exposes the extreme, but it also reflects a deeper, structural issue that transcends city limits.  
 
-<audio controls><source src="audio/landing-page-instructions.mp3" type="audio/mpeg"></audio>
+## Research Questions  
+1. What patterns emerge in exoneration data across Illinois counties, and how do they reflect systemic failures in the justice system?  
+2. Why does Chicago account for such a disproportionate share of wrongful convictions in Illinois?  
+3. Does over-policing disproportionately target marginalized communities, particularly Black and Latino populations?  
+4. What role does police misconduct play in wrongful convictions across Illinois? Is there a relationship between misconduct and race?  
+5. Can data-driven models identify predictive patterns of wrongful convictions and over-policing across Illinois counties? 
+---
+## Visualizing Injustice: Exonerations and Arrests Across Illinois  
 
-<sup> **Source**: Text-to-speech conversion done with Amazon Polly on AWS </sup>
+![Illinois Log-Scaled Exonerations by County](images/log_scaled_exonerations_by_county.png)  
+*Figure 1: Log-Scaled Exonerations by County (including and excluding Cook County).*  
 
-`Note`: These audio instructions should not be included in your final submission or repository, once you are done wiht them, please delete the files and remove them from the website. 
+![Illinois Log-Scaled Arrests by County](images/log_scaled_arrests_by_county.png)  
+*Figure 2: Log-Scaled Arrests by County (including and excluding Cook County).*  
 
-## Getting Started
+# Literature Review
+This section lays the groundwork for understanding systemic issues within Illinois’ law enforcement system, including over-policing, wrongful convictions, and racial disparities. By combining empirical studies, historical context, and policy analysis, the literature highlights persistent patterns:  
 
-To begin the project, first read the instruction document ([click here](instructions/overview.qmd)). This document is also accessible from the navigation bar.
+- The **over-under-policing paradox**, where marginalized communities face aggressive surveillance yet lack adequate protection.  
+- Systemic police misconduct and its role in driving wrongful convictions.  
+- How race and socioeconomic status intersect to shape crime patterns, policing practices, and perceptions of justice.  
 
-Once you’ve completed that, you can proceed with the instructions found throughout the website.
+By distilling these insights, this review sets the stage for a deeper, more critical analysis of Illinois’ justice system and the structures that sustain its failures.  
 
-## What to Include on This Page
+## *Citizens’ Perceptions of Over-and Under-Policing: A Look at Race, Ethnicity, and Community Characteristics*  
 
-This is the landing page for your project. Content from this page can be reused in sections of your final report.
+Boehme, Cann, and Isom (2020) examine how race, ethnicity, and community characteristics influence public perceptions of policing, shedding light on the **over-under-policing paradox**. The authors demonstrate how marginalized communities—particularly Black and Latino neighborhoods—experience aggressive over-policing through surveillance and frequent police encounters, while simultaneously being under-protected when it comes to safety and support. This dual dynamic fosters a deep sense of distrust, isolation, and legal cynicism, perpetuating systemic divides. Importantly, their findings emphasize that race remains a consistent predictor of these perceptions, even after accounting for economic conditions and neighborhood characteristics like concentrated disadvantage and ethnic diversity [@boehme_citizens_2020].  
 
-### Create an "About You" Page  
+Using data from the **PHDCN Community Survey**, which captures responses from 8,782 participants across 343 Chicago neighborhoods, the authors employ **Hierarchical Linear Modeling (HLM)** to analyze how individual- and community-level factors shape perceptions of policing. Their results reveal that while neighborhood context plays a significant role, racialized policing persists, with Black and Latino residents disproportionately reporting over-policing experiences regardless of socioeconomic conditions [@boehme_citizens_2020].  
 
-- Develop your "About You" page. You can reuse content from previous assignments.
-- You can include the content here or on a separate page.
-   - It’s recommended to create one "About You" page for all DSAN projects, with links to your various class projects.
+The study is particularly important to this project for two key reasons. First, it highlights how structural factors—such as poverty, race, and neighborhood composition—intersect to produce divergent policing experiences. This intersectionality aligns with the project’s focus on exploring the racialized and systemic roots of policing disparities in Chicago and Illinois as a whole. Second, the research exposes a **feedback loop** in which over-surveillance and under-service deepen distrust and isolation within marginalized communities. This insight reinforces the project’s aim to uncover how systemic racial biases and inequities sustain harmful policing cycles, particularly in Black and Latino neighborhoods across Chicago [@boehme_citizens_2020].  
 
-### Create a Landing Page for Your Project  
+## *Over-Policing Black Bodies: The Need for Multidimensional and Transformative Reforms* 
 
-- Summarize your topic, its significance, related work, and the questions you plan to explore.
-- Draft an introduction with at least **5 research questions**. These may evolve as your project progresses, since data science is an iterative process.
-- Include your data science questions on this page.
+Jones-Brown and Williams (2021) provide a critical analysis of over-policing in Black communities, demonstrating how racial disparities in police interactions—such as traffic stops, consent searches, and arrests—are rooted in systemic biases that criminalize Black identity. Drawing on both quantitative data and qualitative accounts, the authors reveal the psychological toll of aggressive policing, which fosters a **feedback loop** of fear, mistrust, and isolation. High-profile cases like the deaths of George Floyd and Breonna Taylor serve as stark representations of this broader issue, amplified by social media as a tool for documenting police brutality. Meanwhile, mainstream media often mischaracterizes Black-led protests, further reinforcing harmful stereotypes. By situating these patterns within a historical context—referencing the 1967 Katzenbach Report and the **War on Drugs**—the authors expose the longstanding structural roots of racialized policing, particularly relevant to cities like Chicago [@jones-brown_over-policing_2021].  
 
-### Literature review
+Jones-Brown and Williams’ study is integral context for the research for several reasons. First, it underscores how structural racism and historical policy decisions continue to drive over-policing in Black communities, a phenomenon reflected in Chicago’s policing data. Second, it highlights the dual perspective of quantitative evidence and qualitative lived experiences—an approach I aim to incorporate into my analysis to capture both the scope and human impact of over-policing. Lastly, their reform recommendations offer a foundation for addressing systemic disparities, aligning with my goal of examining how community-driven solutions can disrupt harmful policing cycles [@jones-brown_over-policing_2021]. By situating over-policing within a historical and structural framework, this study provides a comprehensive understanding of the issue and offers pathways for transformative change. These insights directly support the project’s examination of how racialized policing practices and systemic corruption perpetuate injustice in Chicago’s Black communities [@jones-brown_over-policing_2021].  
 
-Once you decide on a topic, you should `ALWAYS START WITH A LITERATURE REVIEW`, this is particularly important for academic projects.
+## *Chicago Ranks No. 1 in Exonerations for 5th Year in a Row, Accounting for More Than Half of National Total* 
 
-The literature review is the most important part of most projects. 
+Heather Cherone (2023) highlights Chicago’s troubling distinction as the nation’s leader in wrongful convictions, with Cook County alone accounting for over half of all U.S. exonerations in 2022. Drawing on data from the **National Registry of Exonerations**, the analysis uncovers systemic patterns of police misconduct, racial disparities, and institutional resistance to reform—issues central to this project’s examination of injustice within Illinois’ criminal justice system [@wttwChicagoRanks].  
 
-It allows you to; 
+The article reveals the disproportionate toll of wrongful convictions on Black and Latino communities, underscoring the racialized nature of policing in Chicago. At the core of this crisis is police misconduct, exemplified by officers like Ronald Watts and Reynaldo Guevara, whose corrupt practices—ranging from extortion to framing suspects—are linked to a significant share of exonerations. These patterns not only devastate individuals and their communities but also impose a staggering financial burden on the city. In 2022, Chicago spent **$98 million** settling police misconduct cases, with the 2023 budget allocating another **$82 million**, signaling the immense economic cost of systemic failures. Despite the federal consent decree issued in 2017 to address these issues, the Chicago Police Department remains only **3% compliant**, reflecting deep institutional resistance to change [@wttwChicagoRanks].  
 
-* 1. Determine what is already known and what has already been tried, so that you `don't re-invent the wheel`.
-* 2. It makes you more of a subject matter expert, allowing you to `ask the right questions`, `target impactful projects`, and `communicate with other professionals`.
-
-> Doing a project that you think will change the world, only to find at the end that a very similar version of your project was already done in the 1980's, isn't a great use of time.
-
-In this section, please do a literature review and cite at least **3 academic publications** per group member, and include **internal academic citations**.
-
-**Optional**: Consider using LLM tools to 10X your literature review, e.g. instead of focusing on 3 papers, aim for 30 or more
-
-By following these steps, you can 10X the efficiency of your literature review process, gaining more insights while minimizing the time spent on manual reading.
-
-1. **Expand Your Literature Search**  
-   Aim to gather a larger pool of papers. Use academic databases (Google Scholar, arXiv, etc.) to find relevant studies and ensure a broad scope.
-
-2. **Skim the Abstracts**  
-   Read the abstracts of each paper to quickly understand their focus and identify those most relevant to your topic. Prioritize these papers for deeper analysis.
-
-3. **Use LLM Tools for Summarization**  
-   Upload the selected papers to an LLM tool capable of text summarization. Have it condense the main points of each paper into a concise, manageable summary (e.g., condense hundreds of pages into a 10-page summary). Carefully review this summary to absorb the key insights.
-
-4. **Leverage Interactive LLM Tools**  
-   Use tools like NotebookLM or other AI-based text digesters to ask specific, targeted questions about the papers:
-   - Example questions:
-     - "In the papers uploaded, did any of them explore XYZ?"
-     - "Which paper is most closely related to the following project idea: [explain idea]?"
-   These tools will help you quickly extract relevant information without re-reading entire papers.
-
-
-## Additional Ideas for things to include 
-
-- **Audience**: Who is this for? Data professionals, businesses, researchers, or curious readers.
-- **Headline**: A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
-- **Introduction**: A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
-- **Questions You Are Addressing**: What do you hope to learn?
-- **Motivation**: Explain why this topic matters, highlighting the importance of data in solving real-world problems.
-- **Key Topics**: List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
-- **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
-- **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
-- **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
+This analysis provides a critical foundation for the project. By examining exoneration data, it highlights the role of racialized policing practices and systemic misconduct in perpetuating wrongful convictions. Chicago’s prominence in these statistics offers a unique lens through which to explore broader patterns of injustice across Illinois, serving as both a focal point and a microcosm of nationwide systemic failures. Additionally, the data-driven approach of the **National Registry of Exonerations** aligns closely with this project’s methodology. While not replicating the study, this project builds upon its findings by conducting further analysis of Illinois exoneration trends to uncover how race, police misconduct, and institutional barriers contribute to these systemic injustices.  

@@ -2,6 +2,7 @@ project:
   type: website
   resources:
     - images
+    - data
   render:
     - "*.qmd"
     - "*.ipynb"
@@ -15,8 +16,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: instructions/overview.qmd
-        text: Instructions
       - href: report/report.qmd
         text: Report
       - text: "Technical details"
@@ -46,10 +45,6 @@ website:
         href: "https://github.com/dsan-5000/project-courtneyrgreen.git"
       - text: "Back to Portfolio"
         href: "https://crg123.georgetown.domains/"
-
-page-footer:
-    background: light # or `dark`
-    left: Copyright 2024, Courtney Green
 
 format:
   html:

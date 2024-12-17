@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,14 +93,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../collaborators.html"> 
-<span class="menu-text">Collaborators</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
@@ -113,8 +105,55 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../bibliography.html"> 
+<span class="menu-text">Bibliography</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -123,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -148,102 +187,105 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 
 
 <section id="github" class="level1">
 <h1>GitHub</h1>
-<p>Your project will be fully transparent, with the source code hosted on GitHub. This platform will serve as the main repository for your project code, documentation, and website. Proper organization and frequent updates are key for effective collaboration and project management.</p>
+<p>Your project will be fully transparent, with all source code hosted on GitHub. This platform will serve as the main repository for your project code, documentation, and website. Proper organization and regular updates are key for effective collaboration and project management.</p>
+<blockquote class="blockquote">
+<p><strong>IMPORTANT</strong>: Proficiency in GitHub for collaboration is a valuable addition to your resume. Being able to join a team and immediately contribute by solving problems and adding value is a highly sought-after skill. Now is the time to develop this expertise—embrace Git fully, become proficient, and graduate with a critical skill for your future career.</p>
+</blockquote>
 <section id="repository-setup" class="level2">
 <h2 class="anchored" data-anchor-id="repository-setup">Repository Setup</h2>
 <ul>
-<li>You <strong>MUST</strong> use GitHub Classroom to create your project repository. This ensures that TAs can access your code and track your progress.</li>
-<li>Clone the repository to your local machine, which provides a basic directory structure.</li>
+<li>You <strong>MUST</strong> use GitHub Classroom to create your project repository. This ensures TAs can access your code and track your progress.</li>
+<li>Clone the repository to your local machine, which will provide a basic directory structure.</li>
 </ul>
 </section>
 <section id="expectations-for-github-usage" class="level2">
 <h2 class="anchored" data-anchor-id="expectations-for-github-usage">Expectations for GitHub Usage</h2>
-<p>You will be graded on how effectively you use Git, which includes:</p>
+<p>Your grade will reflect how effectively you use Git, including:</p>
 <ul>
-<li>The incremental nature of your progress</li>
-<li>The frequency and quality of your commits</li>
-<li>The structure and organization of your repository</li>
-<li>How well you follow these GitHub guidelines</li>
+<li>Incremental progress on the project</li>
+<li>The frequency and quality of commits</li>
+<li>Repository structure and organization</li>
+<li>Adherence to GitHub guidelines outlined below</li>
 </ul>
-<p>Be sure to make regular commits to GitHub (e.g., <code>git add</code>, <code>git commit</code>, <code>git push</code>) to sync your work and ensure a smooth development process.</p>
+<p>Ensure regular commits to GitHub (e.g., <code>git add</code>, <code>git commit</code>, <code>git push</code>) to sync your work and maintain a smooth development process.</p>
 <section id="use-a-logical-repository-structure" class="level3">
 <h3 class="anchored" data-anchor-id="use-a-logical-repository-structure">1. Use a Logical Repository Structure</h3>
 <ul>
-<li>Include an informative README file that explains the purpose of the project.</li>
-<li>Organize your files logically to make it easier for collaborators and TAs to navigate.</li>
-<li>Ensure all files are well-documented, and code is easy to follow.</li>
+<li>Include a comprehensive README file that explains the purpose of the project.</li>
+<li>Organize files logically to make navigation easier for collaborators and TAs.</li>
+<li>Ensure all files are well-documented and the code is easy to follow.</li>
 </ul>
 </section>
 <section id="commit-regularly" class="level3">
 <h3 class="anchored" data-anchor-id="commit-regularly">2. Commit Regularly</h3>
 <ul>
-<li>Commit your code frequently with meaningful commit messages that reflect the changes made. This will make it easier to track progress and roll back changes if necessary.
+<li>Commit frequently with clear, meaningful commit messages that reflect the changes made.
 <ul>
-<li><strong>Example of a good commit message:</strong> <code>Added data cleaning script for tabular data</code></li>
-<li><strong>Example of a poor commit message:</strong> <code>Fix</code></li>
+<li><strong>Good commit message example:</strong> <code>Added data cleaning script for tabular data</code></li>
+<li><strong>Poor commit message example:</strong> <code>Fix</code></li>
 </ul></li>
 </ul>
 </section>
 <section id="data-storage" class="level3">
 <h3 class="anchored" data-anchor-id="data-storage">3. Data Storage</h3>
 <ul>
-<li>Do not store your data in your repository.
+<li>Do <strong>not</strong> store large data files in your repository.
 <ul>
-<li>Data should be store in the <code>raw-data</code> folder and the <code>processed-data</code> folder, these folders should be added to <code>.gitignore</code>.</li>
-<li><strong>Example:</strong> Use Google Drive or GU Domains for large data files and provide access links within your repository.</li>
+<li>Store raw data in the <code>raw-data</code> folder and processed data in the <code>processed-data</code> folder; these folders should be added to <code>.gitignore</code>.</li>
+<li><strong>Tip:</strong> Use external storage like Google Drive or GU Domains for large datasets and provide access links within the repository.</li>
 </ul></li>
 </ul>
 </section>
 <section id="syncing-with-gu-domains" class="level3">
 <h3 class="anchored" data-anchor-id="syncing-with-gu-domains">4. Syncing with GU Domains</h3>
 <ul>
-<li>Sync your GitHub repository with your GU Domains website before submission deadlines to keep your website up to date.</li>
-<li>Ensure your code repository and website are always in sync, especially before final submission, to avoid losing marks.</li>
+<li>Sync your GitHub repository with your GU Domains website before submission deadlines to keep everything up to date. (this should be fully automated)</li>
+<li>Ensure your code repository and website are always in sync, particularly before the final submission, to avoid losing points.</li>
 </ul>
 </section>
 <section id="code-documentation" class="level3">
 <h3 class="anchored" data-anchor-id="code-documentation">5. Code Documentation</h3>
 <ul>
-<li>Write clear and detailed documentation for each file and function in your project.</li>
-<li>Include a <code>README.md</code> file in your repository that explains the purpose of the project, how to run the code, and any necessary dependencies.</li>
+<li>Provide clear and thorough documentation for each file and function in your project.</li>
+<li>Include a <code>README.md</code> that outlines the project purpose, how to run the code, and any necessary dependencies.</li>
 </ul>
 </section>
 </section>
 <section id="collaboration-in-groups-if-applicable" class="level2">
 <h2 class="anchored" data-anchor-id="collaboration-in-groups-if-applicable">Collaboration in Groups (If Applicable)</h2>
-<p>If you are working in a group (maximum of 3 students), use GitHub’s collaboration features effectively:</p>
+<p>If you are working in a group, make full use of GitHub’s collaboration features:</p>
 <ol type="1">
 <li><strong>Task Assignment:</strong>
 <ul>
-<li>Assign tasks to different team members using GitHub Issues or Project Boards.</li>
+<li>Assign tasks using GitHub Issues or Project Boards to keep track of progress.</li>
 </ul></li>
 <li><strong>Branching and Pull Requests:</strong>
 <ul>
-<li>Use branches for feature development and pull requests for code review before merging changes into the main branch.</li>
+<li>Use branches for feature development and pull requests for code reviews before merging into the main branch.</li>
 </ul></li>
 <li><strong>Communication:</strong>
 <ul>
-<li>Regularly communicate and review code with your teammates to avoid conflicts.</li>
+<li>Maintain regular communication and conduct code reviews with your teammates to prevent conflicts.</li>
 </ul></li>
 <li><strong>Equal Contribution:</strong>
 <ul>
-<li>Ensure that all team members contribute equally to the project. Unequal contributions will negatively affect individual grades.</li>
-<li><strong>Important:</strong> Any team member not contributing equally can be flagged by the group and may be penalized after review.</li>
+<li>Ensure equal contribution from all team members. Unequal contributions will negatively affect individual grades.</li>
+<li><strong>Note:</strong> Team members not contributing equally may be flagged by the group and penalized after review.</li>
 </ul></li>
-<li><strong>Documentation of Contributions:</strong>
+<li><strong>Contribution Documentation:</strong>
 <ul>
-<li>Document each member’s contribution clearly in the <code>collaborators.qmd</code> file, specifying who worked on which aspects of the project.</li>
+<li>Document each member’s contributions clearly in the <code>collaborators.qmd</code> file, detailing who worked on specific aspects of the project.</li>
 </ul></li>
 <li><strong>Code Reviews:</strong>
 <ul>
-<li>Conduct peer code reviews before merging changes into the main branch to maintain code quality and consistency.</li>
+<li>Conduct peer code reviews before merging changes into the main branch to maintain quality and consistency.</li>
 </ul></li>
 </ol>
 

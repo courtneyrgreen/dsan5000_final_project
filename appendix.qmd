@@ -12,3 +12,9 @@ The following map provides the rural and urban classification for counties in Il
 
 ![Illinois Counties by Rural/Urban Classification](images/rural_urban_county_classification.png)
 
+
+# Appendix B: Exonerees Balanced Dataset
+
+The following dataset, **exonerees_balanced.csv**, includes balanced exoneration data for analysis. It can be downloaded by clicking the link below:
+
+[Download Exonerees Balanced Dataset](data/processed-data/exonerees_balanced.csv)

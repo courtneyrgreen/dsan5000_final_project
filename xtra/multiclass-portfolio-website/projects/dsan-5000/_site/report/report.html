@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Courtney Green">
 
-<title>DSAN-5000: Project - Final report</title>
+<title>DSAN-5000: Project - Cell Block Tango:  Steps of Misconduct, Over-Policing, and Cycles of Racial Injustice in Chicago’s Criminal Justice System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -93,14 +114,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../collaborators.html"> 
-<span class="menu-text">Collaborators</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="../report/report.html" aria-current="page"> 
 <span class="menu-text">Report</span></a>
   </li>  
@@ -113,8 +126,55 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../bibliography.html"> 
+<span class="menu-text">Bibliography</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -123,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -131,50 +191,48 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#guidelines-for-creating-a-good-narrative-construction" id="toc-guidelines-for-creating-a-good-narrative-construction" class="nav-link active" data-scroll-target="#guidelines-for-creating-a-good-narrative-construction">Guidelines for Creating a Good Narrative Construction:</a></li>
-  <li><a href="#what-to-include-in-the-report" id="toc-what-to-include-in-the-report" class="nav-link" data-scroll-target="#what-to-include-in-the-report">What to include in the report?</a>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a></li>
+  <li><a href="#data-visualizations-and-key-insights" id="toc-data-visualizations-and-key-insights" class="nav-link" data-scroll-target="#data-visualizations-and-key-insights">Data Visualizations and Key Insights</a>
   <ul class="collapse">
-  <li><a href="#case-1-academic-oriented-projects" id="toc-case-1-academic-oriented-projects" class="nav-link" data-scroll-target="#case-1-academic-oriented-projects">Case-1: Academic oriented projects</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">1. Introduction</a></li>
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">2. Objective</a></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">3. Key Findings</a></li>
-  <li><a href="#methodology-overview-simplified" id="toc-methodology-overview-simplified" class="nav-link" data-scroll-target="#methodology-overview-simplified">4. Methodology Overview (Simplified)</a></li>
-  <li><a href="#visualizations" id="toc-visualizations" class="nav-link" data-scroll-target="#visualizations">5. Visualizations</a></li>
-  <li><a href="#societal-implications" id="toc-societal-implications" class="nav-link" data-scroll-target="#societal-implications">6. Societal Implications</a></li>
-  <li><a href="#call-to-action-or-recommendations" id="toc-call-to-action-or-recommendations" class="nav-link" data-scroll-target="#call-to-action-or-recommendations">7. Call to Action or Recommendations</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
-  <li><a href="#final-tips" id="toc-final-tips" class="nav-link" data-scroll-target="#final-tips">Final Tips:</a></li>
+  <li><a href="#geospatial-trends-of-arrests-and-exonerations-by-county" id="toc-geospatial-trends-of-arrests-and-exonerations-by-county" class="nav-link" data-scroll-target="#geospatial-trends-of-arrests-and-exonerations-by-county">1. Geospatial Trends of Arrests and Exonerations by County</a></li>
+  <li><a href="#distribution-of-years-wrongfully-lost-by-race" id="toc-distribution-of-years-wrongfully-lost-by-race" class="nav-link" data-scroll-target="#distribution-of-years-wrongfully-lost-by-race">2. Distribution of Years Wrongfully Lost by Race</a></li>
+  <li><a href="#total-misconduct-tags-by-race" id="toc-total-misconduct-tags-by-race" class="nav-link" data-scroll-target="#total-misconduct-tags-by-race">3. Total Misconduct Tags by Race</a></li>
+  <li><a href="#misconduct-tags-by-county-and-race" id="toc-misconduct-tags-by-county-and-race" class="nav-link" data-scroll-target="#misconduct-tags-by-county-and-race">4. Misconduct Tags by County and Race</a></li>
+  <li><a href="#age-distribution-of-exonerees-by-race" id="toc-age-distribution-of-exonerees-by-race" class="nav-link" data-scroll-target="#age-distribution-of-exonerees-by-race">5. Age Distribution of Exonerees by Race</a></li>
+  <li><a href="#breakdown-of-official-misconduct-by-race" id="toc-breakdown-of-official-misconduct-by-race" class="nav-link" data-scroll-target="#breakdown-of-official-misconduct-by-race">6. Breakdown of Official Misconduct by Race</a></li>
+  <li><a href="#predicted-probabilities-of-wrongful-conviction" id="toc-predicted-probabilities-of-wrongful-conviction" class="nav-link" data-scroll-target="#predicted-probabilities-of-wrongful-conviction">7. Predicted Probabilities of Wrongful Conviction</a></li>
+  <li><a href="#k-means-clustering-results" id="toc-k-means-clustering-results" class="nav-link" data-scroll-target="#k-means-clustering-results">8. K-Means Clustering Results</a></li>
+  <li><a href="#dimensionality-reduction-results" id="toc-dimensionality-reduction-results" class="nav-link" data-scroll-target="#dimensionality-reduction-results">9. Dimensionality Reduction Results</a></li>
   </ul></li>
-  <li><a href="#case-2-buiness-oriented-projects" id="toc-case-2-buiness-oriented-projects" class="nav-link" data-scroll-target="#case-2-buiness-oriented-projects">Case-2: Buiness oriented projects</a>
+  <li><a href="#societal-implications" id="toc-societal-implications" class="nav-link" data-scroll-target="#societal-implications">Societal Implications</a></li>
+  <li><a href="#conclusions-and-recommendations" id="toc-conclusions-and-recommendations" class="nav-link" data-scroll-target="#conclusions-and-recommendations">Conclusions and Recommendations</a>
   <ul class="collapse">
-  <li><a href="#overview-creating-a-data-science-report-for-non-technical-audiences" id="toc-overview-creating-a-data-science-report-for-non-technical-audiences" class="nav-link" data-scroll-target="#overview-creating-a-data-science-report-for-non-technical-audiences">Overview: Creating a Data Science Report for Non-Technical Audiences</a></li>
-  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">1. Executive Summary</a></li>
-  <li><a href="#objective-1" id="toc-objective-1" class="nav-link" data-scroll-target="#objective-1">2. Objective</a></li>
-  <li><a href="#key-insights" id="toc-key-insights" class="nav-link" data-scroll-target="#key-insights">3. Key Insights</a></li>
-  <li><a href="#visualizations-1" id="toc-visualizations-1" class="nav-link" data-scroll-target="#visualizations-1">4. Visualizations</a></li>
-  <li><a href="#business-implications" id="toc-business-implications" class="nav-link" data-scroll-target="#business-implications">5. Business Implications</a></li>
-  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">6. Recommendations</a></li>
-  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1">7. Conclusion</a></li>
-  <li><a href="#appendix-optional" id="toc-appendix-optional" class="nav-link" data-scroll-target="#appendix-optional">8. Appendix (Optional)</a></li>
-  <li><a href="#final-tips-1" id="toc-final-tips-1" class="nav-link" data-scroll-target="#final-tips-1">Final Tips</a></li>
-  </ul></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings"><strong>Key Findings</strong></a></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations"><strong>Recommendations</strong></a></li>
+  <li><a href="#call-to-action" id="toc-call-to-action" class="nav-link" data-scroll-target="#call-to-action">Call to Action</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Final report</h1>
+<h1 class="title">Cell Block Tango: <br> Steps of Misconduct, Over-Policing, and Cycles of Racial Injustice in Chicago’s Criminal Justice System</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Courtney Green </p>
+          </div>
+  </div>
     
   
     
@@ -185,196 +243,194 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This report is for a <strong>Non-technical audience</strong>, e.g.&nbsp;general public, executives, marketing teams, and clients. It should prioritize high-level insights, actionable results, and visualizations that convey the impact of data without requiring an understanding of complex methods. For instance, a CEO may want to know how a model affects business strategy or revenue, without diving into the underlying technical details.</p>
-<section id="guidelines-for-creating-a-good-narrative-construction" class="level1">
-<h1>Guidelines for Creating a Good Narrative Construction:</h1>
+<section id="executive-summary" class="level1">
+<h1>Executive Summary</h1>
+<p>This report investigates systemic failures in Illinois’ criminal justice system, emphasizing the disproportionate impact of wrongful convictions and over-policing on marginalized communities, particularly Black men. Through comprehensive data analysis and machine learning models, key findings highlight racial disparities, patterns of police misconduct, and geographic trends. Actionable recommendations aim to drive policy reforms, improve accountability, and reduce systemic bias.</p>
+<hr>
+</section>
+<section id="research-questions" class="level1">
+<h1>Research Questions</h1>
 <ol type="1">
-<li><strong>Start with a Clear Purpose</strong>: Define the core message or objective of your narrative early on.</li>
-<li><strong>Know Your Audience</strong>: Tailor your language, tone, and detail level to the interests and understanding of your target audience.</li>
-<li><strong>Create a Strong Opening</strong>: Engage readers with an intriguing introduction or hook that sets the context and stakes.</li>
-<li><strong>Maintain a Logical Flow</strong>: Organize your story with a clear beginning, middle, and end. Ensure smooth transitions between sections.</li>
-<li><strong>Focus on Key Insights</strong>: Highlight the most important points or findings, avoiding unnecessary details or technical jargon.</li>
-<li><strong>Use Data to Support the Story</strong>: Integrate data or evidence naturally to enhance credibility, but don’t overwhelm the narrative with too many numbers.</li>
-<li><strong>Incorporate Visuals</strong>: Use charts, graphs, or images to simplify complex concepts and engage your audience.</li>
-<li><strong>Conclude with Actionable Takeaways</strong>: End with a clear conclusion, summarizing key points and offering recommendations or next steps.</li>
-<li><strong>Be Authentic and Relatable</strong>: Use storytelling techniques like anecdotes or examples to make the narrative more personal and engaging.</li>
-<li><strong>Revise and Refine</strong>: Edit for clarity, coherence, and impact. Remove unnecessary content and ensure every part serves the overall purpose.</li>
+<li>What patterns emerge in exoneration data across Illinois counties, and how do they reflect systemic failures in the justice system?<br>
+</li>
+<li>Why does Chicago account for such a disproportionate share of wrongful convictions in Illinois?<br>
+</li>
+<li>Does over-policing disproportionately target marginalized communities, particularly Black and Latino populations?<br>
+</li>
+<li>What role does police misconduct play in wrongful convictions across Illinois? Is there a relationship between misconduct and race?<br>
+</li>
+<li>Can data-driven models identify predictive patterns of wrongful convictions and over-policing across Illinois counties?</li>
+</ol>
+<hr>
+</section>
+<section id="data-visualizations-and-key-insights" class="level1">
+<h1>Data Visualizations and Key Insights</h1>
+<section id="geospatial-trends-of-arrests-and-exonerations-by-county" class="level2">
+<h2 class="anchored" data-anchor-id="geospatial-trends-of-arrests-and-exonerations-by-county">1. Geospatial Trends of Arrests and Exonerations by County</h2>
+<p><strong>Log-Scaled Arrests</strong><br>
+<img src="../images/log_scaled_arrests_by_county.png" class="img-fluid" alt="Arrests by County"></p>
+<p><strong>Log-Scaled Exonerations</strong><br>
+<img src="../images/log_scaled_exonerations_by_county.png" class="img-fluid" alt="Exonerations by County"></p>
+<ul>
+<li><strong>Insight</strong>: Cook County leads Illinois in both arrests and wrongful convictions, showing its outsized role in systemic failures. Smaller rural counties, while having fewer total cases, still display disproportionately high rates of wrongful convictions relative to their population size. This suggests that geographic disparities exist, and rural patterns remain underexplored in justice system analyses.</li>
+</ul>
+<hr>
+</section>
+<section id="distribution-of-years-wrongfully-lost-by-race" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-years-wrongfully-lost-by-race">2. Distribution of Years Wrongfully Lost by Race</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/race_distribution_of_years_lost.png" class="img-fluid figure-img"></p>
+<figcaption>Race Distribution of Years Lost</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Black individuals have disproportionately lost years to wrongful imprisonment compared to other racial groups. The distribution skews heavily toward shorter wrongful imprisonments, but significant outliers exist where individuals lost 20+ years. These findings highlight the compounding harm caused by systemic injustice, as even shorter sentences fracture families and communities.</li>
+</ul>
+<hr>
+</section>
+<section id="total-misconduct-tags-by-race" class="level2">
+<h2 class="anchored" data-anchor-id="total-misconduct-tags-by-race">3. Total Misconduct Tags by Race</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/total_misconduct_tags_by_race.png" class="img-fluid figure-img"></p>
+<figcaption>Total Misconduct by Race</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Police and prosecutorial misconduct overwhelmingly affect Black individuals. Misconduct types include perjury, witness tampering, and fabricated evidence. The stark disparity underscores how misconduct disproportionately drives wrongful convictions within marginalized communities and intensifies mistrust in law enforcement.</li>
+</ul>
+<hr>
+</section>
+<section id="misconduct-tags-by-county-and-race" class="level2">
+<h2 class="anchored" data-anchor-id="misconduct-tags-by-county-and-race">4. Misconduct Tags by County and Race</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/misconduct_tags_county_race.png" class="img-fluid figure-img"></p>
+<figcaption>Misconduct Tags by County</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Cook County exhibits the highest number of misconduct cases, especially targeting Black individuals. Some rural counties (e.g., Winnebago, DuPage) also show patterns of concentrated misconduct despite smaller populations, emphasizing that these issues are not limited to urban areas. This highlights a need for local accountability mechanisms to address misconduct statewide.</li>
+</ul>
+<hr>
+</section>
+<section id="age-distribution-of-exonerees-by-race" class="level2">
+<h2 class="anchored" data-anchor-id="age-distribution-of-exonerees-by-race">5. Age Distribution of Exonerees by Race</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/age_distribution_by_race.png" class="img-fluid figure-img"></p>
+<figcaption>Age Distribution</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Wrongful convictions primarily impact Black men aged <strong>20-30</strong>, a period critical for family stability, career development, and education. This age-based harm perpetuates cycles of poverty and systemic trauma, further marginalizing affected individuals and communities.</li>
+</ul>
+<hr>
+</section>
+<section id="breakdown-of-official-misconduct-by-race" class="level2">
+<h2 class="anchored" data-anchor-id="breakdown-of-official-misconduct-by-race">6. Breakdown of Official Misconduct by Race</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/breakdown_of_OM_by_race.png" class="img-fluid figure-img"></p>
+<figcaption>Breakdown of Misconduct</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Black individuals are overwhelmingly impacted by police misconduct, including perjury, false accusations, and suppression of evidence. This pattern reinforces systemic racial bias in the justice process and raises calls for enhanced accountability and oversight mechanisms within law enforcement.</li>
+</ul>
+<hr>
+</section>
+<section id="predicted-probabilities-of-wrongful-conviction" class="level2">
+<h2 class="anchored" data-anchor-id="predicted-probabilities-of-wrongful-conviction">7. Predicted Probabilities of Wrongful Conviction</h2>
+<p><strong>By County</strong><br>
+<img src="../images/predicted_prob_county.png" class="img-fluid" alt="Predicted Probabilities - Counties"></p>
+<p><strong>By Race and County</strong><br>
+<img src="../images/predicted_prob_county_race.png" class="img-fluid" alt="Predicted Probabilities - Race and County"></p>
+<p><strong>By Race</strong><br>
+<img src="../images/predicted_prob_race.png" class="img-fluid" alt="Predicted Probabilities - Race"></p>
+<ul>
+<li><strong>Insight</strong>: Predictive models identify Cook County and surrounding areas as high-risk for wrongful convictions, particularly for Black individuals. Smaller counties also display concerning probabilities, reinforcing the presence of systemic racial inequities across Illinois’ justice system.</li>
+</ul>
+<hr>
+</section>
+<section id="k-means-clustering-results" class="level2">
+<h2 class="anchored" data-anchor-id="k-means-clustering-results">8. K-Means Clustering Results</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/k_means.png" class="img-fluid figure-img"></p>
+<figcaption>K-Means Clustering</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Cluster analysis reveals clear groupings of cases based on racial, geographic, and misconduct-related factors. Notably, clusters with higher concentrations of Black exonerees correlate with misconduct-prone counties, highlighting systemic racial targeting within these jurisdictions.</li>
+</ul>
+<hr>
+</section>
+<section id="dimensionality-reduction-results" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction-results">9. Dimensionality Reduction Results</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dimensionality_reduction.png" class="img-fluid figure-img"></p>
+<figcaption>Dimensionality Reduction</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Insight</strong>: Principal Component Analysis (PCA) and t-SNE visualizations reveal distinct patterns across racial and geographic dimensions. These visualizations demonstrate that race is a key driver in wrongful convictions, particularly for Black and Hispanic populations. Misconduct cases show dense clustering, indicating systemic patterns rather than isolated incidents.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="societal-implications" class="level1">
+<h1>Societal Implications</h1>
+<p>The mass incarceration of Black men has long destabilized the Black nuclear family, tearing apart households and perpetuating cycles of poverty and generational harm.<span class="citation" data-cites="coates_black_2015"><sup><a href="#ref-coates_black_2015" role="doc-biblioref">1</a></sup></span> Yet the findings here reveal an even more harrowing truth: these are wrongful convictions—individuals who were never supposed to be incarcerated in the first place. This adds another insidious layer of injustice, where systems built to uphold fairness instead weaponize racialized biases in policing, prosecution, and sentencing.</p>
+<p>Wrongful convictions do not exist in a vacuum. Each exoneration represents more than a stolen life—it signifies fractured families and devastated communities. Mothers are left to shoulder single-parenting burdens, while children grapple with emotional trauma, educational setbacks, and weakened familial bonds. Financial strain intensifies this instability, as lost income, mounting legal fees, and post-incarceration barriers stifle any chance of recovery. The harm is systemic, generational, and deeply racialized.</p>
+<p>This data exposes what many have long understood: wrongful convictions are not random, isolated errors. They are the result of a broader, racialized system that targets, oppresses, and disintegrates Black communities under the guise of justice. Without meaningful intervention, these cycles of harm will persist, continuing to undermine the very foundations of equity and opportunity.</p>
+</section>
+<section id="conclusions-and-recommendations" class="level1">
+<h1>Conclusions and Recommendations</h1>
+<p>The evidence is clear. Black individuals face disproportionate harm from wrongful convictions and over-policing, a reality compounded by systemic patterns of police misconduct. Cook County emerges as a glaring epicenter of these failures, but the problem is not confined to a single geography. Across Illinois, racial inequities in the justice system remain deeply entrenched.</p>
+<section id="key-findings" class="level3">
+<h3 class="anchored" data-anchor-id="key-findings"><strong>Key Findings</strong></h3>
+<ol type="1">
+<li>Black individuals are disproportionately targeted, incarcerated, and wrongfully convicted.<br>
+</li>
+<li>Police misconduct—perjury, evidence tampering, and suppression—is a key driver of these injustices.<br>
+</li>
+<li>While Cook County dominates the data, smaller counties also reveal patterns of systemic bias and misconduct.</li>
 </ol>
 </section>
-<section id="what-to-include-in-the-report" class="level1">
-<h1>What to include in the report?</h1>
-<p>What you include sort of depends on the nature of your project, here are two possible cases.</p>
-<section id="case-1-academic-oriented-projects" class="level2">
-<h2 class="anchored" data-anchor-id="case-1-academic-oriented-projects">Case-1: Academic oriented projects</h2>
-<p>When presenting an academic project to the general public, the focus is on communicating <strong>key findings</strong> and <strong>relevant insights</strong> in a way that is <strong>engaging and easy to understand</strong>. The goal is to break down complex research concepts while highlighting their <strong>real-world implications</strong> and <strong>societal benefits</strong>. Avoid technical jargon and focus on storytelling, impact, and accessibility.</p>
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">1. Introduction</h3>
-<ul>
-<li><strong>Purpose</strong>: Provide an accessible introduction to the project.</li>
-<li><strong>Background</strong>: Offer context by explaining the motivation behind the research and why it matters.</li>
-<li><strong>Key Questions</strong>: What questions are you trying to answer, and why are they important?</li>
-</ul>
-<p><em>Example</em>: “This study aims to understand how climate change affects local ecosystems, which is essential for protecting wildlife and biodiversity.”</p>
-</section>
-<section id="objective" class="level3">
-<h3 class="anchored" data-anchor-id="objective">2. Objective</h3>
-<ul>
-<li><strong>Purpose</strong>: Clearly define the goal or purpose of the research.</li>
-<li><strong>Real-World Relevance</strong>: Explain how the project relates to issues or challenges the general public can understand (e.g., health, environment, technology).</li>
-</ul>
-<p><em>Example</em>: “Our objective is to identify the effects of air pollution on public health in urban areas to recommend better policies.”</p>
-</section>
-<section id="key-findings" class="level3">
-<h3 class="anchored" data-anchor-id="key-findings">3. Key Findings</h3>
-<ul>
-<li><strong>Purpose</strong>: Present the most important insights from the research.</li>
-<li><strong>Plain Language</strong>: Avoid technical terms and explain the findings in a way that is easy to grasp.</li>
-<li><strong>Impact</strong>: Highlight how these findings affect real-world issues or help advance societal understanding.</li>
-</ul>
-<p><em>Example</em>: “We found that air pollution in cities contributes to a 20% higher risk of respiratory diseases, affecting children and the elderly the most.”</p>
-</section>
-<section id="methodology-overview-simplified" class="level3">
-<h3 class="anchored" data-anchor-id="methodology-overview-simplified">4. Methodology Overview (Simplified)</h3>
-<ul>
-<li><strong>Purpose</strong>: Briefly explain how the research was conducted, but keep it high-level.</li>
-<li><strong>Plain Language</strong>: Describe the methods in an intuitive way, focusing on what the audience needs to know (e.g., data sources, experiments, or surveys).</li>
-</ul>
-<p><em>Example</em>: “We analyzed air quality data from 50 cities and conducted surveys with 10,000 residents to measure the health impact of pollution.”</p>
-</section>
-<section id="visualizations" class="level3">
-<h3 class="anchored" data-anchor-id="visualizations">5. Visualizations</h3>
-<ul>
-<li><strong>Purpose</strong>: Use easy-to-understand graphs, infographics, or charts to help convey key findings.</li>
-<li><strong>Accessibility</strong>: Ensure all visuals are clearly labeled, with simple explanations of what the audience is seeing.</li>
-<li><strong>Engagement</strong>: Visuals should engage the public by making the findings more relatable and easier to grasp.</li>
-</ul>
-<p><em>Example</em>: A map showing regions most affected by pollution, paired with a bar chart depicting the increase in health risks.</p>
-</section>
-<section id="societal-implications" class="level3">
-<h3 class="anchored" data-anchor-id="societal-implications">6. Societal Implications</h3>
-<ul>
-<li><strong>Purpose</strong>: Explain why the findings matter in the context of broader societal issues.</li>
-<li><strong>Relevance to Public</strong>: Connect the research to real-world outcomes that the general public cares about (e.g., public health, environmental protection, technological advances).</li>
-<li><strong>Potential Solutions</strong>: Offer suggestions or recommendations based on the research for improving outcomes.</li>
-</ul>
-<p><em>Example</em>: “This research shows the urgent need for cleaner air policies to reduce health risks, particularly in densely populated areas.”</p>
-</section>
-<section id="call-to-action-or-recommendations" class="level3">
-<h3 class="anchored" data-anchor-id="call-to-action-or-recommendations">7. Call to Action or Recommendations</h3>
-<ul>
-<li><strong>Purpose</strong>: Provide actionable steps or policy recommendations based on the research.</li>
-<li><strong>Audience Engagement</strong>: Encourage readers to take action, support the cause, or further explore the topic.</li>
-<li><strong>Next Steps</strong>: Outline how the findings could be applied in the future or how further research could build on this work.</li>
-</ul>
-<p><em>Example</em>: “We recommend that city planners invest in green spaces and pollution-reducing technologies to protect public health.”</p>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">8. Conclusion</h3>
-<ul>
-<li><strong>Purpose</strong>: Recap the main findings and their importance.</li>
-<li><strong>Broader Impact</strong>: Reinforce how this project contributes to a better understanding of the issue at hand and how it might shape future actions or policies.</li>
-</ul>
-<p><em>Example</em>: “By understanding the impacts of pollution on health, we can work together to create healthier, more sustainable cities.”</p>
-</section>
-<section id="final-tips" class="level3">
-<h3 class="anchored" data-anchor-id="final-tips">Final Tips:</h3>
-<ul>
-<li><strong>Keep the language simple and engaging</strong>: Avoid complex terminology or deep dives into methodology unless it’s essential for understanding.</li>
-<li><strong>Use storytelling</strong>: Frame your findings as a narrative that highlights real-world impact and relevance.</li>
-<li><strong>Focus on visual aids</strong>: Non-technical audiences benefit from clear, visual representations of data and findings.</li>
-<li><strong>Relate to everyday life</strong>: Whenever possible, link the research to familiar experiences or commonly understood societal challenges.</li>
-</ul>
-</section>
-</section>
-<section id="case-2-buiness-oriented-projects" class="level2">
-<h2 class="anchored" data-anchor-id="case-2-buiness-oriented-projects">Case-2: Buiness oriented projects</h2>
-<p>Here’s an outline of the sections to include in the report:</p>
-<section id="overview-creating-a-data-science-report-for-non-technical-audiences" class="level3">
-<h3 class="anchored" data-anchor-id="overview-creating-a-data-science-report-for-non-technical-audiences">Overview: Creating a Data Science Report for Non-Technical Audiences</h3>
-<p>When preparing a data science report for <strong>non-technical audiences</strong> like executives, marketing teams, or clients, the focus should be on <strong>clear, actionable insights</strong>. Provide a high-level overview of findings, emphasizing their <strong>business impact</strong> and <strong>strategic relevance</strong> rather than technical details.</p>
-</section>
-<section id="executive-summary" class="level3">
-<h3 class="anchored" data-anchor-id="executive-summary">1. Executive Summary</h3>
-<ul>
-<li><strong>Purpose</strong>: Briefly summarize the key findings and relevance to business goals.</li>
-<li><strong>Key Points</strong>: Highlight the top takeaways in 2-3 sentences.</li>
-<li><strong>Call to Action</strong>: Outline next steps or recommendations.</li>
-</ul>
-<p><em>Example</em>: “This report predicts customer churn rates and offers retention strategies to reduce churn by 15%.”</p>
-</section>
-<section id="objective-1" class="level3">
-<h3 class="anchored" data-anchor-id="objective-1">2. Objective</h3>
-<ul>
-<li><strong>Purpose</strong>: State the problem or question the analysis addresses.</li>
-<li><strong>Business Context</strong>: Explain why this issue matters and its potential business impact.</li>
-</ul>
-<p><em>Example</em>: “This project aims to identify drivers of customer churn. Reducing churn by 5% could boost revenue by $2M.”</p>
-</section>
-<section id="key-insights" class="level3">
-<h3 class="anchored" data-anchor-id="key-insights">3. Key Insights</h3>
-<ul>
-<li><strong>Purpose</strong>: Present the most impactful findings simply.</li>
-<li><strong>Actionable Insights</strong>: Focus on insights that influence decision-making.</li>
-<li><strong>Business Impact</strong>: Explain how insights affect business goals (e.g., cost savings, increased revenue).</li>
-</ul>
-<p><em>Example</em>: “Customers who interact with support at least twice within 30 days are 25% less likely to churn.”</p>
-</section>
-<section id="visualizations-1" class="level3">
-<h3 class="anchored" data-anchor-id="visualizations-1">4. Visualizations</h3>
-<ul>
-<li><strong>Purpose</strong>: Use clear, intuitive graphs to convey key insights quickly.</li>
-<li><strong>Types of Visuals</strong>: Bar charts, line graphs, or heat maps to show trends or comparisons.</li>
-<li><strong>Context</strong>: Ensure visualizations have concise labels and explanations.</li>
-</ul>
-<p><em>Example</em>: A bar chart showing churn likelihood based on customer engagement.</p>
-</section>
-<section id="business-implications" class="level3">
-<h3 class="anchored" data-anchor-id="business-implications">5. Business Implications</h3>
-<ul>
-<li><strong>Purpose</strong>: Explain how findings improve business outcomes.</li>
-<li><strong>Actionable Steps</strong>: Provide specific, actionable recommendations.</li>
-<li><strong>Strategic Relevance</strong>: Align insights with business objectives like revenue growth or cost reduction.</li>
-</ul>
-<p><em>Example</em>: “Focus retention efforts on low-engagement customers through personalized discounts or support.”</p>
-</section>
 <section id="recommendations" class="level3">
-<h3 class="anchored" data-anchor-id="recommendations">6. Recommendations</h3>
-<ul>
-<li><strong>Purpose</strong>: Provide clear, actionable recommendations.</li>
-<li><strong>Next Steps</strong>: Outline immediate actions and timelines.</li>
-<li><strong>Business Projections</strong>: Quantify the impact of recommendations (e.g., increased retention, revenue growth).</li>
-</ul>
-<p><em>Example</em>: “Implement an automated retention campaign, expected to reduce churn by 10%, increasing revenue by $500K annually.”</p>
+<h3 class="anchored" data-anchor-id="recommendations"><strong>Recommendations</strong></h3>
+<p>To address these injustices, reforms must confront both the drivers of wrongful convictions and their far-reaching consequences:</p>
+<ol type="1">
+<li><strong>Strengthen Police Accountability</strong>: Implement independent oversight bodies with the power to investigate and prosecute police misconduct. Increase transparency and enforce zero tolerance for perjury, evidence tampering, and other forms of corruption.<br>
+</li>
+<li><strong>Judicial and Legislative Reforms</strong>: Expedite the review of wrongful convictions through dedicated courts or commissions. Ensure access to legal representation for individuals pursuing exoneration.<br>
+</li>
+<li><strong>Data-Driven Policymaking</strong>: Leverage machine learning and data analysis to identify high-risk counties, monitor patterns of misconduct, and inform targeted reforms.<br>
+</li>
+<li><strong>Community Investment and Restoration</strong>: Redirect resources toward education, mental health services, and economic support for communities most impacted by wrongful convictions. Initiate programs to support exonerees and their families, including financial restitution, housing assistance, and workforce reintegration.</li>
+</ol>
+<p>These measures are essential not only to prevent future miscarriages of justice but also to repair the devastating harm inflicted on individuals, families, and entire communities.</p>
 </section>
-<section id="conclusion-1" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion-1">7. Conclusion</h3>
-<ul>
-<li><strong>Purpose</strong>: Summarize key findings and their business impact.</li>
-<li><strong>Call to Action</strong>: Provide a clear recommendation for next steps.</li>
-</ul>
-<p><em>Example</em>: “Focus on key drivers of churn to reduce customer loss and boost profitability.”</p>
-</section>
-<section id="appendix-optional" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-optional">8. Appendix (Optional)</h3>
-<ul>
-<li><strong>Purpose</strong>: Include additional charts or detailed explanations for those seeking deeper insights.</li>
-<li><strong>Simplified Methods</strong>: Provide non-technical descriptions of models or methods, focusing on their relevance to findings.</li>
-</ul>
-</section>
-<section id="final-tips-1" class="level3">
-<h3 class="anchored" data-anchor-id="final-tips-1">Final Tips</h3>
-<ul>
-<li><strong>Simplicity</strong>: Avoid jargon; focus on business-relevant insights.</li>
-<li><strong>Be Visual</strong>: Use charts or graphs over dense text.</li>
-<li><strong>Emphasize Impact</strong>: Always link data insights to business outcomes.</li>
-</ul>
+<section id="call-to-action" class="level2">
+<h2 class="anchored" data-anchor-id="call-to-action">Call to Action</h2>
+<p>The time for incremental change has passed. Systemic injustices require bold, comprehensive solutions. Policymakers, researchers, and advocates must work together to dismantle the cycles of harm perpetuated by wrongful convictions and over-policing.</p>
+<p>The data is clear: Black men are disproportionately targeted, their lives derailed not by legitimate justice, but by bias, misconduct, and institutional failures. This crisis extends beyond individual cases—it reflects deeply embedded flaws that fracture families, destabilize communities, and erode public trust in the justice system.</p>
+<p>To move forward, we must center impacted voices, address racialized practices in law enforcement and prosecution, and commit to the restoration and healing of harmed communities. Real accountability—both for institutions and individuals—is not optional; it is a moral imperative.</p>
+<p>Justice demands more than apologies or empty promises—it requires action. It is time to transform the system, not as a tool of harm, but as a foundation for equity, dignity, and restoration.</p>
+
 
 
 </section>
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-coates_black_2015" class="csl-entry" role="listitem">
+1. Coates, T.-N. (2015). The <span>Black</span> <span>Family</span> in the <span>Age</span> of <span>Mass</span> <span>Incarceration</span>. <em>The Atlantic</em>. <a href="https://www.theatlantic.com/magazine/archive/2015/10/the-black-family-in-the-age-of-mass-incarceration/403246/">https://www.theatlantic.com/magazine/archive/2015/10/the-black-family-in-the-age-of-mass-incarceration/403246/</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

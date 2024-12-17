@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,14 +93,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../collaborators.html"> 
-<span class="menu-text">Collaborators</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
@@ -113,8 +105,55 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../bibliography.html"> 
+<span class="menu-text">Bibliography</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -123,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -133,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#quarto-tips" id="toc-quarto-tips" class="nav-link active" data-scroll-target="#quarto-tips">Quarto Tips</a>
   <ul class="collapse">
-  <li><a href="#filetypes" id="toc-filetypes" class="nav-link" data-scroll-target="#filetypes">Filetypes</a></li>
+  <li><a href="#file-types" id="toc-file-types" class="nav-link" data-scroll-target="#file-types">File Types</a></li>
   <li><a href="#quarto-includes" id="toc-quarto-includes" class="nav-link" data-scroll-target="#quarto-includes">Quarto Includes</a>
   <ul class="collapse">
   <li><a href="#why-use-quarto-includes" id="toc-why-use-quarto-includes" class="nav-link" data-scroll-target="#why-use-quarto-includes">Why Use Quarto Includes?</a></li>
@@ -143,42 +182,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 
 
 <section id="quarto-tips" class="level1">
 <h1>Quarto Tips</h1>
-<section id="filetypes" class="level2">
-<h2 class="anchored" data-anchor-id="filetypes">Filetypes</h2>
-<p>It is up to you when to use <code>.qmd</code> vs <code>.ipynb</code> to structure your code, however, I would recommend using the following simples rules</p>
-<ul>
-<li><ol type="1">
-<li>If the file has ANY code in it, either <code>R</code> or <code>python</code>, the ALWAYS use <code>.ipynb</code></li>
-</ol></li>
-<li><ol start="2" type="1">
-<li>Do not mix R and Python in the same notebook.</li>
-</ol></li>
-<li><ol start="3" type="1">
-<li>If the file is purely <code>markdown</code> and does not require any code, use <code>.qmd</code></li>
-</ol></li>
-<li><ol start="4" type="1">
-<li>Use Quarto includes to modularize your content. See below for more details. This is also done frequently in the <code>skeleton</code> of the website.</li>
-</ol></li>
-</ul>
+<section id="file-types" class="level2">
+<h2 class="anchored" data-anchor-id="file-types">File Types</h2>
+<p>You can decide when to use <code>.qmd</code> vs <code>.ipynb</code> for structuring your code, but I recommend the following guidelines:</p>
+<ol type="1">
+<li>If the file contains <strong>any code</strong> (either in <code>R</code> or <code>Python</code>), ALWAYS use <code>.ipynb</code>.</li>
+<li>Do not mix <code>R</code> and <code>Python</code> in the same notebook.</li>
+<li>If the file is <strong>purely markdown</strong> without code, use <code>.qmd</code>.</li>
+<li>Use Quarto includes to modularize your content (see below for more details). This is also demonstrated in the project skeleton.</li>
+</ol>
 </section>
 <section id="quarto-includes" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-includes">Quarto Includes</h2>
-<p>If you’re using Quarto, it’s highly recommended to take advantage of <strong>includes</strong> (e.g., <code>{{&lt; include _content.qmd &gt;}}</code>). These are optional but offer powerful benefits in terms of modularization and organization of your content.</p>
+<p>Quarto includes (e.g., <code>{{&lt; include _content.qmd &gt;}}</code>) are highly recommended for modularizing and organizing your content. While optional, they offer several advantages.</p>
+<p><code>Note</code>: You can include a <code>.qmd</code> file in a <code>.ipynb</code> file, but not vice versa.</p>
 <section id="why-use-quarto-includes" class="level3">
 <h3 class="anchored" data-anchor-id="why-use-quarto-includes">Why Use Quarto Includes?</h3>
 <ol type="1">
-<li><p><strong>Modularization</strong>: Breaking your project into smaller, reusable chunks makes it easier to manage complex documents. By separating content into smaller files, you can work on specific sections without altering the entire project.</p></li>
-<li><p><strong>Reusability</strong>: Once you’ve created content blocks using includes, you can reuse them across multiple documents. This is especially helpful for repetitive sections like headers, footers, or standard information blocks.</p></li>
-<li><p><strong>Consistency</strong>: With includes, you ensure uniformity across various documents or sections. If you need to update shared content, you can modify one include file, and the changes will automatically propagate wherever it’s used.</p></li>
-<li><p><strong>Simplifies Collaboration</strong>: In team settings, includes enable different contributors to work on different sections simultaneously, reducing the risk of merge conflicts and making the project easier to maintain.</p></li>
-<li><p><strong>Improves Organization</strong>: Includes help keep your main files clean and focused. Instead of having long, cluttered documents, you can keep things streamlined by loading content from separate, well-organized files.</p></li>
+<li><p><strong>Modularization</strong>: Breaking your project into smaller, reusable chunks simplifies the management of complex documents. You can work on specific sections without altering the entire project.</p></li>
+<li><p><strong>Reusability</strong>: Includes allow you to reuse content blocks across multiple documents, making them ideal for repetitive sections like headers or footers.</p></li>
+<li><p><strong>Consistency</strong>: By using includes, you ensure uniformity across your documents. Updating an include file will automatically apply the changes wherever it’s used.</p></li>
+<li><p><strong>Simplifies Collaboration</strong>: In team settings, includes allow different contributors to work on separate sections simultaneously, reducing merge conflicts and making the project easier to maintain.</p></li>
+<li><p><strong>Improved Organization</strong>: Includes help keep your main files clean and focused by loading content from separate, well-organized files. This makes your project more manageable and easier to navigate.</p></li>
 </ol>
 
 
