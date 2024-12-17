@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -93,14 +113,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../collaborators.html"> 
-<span class="menu-text">Collaborators</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
@@ -113,8 +125,55 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../bibliography.html"> 
+<span class="menu-text">Bibliography</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -123,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -131,24 +190,60 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a>
+  <ul class="collapse">
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a>
+  <ul class="collapse">
+  <li><a href="#arrest-data-precision" id="toc-arrest-data-precision" class="nav-link" data-scroll-target="#arrest-data-precision">Arrest Data Precision</a></li>
+  </ul></li>
+  <li><a href="#benchmarks" id="toc-benchmarks" class="nav-link" data-scroll-target="#benchmarks">Benchmarks</a></li>
+  <li><a href="#conclusion-and-future-steps" id="toc-conclusion-and-future-steps" class="nav-link" data-scroll-target="#conclusion-and-future-steps">Conclusion and Future Steps</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 
 
-<section id="overview" class="level1">
-<h1>Overview</h1>
-<p>On this page, provide an overview/summary of what you do on this page for technical staf, including goals, motivation, and objectivef ()</p>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<section id="challenges" class="level2">
+<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
+<p>The foundation for meaningful data analysis is accurate and reliable crime data, yet long-standing challenges in criminal history record systems continue to undermine their precision and dependability<span class="citation" data-cites="woodard_use_1993"><sup><a href="#ref-woodard_use_1993" role="doc-biblioref">1</a></sup></span>. As outlined in the <strong>Use and Management of Criminal History Record Information Report (1993)</strong>, issues such as incomplete data reporting, delays in recording arrests and case dispositions, and inconsistent fingerprint submissions have plagued the system for decades<span class="citation" data-cites="woodard_use_1993"><sup><a href="#ref-woodard_use_1993" role="doc-biblioref">1</a></sup></span> . Criminal History Record Information (CHRI), the backbone for arrest datasets like those from the Illinois Criminal Justice Information Authority (ICJIA), is vulnerable to these shortcomings. Dispositions, or the outcomes of arrests, are often missing or delayed, leaving critical gaps in the data that make it difficult to analyze systemic trends. While advances in technology, such as digital fingerprinting, have improved some processes, data fragmentation and insufficient oversight remain persistent barriers to comprehensive and accurate reporting.</p>
+<p>Fast forward thirty years, and many of these challenges remain unresolved—now further complicated by uneven implementation of modern systems. The Marshall Project highlights a striking example: in 2022, the FBI’s shift to the <strong>National Incident-Based Reporting System (NIBRS)</strong> created a significant data gap in national crime statistics<span class="citation" data-cites="li_many_2023"><sup><a href="#ref-li_many_2023" role="doc-biblioref">2</a></sup></span>. Over 6,000 police agencies failed to submit their data, representing nearly one-third of all agencies and leaving vast portions of the U.S. population unaccounted for. This includes major departments like the NYPD and LAPD, alongside countless smaller agencies<span class="citation" data-cites="li_many_2023"><sup><a href="#ref-li_many_2023" role="doc-biblioref">2</a></sup></span>. These gaps reflect broader systemic failures—inconsistent adoption of updated systems, lack of adequate funding, and minimal oversight—that echo the same issues identified decades ago.</p>
+<p>In short, crime data, even when sourced from official systems, remains inherently flawed and incomplete. Whether due to outdated processes, inconsistent reporting practices, privacy-driven modifications, or gaps in modern collection systems, crime data often falls short of providing a fully accurate or comprehensive picture. As a result, any analysis relying on this data must account for these imperfections, recognizing that while the data can uncover critical trends and systemic disparities, it is rarely a perfect representation of reality.</p>
+<section id="arrest-data-precision" class="level3">
+<h3 class="anchored" data-anchor-id="arrest-data-precision">Arrest Data Precision</h3>
+<p>The Illinois arrest dataset obtained from the ICJIA Arrest Explorer highlights the trade-offs between privacy and precision, adding to the broader challenges of criminal justice data. To protect confidentiality, counts under 10 are approximated—values between 0 and 4 are replaced with 1, while counts from 5 to 9 are replaced with 6. Though this approach is necessary to safeguard sensitive data, it can introduce distortions, particularly in smaller counties or demographic groups, where even slight approximations can significantly skew trends and reduce the accuracy of analysis. Compounding these issues, the lack of oversight in reporting further undermines data consistency and reliability, reflecting the broader systemic limitations that continue to plague many criminal justice datasets.</p>
+</section>
+</section>
+<section id="benchmarks" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarks">Benchmarks</h2>
+<p>The National Registry of Exonerations is a trusted and widely used resource, frequently cited in academic and legal research. Unlike government databases, the Registry is run by a team of researchers and academics, which brings a level of precision and thoroughness often missing in state-managed systems<span class="citation" data-cites="university_of_california_irvine_newkirk_center_for_science__society_national_mission"><sup><a href="#ref-university_of_california_irvine_newkirk_center_for_science__society_national_mission" role="doc-biblioref">3</a></sup></span>. Its foundation in meticulous documentation and independent research makes it less vulnerable to political or institutional biases. As a result, the Registry stands out as a more reliable and comprehensive tool for understanding wrongful convictions.</p>
+</section>
+<section id="conclusion-and-future-steps" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-and-future-steps">Conclusion and Future Steps</h2>
+<p>The data collected from various sources provide a foundation for examining systemic racial disparities in over-policing and wrongful convictions. However, challenges such as the lack of precision in Illinois arrest datasets and broader gaps in national crime reporting underscore the need to approach findings with caution. Even with these limitations, the use of reliable resources like the National Registry of Exonerations adds credibility to the analysis. Moving forward, future research could focus on compiling crime data from a single state across local, state, and federal agencies to better understand inconsistencies and uncover patterns of underreporting. Expanding this work to compare data collection practices across states could also reveal regional differences in crime reporting and highlight systemic disparities in how data is recorded and shared.</p>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-woodard_use_1993" class="csl-entry" role="listitem">
+1. Woodard, P. L., &amp; Belair, R. R. (1993). Use and <span>Management</span> of <span>Criminal</span> <span>History</span> <span>Record</span> <span>Information</span>: <span>A</span> <span>Comprehensive</span> <span>Report</span> <span></span> <span>Bureau</span> of <span>Justice</span> <span>Statistics</span> [.gov]. In <em>Bureau of Justice Statistics</em>. <a href="https://bjs.ojp.gov/library/publications/use-and-management-criminal-history-record-information-comprehensive-report">https://bjs.ojp.gov/library/publications/use-and-management-criminal-history-record-information-comprehensive-report</a>
+</div>
+<div id="ref-li_many_2023" class="csl-entry" role="listitem">
+2. Li, W., &amp; Ricard, J. (2023). Many <span>Large</span> <span>U</span>.<span>S</span>. <span>Police</span> <span>Agencies</span> <span>Are</span> <span>Missing</span> from <span>FBI</span> <span>Crime</span> <span>Data</span>. In <em>The Marshall Project</em>. <a href="https://www.themarshallproject.org/2023/07/13/fbi-crime-rates-data-gap-nibrs">https://www.themarshallproject.org/2023/07/13/fbi-crime-rates-data-gap-nibrs</a>
+</div>
+<div id="ref-university_of_california_irvine_newkirk_center_for_science__society_national_mission" class="csl-entry" role="listitem">
+3. University of California Irvine Newkirk Center for Science &amp; Society, &amp; Michigan State University College of Law, U. of M. L. S. (2024). The <span>National</span> <span>Registry</span> of <span>Exonerations</span> - <span>Our</span> <span>Mission</span>. In <em>The National Registry of Exonerations</em>. <a href="https://www.law.umich.edu/special/exoneration/Pages/mission.aspx">https://www.law.umich.edu/special/exoneration/Pages/mission.aspx</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

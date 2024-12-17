@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -93,14 +122,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../collaborators.html"> 
-<span class="menu-text">Collaborators</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
@@ -113,8 +134,55 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../technical-details/data-collection/main.html">
  <span class="dropdown-text">Data-collection</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-cleaning/main.html">
+ <span class="dropdown-text">Data-cleaning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/data-balancing/main.html">
+ <span class="dropdown-text">Counterfactual Data Balancing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/eda/main.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/unsupervised-learning/main.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/supervised-learning/main.html">
+ <span class="dropdown-text">Supervised Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/progress-log.html">
+ <span class="dropdown-text">Progress Log</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../technical-details/llm-usage-log.html">
+ <span class="dropdown-text">LLM usage Log</span></a>
+  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../bibliography.html"> 
+<span class="menu-text">Bibliography</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/dsan-5000/project-courtneyrgreen.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -123,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -135,10 +203,15 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#get-started-early" id="toc-get-started-early" class="nav-link" data-scroll-target="#get-started-early">Get started early</a></li>
   <li><a href="#graduate-level-work" id="toc-graduate-level-work" class="nav-link" data-scroll-target="#graduate-level-work">Graduate level work</a></li>
+  <li><a href="#the-intersection-of-skills-and-domain-knowledge" id="toc-the-intersection-of-skills-and-domain-knowledge" class="nav-link" data-scroll-target="#the-intersection-of-skills-and-domain-knowledge">The intersection of skills and domain knowledge</a></li>
+  <li><a href="#what-is-impact" id="toc-what-is-impact" class="nav-link" data-scroll-target="#what-is-impact">What is “impact”?</a></li>
+  <li><a href="#what-makes-a-good-research-project" id="toc-what-makes-a-good-research-project" class="nav-link" data-scroll-target="#what-makes-a-good-research-project">What makes a good research project?</a></li>
+  <li><a href="#time-management" id="toc-time-management" class="nav-link" data-scroll-target="#time-management">Time management</a></li>
   <li><a href="#visualization-guidelines" id="toc-visualization-guidelines" class="nav-link" data-scroll-target="#visualization-guidelines">Visualization guidelines</a></li>
   <li><a href="#coding" id="toc-coding" class="nav-link" data-scroll-target="#coding">Coding</a>
   <ul class="collapse">
-  <li><a href="#practice-first-optional-but-recommended" id="toc-practice-first-optional-but-recommended" class="nav-link" data-scroll-target="#practice-first-optional-but-recommended">Practice First (Optional but Recommended)</a></li>
+  <li><a href="#practice-first" id="toc-practice-first" class="nav-link" data-scroll-target="#practice-first">Practice First</a></li>
+  <li><a href="#prototype-and-develop-on-a-small-data-set" id="toc-prototype-and-develop-on-a-small-data-set" class="nav-link" data-scroll-target="#prototype-and-develop-on-a-small-data-set">Prototype and develop on a small data set</a></li>
   </ul></li>
   <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a></li>
   </ul></li>
@@ -146,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 
@@ -155,25 +228,86 @@ ul.task-list li input[type="checkbox"] {
 <h1>General Tips and Expectations</h1>
 <section id="get-started-early" class="level2">
 <h2 class="anchored" data-anchor-id="get-started-early">Get started early</h2>
-<p>Remember, “slow and steady wins the race.” Making steady, incremental progress on a large project generally makes it more manageable. Rushing to throw something together under a tight deadline often turns the process into a nightmare.</p>
+<p>Remember, <code>slow and steady wins the race</code></p>
+<p>Making steady, incremental progress on a large project generally makes it more manageable. Rushing to throw something together under a tight deadline often turns the process into a nightmare.</p>
 </section>
 <section id="graduate-level-work" class="level2">
 <h2 class="anchored" data-anchor-id="graduate-level-work">Graduate level work</h2>
-<p>This is a graduate-level class, so each project should be viewed as <strong>specifications</strong>, not simple step-by-step requirements.</p>
-<p>Graduate-level work must be creative, individualized, and of high quality. To achieve an A-level grade, you are expected to <strong>exceed</strong> the specifications and <strong>create unique, novel solutions</strong>.</p>
-<ul>
-<li><strong>For example</strong>: If you’re asked to build visualizations to support your data science story, you won’t be told how many or what type of visualizations to create. This is up to you, based on your data and the creativity and quality you want to demonstrate.</li>
-</ul>
+<p>This is a graduate-level class, so each project should be viewed as <strong>specifications</strong>, not simple step-by-step requirements. Graduate-level work must be creative, individualized, and of high quality. To achieve an A-level grade, you are expected to <strong>exceed</strong> the specifications and <strong>create unique, novel solutions</strong>.</p>
+<p><strong>For example</strong>: If you’re asked to build visualizations to support your data science story, you won’t be told how many or what type of visualizations to create. This is up to you, based on your data and the creativity and quality you want to demonstrate.</p>
 <p>We want you to move away from expecting someone else to tell you what to do, how to do it, and how much to do. Instead, you’ll adopt a professional approach—reviewing specifications provided in the assignments, determining what’s needed to <strong>exceed expectations</strong>, and demonstrating professional excellence.</p>
-<ul>
-<li>There are countless ways to approach the project requirements, so be creative and thoughtful. Instructions outline the <strong>minimum</strong> requirements, but exceeding them will elevate the quality of your work.</li>
-</ul>
+<p>There are countless ways to approach the project requirements, so be creative and thoughtful. Instructions outline the <strong>minimum</strong> requirements, but exceeding them will elevate the quality of your work.</p>
 <p><strong>Autonomy and Critical Thinking</strong>:</p>
 <ul>
 <li>In the workplace, step-by-step instructions are rare. You’ll need to interpret broad requirements and deliver professional results. Producing high-quality, accurate work with limited guidance is a key professional skill.</li>
 <li>At this stage, move away from asking, “Do I have to do XYZ?” Instead, critically analyze challenges. If something is unclear, investigate and break it down fundamentally.</li>
 </ul>
 <p>Developing problem-solving skills is crucial. While it’s important to work independently for at least 10–20 minutes, if you’re still stuck after 30 minutes, seek help. Being resourceful is important, but knowing when to ask for assistance is equally valuable.</p>
+</section>
+<section id="the-intersection-of-skills-and-domain-knowledge" class="level2">
+<h2 class="anchored" data-anchor-id="the-intersection-of-skills-and-domain-knowledge">The intersection of skills and domain knowledge</h2>
+<p>“Data science” is essentially a collection of useful computational and mathematical skills (statistics, cloud computing, machine learning, coding, etc). However, to maximize your effectiveness, these skills should be applied to a domain of interest (e.g., materials science, finance, healthcare, etc). Focusing and learning about a particular domain will help you specialize and make you more marketable.</p>
+<p>That beind said, don’t worry about choosing the “perfect” domain—it’s always possible to pivot later, as many of the skills learned, such as problem-solving, critical thinking, and self-education, are transferable across all fields.</p>
+</section>
+<section id="what-is-impact" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-impact">What is “impact”?</h2>
+<p>Impact in science refers to the significance and influence of research, often measured by metrics like citations, impact factor of journals, and indices like h-index. These metrics reflect how widely recognized and valuable the work is within the scientific community. Such quanities are used to compare researchers and journals, and are used to determine grant funding and career opportunities.</p>
+<ul>
+<li><strong>Impact Factor (IF)</strong>:
+<ul>
+<li>A measure of a journal’s influence, calculated by averaging the number of citations to articles published in the journal over the past two years.</li>
+<li>Higher impact factors indicate a more influential journal.</li>
+</ul></li>
+<li><strong>Number of Citations</strong>:
+<ul>
+<li>The total count of how often a researcher’s work is cited by others, reflecting its influence within the scientific community.</li>
+<li>More citations generally signal broader recognition or relevance of the research.</li>
+</ul></li>
+<li><strong>h-index</strong>:
+<ul>
+<li>A metric that measures both productivity and citation impact. An h-index of 10 means a researcher has 10 papers each cited at least 10 times.</li>
+<li>Higher h-index indicates more influential and widely recognized work.</li>
+</ul></li>
+<li><strong>i10-index</strong>:
+<ul>
+<li>Counts the number of a researcher’s publications with at least 10 citations.</li>
+<li>A straightforward measure of citation impact, commonly used by Google Scholar.</li>
+</ul></li>
+<li><strong>Importance of Citations</strong>:
+<ul>
+<li>Citations indicate that other researchers find the work valuable for their own research, increasing its perceived credibility and impact in the field.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-makes-a-good-research-project" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-good-research-project">What makes a good research project?</h2>
+<p>Professional academic or industrial research is all about <strong>discovery, improvement, and novelty</strong>. You don’t necessarily need to have a project that acheive the following, but here are some guidelines for what makes “high impact” projects:</p>
+<p>In no particular order:</p>
+<ul>
+<li><strong>Novel computational tools</strong>: For example, development of a new Python package to tackle a class of problem which doesn’t have an existing suitable tool.</li>
+<li><strong>Creating more user-friendly tools</strong>: For example, there might be a great C++ code, but with no python analogue. Python is easier to use, so if you make a pythonic version of an existing tool, it may get higher adoption, provided it is more or less as efficient to the competitors.</li>
+<li><strong>More efficient tools or methods</strong>: Achieving something 1.25x, 2x, 10x or 10000x faster than existing methods, or creating a new code package that is more efficient than a previous one.</li>
+<li><strong>Novel methods</strong>: A completely new way of doing something (e.g.&nbsp;new classification algorithm)</li>
+<li><strong>Existing methods applied to new domains</strong>: Using established methods to solve problems in a novel domain, e.g.&nbsp;applying a particular classification methodology to a problem or dataset that no one has applied it to before. Extent of impact obviously depends on the importance of the domain or use-case.</li>
+<li><strong>Creation of novel Data Sets</strong>: Provides well-curated, clean datasets that can be used to address important scientific questions or problems.(often more useful if there is an accompanying API)</li>
+<li><strong>New insights or phenomena</strong>: Using data analysis techniques to uncover new insights or patterns that address key questions or problems. For example, discovering overarching governing rules (e.g., differential equations) that describe some observed phenomena.<br>
+</li>
+<li><strong>Solves a Major Problem</strong>: Addresses a critical or unresolved issue in the field, offering a breakthrough or significant advancement.<br>
+</li>
+<li><strong>Robust Data and Methodology</strong>: Employs sound, validated methodologies and high-quality data to ensure credibility and reliability (i.e.&nbsp;doing something rigorously, correctly, and generally better than the competition).</li>
+<li><strong>Interdisciplinary Impact</strong>: Influences multiple fields or areas of study, increasing the breadth of its significance.</li>
+<li><strong>High Citation Potential</strong>: Likely to be widely cited due to its significance, relevance, and applicability across different areas.</li>
+</ul>
+<p>You can, of course, have multiple of these components in a single project, which will increase its prestige.</p>
+<p>This is especially true when conducting academic research. Publications need to be novel and make a unique contribution to the body of human knowledge; otherwise, they will not be highly cited or considered particularly important.</p>
+</section>
+<section id="time-management" class="level2">
+<h2 class="anchored" data-anchor-id="time-management">Time management</h2>
+<p><strong>80-20 Rule</strong>: This rule of thumb suggests that 80% of results come from 20% of causes. In other words, a small number of key factors drive the majority of outcomes. This principle applies to project management, where a few critical steps or decisions often determine the success of a project.</p>
+<p>For example, it might take one week of steady work (30-40 hours) to complete 80% of a project, while the final 20% could take an additional four weeks.</p>
+<blockquote class="blockquote">
+<p>Projects tend to expand to fill the time available. No creative project—whether a book, song, poem, or paper—is ever truly 100% complete. There is an asymptotic limit as <span class="math inline">\(t \rightarrow \infty\)</span>, and true perfection is unattainable. The key is knowing when to “call it done.” This might happen at 95% or 99% completion, but eventually, we all have to stop. Strive to take this project as far as possible, but remember to stop and “call it done” at some point.</p>
+</blockquote>
 </section>
 <section id="visualization-guidelines" class="level2">
 <h2 class="anchored" data-anchor-id="visualization-guidelines">Visualization guidelines</h2>
@@ -182,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Choose the right chart type</strong>: Match the chart to the data (e.g., bar for categories, line for trends).</li>
 <li><strong>Maintain simplicity</strong>: Avoid clutter and focus on the essential message.</li>
 <li><strong>Use appropriate scales</strong>: Ensure axes have correct and intuitive scaling to avoid misinterpretation.</li>
-<li><strong>Label axes clearly</strong>: Include meaningful axis labels with units (e.g., “Temperature (°C)” or “Revenue ($)”).</li>
+<li><strong>Label axes clearly</strong>: Include meaningful axis labels with units (e.g., “Temperature (°C)” or “Revenue (USD)”).</li>
 <li><strong>Include descriptive titles</strong>: Provide a concise, informative title that explains the visualization’s main takeaway.</li>
 <li><strong>Ensure consistency</strong>: Use uniform color schemes, fonts, and styles across all charts in a presentation.</li>
 <li><strong>Highlight key data</strong>: Use contrasting colors or annotations to draw attention to important points or trends.</li>
@@ -194,10 +328,30 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="coding" class="level2">
 <h2 class="anchored" data-anchor-id="coding">Coding</h2>
-<section id="practice-first-optional-but-recommended" class="level3">
-<h3 class="anchored" data-anchor-id="practice-first-optional-but-recommended">Practice First (Optional but Recommended)</h3>
+<section id="practice-first" class="level3">
+<h3 class="anchored" data-anchor-id="practice-first">Practice First</h3>
 <p>While not required, practice is highly beneficial. It’s also a good habit to write your code from scratch, as this will build your problem-solving skills. You can use the code provided by professors as a reference, but always strive to write your own. Starting with a blank page is a valuable practice.</p>
 <p>To get comfortable with the methods, review and modify the R and Python codes provided in class. Try applying these to your project data and experiment with creating small toy datasets, such as a CSV file or a text corpus. This helps you understand the structure of the data and what the algorithms are doing.</p>
+</section>
+<section id="prototype-and-develop-on-a-small-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="prototype-and-develop-on-a-small-data-set">Prototype and develop on a small data set</h3>
+<p>If you have big data, ALWAYS prototype on a small subset of the data, so that your code runs fast so that you can develop quickly, without waiting several minutes for each code cell to run. Do this by including a downsampling hyper-parameter at the beginning of your code, e.g.&nbsp;0.1. When the code is robust and finalized, you can set the downsampling factor to 1, run it on the complete data set, and let your computer run overnight.</p>
+<p>It is not a crazy idea to do a “trial run” of the project first from start to finish with a very basic dataset, e.g.&nbsp;penguins,diabetes, or iris. Make sure the “toy” data set is similar to your planned real world data set, for example, if you are planning an NLP project, don’t use a image dataset for your development process.</p>
+<p>This will have the following benefits:</p>
+<ol type="1">
+<li><strong>Clarifies Workflow</strong>: Understand the complete process from start to finish.</li>
+<li><strong>Identifies Challenges</strong>: Spot potential issues early on.</li>
+<li><strong>Validates Assumptions</strong>: Ensure methods and approaches are suitable.</li>
+<li><strong>Enhances Skills</strong>: Improve technical skills through practice.</li>
+<li><strong>Builds Confidence</strong>: Familiarity with tools and techniques.</li>
+<li><strong>Refines Methods</strong>: Test and optimize analytical strategies.</li>
+<li><strong>Estimates Resources</strong>: Better planning for time and resource allocation.</li>
+<li><strong>Facilitates Communication</strong>: Clearly convey project goals and outcomes.</li>
+<li><strong>Documents Process</strong>: Create a reference for reproducibility.</li>
+<li><strong>Gathers Early Feedback</strong>: Obtain input for adjustments before full implementation.</li>
+</ol>
+<p><a href="https://scikit-learn.org/1.5/datasets/toy_dataset.html">https://scikit-learn.org/1.5/datasets/toy_dataset.html</a></p>
+<p>Once that is working as a starter <code>code-base</code> you can swap it out for your full data later and start developing further for a more realistic real world project .</p>
 </section>
 </section>
 <section id="debugging" class="level2">
