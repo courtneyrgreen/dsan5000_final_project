@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>report – DSAN-5000: Project</title>
+<title>DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -143,6 +143,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../bibliography.html"> 
 <span class="menu-text">Bibliography</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../appendix.html"> 
+<span class="menu-text">Appendix</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -150,9 +154,13 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://crg123.georgetown.domains/"> 
+<span class="menu-text">Back to Portfolio</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -187,13 +195,6 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="final-report" class="level1">
 <h1>Final Report</h1>
-<p><strong>Audio instructions:</strong></p>
-<p>If you want, you can listen to the instructions:</p>
-<audio controls="">
-<source src="../audio/report-page.mp3" type="audio/mpeg">
-</audio>
-<p><sup> <strong>Source</strong>: Text-to-speech conversion done with Amazon Polly on AWS </sup></p>
-<p><code>Note</code>: These audio instructions should not be included in your final submission or repository, once you are done wiht them, please delete the files and remove them from the website.</p>
 <p>This report is designed for a <strong>non-technical audience</strong> (e.g., the general public, executives, marketing teams, or clients), focusing on <strong>high-level insights</strong>, <strong>actionable results</strong>, and <strong>visualizations</strong> to convey the impact without requiring technical knowledge. The goal is to highlight how a model affects business strategy or revenue without diving into complex methods.</p>
 <section id="guidelines-for-creating-a-good-narrative" class="level2">
 <h2 class="anchored" data-anchor-id="guidelines-for-creating-a-good-narrative">Guidelines for Creating a Good Narrative</h2>
@@ -247,6 +248,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Visual Focus</strong>: Prioritize charts and graphs over dense text.</li>
 <li><strong>Emphasize Impact</strong>: Always link data insights to business outcomes.</li>
 </ul>
+<p>[IMAGE OF AGE]</p>
+<p>The mass incarceration of Black men has long been known to destabilize the Black nuclear family, tearing apart households and perpetuating cycles of poverty and generational harm. However, the data here highlights an even more egregious reality: these are wrongful convictions—men who were never supposed to be incarcerated in the first place. This adds another layer of injustice, as the very systems meant to uphold justice instead destroy lives through racialized biases in policing, prosecution, and sentencing [coates_black_2015].</p>
+<p>These exonerations expose how wrongful convictions don’t just fracture individual lives; they break apart families and leave mothers to shoulder the burden of single-parenting, while children suffer trauma, educational setbacks, and weakened family bonds. Financial strain from lost income, legal fees, and post-incarceration barriers only deepens this harm, perpetuating generational instability.</p>
+<p>What this underscores is that wrongful convictions are not isolated mistakes—they reflect a broader system that functions to target, oppress, and disintegrate Black communities under the guise of justice. Addressing this crisis demands systemic reforms that both confront these racialized injustices and repair the profound harm inflicted by unjust imprisonment.</p>
 
 
 </section>
@@ -288,7 +293,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -320,29 +336,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -350,7 +344,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

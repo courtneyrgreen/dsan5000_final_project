@@ -1,6 +1,6 @@
 ---
 title: "Literature Review"
-bibliography: references.bib
+bibliography: ../references.bib
 ---
 
 # Informal Literature Review

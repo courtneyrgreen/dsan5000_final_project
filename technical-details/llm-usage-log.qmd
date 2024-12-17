@@ -37,3 +37,5 @@ Text summarization
 Proofreading
 chatGPT for project brainstorming
 Using LLM tools to comment your code qualifies as an acceptible use case in this project
+
+USED FOR DESIGNING WEBSITE, and tthe scss and css file, we were never tauthgt how to do tht 
