@@ -21,10 +21,11 @@ LLM tools were used in the following way for the tasks below
 
 ## Writing: 
 
-* Reformating text from bulleted lists into proses 
-* Proofreading
-* Text summarization for literature review 
+* proofreading 
+* grammarly 
+
 
 ## Code: 
 
 * Code commenting and explanatory documentation 
+* used for geospatial eda - haven't learned that in class yet and am not in GIS
