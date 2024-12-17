@@ -23,9 +23,17 @@ LLM tools were used in the following way for the tasks below
 
 * proofreading 
 * grammarly 
+* i initially wrote a lot of my code prose explanatoions in first person before realizing research is I think suppose dto be in third person so I used hatgpt to convert
 
 
 ## Code: 
 
 * Code commenting and explanatory documentation 
 * used for geospatial eda - haven't learned that in class yet and am not in GIS
+
+re-formating text with LLM tools.
+Code explaination “describe what this code is doing in prose”
+Text summarization
+Proofreading
+chatGPT for project brainstorming
+Using LLM tools to comment your code qualifies as an acceptible use case in this project
