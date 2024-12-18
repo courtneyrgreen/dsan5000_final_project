@@ -3,10 +3,12 @@ project:
   resources:
     - images
     - data
+    - "!xtra/**"
+
   render:
     - "*.qmd"
     - "*.ipynb"
-    - "!xtra"
+    - "!xtra/**"
 
 website:
   title: "DSAN-5000: Project"
@@ -51,8 +53,8 @@ format:
     theme:
       - lux
       - styles.scss
-    bibliography:   ./assets/references.bib
-    csl:  ./assets/apa-numeric-superscript.csl
+    bibliography: assets/references.bib
+    csl:  assets/apa-numeric-superscript.csl
     toc: true
     toc-depth: 3 
     page-layout: full 

@@ -57,21 +57,44 @@ This report investigates systemic failures in Illinois' criminal justice system,
 
 ---
 
-## 5. Age Distribution of Exonerees by Race  
+## 5. Overrepresentation Ratios by County  
+![Overrepresentation Ratios by County](../images/overrepresentation_rations_by_county.png)  
+
+- **Insight**: Black and Latino populations are significantly overrepresented in incarceration rates across Illinois counties. The map highlights systemic disparities, particularly in counties with higher urban populations and historical patterns of policing bias. White populations, by contrast, remain largely underrepresented in incarceration rates. These findings emphasize racial inequities in the justice system at a county level.  
+
+---
+
+## 6. Disproportionality Index: Exonerations vs. Arrests by Race  
+![Disproportionality Index - Arrests](../images/disproportionality_index_exon_v_arrests.png)  
+
+- **Insight**: Exonerations compared to arrests highlight the front-end failures in the justice system. Black individuals have a disproportionality index exceeding **1.6**, meaning they experience wrongful convictions at rates far higher than their arrest frequency would suggest. This points to over-policing and biased arrest practices that disproportionately affect Black communities. White individuals, in contrast, have a disproportionality index well below parity, suggesting fewer wrongful arrests and more favorable outcomes. These trends emphasize systemic bias in policing practices, where wrongful convictions are more likely to result from unjustified or excessive arrests among marginalized populations.  
+
+---
+
+## 7. Disproportionality Index: Exonerations vs. Incarcerated Population by Race  
+![Disproportionality Index - Incarceration](../images/disproportionality_index_exon_v_incarcerated.png)  
+
+- **Insight**: The Disproportionality Index comparing exonerations to the incarcerated population underscores deeper systemic inequities within the justice process. The dashed line at **1.0** represents parity—where exonerations align proportionally with incarceration rates. For Black individuals, the index value significantly exceeds **1.8**, indicating extreme overrepresentation in wrongful convictions relative to incarceration rates. This suggests systemic issues, such as biased investigations, sentencing disparities, and racial profiling, disproportionately impacting Black communities.
+
+Hispanic individuals show an index value below that of Black individuals but above White populations, indicating some disproportionality but to a lesser extent. White individuals have the lowest index value, well below **1.0**, suggesting fewer wrongful convictions or more favorable systemic outcomes. Together, these findings highlight racial disparities across the justice system, where Black individuals face the greatest burden of wrongful incarceration.  
+
+---
+
+## 8. Age Distribution of Exonerees by Race  
 ![Age Distribution](../images/age_distribution_by_race.png)  
 
 - **Insight**: Wrongful convictions primarily impact Black men aged **20-30**, a period critical for family stability, career development, and education. This age-based harm perpetuates cycles of poverty and systemic trauma, further marginalizing affected individuals and communities.   
 
 ---
 
-## 6. Breakdown of Official Misconduct by Race  
+## 9. Breakdown of Official Misconduct by Race  
 ![Breakdown of Misconduct](../images/breakdown_of_OM_by_race.png)  
 
 - **Insight**: Black individuals are overwhelmingly impacted by police misconduct, including perjury, false accusations, and suppression of evidence. This pattern reinforces systemic racial bias in the justice process and raises calls for enhanced accountability and oversight mechanisms within law enforcement.   
 
 ---
 
-## 7. Predicted Probabilities of Wrongful Conviction  
+## 10. Predicted Probabilities of Wrongful Conviction  
 
 **By County**  
 ![Predicted Probabilities - Counties](../images/predicted_prob_county.png)  
@@ -86,14 +109,14 @@ This report investigates systemic failures in Illinois' criminal justice system,
 
 ---
 
-## 8. K-Means Clustering Results  
+## 11. K-Means Clustering Results  
 ![K-Means Clustering](../images/k_means.png)  
 
 - **Insight**: Cluster analysis reveals clear groupings of cases based on racial, geographic, and misconduct-related factors. Notably, clusters with higher concentrations of Black exonerees correlate with misconduct-prone counties, highlighting systemic racial targeting within these jurisdictions.  
 
 ---
 
-## 9. Dimensionality Reduction Results  
+## 12. Dimensionality Reduction Results  
 ![Dimensionality Reduction](../images/dimensionality_reduction.png)  
 
 - **Insight**: Principal Component Analysis (PCA) and t-SNE visualizations reveal distinct patterns across racial and geographic dimensions. These visualizations demonstrate that race is a key driver in wrongful convictions, particularly for Black and Hispanic populations. Misconduct cases show dense clustering, indicating systemic patterns rather than isolated incidents.   
@@ -112,12 +135,12 @@ This data exposes what many have long understood: wrongful convictions are not r
 
 The evidence is clear. Black individuals face disproportionate harm from wrongful convictions and over-policing, a reality compounded by systemic patterns of police misconduct. Cook County emerges as a glaring epicenter of these failures, but the problem is not confined to a single geography. Across Illinois, racial inequities in the justice system remain deeply entrenched.  
 
-### **Key Findings**  
+### Key Findings  
 1. Black individuals are disproportionately targeted, incarcerated, and wrongfully convicted.  
 2. Police misconduct—perjury, evidence tampering, and suppression—is a key driver of these injustices.  
 3. While Cook County dominates the data, smaller counties also reveal patterns of systemic bias and misconduct.  
 
-### **Recommendations**  
+### Recommendations  
 To address these injustices, reforms must confront both the drivers of wrongful convictions and their far-reaching consequences:  
 
 1. **Strengthen Police Accountability**: Implement independent oversight bodies with the power to investigate and prosecute police misconduct. Increase transparency and enforce zero tolerance for perjury, evidence tampering, and other forms of corruption.  
@@ -133,6 +156,6 @@ The time for incremental change has passed. Systemic injustices require bold, co
 
 The data is clear: Black men are disproportionately targeted, their lives derailed not by legitimate justice, but by bias, misconduct, and institutional failures. This crisis extends beyond individual cases—it reflects deeply embedded flaws that fracture families, destabilize communities, and erode public trust in the justice system.  
 
-To move forward, we must center impacted voices, address racialized practices in law enforcement and prosecution, and commit to the restoration and healing of harmed communities. Real accountability—both for institutions and individuals—is not optional; it is a moral imperative.  
+To move forward, it's necessary to scenter impacted voices, address racialized practices in law enforcement and prosecution, and commit to the restoration and healing of harmed communities. Real accountability—both for institutions and individuals—is not optional; it is a moral imperative.  
 
 Justice demands more than apologies or empty promises—it requires action. It is time to transform the system, not as a tool of harm, but as a foundation for equity, dignity, and restoration.  

@@ -9,7 +9,9 @@ format:
 bibliography: references.bib
 ---
 
-Chicago serves as both a microcosm and a magnifying glass for the systemic failures embedded in the U.S. criminal justice system. For five consecutive years, the city has led the nation in exonerations, a grim testament to entrenched racial bias, police misconduct, and flawed policing practices [@wttwChicagoRanks]. Yet, Chicago is more than an anomaly—it is a focal point within a broader, statewide crisis.  
+## Introduction & Motivation
+
+Chicago serves as both a microcosm and a magnifying glass for the systemic failures embedded in the U.S. criminal justice system. For five consecutive years, the city has led the nation in exonerations, a grim testament to entrenched racial bias, police misconduct, and flawed policing practices [@wttwChicagoRanks]. Yet, Chicago is more than an anomaly—it is a focal point within a broader, statewide crisis, and a reflection of nationwide patterns.   
 
 This project expands the lens to examine Illinois as a whole, using Chicago as a critical case study to investigate how wrongful convictions and over-policing disproportionately devastate Black and Latino communities. By analyzing exoneration patterns, arrest rates, incarceration data, and demographics at the county level, this work uncovers the ways systemic injustices ripple across Illinois. Chicago’s staggering share of exonerations exposes the extreme, but it also reflects a deeper, structural issue that transcends city limits.  
 

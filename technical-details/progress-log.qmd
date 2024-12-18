@@ -1,74 +1,110 @@
 ---
 title: "Progress log"
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
 ---
 
 ## Weekly Progress:
 
 **Tue: 10-20-2024**
+
 * [x] Decided on a project topic related to criminal justice reform, narrowing focus to over-policing, race, and poverty in Chicago.  
 * [x] Logged my goal for this project and why the topic is extremely significant in project-planning.qmd. 
 
+
 **Wed: 10-30-2024**
+
 * [x] Started the literature review by summarizing and analyzing key sources, including research on over-policing, wrongful convictions, and socioeconomic factors that contribute to disparities in Chicago's criminal justice system.
 
+
 **Tue: 11-05-2024**
+
 * [x] Continued review of literature, focusing on research about over-policing, racial disparities, and socioeconomic factors contributing to policing dynamics.
 * [x] Summarized and analyzed key sources using LLM, including comprehensive studies on systemic biases, police misconduct, wrongful convictions, and socioeconomic determinants of crime.
 * [x] Added detailed notes from sources to my `literature review.qmd` file, focusing on findings relevant to Chicago, such as socioeconomic disparities, racial disparities, and historical context.
 * [x] Created a `references.bib` and added references from literature review to ensure proper citation for each source, integrating new academic and news sources into my project plan.
 * [x] Documented and expanded key insights from sources to inform project direction.
 
+
 **Fri: 11-08-2024**
+
 * [x] Met with Prof. Jacobs to discuss project topic.
 
+
 **Mon: 11-11-2024**
+
 * [x] Met with Prof. Jacobs to go over datasets and ask research questions.
 * [x] Selected datasets related to over-policing, race, and exonerations in Illinois.
 
+
 **Thurs: 11-21-2024**
+
 * [x] Loaded in datasets and started cleaning exoneration data.
 
+
 **Mon: 11-25-2024**
+
 * [x] Office Hours with Prof. Jacobs to go over possibilities for supervised and unsupervised learning. 
 
+
 **Thurs: 11-28-2024**
+
 * [x] Finished Cleaning exoneration data.
 * [x] Created about me page for multiclass-portfolio website.
 
+
 **Sun: 12-1-2024**
+
 * [x] Completed multi-class-portfolio website rough draft and pushed to GU domains.
 * [x] Added in-line prose to data-cleaning exoneration data to explain data cleaning process.
 * [x] Started EDA, beginning with a GIS to analyze the locations of arrests and exonerees. 
 
+
 **Tues: 12-3-2024**
+
 * [x] Met with professor Jacobs to answer questions about my EDA and normalization/scaling + sharing misconduct results + help with supervised learning.
 * [x] Completed EDA (still have to add in-text prose to explain).
 
+
 **Sun: 12-8-2024**
+
 * [x] Creation of Exoneration Counterfactuals.
 * [x] Completed Supervised Learning (still have to add in-text prose to explain).
 
+
 **Mon: 12-9-2024**
+
 * [x] Restructured EDA to improve narrative flow and added missing visualizations.
 * [x] Added detailed explanation prose for EDA insights.
 * [x] Finalized analysis of geospatial data, ensuring clear findings on wrongful convictions and over-policing trends.
 
+
 **Wed: 12-11-2024**
+
 * [x] Started unsupervised learning models to explore clustering patterns in wrongful conviction data.
 * [x] Completed first draft of unsupervised learning results.
 * [x] Added explanation prose for K-means clustering and PCA visualizations.
 
+
 **Fri: 12-13-2024**
+
 * [x] Edited and refined supervised learning section, adding explanation prose for predictive models.
 * [x] Created a new landing page for the multi-class portfolio website to improve project presentation.
 * [x] Integrated new visuals and insights into the project report.
 
+
 **Sun: 12-15-2024**
+
 * [x] Continued editing project report for clarity, coherence, and structure.
 * [x] Updated and expanded sections in multi-class portfolio website.
 * [x] Proofread all project components, ensuring readiness for submission.
 
+
 **Mon: 12-16-2024**
+
 * [x] Finalized project report, including recommendations and call-to-action section.
 * [x] Made final edits to multi-class portfolio website and pushed to GU domains.
 * [x] Reviewed all deliverables for consistency and completeness, including the progress log and usage transparency pages.
