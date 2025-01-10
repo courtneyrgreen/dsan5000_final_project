@@ -3,12 +3,12 @@ project:
   resources:
     - images
     - data
-    - "!xtra/**"
+    - "!multiclass-portfolio-website/**"
 
   render:
     - "*.qmd"
     - "*.ipynb"
-    - "!xtra/**"
+    - "!multiclass-portfolio-website/**"
 
 website:
   title: "DSAN-5000: Project"
@@ -44,7 +44,7 @@ website:
         text: Appendix
     right:
       - icon: github
-        href: "https://github.com/dsan-5000/project-courtneyrgreen.git"
+        href: "https://github.com/courtneyrgreen/dsan5000_final_project"
       - text: "Back to Portfolio"
         href: "https://crg123.georgetown.domains/"
 
