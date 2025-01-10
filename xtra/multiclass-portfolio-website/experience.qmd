@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Experience"
 toc: true
@@ -65,3 +66,72 @@ Washington, DC
 - Developed and maintained a legislative tracker monitoring congressional floor activity, regulatory actions, and the Biden Administration’s policies.  
 
 `Policy Analysis` `Legislative Research` `Cybersecurity` `Risk Assessment` `Qualitative Analysis`
+=======
+---
+title: "Experience"
+toc: true
+toc-location: right
+toc-depth: 2
+---
+
+## [Georgetown Prisons & Justice Initiative](https://prisonsandjustice.georgetown.edu/){target="_blank"}  
+### Scholars Program Associate
+**Oct 2024 – Present**  
+Washington, DC  
+
+- Provide support for PJI’s prison education programs, offering a Georgetown education to incarcerated students at the DC Jail and Patuxent Institution.  
+- Maintain and organize datasets related to program operations and performance; conduct data analysis to inform program development and report key performance metrics to the DC Department of Corrections (DCDC).  
+- Assist in creating and refining database structures and processes for more effective data collection and visualization, contributing to long-term program sustainability and data-driven decision-making.  
+
+`Program Support` `Data Analysis` `Database Management` `Performance Metrics` `Sustainability Planning`
+
+
+## [EVgo](https://www.evgo.com/){target="_blank"}  
+### Market Development & Public Policy Intern
+**Jun 2024 – Aug 2024** · 3 mos  
+Washington DC-Baltimore Area  
+
+- Worked to secure government support through the 30C tax credit and optimize the utilization of National Electric Vehicle Infrastructure (NEVI) program funds.  
+- Engaged in policy research on electricity rate design, charger reliability, state funding initiatives, and regulatory frameworks to support charging infrastructure development.  
+- Assisted in the application process for loans through the Department of Energy’s Title 17 Clean Financing program, conducting in-depth research and analysis to support EVgo’s infrastructure growth.  
+
+`Clean Technology` `Policy Research` `Government Funding` `Infrastructure Development` `Regulatory Compliance`
+
+
+## [Xapa](https://www.xapa.com/){target="_blank"}  
+### Advisory Council Member
+**Feb 2023 – May 2024** · 1 yr 4 mos  
+San Francisco Bay Area   
+
+- Actively participated in board meetings, stimulating productive discussions on strategy, growth, and leadership to drive the platform's success.  
+- Collaborated with leading authors to curate and package their content, playing a key role in the launch of an efficient creator economy.  
+- Offered valuable recommendations based on the Gen Z perspective, providing unique insights and strategic guidance tailored to the preferences and needs of the intended demographic.  
+
+`Strategic Planning` `Content Curation` `Creative Economy` `Leadership Development` `Generational Insights`
+
+
+## [VOX Global](https://voxglobal.com/){target="_blank"} 
+### Public Affairs Intern
+**May 2023 – Aug 2023** · 4 mos  
+Washington, DC  
+
+- Conducted comprehensive client audits, analyzing diverse data sources to provide strategic insights and recommendations.  
+- Compiled and summarized daily news coverage into concise intelligence reports, informing client communications and strategy development.  
+- Monitored and tracked CSR and ESG initiatives across multiple companies, contributing to stakeholder engagement efforts.  
+- Led communications initiatives for a Fortune 500 company, including managing their internal newsletter to improve engagement.  
+
+`Public Affairs` `Client Strategy` `Corporate Social Responsibility (CSR)` `Environmental, Social, and Governance (ESG)` `Internal Communications`
+
+
+## [Mindset](https://mindsetdc.com/){target="_blank"}
+### Policy Research Intern
+**Jun 2021 – Aug 2022** · 1 yr 3 mos  
+Washington, DC  
+
+- Drafted and revised client-facing deliverables, including policy states of play, side-by-side legislative comparisons, and policy outlook analyses.  
+- Analyzed risks and opportunities across industries such as technology, energy, transportation, telecommunications, healthcare, and financial services.  
+- Conducted quantitative and qualitative research on cybersecurity and privacy, supporting comprehensive policy evaluations.  
+- Developed and maintained a legislative tracker monitoring congressional floor activity, regulatory actions, and the Biden Administration’s policies.  
+
+`Policy Analysis` `Legislative Research` `Cybersecurity` `Risk Assessment` `Qualitative Analysis`
+>>>>>>> 4be723809d81b45c5a994482524a656c24d8adea

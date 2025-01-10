@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Bibliography"
 bibliography: references.bib  
@@ -8,3 +9,15 @@ nocite: |
   @*  
 csl: ./assets/apa-numeric-superscript.csl
 ---
+=======
+---
+title: "Bibliography"
+bibliography: references.bib  
+format: 
+  html:
+    embed-resources: true
+nocite: |
+  @*  
+csl: ./assets/apa-numeric-superscript.csl
+---
+>>>>>>> 4be723809d81b45c5a994482524a656c24d8adea
