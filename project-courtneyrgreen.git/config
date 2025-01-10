@@ -8,3 +8,4 @@
 	url = https://github.com/dsan-5000/project-courtneyrgreen.git
 	fetch = +refs/*:refs/*
 	mirror = true
+	pushurl = https://github.com/courtneyrgreen/dsan5000_final_project.git
