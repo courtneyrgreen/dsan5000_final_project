@@ -1,0 +1,27 @@
+---
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+bibliography: ../../references.bib
+---
+
+# Summary
+
+## Challenges  
+The foundation for meaningful data analysis is accurate and reliable crime data, yet long-standing challenges in criminal history record systems continue to undermine their precision and dependability [@woodard_use_1993]. As outlined in the **Use and Management of Criminal History Record Information Report (1993)**, issues such as incomplete data reporting, delays in recording arrests and case dispositions, and inconsistent fingerprint submissions have plagued the system for decades [@woodard_use_1993] . Criminal History Record Information (CHRI), the backbone for arrest datasets like those from the Illinois Criminal Justice Information Authority (ICJIA), is vulnerable to these shortcomings. Dispositions, or the outcomes of arrests, are often missing or delayed, leaving critical gaps in the data that make it difficult to analyze systemic trends. While advances in technology, such as digital fingerprinting, have improved some processes, data fragmentation and insufficient oversight remain persistent barriers to comprehensive and accurate reporting.  
+
+Fast forward thirty years, and many of these challenges remain unresolved—now further complicated by uneven implementation of modern systems. The Marshall Project highlights a striking example: in 2022, the FBI’s shift to the **National Incident-Based Reporting System (NIBRS)** created a significant data gap in national crime statistics [@li_many_2023]. Over 6,000 police agencies failed to submit their data, representing nearly one-third of all agencies and leaving vast portions of the U.S. population unaccounted for. This includes major departments like the NYPD and LAPD, alongside countless smaller agencies [@li_many_2023]. These gaps reflect broader systemic failures—inconsistent adoption of updated systems, lack of adequate funding, and minimal oversight—that echo the same issues identified decades ago.  
+
+In short, crime data, even when sourced from official systems, remains inherently flawed and incomplete. Whether due to outdated processes, inconsistent reporting practices, privacy-driven modifications, or gaps in modern collection systems, crime data often falls short of providing a fully accurate or comprehensive picture. As a result, any analysis relying on this data must account for these imperfections, recognizing that while the data can uncover critical trends and systemic disparities, it is rarely a perfect representation of reality.  
+
+### Arrest Data Precision  
+The Illinois arrest dataset obtained from the ICJIA Arrest Explorer highlights the trade-offs between privacy and precision, adding to the broader challenges of criminal justice data. To protect confidentiality, counts under 10 are approximated—values between 0 and 4 are replaced with 1, while counts from 5 to 9 are replaced with 6. Though this approach is necessary to safeguard sensitive data, it can introduce distortions, particularly in smaller counties or demographic groups, where even slight approximations can significantly skew trends and reduce the accuracy of analysis. Compounding these issues, the lack of oversight in reporting further undermines data consistency and reliability, reflecting the broader systemic limitations that continue to plague many criminal justice datasets.  
+
+## Benchmarks  
+The National Registry of Exonerations is a trusted and widely used resource, frequently cited in academic and legal research. Unlike government databases, the Registry is run by a team of researchers and academics, which brings a level of precision and thoroughness often missing in state-managed systems [@university_of_california_irvine_newkirk_center_for_science__society_national_mission]. Its foundation in meticulous documentation and independent research makes it less vulnerable to political or institutional biases. As a result, the Registry stands out as a more reliable and comprehensive tool for understanding wrongful convictions.  
+
+
+## Conclusion and Future Steps
+The data collected from various sources provide a foundation for examining systemic racial disparities in over-policing and wrongful convictions. However, challenges such as the lack of precision in Illinois arrest datasets and broader gaps in national crime reporting underscore the need to approach findings with caution. Even with these limitations, the use of reliable resources like the National Registry of Exonerations adds credibility to the analysis. Moving forward, future research could focus on compiling crime data from a single state across local, state, and federal agencies to better understand inconsistencies and uncover patterns of underreporting. Expanding this work to compare data collection practices across states could also reveal regional differences in crime reporting and highlight systemic disparities in how data is recorded and shared.

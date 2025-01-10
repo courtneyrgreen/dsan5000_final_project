@@ -1,0 +1,68 @@
+---
+title: "LLM Usage Log"
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+---
+
+This page serves as a "catch-all" for LLM use cases that don’t involve direct content creation but support the project in other capacities, such as reformatting ideas, commenting code, summarizing sources, and geospatial analysis.
+
+LLM tools were used in the following ways for the tasks below:
+
+## Brainstorming
+
+* I initially conceived my project idea focusing on over-policing and the intersection of race and poverty, a topic I’ve always been passionate about. LLM tools helped me refine and narrow the scope to a specific locality—Chicago—to create a more actionable and measurable project.
+
+## Literature Review
+
+LLM tools significantly enhanced my literature review process by allowing me to:
+
+- **Summarize key academic and news sources**: ChatGPT assisted in extracting and summarizing core insights from research papers, ensuring the integration of multiple perspectives on racial disparities, socioeconomic factors, and over-policing.
+- **Highlight key findings**: I utilized LLM tools to identify relevant data on wrongful convictions, income inequality, and police misconduct.
+- **Structure the literature review**: The LLM helped reorganize summaries and synthesize the literature into a cohesive narrative, making complex studies more accessible for integration into my project.
+- **Manage citations**: LLM tools supported the creation of structured citation summaries, facilitating the development of the `references.bib` file.
+
+These applications enabled me to streamline the review process and focus on critical themes like systemic racial biases, socioeconomic vulnerabilities, and justice system reform.
+
+
+## Writing
+
+LLM tools supported the writing process in acceptable use cases:
+
+- **Proofreading and grammar**: Grammarly reviewed my text for clarity, grammar, and coherence to ensure professional and academic standards were met.
+- **Voice consistency**: Initially, I wrote much of my prose in first person. I used LLM tools to convert explanations and analyses into the third person for a formal research tone.
+- **Reformatting content**: ChatGPT helped restructure lengthy or disjointed sections to improve readability and logical flow.
+
+
+## Code
+
+LLM tools were utilized for technical tasks, including:
+
+- **Code commenting and documentation**: I used LLM tools to generate clear explanations for code sections and functions.
+- **Geospatial EDA**: Since geospatial analysis was not covered in class, LLM tools assisted in guiding me through exploratory data analysis for mapping wrongful convictions and arrest patterns.
+- **Reformatting and explaining code**: ChatGPT translated technical code logic into descriptive prose, making it easier to incorporate into the project narrative.
+- **Debugging support**: LLM tools were occasionally used to identify and resolve errors in my Python code.
+
+These applications ensured that my code was well-documented, accessible, and accurate, particularly in unfamiliar areas like GIS-based EDA.
+
+## Design
+
+LLM tools were used for designing and developing the project website, including:
+
+- **HTML and CSS**: ChatGPT supported the creation and refinement of the SCSS and CSS files required for the website design.
+- **Structural layout**: I received guidance on structuring the site for clarity, ensuring it aligned with research presentation goals.
+
+
+## Summary of Use
+
+Overall, LLM tools were leveraged in acceptable and responsible ways to:
+
+- Brainstorm and refine project scope.
+- Streamline the literature review.
+- Proofread and reformat project writing.
+- Comment and debug code, including geospatial analyses.
+- Support website design, particularly in areas outside the curriculum.
+
+By using LLM tools to complement my work, I was able to focus more on critical thinking, analysis, and research outcomes while ensuring a polished and well-documented final project.

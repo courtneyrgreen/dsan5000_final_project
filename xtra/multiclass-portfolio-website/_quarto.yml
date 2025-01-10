@@ -1,0 +1,42 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "!projects"
+  resources:
+    - projects/dsan-5000/_site
+    - projects/dsan-5100/_site
+
+website:
+  title: "Portfolio"
+  favicon: "images/gu-logo.png"
+  navbar:
+    right:
+      - href: index.qmd
+        text: Home
+
+      - text: "Projects"
+        menu: 
+          - text: "DSAN-5000: Data Science & Analytics"
+            href: projects/dsan-5000/_site/index.html
+          - text: "DSAN-5100: Probabilistic Modeling & Statistical Computing"
+            href: projects/dsan-5100/_site/index.html
+
+      - text: "Experience"
+        href: experience.qmd
+
+      - text: "Resume"
+        href: images/resume.pdf
+        target: _blank
+
+format:
+  html:
+    theme: 
+      - lux
+      - custom.scss
+    toc: true
+    page-layout: full 
+
+
+

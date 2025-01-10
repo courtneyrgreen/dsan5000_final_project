@@ -1,0 +1,22 @@
+---
+format:
+  html:
+    toc: true
+    code-fold: false
+    embedded-resources: true
+bibliography: ../../references.bib
+---
+
+# Overview
+For the data collection process, I gathered multiple datasets, including arrest records from the ICJIA Arrest Explorer, exoneration data from the National Registry of Exonerations, incarceration demographics from the Prison Policy Initiative, and geospatial information. This diverse collection enabled an in-depth examination of systemic racial inequities that drive the over-policing of marginalized communities while also facilitating a critical analysis of nuanced racial patterns in exoneration data, exploring their connection to broader societal structures. Together, these datasets provide a framework for understanding the interconnected dynamics of racial injustice in the criminal justice system. 
+
+## Goals & Motivation
+My goal in the data collection process is to gather the datasets needed to examine systemic racial disparities in policing and exonerations. I’m focused on sourcing reliable arrest records, exoneration data, incarceration demographics, and geospatial information. Ultimately, I aim to compile data that can stand alone or work together to analyze over-policing trends, uncover racial patterns in exonerations, and explore the geographic dynamics connected to these issues.
+I’m particularly driven by the need to ground these systemic inequities in hard numbers and statistical analysis. Too often, people refuse to acknowledge the reality of racism without concrete evidence. By putting real data behind these patterns, I hope to demonstrate the scope and impact of these injustices in a way that cannot be ignored.
+
+## Objectives 
+- Identify and collect datasets needed to analyze racial disparities in over-policing and wrongful convictions in Illinois, including arrest records, exoneration data, incarceration demographics, and geospatial information.  
+- Ensure datasets are accurate, up-to-date, and aligned with the project’s goals by prioritizing reliable sources like official registries and well-documented repositories.  
+- Structure the data to support analysis of racial patterns in policing and exonerations, allowing for both independent and interconnected evaluations.  
+- Document all steps in the data collection process, including sourcing methods and preprocessing workflows, to ensure transparency and reproducibility.  
+- Collect and preprocess geocoded data and Illinois county shapefiles to enable geographic exploratory data analysis and visualizations.  
