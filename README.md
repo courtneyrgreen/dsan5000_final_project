@@ -4,7 +4,6 @@ This project was developed for **DSAN-5000: Data Science and Analytics**, a firs
 
 Chicago serves as a critical case study due to its disproportionate share of exonerations and systemic failures. This portfolio presents a data-driven narrative, utilizing various datasets, machine learning models, and visualizations to highlight systemic injustice.
 
-
 ## **Author**  
 **Courtney Green**  
 Master's Student, Georgetown University  
@@ -51,7 +50,6 @@ Includes all project visualizations:
 - `rural_urban_county_classification.png`  
 - `total_misconduct_tags_by_race.png`  
 
----
 
 ### **5. Data**  
 Organized into:  
@@ -59,7 +57,6 @@ Organized into:
 - **processed-data**: Cleaned and transformed datasets used for analysis.  
 - **geospatial**: Geographic datasets used in visualizations.  
 
----
 
 ### **6. Multiclass Portfolio Website**  
 This project also includes a **multiclass portfolio website** designed to showcase all of my data science projects and work completed during the Graduate program. The website is structured as follows:  
